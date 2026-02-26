@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://accountium.ca/sitemap-index.xml

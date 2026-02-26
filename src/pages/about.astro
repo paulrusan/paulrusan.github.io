@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const values = [
+  {
+    icon: '✦',
+    title: 'Accuracy first',
+    description: 'Wrong numbers cost businesses money and trust. Every feature we ship is tested for precision before speed.',
+  },
+  {
+    icon: '◈',
+    title: 'Simple by design',
+    description: 'Accounting is already complex. Our job is to make the software feel effortless — even for non-accountants.',
+  },
+  {
+    icon: '⬡',
+    title: 'AI with guardrails',
+    description: 'We believe AI should augment human judgment, not replace it. Everything our AI does can be reviewed and corrected.',
+  },
+  {
+    icon: '⊙',
+    title: 'Security as a foundation',
+    description: 'Financial data is sensitive. We are SOC 2 Type II certified, encrypted end-to-end, and audited annually.',
+  },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Accountium — our mission to make AI-powered accounting accessible to every business."
+>
+  <!-- Page Hero -->
+  <section class="page-hero section-sm" aria-label="About us">
+    <div class="container page-hero-inner">
+      <p class="section-label"><span aria-hidden="true">◎</span> About</p>
+      <h1>Built for the modern CFO</h1>
+      <p class="page-subline">
+        We started Accountium because we kept watching great companies struggle
+        with accounting software that was built for a world before AI.
+        We're changing that.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section class="mission-section section-sm" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="mission-inner glass-card">
+        <div class="mission-content">
+          <p class="section-label"><span aria-hidden="true">✦</span> Our mission</p>
+          <h2 id="mission-heading">
+            Make financial clarity<br />accessible to every business.
+          </h2>
+          <p>
+            Most accounting software treats AI as a bolt-on feature. We built Accountium
+            with AI at the center — so the system gets smarter the longer you use it,
+            automatically adapting to your business model, industry, and preferences.
+          </p>
+          <p>
+            We believe that when financial operations are truly automated, finance teams can
+            stop firefighting and start driving strategy. That's the future we're building.
+          </p>
+        </div>
+        <div class="mission-stats">
+          <div class="stat">
+            <span class="stat-value">2,400+</span>
+            <span class="stat-label">Finance teams</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">98.7%</span>
+            <span class="stat-label">AI accuracy rate</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">$2.4B+</span>
+            <span class="stat-label">Transactions processed</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">4.9/5</span>
+            <span class="stat-label">Average rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="section-sm" aria-labelledby="values-heading">
+    <div class="container">
+      <div class="section-intro-left">
+        <p class="section-label"><span aria-hidden="true">⬒</span> Our values</p>
+        <h2 id="values-heading">What guides every decision</h2>
+      </div>
+      <div class="values-grid">
+        {values.map((v) => (
+          <div class="value-item glass-card">
+            <span class="value-icon" aria-hidden="true">{v.icon}</span>
+            <h3 class="value-title">{v.title}</h3>
+            <p class="value-desc">{v.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Security Note -->
+  <section id="security" class="section-sm" aria-labelledby="security-heading">
+    <div class="container">
+      <div class="security-inner glass-card">
+        <h2 id="security-heading">
+          <span aria-hidden="true">⊞</span> Security & compliance
+        </h2>
+        <div class="security-grid">
+          {[
+            { label: 'SOC 2 Type II',         desc: 'Independently audited annually' },
+            { label: 'TLS 1.3 Encryption',    desc: 'All data encrypted in transit' },
+            { label: 'AES-256 at Rest',        desc: 'Database-level encryption' },
+            { label: 'GDPR Compliant',         desc: 'Full data portability & deletion' },
+            { label: '99.9% Uptime SLA',       desc: 'On Growth & Scale plans' },
+            { label: 'Role-Based Access',      desc: 'Granular permissions per user' },
+          ].map((item) => (
+            <div class="security-item">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path d="M9 1.5L2.25 4.5v5.25c0 3.938 2.888 7.613 6.75 8.25 3.862-.637 6.75-4.312 6.75-8.25V4.5L9 1.5z" stroke="var(--color-green)" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M6 9l2 2 4-4" stroke="var(--color-green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <div>
+                <p class="security-label">{item.label}</p>
+                <p class="security-desc">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="Want to learn more?"
+    subline="Reach out — we'd love to show you around."
+    ctaLabel="Contact us"
+    ctaHref="/contact"
+    secondaryLabel="View pricing"
+    secondaryHref="/pricing"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+  }
+
+  .page-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .page-hero-inner h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .page-subline {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  /* Mission */
+  .mission-inner {
+    padding: var(--space-12) var(--space-8);
+    border-radius: var(--radius-lg);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-12);
+    align-items: center;
+  }
+
+  .mission-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 560px;
+  }
+
+  .mission-content h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .mission-content p {
+    max-width: none;
+  }
+
+  .mission-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    flex-shrink: 0;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .stat-value {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--color-text-primary);
+  }
+
+  .stat-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 600;
+  }
+
+  /* Values */
+  .section-intro-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-10);
+  }
+
+  .section-intro-left h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  .value-item {
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .value-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+  }
+
+  .value-title {
+    font-size: var(--text-xl);
+    font-weight: 600;
+  }
+
+  .value-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Security */
+  .security-inner {
+    padding: var(--space-10) var(--space-8);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .security-inner h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .security-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .security-item svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .security-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+    max-width: none;
+    margin: 0 0 2px;
+  }
+
+  .security-desc {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    max-width: none;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .mission-inner { grid-template-columns: 1fr; }
+    .mission-stats { grid-template-columns: repeat(4, 1fr); }
+    .security-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid   { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .mission-stats { grid-template-columns: repeat(2, 1fr); }
+    .security-grid { grid-template-columns: 1fr; }
+  }
+</style>

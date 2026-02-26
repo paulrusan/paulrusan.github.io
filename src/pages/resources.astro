@@ -1,0 +1,478 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resources } from '../data/resources';
+
+const categories = ['All', 'Guide', 'Tip', 'Case Study', 'News'];
+---
+
+<BaseLayout
+  title="Resources"
+  description="Guides, tips, case studies, and product updates to help your business thrive with Accountium."
+>
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="page-hero" aria-label="Resources">
+    <div class="container page-hero-inner">
+      <p class="section-label"><span aria-hidden="true">⬒</span> Resources</p>
+      <h1>Guides, Tips &amp; Updates</h1>
+      <p class="page-subline">
+        Accounting knowledge and product news to help your business stay sharp.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Resources Body ────────────────────────────────────── -->
+  <section class="resources-section" aria-label="Resource library">
+    <div class="container">
+
+      <!-- Category Filters -->
+      <div class="filter-row" role="tablist" aria-label="Filter by category">
+        {categories.map((cat) => (
+          <button
+            class:list={['filter-btn', { active: cat === 'All' }]}
+            data-category={cat === 'All' ? 'all' : cat}
+            role="tab"
+            aria-selected={cat === 'All' ? 'true' : 'false'}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Results count -->
+      <p class="results-count" id="results-count" aria-live="polite"></p>
+
+      <!-- Cards Grid -->
+      <div class="resources-grid" id="resources-grid">
+        {resources.map((r) => (
+          <article
+            class="resource-card glass-card"
+            data-category={r.category}
+            aria-label={r.title}
+          >
+            <div class="card-top" style={`background: ${r.color}`} aria-hidden="true">
+              <span class="card-icon">{r.icon}</span>
+            </div>
+            <div class="card-body">
+              <span class="card-category">{r.category}</span>
+              <h2 class="card-title">{r.title}</h2>
+              <p class="card-excerpt">{r.excerpt}</p>
+              <div class="card-footer">
+                <a href={r.href} class="card-link" aria-label={`Read more about ${r.title}`}>
+                  Read more
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                    <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state" hidden>
+        <p>No resources found in this category yet.</p>
+      </div>
+
+      <!-- Pagination -->
+      <nav class="pagination" id="pagination" aria-label="Page navigation"></nav>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script>
+(function () {
+  const ITEMS_PER_PAGE = 10;
+  let currentCategory = 'all';
+  let currentPage = 1;
+
+  const grid      = document.getElementById('resources-grid')!;
+  const pagNav    = document.getElementById('pagination')!;
+  const countEl   = document.getElementById('results-count')!;
+  const emptyEl   = document.getElementById('empty-state')!;
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const allCards   = Array.from(grid.querySelectorAll<HTMLElement>('.resource-card'));
+
+  function getFiltered(): HTMLElement[] {
+    if (currentCategory === 'all') return allCards;
+    return allCards.filter(c => c.dataset.category === currentCategory);
+  }
+
+  function render() {
+    const filtered   = getFiltered();
+    const total      = filtered.length;
+    const totalPages = Math.max(1, Math.ceil(total / ITEMS_PER_PAGE));
+    currentPage      = Math.min(currentPage, totalPages);
+
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end   = start + ITEMS_PER_PAGE;
+
+    // Show / hide cards
+    allCards.forEach(c => { c.style.display = 'none'; });
+    const visible = filtered.slice(start, end);
+    visible.forEach(c => { c.style.display = ''; });
+
+    // Empty state
+    emptyEl.hidden = total > 0;
+    grid.style.display = total > 0 ? '' : 'none';
+
+    // Results count
+    if (total > 0) {
+      const from = start + 1;
+      const to   = Math.min(end, total);
+      countEl.textContent = total <= ITEMS_PER_PAGE
+        ? `${total} resource${total !== 1 ? 's' : ''}`
+        : `Showing ${from}–${to} of ${total} resources`;
+    } else {
+      countEl.textContent = '';
+    }
+
+    // Pagination — only render when more than one page
+    if (totalPages <= 1) {
+      pagNav.innerHTML = '';
+      return;
+    }
+
+    const MAX_VISIBLE = 7;
+    let pages: (number | '…')[] = [];
+
+    if (totalPages <= MAX_VISIBLE) {
+      pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+    } else {
+      pages = [1];
+      if (currentPage > 3) pages.push('…');
+      const rangeStart = Math.max(2, currentPage - 1);
+      const rangeEnd   = Math.min(totalPages - 1, currentPage + 1);
+      for (let i = rangeStart; i <= rangeEnd; i++) pages.push(i);
+      if (currentPage < totalPages - 2) pages.push('…');
+      pages.push(totalPages);
+    }
+
+    let html = `
+      <button class="page-btn page-prev" data-page="${currentPage - 1}"
+        ${currentPage === 1 ? 'disabled aria-disabled="true"' : ''}
+        aria-label="Previous page">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Prev
+      </button>`;
+
+    for (const p of pages) {
+      if (p === '…') {
+        html += `<span class="page-ellipsis" aria-hidden="true">…</span>`;
+      } else {
+        html += `<button class="page-btn page-num${p === currentPage ? ' active' : ''}"
+          data-page="${p}" aria-label="Page ${p}" ${p === currentPage ? 'aria-current="page"' : ''}>${p}</button>`;
+      }
+    }
+
+    html += `
+      <button class="page-btn page-next" data-page="${currentPage + 1}"
+        ${currentPage === totalPages ? 'disabled aria-disabled="true"' : ''}
+        aria-label="Next page">
+        Next
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>`;
+
+    pagNav.innerHTML = html;
+
+    pagNav.querySelectorAll<HTMLButtonElement>('.page-btn:not([disabled])').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const p = parseInt(btn.dataset.page ?? '');
+        if (!isNaN(p) && p >= 1 && p <= totalPages) {
+          currentPage = p;
+          render();
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  // Filter button clicks
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      currentCategory = btn.dataset.category ?? 'all';
+      currentPage = 1;
+      render();
+    });
+  });
+
+  render();
+})();
+</script>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    padding-bottom: var(--space-12);
+  }
+
+  .page-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .page-hero-inner h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+  }
+
+  .page-subline {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 50ch;
+    margin: 0;
+  }
+
+  /* ── Resources section ──────────────────────────────────── */
+  .resources-section {
+    padding-bottom: var(--space-24);
+  }
+
+  /* ── Filters ────────────────────────────────────────────── */
+  .filter-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-6);
+  }
+
+  .filter-btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition:
+      color var(--duration-fast),
+      background var(--duration-fast),
+      border-color var(--duration-fast);
+    line-height: 1;
+  }
+
+  .filter-btn:hover {
+    color: var(--color-text-primary);
+    background: var(--color-accent-dim);
+    border-color: var(--color-accent);
+  }
+
+  .filter-btn.active {
+    color: #fff;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+  }
+
+  /* ── Results count ──────────────────────────────────────── */
+  .results-count {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    margin-bottom: var(--space-6);
+    max-width: none;
+  }
+
+  /* ── Grid ───────────────────────────────────────────────── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+  }
+
+  /* ── Resource Card ──────────────────────────────────────── */
+  .resource-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    border-radius: var(--radius-md);
+    transition: transform var(--duration-base) var(--ease-in-out),
+                box-shadow var(--duration-base) var(--ease-in-out);
+    cursor: default;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(8, 145, 178, 0.12);
+  }
+
+  .card-top {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-3);
+    padding: var(--space-5) var(--space-5) var(--space-4);
+    flex: 1;
+  }
+
+  .card-category {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .card-title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.35;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .card-excerpt {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    max-width: none;
+    margin: 0;
+    flex: 1;
+
+    /* Clamp to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    margin-top: auto;
+    width: 100%;
+  }
+
+  .card-link {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: gap var(--duration-fast);
+  }
+
+  .card-link:hover {
+    gap: 7px;
+  }
+
+  /* ── Empty state ────────────────────────────────────────── */
+  .empty-state {
+    text-align: center;
+    padding: var(--space-16) 0;
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+  }
+
+  /* ── Pagination ─────────────────────────────────────────── */
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+  }
+
+  .page-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    min-width: 36px;
+    height: 36px;
+    padding: 0 var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition:
+      color var(--duration-fast),
+      background var(--duration-fast),
+      border-color var(--duration-fast);
+    line-height: 1;
+    justify-content: center;
+  }
+
+  .page-btn:hover:not([disabled]) {
+    color: var(--color-accent);
+    background: var(--color-accent-dim);
+    border-color: var(--color-accent);
+  }
+
+  .page-btn.active {
+    color: #fff;
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .page-btn[disabled] {
+    opacity: 0.35;
+    cursor: not-allowed;
+  }
+
+  .page-ellipsis {
+    color: var(--color-text-muted);
+    padding: 0 var(--space-1);
+    font-size: var(--text-sm);
+    line-height: 36px;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .page-hero-inner h1 { font-size: var(--text-2xl); }
+    .resources-grid { grid-template-columns: 1fr; }
+    .filter-row { gap: var(--space-1); }
+    .filter-btn { font-size: var(--text-xs); padding: var(--space-1) var(--space-3); }
+  }
+</style>

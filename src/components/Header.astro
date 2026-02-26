@@ -1,0 +1,261 @@
+---
+import { navLinks } from '../data/nav';
+import { site } from '../data/site';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label={`${site.name} home`}>
+      <img src="/images/logo.png" alt="" class="logo-mark" />
+      <span class="logo-text">{site.name}</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="nav-desktop" aria-label="Main navigation">
+      <ul role="list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href }]}
+              aria-current={currentPath === link.href ? 'page' : undefined}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <!-- CTA -->
+    <div class="header-cta">
+      <a href="https://www.myaccountium.ca/Account/Login" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">LOGIN</a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button
+      class="mobile-menu-btn"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+      id="mobile-menu-btn"
+    >
+      <span class="burger" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <nav
+    class="nav-mobile"
+    id="mobile-nav"
+    aria-label="Mobile navigation"
+    hidden
+  >
+    <ul role="list">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class:list={['nav-link', { active: currentPath === link.href }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+      <li>
+        <a href="https://www.myaccountium.ca/Account/Login" class="btn btn-ghost" style="width:100%;justify-content:center;" target="_blank" rel="noopener noreferrer">
+          LOGIN
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const nav = document.getElementById('mobile-nav')!;
+
+  btn.addEventListener('click', () => {
+    const isOpen = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!isOpen));
+    nav.hidden = isOpen;
+    btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  });
+
+  // Close on navigation
+  nav.querySelectorAll('a').forEach((a) => {
+    a.addEventListener('click', () => {
+      btn.setAttribute('aria-expanded', 'false');
+      nav.hidden = true;
+      btn.setAttribute('aria-label', 'Open menu');
+    });
+  });
+
+  // Shrink header on scroll
+  const header = document.getElementById('site-header')!;
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+</script>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    transition:
+      background var(--duration-base) var(--ease-in-out),
+      border-color var(--duration-base) var(--ease-in-out),
+      backdrop-filter var(--duration-base) var(--ease-in-out);
+  }
+
+  .site-header.scrolled {
+    background: rgba(240, 247, 249, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+    width: 100%;
+  }
+
+  /* Logo */
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .logo-mark {
+    height: 1.5rem;
+    width: auto;
+    line-height: 1;
+  }
+
+  .logo-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+  }
+
+  /* Desktop Nav */
+  .nav-desktop {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-desktop ul {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    list-style: none;
+  }
+
+  .nav-link {
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: color var(--duration-fast), background var(--duration-fast);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-text-primary);
+    background: var(--color-accent-dim);
+  }
+
+  .nav-link.active {
+    color: var(--color-accent);
+  }
+
+  /* CTA */
+  .header-cta {
+    flex-shrink: 0;
+    margin-left: auto;
+  }
+
+  /* Mobile Button */
+  .mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-2);
+    margin-left: auto;
+  }
+
+  .burger,
+  .burger::before,
+  .burger::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--color-text-primary);
+    border-radius: 2px;
+    transition: transform var(--duration-base) var(--ease-in-out),
+                opacity var(--duration-base) var(--ease-in-out);
+  }
+
+  .burger { position: relative; }
+  .burger::before,
+  .burger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+  .burger::before { top: -7px; }
+  .burger::after  { top: 7px; }
+
+  /* Mobile Nav */
+  .nav-mobile {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    background: rgba(240, 247, 249, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-6);
+  }
+
+  .nav-mobile ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    list-style: none;
+  }
+
+  .nav-mobile .nav-link {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+  }
+
+  @media (max-width: 768px) {
+    .nav-desktop { display: none; }
+    .header-cta  { display: none; }
+    .mobile-menu-btn { display: block; }
+  }
+</style>

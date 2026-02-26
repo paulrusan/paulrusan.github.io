@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PricingCard from '../components/PricingCard.astro';
+import CTASection from '../components/CTASection.astro';
+import { pricingTiers } from '../data/pricing';
+
+const faqs = [
+  {
+    q: 'Is there a free trial?',
+    a: 'Yes — all plans include a 14-day free trial with full access to every feature. No credit card required to start.',
+  },
+  {
+    q: 'Can I switch plans later?',
+    a: 'Absolutely. You can upgrade or downgrade at any time. Upgrades take effect immediately; downgrades apply at the next billing cycle.',
+  },
+  {
+    q: 'What payment methods do you accept?',
+    a: 'We accept all major credit cards (Visa, Mastercard, Amex) and ACH bank transfers for annual plans.',
+  },
+  {
+    q: 'Is my data secure?',
+    a: 'Yes. All data is encrypted in transit (TLS 1.3) and at rest (AES-256). We are SOC 2 Type II certified and undergo annual third-party audits.',
+  },
+  {
+    q: 'Do you support multiple currencies?',
+    a: 'Yes. Accountium supports 50+ currencies with automatic conversion at live exchange rates.',
+  },
+  {
+    q: 'Can I import my existing data?',
+    a: 'Yes. We support import from QuickBooks, Xero, Wave, and CSV/Excel. Our onboarding team will help you migrate at no extra cost.',
+  },
+];
+---
+
+<BaseLayout
+  title="Pricing"
+  description="Accountium pricing: Starter at $29/mo, Growth at $79/mo, and Scale for enterprise teams. All plans include a 14-day free trial."
+>
+  <!-- Page Header -->
+  <section class="page-hero section-sm" aria-label="Page header">
+    <div class="container page-hero-inner">
+      <p class="section-label"><span aria-hidden="true">⬡</span> Pricing</p>
+      <h1>Simple, transparent pricing</h1>
+      <p class="page-subline">
+        Start free. Grow on your terms. All plans include our core AI features —
+        no hidden fees, no per-feature add-ons.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="section-sm" aria-labelledby="plans-heading">
+    <div class="container">
+      <h2 id="plans-heading" class="sr-only">Pricing plans</h2>
+      <div class="pricing-grid">
+        {pricingTiers.map((tier) => (
+          <PricingCard {...tier} />
+        ))}
+      </div>
+      <p class="pricing-note">
+        All prices in USD. Annual billing saves 20%.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section-sm faq-section" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="faq-header">
+          <p class="section-label"><span aria-hidden="true">◎</span> FAQ</p>
+          <h2 id="faq-heading">Common questions</h2>
+        </div>
+        <dl class="faq-list">
+          {faqs.map((faq) => (
+            <div class="faq-item glass-card">
+              <dt class="faq-question">{faq.q}</dt>
+              <dd class="faq-answer">{faq.a}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <CTASection
+    headline="Not sure which plan fits?"
+    subline="Talk to our team — we'll help you find the right plan for your team size and industry."
+    ctaLabel="Talk to sales"
+    secondaryLabel="Start free trial"
+  />
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+  }
+
+  .page-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .page-hero-inner h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .page-subline {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+    padding-top: var(--space-6);
+  }
+
+  .pricing-note {
+    text-align: center;
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-top: var(--space-6);
+    max-width: none;
+  }
+
+  /* FAQ */
+  .faq-inner {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+
+  .faq-header {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-6));
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-header h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .faq-item {
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .faq-question {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .faq-answer {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 900px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+    .faq-inner { grid-template-columns: 1fr; }
+    .faq-header { position: static; }
+  }
+</style>

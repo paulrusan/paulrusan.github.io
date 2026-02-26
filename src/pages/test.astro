@@ -1,0 +1,1250 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout title="Design Test" description="Component and element test page">
+
+  <!-- ── Page Header ───────────────────────────────────────── -->
+  <section class="b4s2s1 page-hero">
+    <div class="b4s2s1-inner">
+      <span class="label">◈ Design System</span>
+      <h1>Test Page</h1>
+      <p>A sandbox for testing UI elements, components, cards, lists, and formatting patterns before using them in production pages.</p>
+    </div>
+  </section>
+
+  <!-- ── Logo Strip (Superior-style) ─────────────────────── -->
+  <section class="logo-strip-section">
+    <p class="logo-strip-label">Trusted by leading teams</p>
+    <div class="logo-strip">
+      <div class="logo-chip"><span class="logo-wordmark">Stripe</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">Shopify</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">HubSpot</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">Plaid</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">Notion</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">Linear</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">Vercel</span></div>
+      <div class="logo-chip"><span class="logo-wordmark">Figma</span></div>
+    </div>
+  </section>
+
+  <!-- ── Logo Strip — Scrolling Marquee variant ────────────── -->
+  <section class="logo-strip-section logo-strip-section--marquee">
+    <p class="logo-strip-label">Scrolling marquee variant</p>
+    <div class="marquee-track" aria-hidden="true">
+      <!-- Fade overlays — mask left & right edges as logos scroll -->
+      <div class="marquee-fade marquee-fade--left"></div>
+      <div class="marquee-fade marquee-fade--right"></div>
+      <div class="marquee-inner">
+        <div class="logo-chip"><span class="logo-wordmark">Stripe</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Shopify</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">HubSpot</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Plaid</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Notion</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Linear</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Vercel</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Figma</span></div>
+        <!-- duplicate set for seamless loop -->
+        <div class="logo-chip"><span class="logo-wordmark">Stripe</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Shopify</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">HubSpot</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Plaid</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Notion</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Linear</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Vercel</span></div>
+        <div class="logo-chip"><span class="logo-wordmark">Figma</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Buttons ───────────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="buttons-heading">
+    <h2 id="buttons-heading">Buttons</h2>
+    <p>Button styles available across the site.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="test-row">
+        <a href="#" class="btn btn-primary">Primary Button</a>
+        <a href="#" class="btn btn-ghost">Ghost Button (bt1)</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Cards ─────────────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="cards-heading">
+    <h2 id="cards-heading">Cards</h2>
+    <p>Card variants used for features, benefits, and content blocks.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <!-- Glass cards (3-col) -->
+      <div class="grid-3">
+        <div class="glass-card test-card">
+          <span class="card-icon" aria-hidden="true">◈</span>
+          <h3>Glass Card</h3>
+          <p>Used for feature highlights, benefits, and primary content blocks across the site.</p>
+        </div>
+        <div class="glass-card test-card">
+          <span class="card-icon" aria-hidden="true">⬡</span>
+          <h3>With Subtitle</h3>
+          <p>Cards can contain icons, headings, body text, and optional CTAs or badges.</p>
+          <a href="#" class="card-link">Learn more →</a>
+        </div>
+        <div class="glass-card test-card">
+          <span class="card-badge">New</span>
+          <span class="card-icon" aria-hidden="true">✦</span>
+          <h3>With Badge</h3>
+          <p>A badge can appear at the top-right of a card to highlight status or a tag.</p>
+        </div>
+      </div>
+
+      <!-- Plain cards (2-col) -->
+      <div class="grid-2" style="margin-top: var(--space-6)">
+        <div class="card test-card-plain">
+          <h3>Plain Card</h3>
+          <p>Uses the base `.card` class — white background, subtle border, soft shadow. Lifts on hover.</p>
+        </div>
+        <div class="card test-card-plain">
+          <h3>Plain Card</h3>
+          <p>Ideal for secondary content areas where glass morphism would be too heavy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Numbered Cards ────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="numbered-heading">
+    <h2 id="numbered-heading">Numbered Cards (cn1)</h2>
+    <p>2-column centered grid with step numbers — used for ordered processes and why-choose sections.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="cn1">
+        <div class="cn1-item glass-card">
+          <span class="cn1-num">01</span>
+          <h3>Step One</h3>
+          <p>Description of the first step or reason in a numbered sequence.</p>
+        </div>
+        <div class="cn1-item glass-card">
+          <span class="cn1-num">02</span>
+          <h3>Step Two</h3>
+          <p>Description of the second step or reason in a numbered sequence.</p>
+        </div>
+        <div class="cn1-item glass-card">
+          <span class="cn1-num">03</span>
+          <h3>Step Three</h3>
+          <p>Description of the third step or reason in a numbered sequence.</p>
+        </div>
+        <div class="cn1-item glass-card">
+          <span class="cn1-num">04</span>
+          <h3>Step Four</h3>
+          <p>Description of the fourth step or reason in a numbered sequence.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Custom Cards ──────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="custom-cards-heading">
+    <h2 id="custom-cards-heading">Custom Cards</h2>
+    <p>Named card patterns for reuse across pages.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <!-- cra1: Feature-size card (icon + title + description) -->
+      <p class="test-label">cra1 — Feature Card</p>
+      <div class="grid-3">
+        <!-- Pulse rings -->
+        <article class="cra1 glass-card" aria-hidden="true">
+          <div class="cra1-anim cra1-anim--pulse">
+            <div class="pulse-ring pulse-ring--1"></div>
+            <div class="pulse-ring pulse-ring--2"></div>
+            <div class="pulse-ring pulse-ring--3"></div>
+            <div class="pulse-core"></div>
+          </div>
+        </article>
+        <!-- Bar chart -->
+        <article class="cra1 glass-card" aria-hidden="true">
+          <div class="cra1-anim cra1-anim--bars">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </article>
+        <!-- Floating orb -->
+        <article class="cra1 glass-card" aria-hidden="true">
+          <div class="cra1-anim cra1-anim--orb">
+            <div class="orb"></div>
+          </div>
+        </article>
+      </div>
+
+      <!-- cra2: Streamline Sales SVG with orbiting symbols -->
+      <p class="test-label" style="margin-top: var(--space-8);">cra2 — Globe Orbit</p>
+      <div class="grid-3">
+        <article class="cra2 glass-card" aria-hidden="true">
+          <div class="ss-scene">
+            <img src="/images/Streamline%20Sales.svg" class="ss-img" alt="" />
+
+            <!-- Dollar signs — circular equatorial orbit (red) -->
+            <div class="ss-orbit ss-d1">
+              <span class="ss-tok ss-tok--dollar">$</span>
+            </div>
+            <div class="ss-orbit ss-d2">
+              <span class="ss-tok ss-tok--dollar">$</span>
+            </div>
+
+            <!-- Twitter birds — wide elliptical orbit (green) -->
+            <div class="ss-orbit ss-b1">
+              <span class="ss-tok ss-tok--bird">
+                <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
+              </span>
+            </div>
+            <div class="ss-orbit ss-b2">
+              <span class="ss-tok ss-tok--bird">
+                <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
+              </span>
+            </div>
+            <div class="ss-orbit ss-b3">
+              <span class="ss-tok ss-tok--bird">
+                <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
+              </span>
+            </div>
+
+            <!-- Envelopes — tilted tight orbit (orange) -->
+            <div class="ss-orbit ss-e1">
+              <span class="ss-tok ss-tok--envelope">✉</span>
+            </div>
+            <div class="ss-orbit ss-e2">
+              <span class="ss-tok ss-tok--envelope">✉</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Animations ───────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="animations-heading">
+    <h2 id="animations-heading">Animations</h2>
+    <p>Canvas and CSS animation patterns.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <!-- ani1: Particle field — blue dots + red connecting lines -->
+      <p class="test-label">ani1 — Particle Field</p>
+      <div class="ani1-wrap">
+        <canvas id="particle-canvas"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Lists ──────────────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="lists-heading">
+    <h2 id="lists-heading">Lists</h2>
+    <p>List styles for features, criteria, and content rundowns.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="grid-2">
+        <!-- Feature pill list -->
+        <div>
+          <p class="test-label">Feature Tags (pill list)</p>
+          <ul class="feature-list">
+            <li>Invoicing</li>
+            <li>Payroll</li>
+            <li>Inventory</li>
+            <li>Reporting</li>
+            <li>Tax Filing</li>
+            <li>Multi-currency</li>
+          </ul>
+        </div>
+
+        <!-- Criteria list -->
+        <div>
+          <p class="test-label">Criteria List (with icon bullet)</p>
+          <ul class="criteria-list">
+            <li>
+              <strong>Business Size</strong>
+              <p>Choose based on your team size and transaction volume.</p>
+            </li>
+            <li>
+              <strong>Ease of Use</strong>
+              <p>Prioritize intuitive interfaces and clear documentation.</p>
+            </li>
+            <li>
+              <strong>Integrations</strong>
+              <p>Ensure compatibility with your existing tools and workflows.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Typography ────────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="type-heading">
+    <h2 id="type-heading">Typography</h2>
+    <p>Heading and text scale tokens from the design system.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="type-scale">
+        <div class="type-row">
+          <span class="type-token">--text-hero</span>
+          <span class="type-sample hero">Hero Headline</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-3xl</span>
+          <span class="type-sample size-3xl">Page Heading 3xl</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-2xl</span>
+          <span class="type-sample size-2xl">Section Heading 2xl</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-xl</span>
+          <span class="type-sample size-xl">Subtitle xl</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-lg</span>
+          <span class="type-sample size-lg">Lead text lg</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-base</span>
+          <span class="type-sample size-base">Body copy base — the quick brown fox jumps over the lazy dog.</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-sm</span>
+          <span class="type-sample size-sm">Small / caption text sm</span>
+        </div>
+        <div class="type-row">
+          <span class="type-token">--text-xs</span>
+          <span class="type-sample size-xs">Label / badge xs</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Colours ────────────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="colour-heading">
+    <h2 id="colour-heading">Colour Tokens</h2>
+    <p>Core palette tokens used across the design system.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="swatch-grid">
+        <div class="swatch" style="background: var(--color-bg)"><span>--color-bg</span></div>
+        <div class="swatch" style="background: var(--color-surface)"><span>--color-surface</span></div>
+        <div class="swatch" style="background: var(--color-surface-raised)"><span>--color-surface-raised</span></div>
+        <div class="swatch accent-swatch" style="background: var(--color-accent)"><span>--color-accent</span></div>
+        <div class="swatch accent-swatch" style="background: var(--color-accent-dim)"><span>--color-accent-dim</span></div>
+        <div class="swatch accent-swatch" style="background: var(--color-green)"><span>--color-green</span></div>
+        <div class="swatch accent-swatch" style="background: var(--color-green-dim)"><span>--color-green-dim</span></div>
+        <div class="swatch accent-swatch" style="background: var(--color-amber)"><span>--color-amber</span></div>
+        <div class="swatch accent-swatch" style="background: var(--color-purple)"><span>--color-purple</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section Label ─────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="misc-heading">
+    <h2 id="misc-heading">Misc Elements</h2>
+    <p>Section labels, divider lines, and other small utility elements.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <div class="misc-grid">
+        <div>
+          <p class="test-label">Section Label</p>
+          <span class="section-label">◈ Section Label</span>
+        </div>
+        <div>
+          <p class="test-label">Accent Divider</p>
+          <div class="accent-divider"></div>
+        </div>
+        <div>
+          <p class="test-label">Muted text</p>
+          <p style="color: var(--color-text-muted); font-size: var(--text-sm);">This is muted / disabled text used for placeholders and secondary captions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      var(--color-bg);
+  }
+  .page-hero.b4s2s1::before { display: none; }
+
+  /* ── Test section wrapper ───────────────────────────────── */
+  .test-section {
+    padding: var(--space-12) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* ── Buttons row ────────────────────────────────────────── */
+  .test-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  /* ── Glass cards ────────────────────────────────────────── */
+  .test-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    position: relative;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+  }
+
+  .test-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .test-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  .card-link {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-top: auto;
+  }
+  .card-link:hover { color: var(--color-accent-hover); }
+
+  .card-badge {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-4);
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+  }
+
+  /* ── Plain cards ────────────────────────────────────────── */
+  .test-card-plain {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .test-card-plain h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .test-card-plain p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Numbered cards (cn1) ───────────────────────────────── */
+  .cn1 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .cn1-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-2);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+  }
+
+  .cn1-num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .cn1-item h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .cn1-item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Feature pill list ──────────────────────────────────── */
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-3);
+    list-style: none;
+    margin-top: var(--space-3);
+  }
+
+  .feature-list li {
+    background: var(--color-accent-dim);
+    color: var(--color-accent);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 5px 14px;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border-strong);
+  }
+
+  /* ── Criteria list ──────────────────────────────────────── */
+  .criteria-list {
+    list-style: none;
+    margin-top: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+  }
+
+  .criteria-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .criteria-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+  }
+
+  .criteria-list strong {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+
+  .criteria-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Test section label ─────────────────────────────────── */
+  .test-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+    max-width: none;
+  }
+
+  /* ── Typography scale ───────────────────────────────────── */
+  .type-scale {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .type-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-6);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: var(--space-4);
+  }
+
+  .type-token {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    min-width: 140px;
+    flex-shrink: 0;
+  }
+
+  .type-sample { color: var(--color-text-primary); font-weight: 600; line-height: 1.15; }
+  .type-sample.hero    { font-size: var(--text-hero); }
+  .type-sample.size-3xl { font-size: var(--text-3xl); }
+  .type-sample.size-2xl { font-size: var(--text-2xl); }
+  .type-sample.size-xl  { font-size: var(--text-xl); }
+  .type-sample.size-lg  { font-size: var(--text-lg); }
+  .type-sample.size-base { font-size: var(--text-base); font-weight: 400; }
+  .type-sample.size-sm  { font-size: var(--text-sm); font-weight: 400; }
+  .type-sample.size-xs  { font-size: var(--text-xs); font-weight: 400; }
+
+  /* ── Colour swatches ────────────────────────────────────── */
+  .swatch-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .swatch {
+    width: 120px;
+    height: 80px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-2);
+  }
+
+  .swatch span {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--color-text-secondary);
+    line-height: 1.3;
+    background: rgba(255,255,255,0.7);
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  .swatch.accent-swatch span {
+    background: rgba(0,0,0,0.25);
+    color: #fff;
+  }
+
+  /* ── Misc ───────────────────────────────────────────────── */
+  .misc-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 600px;
+  }
+
+  .accent-divider {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    margin: var(--space-2) 0;
+  }
+
+  /* ── b4s2: Chapter Divider ──────────────────────────────── */
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-4);
+    padding: var(--space-12) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 52ch;
+    margin: 0;
+  }
+
+  /* ── b4s2s1 ─────────────────────────────────────────────── */
+  .b4s2s1 {
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+  }
+
+  .b4s2s1-inner {
+    max-width: 68ch;
+    margin: 0 auto;
+  }
+
+  .b4s2s1 .label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .b4s2s1 h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .b4s2s1 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* ── Test label (section sub-caption) ──────────────────── */
+  .test-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-4);
+  }
+
+  /* ── cra1: Animated Card ────────────────────────────────── */
+  .cra1 {
+    padding: var(--space-8);
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform var(--duration-base) var(--ease-out-expo),
+      box-shadow var(--duration-base) var(--ease-out-expo);
+  }
+
+  .cra1:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cra1-anim {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* — Pulse rings — */
+  .cra1-anim--pulse { position: relative; }
+
+  .pulse-core {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 12px rgba(79, 142, 247, 0.6);
+  }
+
+  .pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-accent);
+    animation: pulse-expand 2.4s ease-out infinite;
+    opacity: 0;
+  }
+
+  .pulse-ring--1 { width: 44px;  height: 44px;  animation-delay: 0s; }
+  .pulse-ring--2 { width: 80px;  height: 80px;  animation-delay: 0.7s; }
+  .pulse-ring--3 { width: 116px; height: 116px; animation-delay: 1.4s; }
+
+  @keyframes pulse-expand {
+    0%   { opacity: 0.7; transform: scale(0.5); }
+    100% { opacity: 0;   transform: scale(1); }
+  }
+
+  /* — Bar chart — */
+  .cra1-anim--bars {
+    gap: var(--space-2);
+    align-items: flex-end;
+    height: 88px;
+  }
+
+  .bar {
+    width: 18px;
+    border-radius: 4px 4px 0 0;
+    background: var(--color-accent);
+    animation: bar-grow 1.8s ease-in-out infinite alternate;
+  }
+
+  .bar:nth-child(1) { animation-delay: 0s;    }
+  .bar:nth-child(2) { animation-delay: 0.25s; }
+  .bar:nth-child(3) { animation-delay: 0.5s;  }
+  .bar:nth-child(4) { animation-delay: 0.75s; }
+  .bar:nth-child(5) { animation-delay: 1s;    }
+
+  @keyframes bar-grow {
+    from { height: 18%; opacity: 0.35; }
+    to   { height: 100%; opacity: 1;   }
+  }
+
+  /* — Floating orb — */
+  .orb {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%,
+      rgba(79, 142, 247, 0.85),
+      rgba(34, 211, 160, 0.45)
+    );
+    box-shadow: 0 0 48px rgba(79, 142, 247, 0.25);
+    animation: orb-float 3s ease-in-out infinite;
+  }
+
+  @keyframes orb-float {
+    0%, 100% { transform: translateY(0)    scale(1);    }
+    50%      { transform: translateY(-14px) scale(1.06); }
+  }
+
+  /* ── cra2: Globe Orbit Card (Streamline Sales SVG) ─────── */
+  .cra2 {
+    padding: var(--space-8);
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+      transform var(--duration-base) var(--ease-out-expo),
+      box-shadow var(--duration-base) var(--ease-out-expo);
+  }
+
+  .cra2:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+  }
+
+  /* Scene container — all orbits are positioned relative to this */
+  .ss-scene {
+    position: relative;
+    width: 230px;
+    height: 230px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ss-img {
+    width: 176px;
+    height: 176px;
+    object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── Orbit ring — centered on scene, rotates to carry token ── */
+  .ss-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+  }
+
+  /* Dollar: circle 200×200, 14s CW — d1 at 0°, d2 at 180° */
+  .ss-d1,
+  .ss-d2 {
+    width: 200px;
+    height: 200px;
+    margin: -100px 0 0 -100px;
+    animation: ss-cw 14s linear infinite;
+  }
+  .ss-d2 { animation-delay: -7s; }
+
+  /* Birds: wide ellipse 228×138, 18s CW — b1/b2/b3 at 120° each */
+  .ss-b1,
+  .ss-b2,
+  .ss-b3 {
+    width: 228px;
+    height: 138px;
+    margin: -69px 0 0 -114px;
+    animation: ss-cw 18s linear infinite;
+  }
+  .ss-b2 { animation-delay: -6s; }
+  .ss-b3 { animation-delay: -12s; }
+
+  /* Envelopes: tighter ellipse 172×104, 22s CCW — e1/e2 at 180° */
+  .ss-e1,
+  .ss-e2 {
+    width: 172px;
+    height: 104px;
+    margin: -52px 0 0 -86px;
+    animation: ss-ccw 22s linear infinite;
+  }
+  .ss-e2 { animation-delay: -11s; }
+
+  @keyframes ss-cw  { to { transform: rotate( 360deg); } }
+  @keyframes ss-ccw { to { transform: rotate(-360deg); } }
+
+  /* ── Token — sits at top-center of ring, counter-rotates to stay upright ── */
+  .ss-tok {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    line-height: 1;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Dollar badge — red circle */
+  .ss-tok--dollar {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #fff;
+    background: #e53935;
+    box-shadow: 0 0 10px rgba(229, 57, 53, 0.75);
+  }
+
+  /* Bird — green M-shape SVG */
+  .ss-tok--bird {
+    width: 24px;
+    height: 24px;
+    color: #22d3a0;
+    filter: drop-shadow(0 0 4px rgba(34, 211, 160, 0.8));
+  }
+
+  /* Envelope badge — orange circle */
+  .ss-tok--envelope {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    color: #fff;
+    background: #e65100;
+    box-shadow: 0 0 10px rgba(230, 81, 0, 0.75);
+  }
+
+  /* Counter-rotation keyframes — token stays upright as orbit spins */
+  @keyframes ss-tok-ccw { to { transform: translate(-50%, -50%) rotate(-360deg); } }
+  @keyframes ss-tok-cw  { to { transform: translate(-50%, -50%) rotate( 360deg); } }
+
+  /* CW orbit tokens counter-rotate CCW, matching ring duration + delay */
+  .ss-d1 .ss-tok, .ss-d2 .ss-tok { animation: ss-tok-ccw 14s linear infinite; }
+  .ss-d2 .ss-tok { animation-delay: -7s; }
+
+  .ss-b1 .ss-tok, .ss-b2 .ss-tok, .ss-b3 .ss-tok { animation: ss-tok-ccw 18s linear infinite; }
+  .ss-b2 .ss-tok { animation-delay: -6s; }
+  .ss-b3 .ss-tok { animation-delay: -12s; }
+
+  /* CCW orbit tokens counter-rotate CW */
+  .ss-e1 .ss-tok, .ss-e2 .ss-tok { animation: ss-tok-cw 22s linear infinite; }
+  .ss-e2 .ss-tok { animation-delay: -11s; }
+
+  /* All tokens start centered on the orbit top point */
+  .ss-tok { transform: translate(-50%, -50%); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .ss-orbit, .ss-tok { animation: none; }
+    .ss-tok { transform: translate(-50%, -50%); }
+  }
+
+  /* ── Logo Strip (Superior-style) ───────────────────────── */
+  .logo-strip-section {
+    padding: var(--space-12) 0 var(--space-8);
+    background: var(--color-bg);
+    text-align: center;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .logo-strip-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-6);
+    max-width: none;
+  }
+
+  /* Static row */
+  .logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 0 var(--space-6);
+  }
+
+  /* Individual logo chip — replicates Superior card style exactly */
+  .logo-chip {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow:
+      rgba(103, 103, 103, 0.08) 0px 0px 0px 1px,
+      rgba(103, 103, 103, 0.08) 0px 2px 4px 0px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow var(--duration-base) var(--ease-out-expo),
+                transform   var(--duration-base) var(--ease-out-expo);
+  }
+
+  .logo-chip:hover {
+    box-shadow:
+      rgba(103, 103, 103, 0.14) 0px 0px 0px 1px,
+      rgba(103, 103, 103, 0.14) 0px 4px 12px 0px;
+    transform: translateY(-1px);
+  }
+
+  .logo-wordmark {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #1a1a1a;
+    white-space: nowrap;
+  }
+
+  /* Marquee variant */
+  .logo-strip-section--marquee { overflow: hidden; }
+
+  .marquee-track {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .marquee-inner {
+    display: flex;
+    gap: var(--space-3);
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+  }
+
+  .marquee-inner .logo-chip { flex-shrink: 0; }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-inner { animation: none; justify-content: center; flex-wrap: wrap; }
+  }
+
+  /* Fade edge overlays */
+  .marquee-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .marquee-fade--left {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
+  }
+
+  .marquee-fade--right {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
+  }
+
+  /* ── ani1: Particle Field ───────────────────────────────── */
+  .ani1-wrap {
+    width: 100%;
+    height: 400px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+  }
+
+  #particle-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .cn1 { grid-template-columns: 1fr; }
+    .type-row { flex-direction: column; gap: var(--space-1); }
+    .type-token { min-width: unset; }
+    .ani1-wrap { height: 260px; }
+  }
+</style>
+
+<script>
+  (() => {
+    const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+
+    // Config
+    const PARTICLE_COUNT  = 80;
+    const SPEED           = 0.06;
+    const CONNECT_DIST    = 130;
+    const DOT_RADIUS      = 2.5;
+    const DOT_OPACITY     = 0.2;
+    const LINE_MAX_OPACITY = 0.22;
+
+    interface Particle {
+      x: number; y: number;
+      vx: number; vy: number;
+    }
+
+    let W = 0, H = 0;
+    let particles: Particle[] = [];
+    let raf: number;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      W = canvas.width  = rect.width  * devicePixelRatio;
+      H = canvas.height = rect.height * devicePixelRatio;
+    }
+
+    function spawn(): Particle {
+      const angle = Math.random() * Math.PI * 2;
+      return {
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        vx: Math.cos(angle) * SPEED * devicePixelRatio,
+        vy: Math.sin(angle) * SPEED * devicePixelRatio,
+      };
+    }
+
+    function init() {
+      resize();
+      particles = Array.from({ length: PARTICLE_COUNT }, spawn);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // Move & bounce
+      for (const p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+
+      // Connecting lines
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const threshold = CONNECT_DIST * devicePixelRatio;
+          if (dist < threshold) {
+            const alpha = LINE_MAX_OPACITY * (1 - dist / threshold);
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(255, 0, 0, ${alpha})`;
+            ctx.lineWidth = devicePixelRatio;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Dots
+      ctx.fillStyle = `rgba(0, 0, 255, ${DOT_OPACITY})`;
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, DOT_RADIUS * devicePixelRatio, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      raf = requestAnimationFrame(draw);
+    }
+
+    // Pause when off-screen (perf)
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        raf = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(raf);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
+    window.addEventListener('resize', () => { resize(); });
+
+    init();
+    // Reduced motion — skip animation
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw(); cancelAnimationFrame(raf);
+    }
+  })();
+</script>

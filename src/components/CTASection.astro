@@ -1,0 +1,98 @@
+---
+interface Props {
+  headline?: string;
+  subline?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+  secondaryLabel?: string;
+  secondaryHref?: string;
+  secondaryTarget?: string;
+}
+
+const {
+  headline      = 'Ready to close the books in minutes?',
+  subline       = 'Join 2,400+ finance teams who run on Accountium. Start your free 14-day trial — no credit card required.',
+  ctaLabel,
+  ctaHref       = '/contact',
+  secondaryLabel = 'Talk to sales',
+  secondaryHref  = '/contact',
+  secondaryTarget,
+} = Astro.props;
+---
+
+<section class="cta-section section" aria-label="Call to action">
+  <div class="container">
+    <div class="cta-inner glass-card">
+      <!-- Background glow -->
+      <div class="cta-glow" aria-hidden="true"></div>
+
+      <div class="cta-content">
+        <h2 class="cta-headline">{headline}</h2>
+        <p class="cta-subline">{subline}</p>
+        <div class="cta-actions">
+          {ctaLabel && <a href={ctaHref} class="btn btn-primary">{ctaLabel}</a>}
+          {secondaryLabel && <a href={secondaryHref} class="btn btn-ghost" target={secondaryTarget} rel={secondaryTarget === '_blank' ? 'noopener noreferrer' : undefined}>{secondaryLabel}</a>}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-inner {
+    padding: var(--space-16) var(--space-8);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+  }
+
+  .cta-glow {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 70% at 30% 50%, rgba(79,142,247,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 50% at 70% 50%, rgba(34,211,160,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+    max-width: 640px;
+  }
+
+  .cta-headline {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+  }
+
+  .cta-subline {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    max-width: 50ch;
+    margin: 0;
+  }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    .cta-actions { flex-direction: column; width: 100%; }
+    .cta-actions .btn { justify-content: center; }
+  }
+</style>

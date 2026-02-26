@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found" description="The page you're looking for doesn't exist.">
+  <section class="not-found" aria-labelledby="not-found-heading">
+    <div class="orb-404" aria-hidden="true"></div>
+    <div class="container not-found-inner">
+      <p class="error-code" aria-hidden="true">404</p>
+      <h1 id="not-found-heading">Page not found</h1>
+      <p>
+        The page you're looking for doesn't exist or may have moved.
+        Let's get you back on track.
+      </p>
+      <div class="not-found-actions">
+        <a href="/" class="btn btn-primary">Back to home</a>
+        <a href="/contact" class="btn btn-ghost">Contact support</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .orb-404 {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79,142,247,0.15) 0%, transparent 70%);
+    filter: blur(60px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .not-found-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-6);
+  }
+
+  .error-code {
+    font-size: clamp(6rem, 20vw, 12rem);
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    background: linear-gradient(135deg, rgba(79,142,247,0.5), rgba(34,211,160,0.3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0;
+    max-width: none;
+  }
+
+  .not-found-inner h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-top: calc(-1 * var(--space-4));
+  }
+
+  .not-found-inner > p {
+    max-width: 44ch;
+    margin: 0;
+  }
+
+  .not-found-actions {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>

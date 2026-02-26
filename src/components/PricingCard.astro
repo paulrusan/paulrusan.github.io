@@ -1,0 +1,153 @@
+---
+interface Props {
+  name: string;
+  price: number | string;
+  period: string;
+  description: string;
+  features: string[];
+  cta: string;
+  href: string;
+  highlighted?: boolean;
+  badge?: string;
+}
+
+const { name, price, period, description, features, cta, href, highlighted = false, badge } = Astro.props;
+---
+
+<article class:list={['pricing-card glass-card', { highlighted }]}>
+  {badge && <div class="pricing-badge">{badge}</div>}
+
+  <div class="pricing-header">
+    <p class="pricing-name">{name}</p>
+    <div class="pricing-price">
+      {typeof price === 'number' ? (
+        <>
+          <span class="price-currency">$</span>
+          <span class="price-amount">{price}</span>
+        </>
+      ) : (
+        <span class="price-amount price-custom">{price}</span>
+      )}
+      {period && <span class="price-period">{period}</span>}
+    </div>
+    <p class="pricing-desc">{description}</p>
+  </div>
+
+  <ul class="pricing-features" role="list">
+    {features.map((f) => (
+      <li>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8l3.5 3.5L13 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {f}
+      </li>
+    ))}
+  </ul>
+
+  <a href={href} class:list={['btn', highlighted ? 'btn-primary' : 'btn-ghost']} style="justify-content:center;">
+    {cta}
+  </a>
+</article>
+
+<style>
+  .pricing-card {
+    padding: var(--space-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    position: relative;
+  }
+
+  .pricing-card.highlighted {
+    background: rgba(79, 142, 247, 0.06);
+    box-shadow: var(--shadow-glow-accent), var(--shadow-md);
+  }
+
+  .pricing-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: #fff;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+  }
+
+  .pricing-name {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    max-width: none;
+    margin: 0;
+  }
+
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+
+  .price-currency {
+    font-size: var(--text-xl);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    align-self: flex-start;
+    margin-top: 6px;
+  }
+
+  .price-amount {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--color-text-primary);
+    line-height: 1;
+  }
+
+  .price-custom {
+    font-size: var(--text-3xl);
+  }
+
+  .price-period {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-left: var(--space-2);
+  }
+
+  .pricing-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* Feature List */
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+
+  .pricing-features li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .pricing-features li svg {
+    flex-shrink: 0;
+    color: var(--color-green);
+  }
+</style>
