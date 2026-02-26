@@ -4,6 +4,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://accountium.ca',
+  site: 'https://www.accountium.io',
   integrations: [sitemap()],
 });
