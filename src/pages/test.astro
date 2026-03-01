@@ -424,6 +424,33 @@ import { site } from '../data/site';
     </div>
   </section>
 
+  <!-- ── scr4: Text Flip Animation ───────────────────────── -->
+  <section class="logo-strip-section" id="scr4">
+    <p class="logo-strip-label">scr4 — Text Flip Animation</p>
+    <div class="scr4-wrap">
+      <span class="scr4-static">change life</span>
+      <div class="scr4-flip">
+        <div><div>style with Accounting</div></div>
+        <div><div>work with business</div></div>
+        <div><div>everything</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── scr5: Text Flip Animation ───────────────────────── -->
+  <section class="logo-strip-section" id="scr5">
+    <p class="logo-strip-label">scr5 — Text Flip Animation</p>
+    <div class="scr5-wrap">
+      <span class="scr5-static">Make</span>
+      <div class="scr5-flip">
+        <div><div>Business</div></div>
+        <div><div>Accounting</div></div>
+        <div><div>Everything</div></div>
+      </div>
+      <span class="scr5-static">AweSoMe!</span>
+    </div>
+  </section>
+
   <!-- ── Buttons ───────────────────────────────────────────── -->
   <section class="b4s2" aria-labelledby="buttons-heading">
     <h2 id="buttons-heading">Buttons</h2>
@@ -1133,6 +1160,129 @@ import { site } from '../data/site';
     text-transform: uppercase;
     color: var(--color-text-muted);
     margin: 0 0 var(--space-4);
+  }
+
+  /* ── scr4: Text Flip Animation ──────────────────────────── */
+  .scr4-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35em;
+    padding: var(--space-12) var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .scr4-static {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .scr4-flip {
+    height: 50px;
+    overflow: hidden;
+    display: inline-block;
+  }
+
+  .scr4-flip > div > div {
+    color: #fff;
+    padding: 2px 14px;
+    height: 45px;
+    margin-bottom: 45px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 6px;
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    background: #42c58a;
+  }
+
+  .scr4-flip > div:first-child > div { background: #4ec7f3; }
+  .scr4-flip > div:last-child > div  { background: #DC143C; }
+
+  .scr4-flip > div:first-child {
+    animation: scr4-show 7s linear infinite;
+  }
+
+  @keyframes scr4-show {
+    0%     { margin-top: -270px; }
+    5%     { margin-top: -180px; }
+    33%    { margin-top: -180px; }
+    38%    { margin-top:  -90px; }
+    66%    { margin-top:  -90px; }
+    71%    { margin-top:    0px; }
+    99.99% { margin-top:    0px; }
+    100%   { margin-top: -270px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scr4-flip > div:first-child { animation: none; margin-top: 0; }
+  }
+
+  /* ── scr5: Text Flip Animation ──────────────────────────── */
+  .scr5-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-12) var(--space-8);
+    gap: 0;
+  }
+
+  .scr5-static {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+  }
+
+  .scr5-flip {
+    height: 50px;
+    overflow: hidden;
+  }
+
+  .scr5-flip > div > div {
+    color: #fff;
+    padding: 4px 12px;
+    height: 45px;
+    margin-bottom: 45px;
+    display: inline-block;
+    font-size: 2.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+    line-height: 37px;
+    background: #42c58a;
+  }
+
+  .scr5-flip > div:first-child > div { background: #4ec7f3; }
+  .scr5-flip > div:last-child > div  { background: #DC143C; }
+
+  .scr5-flip > div:first-child {
+    animation: scr5-show 7s linear infinite;
+  }
+
+  @keyframes scr5-show {
+    0%     { margin-top: -270px; }
+    5%     { margin-top: -180px; }
+    33%    { margin-top: -180px; }
+    38%    { margin-top:  -90px; }
+    66%    { margin-top:  -90px; }
+    71%    { margin-top:    0px; }
+    99.99% { margin-top:    0px; }
+    100%   { margin-top: -270px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scr5-flip > div:first-child { animation: none; margin-top: 0; }
   }
 
   /* ── cra1: Animated Card ────────────────────────────────── */
