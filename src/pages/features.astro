@@ -12,12 +12,73 @@ import { features } from '../data/features';
   <!-- Page Header -->
   <section class="page-hero section-sm" aria-label="Page header">
     <div class="container page-hero-inner">
-      <p class="section-label"><span aria-hidden="true">◈</span> Features</p>
-      <h1>Everything your finance team needs</h1>
+      <p class="section-label">Features</p>
+      <h1>The most powerful business platform.</h1>
       <p class="page-subline">
-        Accountium combines AI automation with best-in-class accounting tools —
-        so your team spends less time on data entry and more time on decisions.
+        Say goodbye to chaos and embrace a smoother workflow designed to help your team achieve more. Our app keeps you in touch and in control, giving you access to our services anytime, anywhere.
       </p>
+    </div>
+  </section>
+
+  <!-- scr4: Financial Formula Marquee -->
+  <section class="marquee-section" aria-hidden="true">
+    <div class="marquee-track">
+      <div class="marquee-fade marquee-fade--left"></div>
+      <div class="marquee-fade marquee-fade--right"></div>
+      <div class="marquee-inner">
+
+        <div class="logo-chip fin-chip" style="--c:#8b5cf6">
+          <span class="fin-text">ROI = (Gain − Cost) / Cost</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#22c55e">
+          <span class="fin-text">Profit = Revenue − Expenses</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#3b82f6">
+          <span class="fin-text">Gross Margin = (Rev − COGS) / Rev</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f59e0b">
+          <span class="fin-text">EPS = Net Income / Shares</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f97316">
+          <span class="fin-text">P/E = Price / EPS</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#06b6d4">
+          <span class="fin-text">Current Ratio = Assets / Liabilities</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#14b8a6">
+          <span class="fin-text">ROE = Net Income / Equity</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#ec4899">
+          <span class="fin-text">Cash Flow = Inflows − Outflows</span>
+        </div>
+
+        <!-- duplicate set for seamless loop -->
+        <div class="logo-chip fin-chip" style="--c:#8b5cf6">
+          <span class="fin-text">ROI = (Gain − Cost) / Cost</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#22c55e">
+          <span class="fin-text">Profit = Revenue − Expenses</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#3b82f6">
+          <span class="fin-text">Gross Margin = (Rev − COGS) / Rev</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f59e0b">
+          <span class="fin-text">EPS = Net Income / Shares</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f97316">
+          <span class="fin-text">P/E = Price / EPS</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#06b6d4">
+          <span class="fin-text">Current Ratio = Assets / Liabilities</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#14b8a6">
+          <span class="fin-text">ROE = Net Income / Equity</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#ec4899">
+          <span class="fin-text">Cash Flow = Inflows − Outflows</span>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -57,6 +118,7 @@ import { features } from '../data/features';
     secondaryLabel="Try Now"
     secondaryHref="https://www.myaccountium.ca/Account/SignIn"
     secondaryTarget="_blank"
+    particles={true}
   />
 </BaseLayout>
 
@@ -84,6 +146,81 @@ import { features } from '../data/features';
     color: var(--color-text-secondary);
     max-width: 54ch;
     margin: 0;
+  }
+
+  /* ── scr4: Financial Formula Marquee ───────────────────── */
+  .marquee-section {
+    overflow: hidden;
+    padding: var(--space-6) 0;
+  }
+
+  .marquee-track {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+  }
+
+  .marquee-inner {
+    display: flex;
+    gap: var(--space-3);
+    width: max-content;
+    animation: marquee-scroll 55s linear infinite;
+  }
+
+  .marquee-inner .logo-chip { flex-shrink: 0; }
+
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-inner { animation: none; justify-content: center; flex-wrap: wrap; }
+  }
+
+  .marquee-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .marquee-fade--left {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
+  }
+
+  .marquee-fade--right {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
+  }
+
+  .logo-chip {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow:
+      rgba(103, 103, 103, 0.08) 0px 0px 0px 1px,
+      rgba(103, 103, 103, 0.08) 0px 2px 4px 0px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fin-chip {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+  }
+
+  .fin-text {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    font-family: monospace;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    color: var(--c);
   }
 
   /* Integrations */

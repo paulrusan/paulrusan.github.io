@@ -7,6 +7,7 @@ interface Props {
   secondaryLabel?: string;
   secondaryHref?: string;
   secondaryTarget?: string;
+  particles?: boolean;
 }
 
 const {
@@ -17,12 +18,15 @@ const {
   secondaryLabel = 'Talk to sales',
   secondaryHref  = '/contact',
   secondaryTarget,
+  particles     = false,
 } = Astro.props;
 ---
 
 <section class="cta-section section" aria-label="Call to action">
   <div class="container">
     <div class="cta-inner glass-card">
+      <!-- Background particle canvas -->
+      {particles && <canvas id="cta-particle-canvas" class="cta-bg-canvas" aria-hidden="true"></canvas>}
       <!-- Background glow -->
       <div class="cta-glow" aria-hidden="true"></div>
 
@@ -47,6 +51,16 @@ const {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-lg);
+    background: rgba(255, 255, 255, 0.50);
+  }
+
+  .cta-bg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .cta-glow {
@@ -96,3 +110,91 @@ const {
     .cta-actions .btn { justify-content: center; }
   }
 </style>
+
+<script>
+  (() => {
+    const canvas = document.getElementById('cta-particle-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+
+    const PARTICLE_COUNT   = 80;
+    const SPEED            = 0.06;
+    const CONNECT_DIST     = 130;
+    const DOT_RADIUS       = 2.5;
+    const DOT_OPACITY      = 0.2;
+    const LINE_MAX_OPACITY = 0.22;
+
+    interface Particle { x: number; y: number; vx: number; vy: number; }
+
+    let W = 0, H = 0;
+    let particles: Particle[] = [];
+    let raf: number;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      W = canvas.width  = rect.width  * devicePixelRatio;
+      H = canvas.height = rect.height * devicePixelRatio;
+    }
+
+    function spawn(): Particle {
+      const angle = Math.random() * Math.PI * 2;
+      return {
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        vx: Math.cos(angle) * SPEED * devicePixelRatio,
+        vy: Math.sin(angle) * SPEED * devicePixelRatio,
+      };
+    }
+
+    function init() { resize(); particles = Array.from({ length: PARTICLE_COUNT }, spawn); }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of particles) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const threshold = CONNECT_DIST * devicePixelRatio;
+          if (dist < threshold) {
+            const alpha = LINE_MAX_OPACITY * (1 - dist / threshold);
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(0, 0, 255, ${alpha})`;
+            ctx.lineWidth = devicePixelRatio;
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = `rgba(255, 0, 0, ${DOT_OPACITY})`;
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, DOT_RADIUS * devicePixelRatio, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        raf = requestAnimationFrame(draw);
+      } else {
+        cancelAnimationFrame(raf);
+      }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
+    window.addEventListener('resize', () => { resize(); });
+
+    init();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw(); cancelAnimationFrame(raf);
+    }
+  })();
+</script>

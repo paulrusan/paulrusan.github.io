@@ -424,15 +424,65 @@ import { site } from '../data/site';
     </div>
   </section>
 
-  <!-- ── scr4: Text Flip Animation ───────────────────────── -->
-  <section class="logo-strip-section" id="scr4">
-    <p class="logo-strip-label">scr4 — Text Flip Animation</p>
-    <div class="scr4-wrap">
-      <span class="scr4-static">change life</span>
-      <div class="scr4-flip">
-        <div><div>style with Accounting</div></div>
-        <div><div>work with business</div></div>
-        <div><div>everything</div></div>
+  <!-- ── scr4: Financial Formula Marquee ──────────────────── -->
+  <section class="logo-strip-section logo-strip-section--marquee" id="scr4">
+    <p class="logo-strip-label">scr4 — Financial Formula Marquee</p>
+    <div class="marquee-track" aria-hidden="true">
+      <div class="marquee-fade marquee-fade--left"></div>
+      <div class="marquee-fade marquee-fade--right"></div>
+      <div class="marquee-inner">
+
+        <div class="logo-chip fin-chip" style="--c:#8b5cf6">
+          <span class="fin-text">ROI = (Gain − Cost) / Cost</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#22c55e">
+          <span class="fin-text">Profit = Revenue − Expenses</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#3b82f6">
+          <span class="fin-text">Gross Margin = (Rev − COGS) / Rev</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f59e0b">
+          <span class="fin-text">EPS = Net Income / Shares</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f97316">
+          <span class="fin-text">P/E = Price / EPS</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#06b6d4">
+          <span class="fin-text">Current Ratio = Assets / Liabilities</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#14b8a6">
+          <span class="fin-text">ROE = Net Income / Equity</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#ec4899">
+          <span class="fin-text">Cash Flow = Inflows − Outflows</span>
+        </div>
+
+        <!-- duplicate set for seamless loop -->
+        <div class="logo-chip fin-chip" style="--c:#8b5cf6">
+          <span class="fin-text">ROI = (Gain − Cost) / Cost</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#22c55e">
+          <span class="fin-text">Profit = Revenue − Expenses</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#3b82f6">
+          <span class="fin-text">Gross Margin = (Rev − COGS) / Rev</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f59e0b">
+          <span class="fin-text">EPS = Net Income / Shares</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#f97316">
+          <span class="fin-text">P/E = Price / EPS</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#06b6d4">
+          <span class="fin-text">Current Ratio = Assets / Liabilities</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#14b8a6">
+          <span class="fin-text">ROE = Net Income / Equity</span>
+        </div>
+        <div class="logo-chip fin-chip" style="--c:#ec4899">
+          <span class="fin-text">Cash Flow = Inflows − Outflows</span>
+        </div>
+
       </div>
     </div>
   </section>
@@ -584,18 +634,14 @@ import { site } from '../data/site';
       <p class="test-label" style="margin-top: var(--space-8);">cra2 — Globe Orbit</p>
       <div class="grid-3">
         <article class="cra2 glass-card" aria-hidden="true">
+          <canvas id="cra2-canvas" class="cra2-bg-canvas"></canvas>
           <div class="ss-scene">
-            <img src="/images/Streamline%20Sales.svg" class="ss-img" alt="" />
-
-            <!-- Dollar signs — circular equatorial orbit (red) -->
-            <div class="ss-orbit ss-d1">
-              <span class="ss-tok ss-tok--dollar">$</span>
-            </div>
-            <div class="ss-orbit ss-d2">
-              <span class="ss-tok ss-tok--dollar">$</span>
+            <!-- Pulse ring — center -->
+            <div class="cra2-orb-center">
+              <div class="pulse-ring pulse-ring--3"></div>
             </div>
 
-            <!-- Twitter birds — wide elliptical orbit (green) -->
+            <!-- Birds — wide elliptical orbit -->
             <div class="ss-orbit ss-b1">
               <span class="ss-tok ss-tok--bird">
                 <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
@@ -612,11 +658,14 @@ import { site } from '../data/site';
               </span>
             </div>
 
-            <!-- Envelopes — tilted tight orbit (orange) -->
+            <!-- Envelopes — tilted tight orbit (3 evenly spaced) -->
             <div class="ss-orbit ss-e1">
               <span class="ss-tok ss-tok--envelope">✉</span>
             </div>
             <div class="ss-orbit ss-e2">
+              <span class="ss-tok ss-tok--envelope">✉</span>
+            </div>
+            <div class="ss-orbit ss-e3">
               <span class="ss-tok ss-tok--envelope">✉</span>
             </div>
           </div>
@@ -1162,68 +1211,23 @@ import { site } from '../data/site';
     margin: 0 0 var(--space-4);
   }
 
-  /* ── scr4: Text Flip Animation ──────────────────────────── */
-  .scr4-wrap {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.35em;
-    padding: var(--space-12) var(--space-8);
-    flex-wrap: wrap;
+  /* ── scr4: Financial Formula Marquee ────────────────────── */
+  .fin-chip {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: none;
   }
 
-  .scr4-static {
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    line-height: 1;
+  .fin-chip:hover {
+    box-shadow: none;
   }
 
-  .scr4-flip {
-    height: 50px;
-    overflow: hidden;
-    display: inline-block;
-  }
-
-  .scr4-flip > div > div {
-    color: #fff;
-    padding: 2px 14px;
-    height: 45px;
-    margin-bottom: 45px;
-    display: inline-flex;
-    align-items: center;
-    border-radius: 6px;
-    font-size: 1.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
+  .fin-text {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    font-family: monospace;
+    letter-spacing: 0.03em;
     white-space: nowrap;
-    letter-spacing: -0.02em;
-    line-height: 1;
-    background: #42c58a;
-  }
-
-  .scr4-flip > div:first-child > div { background: #4ec7f3; }
-  .scr4-flip > div:last-child > div  { background: #DC143C; }
-
-  .scr4-flip > div:first-child {
-    animation: scr4-show 7s linear infinite;
-  }
-
-  @keyframes scr4-show {
-    0%     { margin-top: -270px; }
-    5%     { margin-top: -180px; }
-    33%    { margin-top: -180px; }
-    38%    { margin-top:  -90px; }
-    66%    { margin-top:  -90px; }
-    71%    { margin-top:    0px; }
-    99.99% { margin-top:    0px; }
-    100%   { margin-top: -270px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .scr4-flip > div:first-child { animation: none; margin-top: 0; }
+    color: var(--c);
   }
 
   /* ── scr5: Text Flip Animation ──────────────────────────── */
@@ -1390,6 +1394,9 @@ import { site } from '../data/site';
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.20);
     transition:
       transform var(--duration-base) var(--ease-out-expo),
       box-shadow var(--duration-base) var(--ease-out-expo);
@@ -1408,15 +1415,6 @@ import { site } from '../data/site';
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .ss-img {
-    width: 176px;
-    height: 176px;
-    object-fit: contain;
-    pointer-events: none;
-    user-select: none;
-    position: relative;
     z-index: 1;
   }
 
@@ -1427,16 +1425,6 @@ import { site } from '../data/site';
     left: 50%;
     border-radius: 50%;
   }
-
-  /* Dollar: circle 200×200, 14s CW — d1 at 0°, d2 at 180° */
-  .ss-d1,
-  .ss-d2 {
-    width: 200px;
-    height: 200px;
-    margin: -100px 0 0 -100px;
-    animation: ss-cw 14s linear infinite;
-  }
-  .ss-d2 { animation-delay: -7s; }
 
   /* Birds: wide ellipse 228×138, 18s CW — b1/b2/b3 at 120° each */
   .ss-b1,
@@ -1450,15 +1438,17 @@ import { site } from '../data/site';
   .ss-b2 { animation-delay: -6s; }
   .ss-b3 { animation-delay: -12s; }
 
-  /* Envelopes: tighter ellipse 172×104, 22s CCW — e1/e2 at 180° */
+  /* Envelopes: tighter ellipse 172×104, 22s CCW — e1/e2/e3 at 120° each */
   .ss-e1,
-  .ss-e2 {
+  .ss-e2,
+  .ss-e3 {
     width: 172px;
     height: 104px;
     margin: -52px 0 0 -86px;
     animation: ss-ccw 22s linear infinite;
   }
-  .ss-e2 { animation-delay: -11s; }
+  .ss-e2 { animation-delay: -7.3s; }
+  .ss-e3 { animation-delay: -14.7s; }
 
   @keyframes ss-cw  { to { transform: rotate( 360deg); } }
   @keyframes ss-ccw { to { transform: rotate(-360deg); } }
@@ -1475,17 +1465,6 @@ import { site } from '../data/site';
     line-height: 1;
     pointer-events: none;
     z-index: 2;
-  }
-
-  /* Dollar badge — red circle */
-  .ss-tok--dollar {
-    width: 22px;
-    height: 22px;
-    font-size: 12px;
-    font-weight: 800;
-    color: #fff;
-    background: #e53935;
-    box-shadow: 0 0 10px rgba(229, 57, 53, 0.75);
   }
 
   /* Bird — green M-shape SVG */
@@ -1511,16 +1490,14 @@ import { site } from '../data/site';
   @keyframes ss-tok-cw  { to { transform: translate(-50%, -50%) rotate( 360deg); } }
 
   /* CW orbit tokens counter-rotate CCW, matching ring duration + delay */
-  .ss-d1 .ss-tok, .ss-d2 .ss-tok { animation: ss-tok-ccw 14s linear infinite; }
-  .ss-d2 .ss-tok { animation-delay: -7s; }
-
-  .ss-b1 .ss-tok, .ss-b2 .ss-tok, .ss-b3 .ss-tok { animation: ss-tok-ccw 18s linear infinite; }
+.ss-b1 .ss-tok, .ss-b2 .ss-tok, .ss-b3 .ss-tok { animation: ss-tok-ccw 18s linear infinite; }
   .ss-b2 .ss-tok { animation-delay: -6s; }
   .ss-b3 .ss-tok { animation-delay: -12s; }
 
   /* CCW orbit tokens counter-rotate CW */
-  .ss-e1 .ss-tok, .ss-e2 .ss-tok { animation: ss-tok-cw 22s linear infinite; }
-  .ss-e2 .ss-tok { animation-delay: -11s; }
+  .ss-e1 .ss-tok, .ss-e2 .ss-tok, .ss-e3 .ss-tok { animation: ss-tok-cw 22s linear infinite; }
+  .ss-e2 .ss-tok { animation-delay: -7.3s; }
+  .ss-e3 .ss-tok { animation-delay: -14.7s; }
 
   /* All tokens start centered on the orbit top point */
   .ss-tok { transform: translate(-50%, -50%); }
@@ -1529,6 +1506,41 @@ import { site } from '../data/site';
     .ss-orbit, .ss-tok { animation: none; }
     .ss-tok { transform: translate(-50%, -50%); }
   }
+
+  /* Background particle canvas */
+  .cra2-bg-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Orb centered in ss-scene */
+  .cra2-orb-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* cra2 token color overrides */
+  .cra2 .ss-tok--bird {
+    color: var(--color-accent);
+    filter: drop-shadow(0 0 4px var(--color-accent));
+  }
+
+  .cra2 .ss-tok--envelope {
+    background: var(--color-amber);
+    box-shadow: 0 0 10px var(--color-amber);
+    color: #fff;
+  }
+
 
   /* ── Logo Strip (Superior-style) ───────────────────────── */
   .logo-strip-section {
@@ -1783,6 +1795,89 @@ import { site } from '../data/site';
 
     init();
     // Reduced motion — skip animation
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      draw(); cancelAnimationFrame(raf);
+    }
+  })();
+
+  // ── cra2: Particle Field background ─────────────────────
+  (() => {
+    const canvas = document.getElementById('cra2-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d')!;
+
+    const PARTICLE_COUNT   = 80;
+    const SPEED            = 0.06;
+    const CONNECT_DIST     = 130;
+    const DOT_RADIUS       = 2.5;
+    const DOT_OPACITY      = 0.2;
+    const LINE_MAX_OPACITY = 0.22;
+
+    interface Particle { x: number; y: number; vx: number; vy: number; }
+
+    let W = 0, H = 0;
+    let particles: Particle[] = [];
+    let raf: number;
+
+    function resize() {
+      const rect = canvas.getBoundingClientRect();
+      W = canvas.width  = rect.width  * devicePixelRatio;
+      H = canvas.height = rect.height * devicePixelRatio;
+    }
+
+    function spawn(): Particle {
+      const angle = Math.random() * Math.PI * 2;
+      return {
+        x:  Math.random() * W,
+        y:  Math.random() * H,
+        vx: Math.cos(angle) * SPEED * devicePixelRatio,
+        vy: Math.sin(angle) * SPEED * devicePixelRatio,
+      };
+    }
+
+    function init() { resize(); particles = Array.from({ length: PARTICLE_COUNT }, spawn); }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (const p of particles) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > W) p.vx *= -1;
+        if (p.y < 0 || p.y > H) p.vy *= -1;
+      }
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const threshold = CONNECT_DIST * devicePixelRatio;
+          if (dist < threshold) {
+            const alpha = LINE_MAX_OPACITY * (1 - dist / threshold);
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(255, 0, 0, ${alpha})`;
+            ctx.lineWidth = devicePixelRatio;
+            ctx.stroke();
+          }
+        }
+      }
+      ctx.fillStyle = `rgba(0, 0, 255, ${DOT_OPACITY})`;
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, DOT_RADIUS * devicePixelRatio, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(draw);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) { raf = requestAnimationFrame(draw); }
+      else { cancelAnimationFrame(raf); }
+    }, { threshold: 0.05 });
+    observer.observe(canvas);
+
+    window.addEventListener('resize', resize);
+    init();
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       draw(); cancelAnimationFrame(raf);
     }
