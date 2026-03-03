@@ -1,16 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../data/site';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
+import ShortcutCard from "../components/ShortcutCard.astro";
+import OrbitCard from "../components/OrbitCard.astro";
+import IntegrationGrid from "../components/IntegrationGrid.astro";
 ---
 
 <BaseLayout title="Design Test" description="Component and element test page">
-
   <!-- ── Page Header ───────────────────────────────────────── -->
   <section class="b4s2s1 page-hero">
     <div class="b4s2s1-inner">
-      <span class="label">◈ Design System</span>
+      <span class="label">Design System</span>
       <h1>Test Page</h1>
-      <p>A sandbox for testing UI elements, components, cards, lists, and formatting patterns before using them in production pages.</p>
+      <p>
+        A sandbox for testing UI elements, components, cards, lists, and
+        formatting patterns before using them in production pages.
+      </p>
     </div>
   </section>
 
@@ -86,19 +91,28 @@ import { site } from '../data/site';
         <div class="glass-card test-card">
           <span class="card-icon" aria-hidden="true">◈</span>
           <h3>Glass Card</h3>
-          <p>Used for feature highlights, benefits, and primary content blocks across the site.</p>
+          <p>
+            Used for feature highlights, benefits, and primary content blocks
+            across the site.
+          </p>
         </div>
         <div class="glass-card test-card">
           <span class="card-icon" aria-hidden="true">⬡</span>
           <h3>With Subtitle</h3>
-          <p>Cards can contain icons, headings, body text, and optional CTAs or badges.</p>
+          <p>
+            Cards can contain icons, headings, body text, and optional CTAs or
+            badges.
+          </p>
           <a href="#" class="card-link">Learn more →</a>
         </div>
         <div class="glass-card test-card">
           <span class="card-badge">New</span>
           <span class="card-icon" aria-hidden="true">✦</span>
           <h3>With Badge</h3>
-          <p>A badge can appear at the top-right of a card to highlight status or a tag.</p>
+          <p>
+            A badge can appear at the top-right of a card to highlight status or
+            a tag.
+          </p>
         </div>
       </div>
 
@@ -106,11 +120,17 @@ import { site } from '../data/site';
       <div class="grid-2" style="margin-top: var(--space-6)">
         <div class="card test-card-plain">
           <h3>Plain Card</h3>
-          <p>Uses the base `.card` class — white background, subtle border, soft shadow. Lifts on hover.</p>
+          <p>
+            Uses the base `.card` class — white background, subtle border, soft
+            shadow. Lifts on hover.
+          </p>
         </div>
         <div class="card test-card-plain">
           <h3>Plain Card</h3>
-          <p>Ideal for secondary content areas where glass morphism would be too heavy.</p>
+          <p>
+            Ideal for secondary content areas where glass morphism would be too
+            heavy.
+          </p>
         </div>
       </div>
     </div>
@@ -119,7 +139,10 @@ import { site } from '../data/site';
   <!-- ── Numbered Cards ────────────────────────────────────── -->
   <section class="b4s2" aria-labelledby="numbered-heading">
     <h2 id="numbered-heading">Numbered Cards (cn1)</h2>
-    <p>2-column centered grid with step numbers — used for ordered processes and why-choose sections.</p>
+    <p>
+      2-column centered grid with step numbers — used for ordered processes and
+      why-choose sections.
+    </p>
   </section>
 
   <section class="test-section">
@@ -133,7 +156,9 @@ import { site } from '../data/site';
         <div class="cn1-item glass-card">
           <span class="cn1-num">02</span>
           <h3>Step Two</h3>
-          <p>Description of the second step or reason in a numbered sequence.</p>
+          <p>
+            Description of the second step or reason in a numbered sequence.
+          </p>
         </div>
         <div class="cn1-item glass-card">
           <span class="cn1-num">03</span>
@@ -143,7 +168,9 @@ import { site } from '../data/site';
         <div class="cn1-item glass-card">
           <span class="cn1-num">04</span>
           <h3>Step Four</h3>
-          <p>Description of the fourth step or reason in a numbered sequence.</p>
+          <p>
+            Description of the fourth step or reason in a numbered sequence.
+          </p>
         </div>
       </div>
     </div>
@@ -188,7 +215,9 @@ import { site } from '../data/site';
       </div>
 
       <!-- cra2: Streamline Sales SVG with orbiting symbols -->
-      <p class="test-label" style="margin-top: var(--space-8);">cra2 — Globe Orbit</p>
+      <p class="test-label" style="margin-top: var(--space-8);">
+        cra2 — Globe Orbit
+      </p>
       <div class="grid-3">
         <article class="cra2 glass-card" aria-hidden="true">
           <div class="ss-scene">
@@ -205,17 +234,47 @@ import { site } from '../data/site';
             <!-- Twitter birds — wide elliptical orbit (green) -->
             <div class="ss-orbit ss-b1">
               <span class="ss-tok ss-tok--bird">
-                <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
+                <svg
+                  viewBox="0 0 20 10"
+                  width="16"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                  ><path d="M0 6 Q5 0 10 6 Q15 0 20 6"></path></svg
+                >
               </span>
             </div>
             <div class="ss-orbit ss-b2">
               <span class="ss-tok ss-tok--bird">
-                <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
+                <svg
+                  viewBox="0 0 20 10"
+                  width="16"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                  ><path d="M0 6 Q5 0 10 6 Q15 0 20 6"></path></svg
+                >
               </span>
             </div>
             <div class="ss-orbit ss-b3">
               <span class="ss-tok ss-tok--bird">
-                <svg viewBox="0 0 20 10" width="16" height="8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M0 6 Q5 0 10 6 Q15 0 20 6"/></svg>
+                <svg
+                  viewBox="0 0 20 10"
+                  width="16"
+                  height="8"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2.2"
+                  stroke-linecap="round"
+                  aria-hidden="true"
+                  ><path d="M0 6 Q5 0 10 6 Q15 0 20 6"></path></svg
+                >
               </span>
             </div>
 
@@ -247,11 +306,40 @@ import { site } from '../data/site';
       </div>
     </div>
   </section>
-
+  <section
+    class="test-section"
+    style="display:flex; justify-content:center; padding:40px 0;"
+  >
+    <div class="container">
+      <!-- ani2: framer feature -->
+      <p class="test-label">ani2 — click switch</p>
+      <ShortcutCard />
+    </div>
+  </section>
+  <section
+    class="test-section"
+    style="display:flex; justify-content:center; padding:40px 0;"
+  >
+    <div class="container">
+      <!-- ani3: framer feature -->
+      <p class="test-label">ani3 — app orbit</p>
+      <OrbitCard />
+    </div>
+  </section>
   <!-- ── Lists ──────────────────────────────────────────────── -->
   <section class="b4s2" aria-labelledby="lists-heading">
     <h2 id="lists-heading">Lists</h2>
     <p>List styles for features, criteria, and content rundowns.</p>
+  </section>
+
+  <section class="test-section">
+    <div class="container">
+      <!-- ani3:  -->
+      <p class="test-label">ani4 — IntegrationGrid</p>
+      <div class="ani1-wrap">
+        <IntegrationGrid />
+      </div>
+    </div>
   </section>
 
   <section class="test-section">
@@ -284,7 +372,9 @@ import { site } from '../data/site';
             </li>
             <li>
               <strong>Integrations</strong>
-              <p>Ensure compatibility with your existing tools and workflows.</p>
+              <p>
+                Ensure compatibility with your existing tools and workflows.
+              </p>
             </li>
           </ul>
         </div>
@@ -323,7 +413,9 @@ import { site } from '../data/site';
         </div>
         <div class="type-row">
           <span class="type-token">--text-base</span>
-          <span class="type-sample size-base">Body copy base — the quick brown fox jumps over the lazy dog.</span>
+          <span class="type-sample size-base"
+            >Body copy base — the quick brown fox jumps over the lazy dog.</span
+          >
         </div>
         <div class="type-row">
           <span class="type-token">--text-sm</span>
@@ -346,15 +438,51 @@ import { site } from '../data/site';
   <section class="test-section">
     <div class="container">
       <div class="swatch-grid">
-        <div class="swatch" style="background: var(--color-bg)"><span>--color-bg</span></div>
-        <div class="swatch" style="background: var(--color-surface)"><span>--color-surface</span></div>
-        <div class="swatch" style="background: var(--color-surface-raised)"><span>--color-surface-raised</span></div>
-        <div class="swatch accent-swatch" style="background: var(--color-accent)"><span>--color-accent</span></div>
-        <div class="swatch accent-swatch" style="background: var(--color-accent-dim)"><span>--color-accent-dim</span></div>
-        <div class="swatch accent-swatch" style="background: var(--color-green)"><span>--color-green</span></div>
-        <div class="swatch accent-swatch" style="background: var(--color-green-dim)"><span>--color-green-dim</span></div>
-        <div class="swatch accent-swatch" style="background: var(--color-amber)"><span>--color-amber</span></div>
-        <div class="swatch accent-swatch" style="background: var(--color-purple)"><span>--color-purple</span></div>
+        <div class="swatch" style="background: var(--color-bg)">
+          <span>--color-bg</span>
+        </div>
+        <div class="swatch" style="background: var(--color-surface)">
+          <span>--color-surface</span>
+        </div>
+        <div class="swatch" style="background: var(--color-surface-raised)">
+          <span>--color-surface-raised</span>
+        </div>
+        <div
+          class="swatch accent-swatch"
+          style="background: var(--color-accent)"
+        >
+          <span>--color-accent</span>
+        </div>
+        <div
+          class="swatch accent-swatch"
+          style="background: var(--color-accent-dim)"
+        >
+          <span>--color-accent-dim</span>
+        </div>
+        <div
+          class="swatch accent-swatch"
+          style="background: var(--color-green)"
+        >
+          <span>--color-green</span>
+        </div>
+        <div
+          class="swatch accent-swatch"
+          style="background: var(--color-green-dim)"
+        >
+          <span>--color-green-dim</span>
+        </div>
+        <div
+          class="swatch accent-swatch"
+          style="background: var(--color-amber)"
+        >
+          <span>--color-amber</span>
+        </div>
+        <div
+          class="swatch accent-swatch"
+          style="background: var(--color-purple)"
+        >
+          <span>--color-purple</span>
+        </div>
       </div>
     </div>
   </section>
@@ -378,12 +506,14 @@ import { site } from '../data/site';
         </div>
         <div>
           <p class="test-label">Muted text</p>
-          <p style="color: var(--color-text-muted); font-size: var(--text-sm);">This is muted / disabled text used for placeholders and secondary captions.</p>
+          <p style="color: var(--color-text-muted); font-size: var(--text-sm);">
+            This is muted / disabled text used for placeholders and secondary
+            captions.
+          </p>
         </div>
       </div>
     </div>
   </section>
-
 </BaseLayout>
 
 <style>
@@ -391,10 +521,16 @@ import { site } from '../data/site';
   .page-hero {
     padding-top: calc(var(--header-height) + var(--space-16));
     background:
-      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      radial-gradient(
+        ellipse 70% 50% at 50% -5%,
+        rgba(8, 145, 178, 0.07) 0%,
+        transparent 60%
+      ),
       var(--color-bg);
   }
-  .page-hero.b4s2s1::before { display: none; }
+  .page-hero.b4s2s1::before {
+    display: none;
+  }
 
   /* ── Test section wrapper ───────────────────────────────── */
   .test-section {
@@ -447,7 +583,9 @@ import { site } from '../data/site';
     text-decoration: none;
     margin-top: auto;
   }
-  .card-link:hover { color: var(--color-accent-hover); }
+  .card-link:hover {
+    color: var(--color-accent-hover);
+  }
 
   .card-badge {
     position: absolute;
@@ -625,15 +763,38 @@ import { site } from '../data/site';
     flex-shrink: 0;
   }
 
-  .type-sample { color: var(--color-text-primary); font-weight: 600; line-height: 1.15; }
-  .type-sample.hero    { font-size: var(--text-hero); }
-  .type-sample.size-3xl { font-size: var(--text-3xl); }
-  .type-sample.size-2xl { font-size: var(--text-2xl); }
-  .type-sample.size-xl  { font-size: var(--text-xl); }
-  .type-sample.size-lg  { font-size: var(--text-lg); }
-  .type-sample.size-base { font-size: var(--text-base); font-weight: 400; }
-  .type-sample.size-sm  { font-size: var(--text-sm); font-weight: 400; }
-  .type-sample.size-xs  { font-size: var(--text-xs); font-weight: 400; }
+  .type-sample {
+    color: var(--color-text-primary);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .type-sample.hero {
+    font-size: var(--text-hero);
+  }
+  .type-sample.size-3xl {
+    font-size: var(--text-3xl);
+  }
+  .type-sample.size-2xl {
+    font-size: var(--text-2xl);
+  }
+  .type-sample.size-xl {
+    font-size: var(--text-xl);
+  }
+  .type-sample.size-lg {
+    font-size: var(--text-lg);
+  }
+  .type-sample.size-base {
+    font-size: var(--text-base);
+    font-weight: 400;
+  }
+  .type-sample.size-sm {
+    font-size: var(--text-sm);
+    font-weight: 400;
+  }
+  .type-sample.size-xs {
+    font-size: var(--text-xs);
+    font-weight: 400;
+  }
 
   /* ── Colour swatches ────────────────────────────────────── */
   .swatch-grid {
@@ -657,13 +818,13 @@ import { site } from '../data/site';
     font-size: 0.65rem;
     color: var(--color-text-secondary);
     line-height: 1.3;
-    background: rgba(255,255,255,0.7);
+    background: rgba(255, 255, 255, 0.7);
     padding: 2px 4px;
     border-radius: 3px;
   }
 
   .swatch.accent-swatch span {
-    background: rgba(0,0,0,0.25);
+    background: rgba(0, 0, 0, 0.25);
     color: #fff;
   }
 
@@ -678,7 +839,12 @@ import { site } from '../data/site';
   .accent-divider {
     width: 1px;
     height: 64px;
-    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-accent),
+      transparent
+    );
     margin: var(--space-2) 0;
   }
 
@@ -692,7 +858,11 @@ import { site } from '../data/site';
     gap: var(--space-4);
     padding: var(--space-12) var(--space-8);
     position: relative;
-    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+    background: radial-gradient(
+      ellipse at 50% 80%,
+      rgba(8, 145, 178, 0.06) 0%,
+      transparent 50%
+    );
   }
 
   .b4s2::before {
@@ -703,7 +873,12 @@ import { site } from '../data/site';
     transform: translateX(-50%);
     width: 1px;
     height: var(--space-16);
-    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--color-accent),
+      transparent
+    );
   }
 
   .b4s2 h2 {
@@ -795,7 +970,9 @@ import { site } from '../data/site';
   }
 
   /* — Pulse rings — */
-  .cra1-anim--pulse { position: relative; }
+  .cra1-anim--pulse {
+    position: relative;
+  }
 
   .pulse-core {
     width: 14px;
@@ -815,13 +992,31 @@ import { site } from '../data/site';
     opacity: 0;
   }
 
-  .pulse-ring--1 { width: 44px;  height: 44px;  animation-delay: 0s; }
-  .pulse-ring--2 { width: 80px;  height: 80px;  animation-delay: 0.7s; }
-  .pulse-ring--3 { width: 116px; height: 116px; animation-delay: 1.4s; }
+  .pulse-ring--1 {
+    width: 44px;
+    height: 44px;
+    animation-delay: 0s;
+  }
+  .pulse-ring--2 {
+    width: 80px;
+    height: 80px;
+    animation-delay: 0.7s;
+  }
+  .pulse-ring--3 {
+    width: 116px;
+    height: 116px;
+    animation-delay: 1.4s;
+  }
 
   @keyframes pulse-expand {
-    0%   { opacity: 0.7; transform: scale(0.5); }
-    100% { opacity: 0;   transform: scale(1); }
+    0% {
+      opacity: 0.7;
+      transform: scale(0.5);
+    }
+    100% {
+      opacity: 0;
+      transform: scale(1);
+    }
   }
 
   /* — Bar chart — */
@@ -838,15 +1033,31 @@ import { site } from '../data/site';
     animation: bar-grow 1.8s ease-in-out infinite alternate;
   }
 
-  .bar:nth-child(1) { animation-delay: 0s;    }
-  .bar:nth-child(2) { animation-delay: 0.25s; }
-  .bar:nth-child(3) { animation-delay: 0.5s;  }
-  .bar:nth-child(4) { animation-delay: 0.75s; }
-  .bar:nth-child(5) { animation-delay: 1s;    }
+  .bar:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .bar:nth-child(2) {
+    animation-delay: 0.25s;
+  }
+  .bar:nth-child(3) {
+    animation-delay: 0.5s;
+  }
+  .bar:nth-child(4) {
+    animation-delay: 0.75s;
+  }
+  .bar:nth-child(5) {
+    animation-delay: 1s;
+  }
 
   @keyframes bar-grow {
-    from { height: 18%; opacity: 0.35; }
-    to   { height: 100%; opacity: 1;   }
+    from {
+      height: 18%;
+      opacity: 0.35;
+    }
+    to {
+      height: 100%;
+      opacity: 1;
+    }
   }
 
   /* — Floating orb — */
@@ -854,7 +1065,8 @@ import { site } from '../data/site';
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%,
+    background: radial-gradient(
+      circle at 35% 35%,
       rgba(79, 142, 247, 0.85),
       rgba(34, 211, 160, 0.45)
     );
@@ -863,8 +1075,13 @@ import { site } from '../data/site';
   }
 
   @keyframes orb-float {
-    0%, 100% { transform: translateY(0)    scale(1);    }
-    50%      { transform: translateY(-14px) scale(1.06); }
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-14px) scale(1.06);
+    }
   }
 
   /* ── cra2: Globe Orbit Card (Streamline Sales SVG) ─────── */
@@ -920,7 +1137,9 @@ import { site } from '../data/site';
     margin: -100px 0 0 -100px;
     animation: ss-cw 14s linear infinite;
   }
-  .ss-d2 { animation-delay: -7s; }
+  .ss-d2 {
+    animation-delay: -7s;
+  }
 
   /* Birds: wide ellipse 228×138, 18s CW — b1/b2/b3 at 120° each */
   .ss-b1,
@@ -931,8 +1150,12 @@ import { site } from '../data/site';
     margin: -69px 0 0 -114px;
     animation: ss-cw 18s linear infinite;
   }
-  .ss-b2 { animation-delay: -6s; }
-  .ss-b3 { animation-delay: -12s; }
+  .ss-b2 {
+    animation-delay: -6s;
+  }
+  .ss-b3 {
+    animation-delay: -12s;
+  }
 
   /* Envelopes: tighter ellipse 172×104, 22s CCW — e1/e2 at 180° */
   .ss-e1,
@@ -942,10 +1165,20 @@ import { site } from '../data/site';
     margin: -52px 0 0 -86px;
     animation: ss-ccw 22s linear infinite;
   }
-  .ss-e2 { animation-delay: -11s; }
+  .ss-e2 {
+    animation-delay: -11s;
+  }
 
-  @keyframes ss-cw  { to { transform: rotate( 360deg); } }
-  @keyframes ss-ccw { to { transform: rotate(-360deg); } }
+  @keyframes ss-cw {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes ss-ccw {
+    to {
+      transform: rotate(-360deg);
+    }
+  }
 
   /* ── Token — sits at top-center of ring, counter-rotates to stay upright ── */
   .ss-tok {
@@ -991,27 +1224,60 @@ import { site } from '../data/site';
   }
 
   /* Counter-rotation keyframes — token stays upright as orbit spins */
-  @keyframes ss-tok-ccw { to { transform: translate(-50%, -50%) rotate(-360deg); } }
-  @keyframes ss-tok-cw  { to { transform: translate(-50%, -50%) rotate( 360deg); } }
+  @keyframes ss-tok-ccw {
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+  @keyframes ss-tok-cw {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
 
   /* CW orbit tokens counter-rotate CCW, matching ring duration + delay */
-  .ss-d1 .ss-tok, .ss-d2 .ss-tok { animation: ss-tok-ccw 14s linear infinite; }
-  .ss-d2 .ss-tok { animation-delay: -7s; }
+  .ss-d1 .ss-tok,
+  .ss-d2 .ss-tok {
+    animation: ss-tok-ccw 14s linear infinite;
+  }
+  .ss-d2 .ss-tok {
+    animation-delay: -7s;
+  }
 
-  .ss-b1 .ss-tok, .ss-b2 .ss-tok, .ss-b3 .ss-tok { animation: ss-tok-ccw 18s linear infinite; }
-  .ss-b2 .ss-tok { animation-delay: -6s; }
-  .ss-b3 .ss-tok { animation-delay: -12s; }
+  .ss-b1 .ss-tok,
+  .ss-b2 .ss-tok,
+  .ss-b3 .ss-tok {
+    animation: ss-tok-ccw 18s linear infinite;
+  }
+  .ss-b2 .ss-tok {
+    animation-delay: -6s;
+  }
+  .ss-b3 .ss-tok {
+    animation-delay: -12s;
+  }
 
   /* CCW orbit tokens counter-rotate CW */
-  .ss-e1 .ss-tok, .ss-e2 .ss-tok { animation: ss-tok-cw 22s linear infinite; }
-  .ss-e2 .ss-tok { animation-delay: -11s; }
+  .ss-e1 .ss-tok,
+  .ss-e2 .ss-tok {
+    animation: ss-tok-cw 22s linear infinite;
+  }
+  .ss-e2 .ss-tok {
+    animation-delay: -11s;
+  }
 
   /* All tokens start centered on the orbit top point */
-  .ss-tok { transform: translate(-50%, -50%); }
+  .ss-tok {
+    transform: translate(-50%, -50%);
+  }
 
   @media (prefers-reduced-motion: reduce) {
-    .ss-orbit, .ss-tok { animation: none; }
-    .ss-tok { transform: translate(-50%, -50%); }
+    .ss-orbit,
+    .ss-tok {
+      animation: none;
+    }
+    .ss-tok {
+      transform: translate(-50%, -50%);
+    }
   }
 
   /* ── Logo Strip (Superior-style) ───────────────────────── */
@@ -1053,8 +1319,9 @@ import { site } from '../data/site';
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: box-shadow var(--duration-base) var(--ease-out-expo),
-                transform   var(--duration-base) var(--ease-out-expo);
+    transition:
+      box-shadow var(--duration-base) var(--ease-out-expo),
+      transform var(--duration-base) var(--ease-out-expo);
   }
 
   .logo-chip:hover {
@@ -1073,7 +1340,9 @@ import { site } from '../data/site';
   }
 
   /* Marquee variant */
-  .logo-strip-section--marquee { overflow: hidden; }
+  .logo-strip-section--marquee {
+    overflow: hidden;
+  }
 
   .marquee-track {
     overflow: hidden;
@@ -1088,15 +1357,25 @@ import { site } from '../data/site';
     animation: marquee-scroll 28s linear infinite;
   }
 
-  .marquee-inner .logo-chip { flex-shrink: 0; }
+  .marquee-inner .logo-chip {
+    flex-shrink: 0;
+  }
 
   @keyframes marquee-scroll {
-    from { transform: translateX(0); }
-    to   { transform: translateX(-50%); }
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .marquee-inner { animation: none; justify-content: center; flex-wrap: wrap; }
+    .marquee-inner {
+      animation: none;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
   }
 
   /* Fade edge overlays */
@@ -1137,47 +1416,61 @@ import { site } from '../data/site';
 
   /* ── Responsive ─────────────────────────────────────────── */
   @media (max-width: 600px) {
-    .cn1 { grid-template-columns: 1fr; }
-    .type-row { flex-direction: column; gap: var(--space-1); }
-    .type-token { min-width: unset; }
-    .ani1-wrap { height: 260px; }
+    .cn1 {
+      grid-template-columns: 1fr;
+    }
+    .type-row {
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+    .type-token {
+      min-width: unset;
+    }
+    .ani1-wrap {
+      height: 260px;
+    }
   }
 </style>
 
 <script>
   (() => {
-    const canvas = document.getElementById('particle-canvas') as HTMLCanvasElement;
+    const canvas = document.getElementById(
+      "particle-canvas",
+    ) as HTMLCanvasElement;
     if (!canvas) return;
-    const ctx = canvas.getContext('2d')!;
+    const ctx = canvas.getContext("2d")!;
 
     // Config
-    const PARTICLE_COUNT  = 80;
-    const SPEED           = 0.06;
-    const CONNECT_DIST    = 130;
-    const DOT_RADIUS      = 2.5;
-    const DOT_OPACITY     = 0.2;
+    const PARTICLE_COUNT = 80;
+    const SPEED = 0.06;
+    const CONNECT_DIST = 130;
+    const DOT_RADIUS = 2.5;
+    const DOT_OPACITY = 0.2;
     const LINE_MAX_OPACITY = 0.22;
 
     interface Particle {
-      x: number; y: number;
-      vx: number; vy: number;
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
     }
 
-    let W = 0, H = 0;
+    let W = 0,
+      H = 0;
     let particles: Particle[] = [];
     let raf: number;
 
     function resize() {
       const rect = canvas.getBoundingClientRect();
-      W = canvas.width  = rect.width  * devicePixelRatio;
+      W = canvas.width = rect.width * devicePixelRatio;
       H = canvas.height = rect.height * devicePixelRatio;
     }
 
     function spawn(): Particle {
       const angle = Math.random() * Math.PI * 2;
       return {
-        x:  Math.random() * W,
-        y:  Math.random() * H,
+        x: Math.random() * W,
+        y: Math.random() * H,
         vx: Math.cos(angle) * SPEED * devicePixelRatio,
         vy: Math.sin(angle) * SPEED * devicePixelRatio,
       };
@@ -1230,21 +1523,27 @@ import { site } from '../data/site';
     }
 
     // Pause when off-screen (perf)
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        raf = requestAnimationFrame(draw);
-      } else {
-        cancelAnimationFrame(raf);
-      }
-    }, { threshold: 0.05 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          raf = requestAnimationFrame(draw);
+        } else {
+          cancelAnimationFrame(raf);
+        }
+      },
+      { threshold: 0.05 },
+    );
     observer.observe(canvas);
 
-    window.addEventListener('resize', () => { resize(); });
+    window.addEventListener("resize", () => {
+      resize();
+    });
 
     init();
     // Reduced motion — skip animation
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      draw(); cancelAnimationFrame(raf);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      draw();
+      cancelAnimationFrame(raf);
     }
   })();
 </script>

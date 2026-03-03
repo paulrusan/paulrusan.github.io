@@ -1,0 +1,195 @@
+---
+const items = [
+  { key: "T", label: "New task" },
+  { key: "D", label: "Duplicate file" },
+  { key: "K", label: "Command menu" },
+];
+---
+
+<div
+  class="sc-card"
+  data-role="shortcut-card"
+  data-items={JSON.stringify(items)}
+>
+  <div>
+    <div class="sc-grid" aria-hidden="true">
+      {Array.from({ length: 12 }).map(() => <div class="sc-tile" />)}
+    </div>
+
+    <div class="sc-keys">
+      <button class="sc-key sc-key--cmd" type="button" aria-label="Command key"
+        >⌘</button
+      >
+      <button
+        class="sc-key sc-key--letter"
+        type="button"
+        aria-label="Shortcut letter">T</button
+      >
+    </div>
+
+    <div class="sc-pill" role="status" aria-live="polite">New task</div>
+
+    <div class="sc-body">
+      <div class="sc-title">App shortcuts</div>
+      <div class="sc-desc">
+        Save time, boost efficiency, and focus on what truly matters for you.
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .sc-card {
+    width: 360px;
+    border-radius: 20px;
+    background: #fff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    padding: 18px 18px 16px;
+    position: relative;
+    overflow: hidden;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      Segoe UI,
+      Roboto,
+      Arial,
+      "PingFang SC",
+      "Hiragino Sans GB",
+      "Microsoft YaHei",
+      sans-serif;
+  }
+
+  /* faint tiles background */
+  .sc-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    opacity: 0.55;
+  }
+  .sc-tile {
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(
+      180deg,
+      rgba(15, 23, 42, 0.035),
+      rgba(15, 23, 42, 0.02)
+    );
+    border: 1px solid rgba(15, 23, 42, 0.05);
+  }
+  .sc-tile:nth-child(4) {
+    grid-column: span 2;
+  }
+  .sc-tile:nth-child(9) {
+    grid-column: span 2;
+  }
+
+  .sc-keys {
+    position: absolute;
+    top: 92px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    pointer-events: auto;
+  }
+
+  .sc-key {
+    width: 58px;
+    height: 58px;
+    border-radius: 14px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: #fff;
+    box-shadow:
+      0 10px 22px rgba(15, 23, 42, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    font-size: 22px;
+    font-weight: 700;
+    color: rgba(15, 23, 42, 0.85);
+    cursor: pointer;
+    transition:
+      transform 0.12s ease,
+      box-shadow 0.12s ease;
+  }
+  .sc-key:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 14px 28px rgba(15, 23, 42, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+  .sc-key:active {
+    transform: translateY(0px) scale(0.99);
+  }
+
+  .sc-pill {
+    position: absolute;
+    top: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+    font-weight: 600;
+    color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(6px);
+  }
+
+  .sc-body {
+    margin-top: 22px;
+    padding-top: 14px;
+  }
+  .sc-title {
+    font-size: 16px;
+    font-weight: 750;
+    color: rgba(15, 23, 42, 0.92);
+  }
+  .sc-desc {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(15, 23, 42, 0.65);
+  }
+</style>
+
+<script>
+  // 找到当前脚本所在组件的根节点（向上找最近的 data-role）
+  const root =
+    document.currentScript?.closest?.('[data-role="shortcut-card"]') ||
+    document.querySelector('[data-role="shortcut-card"]');
+
+  if (!root) throw new Error("ShortcutCard root not found");
+
+  const items = JSON.parse(root.getAttribute("data-items") || "[]");
+
+  const cmdBtn = root.querySelector(".sc-key--cmd");
+  const letterBtn = root.querySelector(".sc-key--letter");
+  const pill = root.querySelector(".sc-pill");
+
+  if (!cmdBtn || !letterBtn || !pill) {
+    console.warn("Missing elements:", { cmdBtn, letterBtn, pill });
+    throw new Error("ShortcutCard buttons/pill not found. Check class names.");
+  }
+
+  let idx = 0;
+
+  function render() {
+    const it = items[idx];
+    if (!it) return;
+    letterBtn.textContent = it.key;
+    pill.textContent = it.label;
+  }
+
+  function next() {
+    idx = (idx + 1) % items.length;
+    render();
+  }
+
+  cmdBtn.addEventListener("click", next);
+  letterBtn.addEventListener("click", next);
+
+  render();
+</script>

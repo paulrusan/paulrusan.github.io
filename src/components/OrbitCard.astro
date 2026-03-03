@@ -1,0 +1,284 @@
+---
+const icons = [
+  { alt: "add", src: "/icons/add.png", angle: 45, r: 60 },
+  { alt: "minus", src: "/icons/minus.png", angle: 135, r: 60 },
+  { alt: "multiply", src: "/icons/multiply.png", angle: 225, r: 60 },
+  { alt: "divide", src: "/icons/divide.png", angle: 315, r: 60 },
+];
+---
+
+<div class="orbit-card">
+  <div class="orbit-top">
+    <!-- “可见窗口”：只显示上半部分，下面会被裁掉 -->
+    <div class="orbit-clip">
+      <div class="rings" aria-hidden="true">
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+        <div class="ring ring-3"></div>
+        <div class="ring ring-4"></div>
+      </div>
+
+      <!-- 旋转层：hover 才转 -->
+      <div class="orbit-rot">
+        {
+          icons.map((it) => (
+            <div class="orb" style={`--a:${it.angle}deg; --r:${it.r}px;`}>
+              <div class="icon">
+                <img
+                  class="icon-img"
+                  src={it.src}
+                  alt={it.alt}
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- 中心 icon：固定在正中，不旋转 -->
+      <div class="icon icon-center">
+        <img class="icon-img" src="/icons/acc.png" alt="Accountium" />
+      </div>
+    </div>
+
+    <div class="text">
+      <div class="title">Seamless integrations</div>
+      <div class="desc">
+        Seamlessly connect your favorite apps and platforms with our powerful
+        integrations.
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .orbit-card {
+      width: 360px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+      overflow: hidden;
+      font-family:
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        Segoe UI,
+        Roboto,
+        Arial,
+        "PingFang SC",
+        "Hiragino Sans GB",
+        "Microsoft YaHei",
+        sans-serif;
+    }
+    /* 统一图片适配（中心和外圈都用这个 class） */
+    .icon-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    /* 上半部分画布区域 */
+    .orbit-top {
+      padding: 18px 18px 0;
+      background: linear-gradient(
+        180deg,
+        rgba(15, 23, 42, 0.03),
+        rgba(15, 23, 42, 0)
+      );
+      position: relative;
+    }
+    /* 统一缩放 + 中心偏移 */
+    .oc-card {
+      --oc-scale: 0.86;
+      --cx: -18px;
+      --cy: -14px;
+    }
+
+    /* rings / rot 用 scale */
+    .oc-rings {
+      transform: translate(-50%, -50%) scale(var(--oc-scale));
+    }
+
+    .oc-rot {
+      transform-origin: 50% 50%;
+      animation: oc-spin 18s linear infinite;
+      animation-play-state: paused;
+    }
+
+    .oc-card {
+      --cx: 0px;
+      --cy: 0px;
+    }
+    .orbit-card:hover .orbit-rot,
+    .orbit-card:hover .icon {
+      animation-play-state: running;
+    }
+    @keyframes oc-spin {
+      from {
+        transform: translate(-50%, -50%) scale(var(--oc-scale)) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) scale(var(--oc-scale)) rotate(360deg);
+      }
+    }
+
+    .orbit-clip {
+      position: relative;
+      height: 210px; /* 控制可见高度 */
+      overflow: hidden; /* 下半部分“隐藏”就是靠它 */
+      border-radius: 18px;
+    }
+
+    /* 让轨道中心靠近上方一点（像截图那样） */
+    .rings,
+    .orbit-rot,
+    .icon-center {
+      position: absolute;
+      left: 52%;
+      top: 55%; /* 关键：中心点不是50%，而是偏下 */
+      transform: translate(-50%, -50%);
+    }
+
+    .icon-center {
+      left: 43% !important;
+      top: 42% !important;
+    }
+    .rings {
+      width: 250px;
+      height: 250px;
+      pointer-events: none;
+    }
+    .ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      border: 4px dotted rgba(1, 1, 1, 0.12);
+      opacity: 0.55;
+    }
+    .ring-1 {
+      transform: scale(0.8);
+      opacity: 0.6;
+    }
+    .ring-2 {
+      transform: scale(0.58);
+      opacity: 0.45;
+    }
+    .ring-3 {
+      transform: scale(0.36);
+      opacity: 0.3;
+    }
+
+    .orbit-rot {
+      width: 360px;
+      height: 360px;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 50%;
+      animation: spin 18s linear infinite;
+      animation-play-state: paused; /* 默认不动 */
+    }
+
+    /* hover 才动 */
+    .orbit-card:hover .orbit-rot {
+      animation-play-state: running;
+    }
+
+    /* orbit items：沿圆轨道走 */
+    .orb {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 0;
+      height: 0;
+      transform: rotate(var(--a)) translateX(var(--r));
+      transform-origin: 0 0;
+    }
+
+    /* 图标卡片 */
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      box-shadow:
+        0 12px 26px rgba(15, 23, 42, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* 关键：反向旋转抵消父旋转 → 图标始终正的 */
+      animation: counterspin 18s linear infinite;
+      animation-play-state: paused;
+    }
+
+    /* hover 才反向转（和父同步） */
+    .orbit-card:hover .icon {
+      animation-play-state: running;
+    }
+
+    /* 中心 icon 固定在中心，不跟着转 */
+    .icon-center {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.1);
+      box-shadow:
+        0 12px 26px rgba(15, 23, 42, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    .mark {
+      font-weight: 900;
+      font-size: 18px;
+      color: rgba(15, 23, 42, 0.8);
+    }
+
+    /* 文本区 */
+    .text {
+      padding: 14px 18px 18px;
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 850;
+      color: rgba(15, 23, 42, 0.92);
+    }
+    .desc {
+      margin-top: 8px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: rgba(15, 23, 42, 0.65);
+    }
+
+    /* animations */
+    @keyframes spin {
+      from {
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      to {
+        transform: translate(-50%, -50%) rotate(360deg);
+      }
+    }
+    @keyframes counterspin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orbit-rot,
+      .icon {
+        animation: none;
+      }
+    }
+  </style>
+</div>

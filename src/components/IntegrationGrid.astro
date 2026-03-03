@@ -1,0 +1,206 @@
+---
+/**
+ * IntegrationGrid.astro
+ * 4 columns: col1 up, col2 down, col3 up, col4 down
+ * Put your images in /public/icons/...  (e.g. /public/icons/add.png)
+ */
+
+const icons = [
+  { src: "/icons/add.png", alt: "add" },
+  { src: "/icons/minus.png", alt: "minus" },
+  { src: "/icons/multiply.png", alt: "multiply" },
+  { src: "/icons/divide.png", alt: "divide" },
+  // 你可以继续加更多图标，让滚动更自然
+];
+
+const col1 = icons;
+const col2 = [...icons].reverse();
+const col3 = icons;
+const col4 = [...icons].reverse();
+
+// 帮你做无缝：每列渲染两遍
+function loop(list) {
+  return [...list, ...list];
+}
+---
+
+<section class="ig">
+  <div class="ig-panel">
+    <div class="ig-grid">
+      <div class="ig-col up" style="--dur: 18s;">
+        <div class="ig-track">
+          {
+            loop(col1).map((it) => (
+              <div class="ig-tile">
+                <img src={it.src} alt={it.alt} loading="lazy" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="ig-col down" style="--dur: 22s;">
+        <div class="ig-track">
+          {
+            loop(col2).map((it) => (
+              <div class="ig-tile">
+                <img src={it.src} alt={it.alt} loading="lazy" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="ig-col up" style="--dur: 20s;">
+        <div class="ig-track">
+          {
+            loop(col3).map((it) => (
+              <div class="ig-tile">
+                <img src={it.src} alt={it.alt} loading="lazy" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <div class="ig-col down" style="--dur: 24s;">
+        <div class="ig-track">
+          {
+            loop(col4).map((it) => (
+              <div class="ig-tile">
+                <img src={it.src} alt={it.alt} loading="lazy" />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 外层：你截图里那个大框 */
+  .ig {
+    width: 100%;
+    padding: 0;
+  }
+
+  .ig-panel {
+    width: 100%;
+    height: 380px; /* ✅ 这里决定“占满不占满” */
+    border-radius: 18px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    background: rgba(241, 248, 250, 0.6);
+    overflow: hidden; /* ✅ 重要：裁掉滚动内容 */
+    position: relative;
+  }
+
+  /* 顶部/底部渐隐（像模板那种淡出） */
+  .ig-panel::before,
+  .ig-panel::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 110px;
+    z-index: 5;
+    pointer-events: none;
+  }
+  .ig-panel::before {
+    top: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(241, 248, 250, 0.95),
+      rgba(241, 248, 250, 0)
+    );
+  }
+  .ig-panel::after {
+    bottom: 0;
+    background: linear-gradient(
+      to top,
+      rgba(241, 248, 250, 0.95),
+      rgba(241, 248, 250, 0)
+    );
+  }
+
+  /* 4 列布局：让它在框里居中并占满高度 */
+  .ig-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 92px); /* 每列宽度 */
+    gap: 18px;
+    justify-content: center;
+    align-items: stretch;
+    padding: 22px 18px;
+  }
+
+  /* 每列就是一个“窗口” */
+  .ig-col {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* 真正移动的是 track（里面堆满 tile） */
+  .ig-track {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    will-change: transform;
+    animation-duration: var(--dur, 20s);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  /* 1/3列向上 */
+  .ig-col.up .ig-track {
+    animation-name: ig-up;
+  }
+  /* 2/4列向下 */
+  .ig-col.down .ig-track {
+    animation-name: ig-down;
+  }
+
+  /* 无缝循环：因为内容渲染了两遍，所以移动 50% 刚好接上 */
+  @keyframes ig-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-50%);
+    }
+  }
+  @keyframes ig-down {
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  /* 图标卡片 */
+  .ig-tile {
+    width: 72px;
+    height: 72px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ig-tile img {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* 可选：更像模板：两侧淡一点（自己看要不要） */
+  .ig-col:nth-child(1),
+  .ig-col:nth-child(4) {
+    opacity: 0.85;
+  }
+</style>
