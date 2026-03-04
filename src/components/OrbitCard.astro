@@ -1,9 +1,22 @@
 ---
+/**
+ * OrbitCard.astro (inline SVG version - Scheme A)
+ * - Uses wrapper IDs (card_plus/card_minus/...) to "identify elements"
+ * - Renders SVG inline via set:html so you can animate/target them
+ * - Keeps icons upright while orbit rotates on hover
+ */
+
+import addSvg from "/public/icons/add.svg?raw";
+import minusSvg from "/public/icons/minus.svg?raw";
+import multiplySvg from "/public/icons/multiply.svg?raw";
+import divideSvg from "/public/icons/divide.svg?raw";
+import accSvg from "/public/icons/acc.svg?raw";
+
 const icons = [
-  { alt: "add", src: "/icons/add.png", angle: 45, r: 60 },
-  { alt: "minus", src: "/icons/minus.png", angle: 135, r: 60 },
-  { alt: "multiply", src: "/icons/multiply.png", angle: 225, r: 60 },
-  { alt: "divide", src: "/icons/divide.png", angle: 315, r: 60 },
+  { id: "card_plus", svg: addSvg, angle: 45, r: 60 },
+  { id: "card_minus", svg: minusSvg, angle: 135, r: 60 },
+  { id: "card_multiply", svg: multiplySvg, angle: 225, r: 60 },
+  { id: "card_divide", svg: divideSvg, angle: 315, r: 60 },
 ];
 ---
 
@@ -24,21 +37,20 @@ const icons = [
           icons.map((it) => (
             <div class="orb" style={`--a:${it.angle}deg; --r:${it.r}px;`}>
               <div class="icon">
-                <img
-                  class="icon-img"
-                  src={it.src}
-                  alt={it.alt}
-                  loading="lazy"
-                />
+                <div class="icon-box" id={it.id} aria-label={it.id}>
+                  <div class="icon-svg" set:html={it.svg} />
+                </div>
               </div>
             </div>
           ))
         }
       </div>
 
-      <!-- 中心 icon：固定在正中，不旋转 -->
+      <!-- center icon (NOT rotating) -->
       <div class="icon icon-center">
-        <img class="icon-img" src="/icons/acc.png" alt="Accountium" />
+        <div class="icon-box" id="icon_center" aria-label="Accountium">
+          <div class="icon-svg" set:html={accSvg} />
+        </div>
       </div>
     </div>
 
@@ -71,14 +83,7 @@ const icons = [
         "Microsoft YaHei",
         sans-serif;
     }
-    /* 统一图片适配（中心和外圈都用这个 class） */
-    .icon-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-    /* 上半部分画布区域 */
+
     .orbit-top {
       padding: 18px 18px 0;
       background: linear-gradient(
@@ -88,67 +93,37 @@ const icons = [
       );
       position: relative;
     }
-    /* 统一缩放 + 中心偏移 */
-    .oc-card {
-      --oc-scale: 0.86;
-      --cx: -18px;
-      --cy: -14px;
-    }
-
-    /* rings / rot 用 scale */
-    .oc-rings {
-      transform: translate(-50%, -50%) scale(var(--oc-scale));
-    }
-
-    .oc-rot {
-      transform-origin: 50% 50%;
-      animation: oc-spin 18s linear infinite;
-      animation-play-state: paused;
-    }
-
-    .oc-card {
-      --cx: 0px;
-      --cy: 0px;
-    }
-    .orbit-card:hover .orbit-rot,
-    .orbit-card:hover .icon {
-      animation-play-state: running;
-    }
-    @keyframes oc-spin {
-      from {
-        transform: translate(-50%, -50%) scale(var(--oc-scale)) rotate(0deg);
-      }
-      to {
-        transform: translate(-50%, -50%) scale(var(--oc-scale)) rotate(360deg);
-      }
-    }
 
     .orbit-clip {
       position: relative;
-      height: 210px; /* 控制可见高度 */
-      overflow: hidden; /* 下半部分“隐藏”就是靠它 */
+      height: 210px;
+      overflow: hidden;
       border-radius: 18px;
     }
 
-    /* 让轨道中心靠近上方一点（像截图那样） */
+    /* layers positioned around a slightly lower center */
     .rings,
     .orbit-rot,
     .icon-center {
       position: absolute;
       left: 52%;
-      top: 55%; /* 关键：中心点不是50%，而是偏下 */
+      top: 55%;
       transform: translate(-50%, -50%);
     }
 
+    /* center icon tweak */
     .icon-center {
       left: 43% !important;
       top: 42% !important;
     }
+
+    /* rings */
     .rings {
       width: 250px;
       height: 250px;
       pointer-events: none;
     }
+
     .ring {
       position: absolute;
       inset: 0;
@@ -168,22 +143,25 @@ const icons = [
       transform: scale(0.36);
       opacity: 0.3;
     }
+    .ring-4 {
+      transform: scale(1);
+      opacity: 0.55;
+    }
 
+    /* orbit rotation (paused until hover) */
     .orbit-rot {
       width: 360px;
       height: 360px;
       transform: translate(-50%, -50%);
       transform-origin: 50% 50%;
       animation: spin 18s linear infinite;
-      animation-play-state: paused; /* 默认不动 */
+      animation-play-state: paused;
     }
-
-    /* hover 才动 */
     .orbit-card:hover .orbit-rot {
       animation-play-state: running;
     }
 
-    /* orbit items：沿圆轨道走 */
+    /* orbit items: place around circle */
     .orb {
       position: absolute;
       left: 50%;
@@ -194,7 +172,7 @@ const icons = [
       transform-origin: 0 0;
     }
 
-    /* 图标卡片 */
+    /* icon card */
     .icon {
       width: 58px;
       height: 58px;
@@ -208,17 +186,17 @@ const icons = [
       align-items: center;
       justify-content: center;
 
-      /* 关键：反向旋转抵消父旋转 → 图标始终正的 */
+      /* counter-rotate to keep upright (paused until hover) */
       animation: counterspin 18s linear infinite;
       animation-play-state: paused;
     }
 
-    /* hover 才反向转（和父同步） */
-    .orbit-card:hover .icon {
+    /* ✅ only orbit icons counterspin on hover (NOT the center) */
+    .orbit-card:hover .orbit-rot .icon {
       animation-play-state: running;
     }
 
-    /* 中心 icon 固定在中心，不跟着转 */
+    /* center icon stays fixed */
     .icon-center {
       width: 62px;
       height: 62px;
@@ -233,13 +211,36 @@ const icons = [
         inset 0 1px 0 rgba(255, 255, 255, 0.9);
     }
 
-    .mark {
-      font-weight: 900;
-      font-size: 18px;
-      color: rgba(15, 23, 42, 0.8);
+    /* 只负责“识别”的外层，不负责尺寸 */
+    .icon-box {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      overflow: hidden; /* 关键：不让 base64 image 溢出 */
     }
 
-    /* 文本区 */
+    /* 只负责塞 svg 的内层 */
+    .icon-svg {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* 强制 inline svg 按盒子缩放 */
+    .icon-svg :global(svg) {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    /* 如果 Inkscape 写死了 width/height，这句能压住 */
+    .icon-svg :global(svg image) {
+      width: 100% !important;
+      height: 100% !important;
+    }
     .text {
       padding: 14px 18px 18px;
       border-top: 1px solid rgba(15, 23, 42, 0.06);

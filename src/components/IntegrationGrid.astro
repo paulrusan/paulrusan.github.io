@@ -1,16 +1,14 @@
 ---
-/**
- * IntegrationGrid.astro
- * 4 columns: col1 up, col2 down, col3 up, col4 down
- * Put your images in /public/icons/...  (e.g. /public/icons/add.png)
- */
+import addSvg from "/public/icons/add.svg?raw";
+import minusSvg from "/public/icons/minus.svg?raw";
+import multiplySvg from "/public/icons/multiply.svg?raw";
+import divideSvg from "/public/icons/divide.svg?raw";
 
 const icons = [
-  { src: "/icons/add.png", alt: "add" },
-  { src: "/icons/minus.png", alt: "minus" },
-  { src: "/icons/multiply.png", alt: "multiply" },
-  { src: "/icons/divide.png", alt: "divide" },
-  // 你可以继续加更多图标，让滚动更自然
+  { name: "plus", svg: addSvg },
+  { name: "minus", svg: minusSvg },
+  { name: "multiply", svg: multiplySvg },
+  { name: "divide", svg: divideSvg },
 ];
 
 const col1 = icons;
@@ -18,9 +16,13 @@ const col2 = [...icons].reverse();
 const col3 = icons;
 const col4 = [...icons].reverse();
 
-// 帮你做无缝：每列渲染两遍
 function loop(list) {
-  return [...list, ...list];
+  // 返回两遍，并给每个生成唯一 key，避免重复 id
+  return [...list, ...list].map((it, i) => ({
+    ...it,
+    key: `${it.name}-${i}`, // 唯一
+    domId: `card_${it.name}-${i}`, // 唯一 DOM id
+  }));
 }
 ---
 
@@ -32,7 +34,12 @@ function loop(list) {
           {
             loop(col1).map((it) => (
               <div class="ig-tile">
-                <img src={it.src} alt={it.alt} loading="lazy" />
+                <div
+                  id={it.domId}
+                  class="card-icon"
+                  set:html={it.svg}
+                  aria-label={it.name}
+                />
               </div>
             ))
           }
@@ -44,7 +51,12 @@ function loop(list) {
           {
             loop(col2).map((it) => (
               <div class="ig-tile">
-                <img src={it.src} alt={it.alt} loading="lazy" />
+                <div
+                  id={it.domId}
+                  class="card-icon"
+                  set:html={it.svg}
+                  aria-label={it.name}
+                />
               </div>
             ))
           }
@@ -56,7 +68,12 @@ function loop(list) {
           {
             loop(col3).map((it) => (
               <div class="ig-tile">
-                <img src={it.src} alt={it.alt} loading="lazy" />
+                <div
+                  id={it.domId}
+                  class="card-icon"
+                  set:html={it.svg}
+                  aria-label={it.name}
+                />
               </div>
             ))
           }
@@ -68,7 +85,12 @@ function loop(list) {
           {
             loop(col4).map((it) => (
               <div class="ig-tile">
-                <img src={it.src} alt={it.alt} loading="lazy" />
+                <div
+                  id={it.domId}
+                  class="card-icon"
+                  set:html={it.svg}
+                  aria-label={it.name}
+                />
               </div>
             ))
           }
@@ -77,9 +99,7 @@ function loop(list) {
     </div>
   </div>
 </section>
-
 <style>
-  /* 外层：你截图里那个大框 */
   .ig {
     width: 100%;
     padding: 0;
@@ -87,15 +107,15 @@ function loop(list) {
 
   .ig-panel {
     width: 100%;
-    height: 380px; /* ✅ 这里决定“占满不占满” */
+    height: 380px;
     border-radius: 18px;
     border: 1px solid rgba(15, 23, 42, 0.08);
     background: rgba(241, 248, 250, 0.6);
-    overflow: hidden; /* ✅ 重要：裁掉滚动内容 */
+    overflow: hidden;
     position: relative;
   }
 
-  /* 顶部/底部渐隐（像模板那种淡出） */
+  /* 上下雾化遮罩 */
   .ig-panel::before,
   .ig-panel::after {
     content: "";
@@ -123,25 +143,24 @@ function loop(list) {
     );
   }
 
-  /* 4 列布局：让它在框里居中并占满高度 */
+  /* 4 列布局（每列 92px） */
   .ig-grid {
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 92px); /* 每列宽度 */
+    grid-template-columns: repeat(4, 92px);
     gap: 18px;
     justify-content: center;
     align-items: stretch;
     padding: 22px 18px;
   }
 
-  /* 每列就是一个“窗口” */
+  /* 每列是一个滚动窗口 */
   .ig-col {
     height: 100%;
     overflow: hidden;
-    position: relative;
   }
 
-  /* 真正移动的是 track（里面堆满 tile） */
+  /* 竖向滚动必须用 flex-column */
   .ig-track {
     display: flex;
     flex-direction: column;
@@ -152,16 +171,13 @@ function loop(list) {
     animation-iteration-count: infinite;
   }
 
-  /* 1/3列向上 */
   .ig-col.up .ig-track {
     animation-name: ig-up;
   }
-  /* 2/4列向下 */
   .ig-col.down .ig-track {
     animation-name: ig-down;
   }
 
-  /* 无缝循环：因为内容渲染了两遍，所以移动 50% 刚好接上 */
   @keyframes ig-up {
     from {
       transform: translateY(0);
@@ -179,26 +195,33 @@ function loop(list) {
     }
   }
 
-  /* 图标卡片 */
   .ig-tile {
     width: 72px;
     height: 72px;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 0 10px 26px rgba(15, 23, 42, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    place-items: center;
   }
 
-  .ig-tile img {
+  /* inline svg 容器 */
+  .card-icon {
     width: 46px;
     height: 46px;
-    object-fit: contain;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  /* 让 svg 跟随容器 */
+  .card-icon :global(svg) {
+    width: 100%;
+    height: 100%;
     display: block;
   }
 
-  /* 可选：更像模板：两侧淡一点（自己看要不要） */
+  /* dim columns */
   .ig-col:nth-child(1),
   .ig-col:nth-child(4) {
     opacity: 0.85;
