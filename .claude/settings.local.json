@@ -6,7 +6,13 @@
       "Bash(npm run dev:*)",
       "WebFetch(domain:accountium.ca)",
       "WebFetch(domain:iceberg.leonfurze.com)",
-      "WebFetch(domain:web.archive.org)"
+      "WebFetch(domain:web.archive.org)",
+      "Bash(node -e:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(py:*)",
+      "Bash(python3.11:*)",
+      "Bash(where:*)"
     ]
   }
 }
