@@ -12,7 +12,8 @@
       "Bash(python3:*)",
       "Bash(py:*)",
       "Bash(python3.11:*)",
-      "Bash(where:*)"
+      "Bash(where:*)",
+      "Bash(head:*)"
     ]
   }
 }
