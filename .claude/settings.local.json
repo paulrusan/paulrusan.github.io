@@ -13,7 +13,8 @@
       "Bash(py:*)",
       "Bash(python3.11:*)",
       "Bash(where:*)",
-      "Bash(head:*)"
+      "Bash(head:*)",
+      "Bash(git push:*)"
     ]
   }
 }
