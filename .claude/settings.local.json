@@ -14,7 +14,10 @@
       "Bash(python3.11:*)",
       "Bash(where:*)",
       "Bash(head:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4322/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
+      "Bash(wc -c \"c:/Users/rusan/Documents/GitHub/paulrusan.github.io/public/images/Ai-Accounting--wrldfirst.svg\")"
     ]
   }
 }
