@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500"><defs><filter id="lglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><style>
 @keyframes conn-pulse {
   0%, 15%, 85%, 100% { fill: #0d9488; filter: none; }
-  35%, 65% { fill: #ff2222; filter: drop-shadow(0 0 8px rgba(255,0,0,0.85)) drop-shadow(0 0 3px #ff0000); }
+  35%, 65% { fill: #2266ff; filter: drop-shadow(0 0 8px rgba(34,102,255,0.85)) drop-shadow(0 0 3px #2266ff); }
 }
 #conn1 { animation: conn-pulse 4s ease-in-out infinite 0s; }
 #conn2 { animation: conn-pulse 4.6s ease-in-out infinite 0.9s; }

@@ -826,6 +826,128 @@ import { site } from '../data/site';
     </div>
   </section>
 
+  <!-- ── Features with img ─────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="features-img-heading">
+    <h2 id="features-img-heading">Features with img</h2>
+    <p>Each accounting module shown with its graphic and description.</p>
+  </section>
+
+  <section class="feat-list">
+
+    <!-- 1 · Sales -->
+    <div class="feat-row">
+      <div class="feat-media">
+        <img src="/images/sales feature.svg" alt="Sales module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Sales</h3>
+        <p class="feat-desc">Create professional quotes and invoices in seconds, manage your customer relationships, and get a live view of your revenue pipeline — all from one place.</p>
+        <ul class="feat-pills">
+          <li>Invoices</li>
+          <li>Estimates</li>
+          <li>CRM</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 2 · Purchases -->
+    <div class="feat-row feat-row--alt">
+      <div class="feat-media">
+        <img src="/images/purchases.svg" alt="Purchases module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Purchases</h3>
+        <p class="feat-desc">Manage supplier bills, vendor accounts, and contractor payments with ease. Keep your payables under control and never miss a due date.</p>
+        <ul class="feat-pills">
+          <li>Bills</li>
+          <li>Vendors</li>
+          <li>Contractors</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 3 · Payroll -->
+    <div class="feat-row">
+      <div class="feat-media">
+        <img src="/images/payroll features.svg" alt="Payroll module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Payroll</h3>
+        <p class="feat-desc">Run payroll in a few clicks. Automate pay runs, handle statutory remittances, and keep schedules and reporting audit-ready at all times.</p>
+        <ul class="feat-pills">
+          <li>Payroll Run</li>
+          <li>Remittance</li>
+          <li>Schedules</li>
+          <li>Reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4 · Banking -->
+    <div class="feat-row feat-row--alt">
+      <div class="feat-media">
+        <img src="/images/banking features.svg" alt="Banking module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Banking</h3>
+        <p class="feat-desc">Connect your bank accounts and import transactions automatically. Set smart rules and reconcile your books in minutes, not hours.</p>
+        <ul class="feat-pills">
+          <li>Feeds</li>
+          <li>Rules</li>
+          <li>Reconcile</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5 · Inventory -->
+    <div class="feat-row">
+      <div class="feat-media">
+        <img src="/images/inventory.svg" alt="Inventory module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Inventory</h3>
+        <p class="feat-desc">Raise purchase orders, manage your item catalogue, and track stock levels in real time. Never run out of stock or over-order again.</p>
+        <ul class="feat-pills">
+          <li>Purchase Orders</li>
+          <li>Items Management</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 6 · Project Management -->
+    <div class="feat-row feat-row--alt">
+      <div class="feat-media">
+        <img src="/images/project management.svg" alt="Project Management module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Project Management</h3>
+        <p class="feat-desc">Win more work with detailed bids, track project progress against budget, and invoice clients as milestones are reached — keeping every project profitable.</p>
+        <ul class="feat-pills">
+          <li>Bids</li>
+          <li>Project Tracking</li>
+          <li>Progress Invoicing</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 7 · Reporting -->
+    <div class="feat-row">
+      <div class="feat-media">
+        <img src="/images/reporting.svg" alt="Reporting module" class="feat-svg" loading="lazy" />
+      </div>
+      <div class="feat-body">
+        <h3 class="feat-name">Reporting</h3>
+        <p class="feat-desc">Turn raw numbers into clear insights. Generate financial statements, sales tax returns, and AR/AP summaries in real time — and export to PDF or Excel with a single click.</p>
+        <ul class="feat-pills">
+          <li>Financial Statements</li>
+          <li>Sales Tax</li>
+          <li>AR / AP</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
 </BaseLayout>
 
 <style>
@@ -1693,6 +1815,144 @@ import { site } from '../data/site';
     .type-row { flex-direction: column; gap: var(--space-1); }
     .type-token { min-width: unset; }
     .ani1-wrap { height: 260px; }
+  }
+
+  /* ── Features with img ───────────────────────────────────── */
+  .feat-list {
+    padding: var(--space-4) 0 var(--space-16);
+  }
+  .feat-row {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    max-width: 1100px;
+    margin: 0 auto var(--space-16);
+    padding: 0 var(--space-6);
+  }
+  .feat-row--alt {
+    flex-direction: row-reverse;
+  }
+  .feat-media {
+    flex: 0 0 48%;
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    min-height: 240px;
+  }
+  .feat-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .feat-media--chart {
+    background: linear-gradient(135deg, rgba(6,182,212,0.06) 0%, rgba(99,102,241,0.06) 100%);
+    padding: var(--space-6);
+  }
+  .feat-report-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .feat-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .feat-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    background: rgba(8,145,178,0.12);
+    border: 1px solid rgba(8,145,178,0.25);
+    border-radius: 4px;
+    padding: 2px 8px;
+    margin-bottom: var(--space-3);
+  }
+  .feat-name {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 var(--space-4);
+    color: var(--color-text);
+  }
+  .feat-desc {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text);
+    margin: 0 0 var(--space-5);
+    max-width: 46ch;
+  }
+  .feat-pills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .feat-pills li {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .feat-pills li::before {
+    content: '—';
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* Reporting chart animations */
+  .rpt-bar {
+    transform-origin: bottom;
+    animation: rpt-grow 1.2s cubic-bezier(0.22, 1, 0.36, 1) both infinite;
+    animation-direction: alternate;
+    animation-duration: 3s;
+  }
+  @keyframes rpt-grow {
+    0%   { opacity: 0.5; transform: scaleY(0.7); }
+    100% { opacity: 1;   transform: scaleY(1); }
+  }
+  .rpt-dot {
+    animation: rpt-pulse 3s ease-in-out infinite;
+  }
+  @keyframes rpt-pulse {
+    0%, 100% { r: 3.5; opacity: 0.7; }
+    50%       { r: 5;   opacity: 1; }
+  }
+  .rpt-line {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: rpt-draw 2s ease-out forwards;
+  }
+  @keyframes rpt-draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  /* ── Features — Mobile ───────────────────────────────────── */
+  @media (max-width: 768px) {
+    .feat-row,
+    .feat-row--alt {
+      flex-direction: column;
+      gap: var(--space-6);
+      margin-bottom: var(--space-12);
+    }
+    .feat-media {
+      flex: unset;
+      width: 100%;
+      min-height: 200px;
+    }
+    .feat-desc { max-width: 100%; }
   }
 </style>
 

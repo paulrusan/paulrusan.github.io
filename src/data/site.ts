@@ -6,6 +6,6 @@ export const site = {
   url: 'https://accountium.ca',
   ogImage: '/images/og-image.png',
   twitterHandle: '@accountium',
-  email: 'hello@accountium.ca',
+  email: 'office@accountium.ca',
   appUrl: 'https://www.myaccountium.ca/Account/SignIn',
 };
