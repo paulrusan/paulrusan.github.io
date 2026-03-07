@@ -80,6 +80,8 @@ import CTASection from '../components/CTASection.astro';
     </div>
   </section>
 
+  <div class="feat-divider" aria-hidden="true"></div>
+
   <!-- All Features -->
   <section class="feat-list" aria-labelledby="all-features-heading">
     <h2 id="all-features-heading" class="sr-only">All features</h2>
@@ -100,6 +102,8 @@ import CTASection from '../components/CTASection.astro';
       </div>
     </div>
 
+    <div class="feat-divider" aria-hidden="true"></div>
+
     <!-- 2 · Purchases -->
     <div class="feat-row feat-row--alt">
       <div class="feat-media">
@@ -115,6 +119,8 @@ import CTASection from '../components/CTASection.astro';
         </ul>
       </div>
     </div>
+
+    <div class="feat-divider" aria-hidden="true"></div>
 
     <!-- 3 · Payroll -->
     <div class="feat-row">
@@ -133,6 +139,8 @@ import CTASection from '../components/CTASection.astro';
       </div>
     </div>
 
+    <div class="feat-divider" aria-hidden="true"></div>
+
     <!-- 4 · Banking -->
     <div class="feat-row feat-row--alt">
       <div class="feat-media">
@@ -149,6 +157,8 @@ import CTASection from '../components/CTASection.astro';
       </div>
     </div>
 
+    <div class="feat-divider" aria-hidden="true"></div>
+
     <!-- 5 · Inventory -->
     <div class="feat-row">
       <div class="feat-media">
@@ -163,6 +173,8 @@ import CTASection from '../components/CTASection.astro';
         </ul>
       </div>
     </div>
+
+    <div class="feat-divider" aria-hidden="true"></div>
 
     <!-- 6 · Project Management -->
     <div class="feat-row feat-row--alt">
@@ -179,6 +191,8 @@ import CTASection from '../components/CTASection.astro';
         </ul>
       </div>
     </div>
+
+    <div class="feat-divider" aria-hidden="true"></div>
 
     <!-- 7 · Reporting -->
     <div class="feat-row">
@@ -198,6 +212,8 @@ import CTASection from '../components/CTASection.astro';
 
   </section>
 
+  <div class="feat-divider" aria-hidden="true"></div>
+
   <!-- Integration Strip -->
   <section class="integrations-section section-sm" aria-labelledby="integrations-heading">
     <div class="container">
@@ -215,6 +231,8 @@ import CTASection from '../components/CTASection.astro';
       </div>
     </div>
   </section>
+
+  <div class="feat-divider" aria-hidden="true"></div>
 
   <CTASection
     headline="See it in action"
@@ -457,6 +475,24 @@ import CTASection from '../components/CTASection.astro';
     color: var(--color-accent);
     font-weight: 700;
     flex-shrink: 0;
+  }
+  .feat-divider {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    margin: 0 auto var(--space-4);
+  }
+
+  /* Strip CTA card background on this page */
+  :global(.cta-section .cta-inner) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  :global(.cta-section .cta-glow) {
+    display: none;
   }
 
   @media (max-width: 768px) {
