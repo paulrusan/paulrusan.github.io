@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { resources } from '../data/resources';
 
-const categories = ['All', 'Guide', 'Tip', 'Case Study', 'News'];
+const categories = ['All', 'Accounting', 'Business', 'Technology', 'Taxation'];
 ---
 
 <BaseLayout
@@ -13,7 +13,7 @@ const categories = ['All', 'Guide', 'Tip', 'Case Study', 'News'];
   <!-- ── Page Hero ─────────────────────────────────────────── -->
   <section class="page-hero" aria-label="Resources">
     <div class="container page-hero-inner">
-      <p class="section-label"><span aria-hidden="true">⬒</span> Resources</p>
+      <p class="section-label">Resources</p>
       <h1>Guides, Tips &amp; Updates</h1>
       <p class="page-subline">
         Accounting knowledge and product news to help your business stay sharp.
@@ -50,9 +50,6 @@ const categories = ['All', 'Guide', 'Tip', 'Case Study', 'News'];
             data-category={r.category}
             aria-label={r.title}
           >
-            <div class="card-top" style={`background: ${r.color}`} aria-hidden="true">
-              <span class="card-icon">{r.icon}</span>
-            </div>
             <div class="card-body">
               <span class="card-category">{r.category}</span>
               <h2 class="card-title">{r.title}</h2>
@@ -318,21 +315,6 @@ const categories = ['All', 'Guide', 'Tip', 'Case Study', 'News'];
   .resource-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 12px 32px rgba(8, 145, 178, 0.12);
-  }
-
-  .card-top {
-    height: 90px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .card-icon {
-    font-size: 2rem;
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
   }
 
   .card-body {
