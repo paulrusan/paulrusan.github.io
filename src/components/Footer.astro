@@ -5,10 +5,8 @@ const year = new Date().getFullYear();
 
 const footerLinks = {
   Product: [
-    { label: 'Features',  href: '/features' },
-    { label: 'Pricing',   href: '/pricing' },
-    { label: 'Security',  href: '/about#security' },
-    { label: 'Changelog', href: '/about#changelog' },
+    { label: 'Features', href: '/features' },
+    { label: 'Security', href: '/about#security' },
   ],
   Company: [
     { label: 'About',   href: '/about' },
@@ -30,7 +28,9 @@ const footerLinks = {
           <img src="/images/logo.png" alt="" class="logo-mark" />
           <span class="logo-text">{site.name}</span>
         </a>
-        <p class="footer-tagline">{site.tagline}</p>
+        <p class="footer-tagline">
+          <span>Numbers Made Easy</span><span class="tagline-sep"> </span><span>Business Run Brilliant</span>
+        </p>
         <a href={`mailto:${site.email}`} class="footer-email">{site.email}</a>
       </div>
 
@@ -92,7 +92,12 @@ const footerLinks = {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     margin-bottom: var(--space-3);
-    max-width: 28ch;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 560px) {
+    .footer-tagline { white-space: normal; }
+    .tagline-sep::after { content: '\A'; white-space: pre; }
   }
 
   .footer-email {
@@ -111,7 +116,7 @@ const footerLinks = {
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    color: var(--color-text);
     margin-bottom: var(--space-4);
   }
 

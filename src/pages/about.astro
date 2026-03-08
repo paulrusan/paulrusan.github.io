@@ -33,12 +33,10 @@ const values = [
   <!-- Page Hero -->
   <section class="page-hero section-sm" aria-label="About us">
     <div class="container page-hero-inner">
-      <p class="section-label"><span aria-hidden="true">◎</span> About</p>
+      <p class="section-label">About</p>
       <h1>Built for the modern CFO</h1>
       <p class="page-subline">
-        We started Accountium because we kept watching great companies struggle
-        with accounting software that was built for a world before AI.
-        We're changing that.
+        Great businesses deserve better accounting tools. Accountium uses advanced technology to replace outdated systems with a smarter, faster, and more intuitive way to manage your finances.
       </p>
     </div>
   </section>
@@ -46,15 +44,16 @@ const values = [
   <!-- Mission -->
   <section class="mission-section section-sm" aria-labelledby="mission-heading">
     <div class="container">
+      <div class="feat-divider" aria-hidden="true"></div>
+      <p class="section-label mission-label">Our mission</p>
       <div class="mission-inner glass-card">
         <div class="mission-content">
-          <p class="section-label"><span aria-hidden="true">✦</span> Our mission</p>
           <h2 id="mission-heading">
             Make financial clarity<br />accessible to every business.
           </h2>
           <p>
-            Most accounting software treats AI as a bolt-on feature. We built Accountium
-            with AI at the center — so the system gets smarter the longer you use it,
+            Most accounting software treats Advanced Technology as a bolt-on feature. We built Accountium
+            with Advanced Technology at the center — so the system gets smarter the longer you use it,
             automatically adapting to your business model, industry, and preferences.
           </p>
           <p>
@@ -85,30 +84,39 @@ const values = [
   </section>
 
   <!-- Values -->
-  <section class="section-sm" aria-labelledby="values-heading">
+  <section class="vals-section section-sm" aria-labelledby="values-heading">
     <div class="container">
-      <div class="section-intro-left">
-        <p class="section-label"><span aria-hidden="true">⬒</span> Our values</p>
+      <div class="feat-divider" aria-hidden="true"></div>
+      <div class="vals-header">
+        <p class="section-label">Our values</p>
         <h2 id="values-heading">What guides every decision</h2>
       </div>
-      <div class="values-grid">
-        {values.map((v) => (
-          <div class="value-item glass-card">
-            <span class="value-icon" aria-hidden="true">{v.icon}</span>
-            <h3 class="value-title">{v.title}</h3>
-            <p class="value-desc">{v.description}</p>
+    </div>
+    <div class="val-list">
+      {values.map((v, i) => (
+        <Fragment>
+          {i > 0 && <div class="feat-divider" aria-hidden="true"></div>}
+          <div class={`val-row${i % 2 === 1 ? ' val-row--alt' : ''}`}>
+            <div class="val-media">
+              <span class="val-icon" aria-hidden="true">{v.icon}</span>
+            </div>
+            <div class="val-body">
+              <h3 class="val-title">{v.title}</h3>
+              <p class="val-desc">{v.description}</p>
+            </div>
           </div>
-        ))}
-      </div>
+        </Fragment>
+      ))}
     </div>
   </section>
 
   <!-- Security Note -->
+  <div class="feat-divider" aria-hidden="true"></div>
   <section id="security" class="section-sm" aria-labelledby="security-heading">
     <div class="container">
       <div class="security-inner glass-card">
         <h2 id="security-heading">
-          <span aria-hidden="true">⊞</span> Security & compliance
+          Security & compliance
         </h2>
         <div class="security-grid">
           {[
@@ -135,13 +143,14 @@ const values = [
     </div>
   </section>
 
+  <div class="feat-divider" aria-hidden="true"></div>
+
   <CTASection
     headline="Want to learn more?"
     subline="Reach out — we'd love to show you around."
-    ctaLabel="Contact us"
-    ctaHref="/contact"
-    secondaryLabel="View pricing"
-    secondaryHref="/pricing"
+    ctaLabel="Try now"
+    ctaHref="https://www.myaccountium.ca/Account/SignIn"
+    secondaryLabel=""
   />
 </BaseLayout>
 
@@ -172,6 +181,12 @@ const values = [
   }
 
   /* Mission */
+  .mission-label {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto var(--space-6);
+  }
+
   .mission-inner {
     padding: var(--space-12) var(--space-8);
     border-radius: var(--radius-lg);
@@ -227,49 +242,86 @@ const values = [
   }
 
   /* Values */
-  .section-intro-left {
+  .vals-section {
+    padding-bottom: var(--space-4);
+  }
+
+  .vals-header {
+    text-align: center;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: var(--space-3);
     margin-bottom: var(--space-10);
   }
 
-  .section-intro-left h2 {
+  .vals-header h2 {
     font-size: var(--text-2xl);
     font-weight: 700;
     letter-spacing: -0.03em;
   }
 
-  .values-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-6);
+  .val-list {
+    padding: var(--space-4) 0;
   }
 
-  .value-item {
-    padding: var(--space-8);
-    border-radius: var(--radius-md);
+  .val-row {
     display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+    align-items: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    max-width: 1100px;
+    margin: 0 auto var(--space-16);
+    padding: 0 var(--space-6);
   }
 
-  .value-icon {
-    font-size: 1.5rem;
+  .val-row--alt {
+    flex-direction: row-reverse;
+  }
+
+  .val-media {
+    flex: 0 0 48%;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+  }
+
+  .val-icon {
+    font-size: 5rem;
     color: var(--color-accent);
+    line-height: 1;
   }
 
-  .value-title {
-    font-size: var(--text-xl);
-    font-weight: 600;
+  .val-body {
+    flex: 1;
+    min-width: 0;
   }
 
-  .value-desc {
-    font-size: var(--text-sm);
-    color: var(--color-text-secondary);
-    line-height: 1.65;
-    max-width: none;
+  .val-title {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.15;
+    margin: 0 0 var(--space-4);
+    color: var(--color-text);
+  }
+
+  .val-desc {
+    font-size: var(--text-base);
+    line-height: 1.7;
+    color: var(--color-text);
     margin: 0;
+    max-width: 46ch;
+  }
+
+  .feat-divider {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    margin: 0 auto var(--space-4);
   }
 
   /* Security */
@@ -285,9 +337,7 @@ const values = [
     font-size: var(--text-2xl);
     font-weight: 700;
     letter-spacing: -0.03em;
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
+    text-align: center;
   }
 
   .security-grid {
@@ -323,11 +373,26 @@ const values = [
     margin: 0;
   }
 
+  /* Strip CTA card background on this page */
+  :global(.cta-section .cta-inner) {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  :global(.cta-section .cta-glow) {
+    display: none;
+  }
+
   @media (max-width: 900px) {
     .mission-inner { grid-template-columns: 1fr; }
     .mission-stats { grid-template-columns: repeat(4, 1fr); }
     .security-grid { grid-template-columns: repeat(2, 1fr); }
-    .values-grid   { grid-template-columns: 1fr; }
+    .val-row,
+    .val-row--alt { flex-direction: column; gap: var(--space-6); margin-bottom: var(--space-12); }
+    .val-media { flex: unset; width: 100%; min-height: 200px; }
+    .val-desc { max-width: 100%; }
   }
 
   @media (max-width: 600px) {

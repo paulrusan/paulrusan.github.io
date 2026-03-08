@@ -1,0 +1,293 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+
+<BaseLayout
+  title="Terms of Service"
+  description="Terms of Service for Accountium — the rules and conditions for using our platform."
+>
+  <section class="page-hero section-sm" aria-label="Terms of Service">
+    <div class="container page-hero-inner">
+      <p class="section-label">Legal</p>
+      <h1>Terms of Service</h1>
+      <p class="page-subline">
+        Last updated: March 7, 2026
+      </p>
+    </div>
+  </section>
+
+  <section class="terms-section section-sm">
+    <div class="container">
+      <div class="feat-divider" aria-hidden="true"></div>
+      <div class="prose glass-card">
+
+        <h2>1. Agreement to Terms</h2>
+        <p>
+          By accessing or using the Accountium platform at <strong>{site.url}</strong> or any associated
+          mobile or desktop application (collectively, the "Service"), you agree to be bound by these
+          Terms of Service ("Terms"). If you do not agree, do not use the Service.
+        </p>
+        <p>
+          These Terms apply to all users, including individuals, businesses, and organizations that
+          access the Service on behalf of a company.
+        </p>
+
+        <h2>2. Eligibility</h2>
+        <p>
+          You must be at least 18 years old and legally capable of entering into a binding contract to
+          use the Service. By using Accountium, you represent and warrant that you meet these requirements.
+          If you are using the Service on behalf of a business, you represent that you have the authority
+          to bind that business to these Terms.
+        </p>
+
+        <h2>3. Account Registration</h2>
+        <p>
+          To access most features, you must create an account. You agree to:
+        </p>
+        <ul>
+          <li>Provide accurate, complete, and current information during registration.</li>
+          <li>Keep your login credentials confidential and not share them with others.</li>
+          <li>Notify us immediately at <a href={`mailto:${site.email}`}>{site.email}</a> if you suspect unauthorized access to your account.</li>
+          <li>Accept responsibility for all activity that occurs under your account.</li>
+        </ul>
+
+        <h2>4. Subscription and Payment</h2>
+        <h3>4.1 Plans and billing</h3>
+        <p>
+          Accountium offers paid subscription plans. By selecting a plan, you authorize us to charge
+          your chosen payment method on a recurring basis (monthly or annually, depending on your
+          selection). All fees are in Canadian dollars unless otherwise stated.
+        </p>
+        <h3>4.2 Free trial</h3>
+        <p>
+          We may offer a free trial period. At the end of the trial, your account will automatically
+          convert to a paid plan unless you cancel before the trial expires.
+        </p>
+        <h3>4.3 Refunds</h3>
+        <p>
+          All payments are non-refundable except where required by applicable law. If you believe a
+          charge was made in error, contact us within 14 days of the charge.
+        </p>
+        <h3>4.4 Price changes</h3>
+        <p>
+          We reserve the right to change subscription pricing. We will provide at least 30 days'
+          notice before any price change takes effect for existing subscribers.
+        </p>
+
+        <h2>5. Acceptable Use</h2>
+        <p>You agree not to use the Service to:</p>
+        <ul>
+          <li>Violate any applicable law or regulation.</li>
+          <li>Process, store, or transmit fraudulent or illegal financial data.</li>
+          <li>Upload malicious code, viruses, or any harmful software.</li>
+          <li>Attempt to gain unauthorized access to any part of the Service or its infrastructure.</li>
+          <li>Scrape, reverse-engineer, or copy any portion of the Service without our written consent.</li>
+          <li>Use the Service to provide competing services to third parties without prior written agreement.</li>
+        </ul>
+
+        <h2>6. Your Data</h2>
+        <p>
+          You retain ownership of all financial data, files, and content you upload or create within
+          the Service ("Your Data"). By using the Service, you grant Accountium a limited, non-exclusive
+          license to store, process, and display Your Data solely to provide the Service to you.
+        </p>
+        <p>
+          We will not sell, rent, or share Your Data with third parties except as described in our
+          <a href="/privacy">Privacy Policy</a>.
+        </p>
+
+        <h2>7. Intellectual Property</h2>
+        <p>
+          The Service, including all software, designs, text, graphics, and logos, is owned by
+          Accountium and protected by Canadian and international intellectual property laws. These
+          Terms do not grant you any right, title, or interest in the Service beyond the limited
+          license to use it as described herein.
+        </p>
+
+        <h2>8. Availability and Uptime</h2>
+        <p>
+          We strive to maintain high availability of the Service but do not guarantee uninterrupted
+          access. We may perform scheduled or emergency maintenance that temporarily affects
+          availability. We will make reasonable efforts to notify users of planned downtime in advance.
+        </p>
+
+        <h2>9. Termination</h2>
+        <h3>9.1 By you</h3>
+        <p>
+          You may cancel your account at any time from your account settings or by contacting us at
+          <a href={`mailto:${site.email}`}>{site.email}</a>. Cancellation takes effect at the end of
+          your current billing period.
+        </p>
+        <h3>9.2 By us</h3>
+        <p>
+          We may suspend or terminate your account if you violate these Terms, engage in fraudulent
+          activity, or for any other reason with reasonable notice. In cases of serious violations, we
+          may terminate immediately without notice.
+        </p>
+        <p>
+          Upon termination, your right to use the Service ceases. You may request an export of Your
+          Data within 30 days of termination, after which we may delete it.
+        </p>
+
+        <h2>10. Disclaimers</h2>
+        <p>
+          The Service is provided "as is" and "as available" without warranties of any kind, express
+          or implied, including but not limited to merchantability, fitness for a particular purpose,
+          or non-infringement. Accountium does not warrant that the Service will be error-free or that
+          any financial calculations or reports generated by the Service are accurate for tax or legal
+          purposes. You are solely responsible for verifying the accuracy of your financial data.
+        </p>
+
+        <h2>11. Limitation of Liability</h2>
+        <p>
+          To the maximum extent permitted by applicable law, Accountium and its directors, employees,
+          and affiliates shall not be liable for any indirect, incidental, special, consequential, or
+          punitive damages — including loss of profits, data, or business — arising out of your use
+          of or inability to use the Service, even if advised of the possibility of such damages.
+        </p>
+        <p>
+          Our total liability to you for any claim arising from these Terms or the Service shall not
+          exceed the amount you paid us in the 12 months preceding the claim.
+        </p>
+
+        <h2>12. Governing Law</h2>
+        <p>
+          These Terms are governed by and construed in accordance with the laws of the Province of
+          British Columbia and the federal laws of Canada applicable therein, without regard to conflict of law
+          principles. Any disputes shall be resolved exclusively in the courts located in British Columbia, Canada.
+        </p>
+
+        <h2>13. Changes to These Terms</h2>
+        <p>
+          We may update these Terms from time to time. We will notify you of material changes by
+          posting the updated Terms on this page and, where appropriate, by email. Your continued use
+          of the Service after changes take effect constitutes your acceptance of the updated Terms.
+        </p>
+
+        <h2>14. Contact Us</h2>
+        <p>
+          If you have any questions about these Terms, please contact us:
+        </p>
+        <ul>
+          <li>Email: <a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li>Website: <a href="/contact">accountium.ca/contact</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+  }
+
+  .page-hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .page-hero-inner h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .page-subline {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .feat-divider {
+    width: 1px;
+    height: 64px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+    margin: 0 auto var(--space-4);
+  }
+
+  .prose {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-10);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .prose h2 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: var(--space-6) 0 0;
+  }
+
+  .prose h2:first-child {
+    margin-top: 0;
+  }
+
+  .prose h3 {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: var(--space-2) 0 0;
+  }
+
+  .prose p {
+    font-size: var(--text-sm);
+    line-height: 1.75;
+    color: var(--color-text-secondary);
+    max-width: none;
+    margin: 0;
+  }
+
+  .prose ul {
+    padding-left: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin: 0;
+  }
+
+  .prose li {
+    font-size: var(--text-sm);
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+  }
+
+  .prose a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .prose strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+  }
+
+  .prose.glass-card {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  @media (max-width: 600px) {
+    .prose {
+      padding: var(--space-8) var(--space-6);
+    }
+  }
+</style>
