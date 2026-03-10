@@ -1,9 +1,9 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../data/site';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { site } from "../data/site";
 
 // Replace YOUR_FORM_ID with your actual Formspree form ID
-const FORMSPREE_ID = 'YOUR_FORM_ID';
+const FORMSPREE_ID = "xkoqgjbb";
 ---
 
 <BaseLayout
@@ -17,8 +17,9 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
         <p class="section-label"><span aria-hidden="true">◎</span> Contact</p>
         <h1 id="contact-heading">Let's talk</h1>
         <p>
-          Whether you want to start a free trial, book a demo, or just have a question —
-          our team typically responds within a few hours on business days.
+          Whether you want to start a free trial, book a demo, or just have a
+          question — our team typically responds within a few hours on business
+          days.
         </p>
 
         <div class="contact-details">
@@ -72,7 +73,9 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
               />
             </div>
             <div class="field">
-              <label for="email">Work email <span aria-hidden="true">*</span></label>
+              <label for="email"
+                >Work email <span aria-hidden="true">*</span></label
+              >
               <input
                 type="email"
                 id="email"
@@ -96,7 +99,9 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
           </div>
 
           <div class="field">
-            <label for="subject">How can we help? <span aria-hidden="true">*</span></label>
+            <label for="subject"
+              >How can we help? <span aria-hidden="true">*</span></label
+            >
             <select id="subject" name="subject" required>
               <option value="" disabled selected>Select a topic</option>
               <option value="trial">Start a free trial</option>
@@ -109,7 +114,9 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
           </div>
 
           <div class="field">
-            <label for="message">Message <span aria-hidden="true">*</span></label>
+            <label for="message"
+              >Message <span aria-hidden="true">*</span></label
+            >
             <textarea
               id="message"
               name="message"
@@ -121,13 +128,30 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
 
           <button type="submit" class="btn btn-primary submit-btn">
             Send message
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
             </svg>
           </button>
 
           <!-- Success state (shown via JS) -->
-          <div id="form-success" class="form-success" hidden role="status" aria-live="polite">
+          <div
+            id="form-success"
+            class="form-success"
+            hidden
+            role="status"
+            aria-live="polite"
+          >
             <span aria-hidden="true">✓</span>
             Message sent! We'll get back to you shortly.
           </div>
@@ -143,21 +167,23 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
 </BaseLayout>
 
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const success = document.getElementById('form-success') as HTMLElement;
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const success = document.getElementById("form-success") as HTMLElement;
 
-  form?.addEventListener('submit', async (e) => {
+  form?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const submitBtn = form.querySelector(
+      'button[type="submit"]',
+    ) as HTMLButtonElement;
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
+    submitBtn.textContent = "Sending…";
 
     try {
       const response = await fetch(form.action, {
-        method: 'POST',
+        method: "POST",
         body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
@@ -166,13 +192,13 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
         success.hidden = false;
       } else {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send message';
-        alert('Something went wrong. Please try again or email us directly.');
+        submitBtn.textContent = "Send message";
+        alert("Something went wrong. Please try again or email us directly.");
       }
     } catch {
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send message';
-      alert('Network error. Please try again.');
+      submitBtn.textContent = "Send message";
+      alert("Network error. Please try again.");
     }
   });
 </script>
@@ -290,10 +316,14 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
     color: var(--color-text-secondary);
   }
 
-  label span { color: var(--color-accent); }
+  label span {
+    color: var(--color-accent);
+  }
 
-  input, select, textarea {
-    background: rgba(255,255,255,0.04);
+  input,
+  select,
+  textarea {
+    background: rgba(255, 255, 255, 0.04);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     padding: 10px 14px;
@@ -318,12 +348,17 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
     padding-right: 36px;
   }
 
-  input:focus, select:focus, textarea:focus {
+  input:focus,
+  select:focus,
+  textarea:focus {
     outline: none;
     border-color: var(--color-accent);
   }
 
-  textarea { resize: vertical; min-height: 120px; }
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
 
   .submit-btn {
     align-self: flex-start;
@@ -339,7 +374,7 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
     padding: var(--space-3) var(--space-4);
     background: var(--color-green-dim);
     border-radius: var(--radius-sm);
-    border: 1px solid rgba(34,211,160,0.2);
+    border: 1px solid rgba(34, 211, 160, 0.2);
   }
 
   .form-note {
@@ -356,8 +391,14 @@ const FORMSPREE_ID = 'YOUR_FORM_ID';
   }
 
   @media (max-width: 900px) {
-    .contact-inner { grid-template-columns: 1fr; }
-    .contact-info { position: static; }
-    .form-row { grid-template-columns: 1fr; }
+    .contact-inner {
+      grid-template-columns: 1fr;
+    }
+    .contact-info {
+      position: static;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
