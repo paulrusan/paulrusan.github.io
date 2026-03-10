@@ -83,11 +83,11 @@ export const resources: Resource[] = [
   },
   {
     id: 9,
-    title: 'New Dashboard: Real-Time Financial Insights',
+    title: 'Accounting Platform',
     excerpt: 'The redesigned Accountium dashboard brings your P&L, cash position, and upcoming bills into one live view — updated every 15 minutes.',
     category: 'Technology',
     date: 'Feb 17, 2026',
-    href: '#',
+    href: '/accounting-platform',
     icon: '⊞',
   },
   {

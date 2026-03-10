@@ -1,0 +1,712 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const canonicalURL = new URL('/accounting-platform', site.url).href;
+---
+
+<BaseLayout
+  title="Accounting Platform | Accountium"
+  description="Explore Accountium's redesigned dashboard — a live financial command centre that unifies your P&L, cash position, and upcoming bills in one real-time view updated every 15 minutes."
+  canonicalURL={canonicalURL}
+>
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="b4s2s1 page-hero" aria-label="New Dashboard overview">
+    <div class="b4s2s1-inner">
+      <span class="label">Technology</span>
+      <h1>Accounting Platform</h1>
+      <p>
+        The redesigned Accountium dashboard is your financial command centre — bringing P&amp;L,
+        cash position, and upcoming bills into a single live view refreshed every 15 minutes.
+        No more toggling between reports or waiting for end-of-day exports. Every number you need
+        is right there, current, and actionable.
+      </p>
+      <div class="btn-wrap">
+        <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          TRY NOW
+        </a>
+      </div>
+
+      <!-- ── SVG Animation Placeholder 1 ── -->
+      <div class="svg-placeholder" aria-label="Dashboard animation placeholder" role="img">
+        <div class="svg-placeholder-inner">
+          <span class="svg-placeholder-icon" aria-hidden="true">▦</span>
+          <p class="svg-placeholder-label">Dashboard Animation — Placeholder</p>
+          <p class="svg-placeholder-hint">Replace with an SVG animation showing the live dashboard</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── H2 Section 1 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="whats-new-heading">
+    <h2 id="whats-new-heading">What's New in the Accountium Dashboard</h2>
+    <p>
+      The redesign focuses on speed, clarity, and immediate value — surfacing the metrics
+      that matter most before you even finish your morning coffee.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 1 Content ──────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="New dashboard features">
+    <div class="container">
+
+      <!-- H3: Live Financial Overview -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Live Financial Overview</h3>
+        <p class="feature-block-body">
+          Your P&amp;L, revenue, and expenses are pulled directly from connected bank accounts
+          and transaction feeds. The overview card updates every 15 minutes so your numbers
+          are always within one quarter-hour of reality — not yesterday's batch export.
+        </p>
+        <ul class="feature-list">
+          <li>Revenue vs. expenses at a glance</li>
+          <li>Month-to-date and year-to-date toggle</li>
+          <li>Colour-coded variance indicators</li>
+          <li>One-click drill-down to transactions</li>
+        </ul>
+      </div>
+
+      <!-- H3: Cash Flow Pulse -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Cash Flow Pulse</h3>
+        <p class="feature-block-body">
+          A rolling 30-day cash flow chart replaces the static balance view. See exactly
+          when money is expected to arrive, when bills are due, and where your runway
+          stands — all without opening a separate report.
+        </p>
+        <div class="cards-grid">
+          <article class="glass-card feature-card">
+            <div class="feature-card-icon" aria-hidden="true">📊</div>
+            <h3>Rolling 30-Day View</h3>
+            <p>Projected inflows and outflows charted day-by-day so you can spot shortfalls before they happen.</p>
+          </article>
+          <article class="glass-card feature-card">
+            <div class="feature-card-icon" aria-hidden="true">⚡</div>
+            <h3>15-Minute Refresh</h3>
+            <p>Live bank feeds update automatically — no manual sync required, no stale data to second-guess.</p>
+          </article>
+          <article class="glass-card feature-card">
+            <div class="feature-card-icon" aria-hidden="true">🔔</div>
+            <h3>Low-Balance Alerts</h3>
+            <p>Set a threshold and receive an in-app notification the moment your balance dips below it.</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- H3: Bills & Receivables at a Glance -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Bills &amp; Receivables at a Glance</h3>
+        <p class="feature-block-body">
+          Overdue invoices and upcoming vendor payments surface directly on the dashboard,
+          ranked by due date and amount. Chase what matters first; never miss a payment deadline again.
+        </p>
+        <ul class="criteria-list">
+          <li>
+            <strong>Overdue Invoices</strong>
+            <p>Flagged in red with the number of days past due and a one-click send-reminder action.</p>
+          </li>
+          <li>
+            <strong>Upcoming Bills</strong>
+            <p>Vendor payments due in the next 14 days listed with amounts and payment-status badges.</p>
+          </li>
+          <li>
+            <strong>Aged Receivables Summary</strong>
+            <p>A compact aging breakdown (0–30, 31–60, 60+ days) gives your collections picture instantly.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- H3: Customisable Widgets -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Customisable Widgets</h3>
+        <p class="feature-block-body">
+          Drag, resize, and reorder every card on the dashboard to match how your team thinks.
+          Pin the metrics your business cares about most — hide everything else.
+        </p>
+        <div class="benefits-grid">
+          <div class="benefit-item glass-card">
+            <span class="benefit-icon" aria-hidden="true">⬡</span>
+            <h3>Drag-and-Drop Layout</h3>
+            <p>Rearrange widgets in seconds with a simple drag — no settings menus or code required.</p>
+          </div>
+          <div class="benefit-item glass-card">
+            <span class="benefit-icon" aria-hidden="true">◈</span>
+            <h3>Role-Based Views</h3>
+            <p>Owners, bookkeepers, and accountants each get a default view tuned to their priorities.</p>
+          </div>
+          <div class="benefit-item glass-card">
+            <span class="benefit-icon" aria-hidden="true">✦</span>
+            <h3>Saved Presets</h3>
+            <p>Save your favourite layouts and switch between them with one click during busy periods.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Accent Divider ────────────────────────────────────── -->
+  <div class="accent-rule" aria-hidden="true"></div>
+
+  <!-- ── Try Now CTA between sections ─────────────────────── -->
+  <section class="mid-cta" aria-label="Try the dashboard">
+    <!-- ── SVG Animation Placeholder 2 ── -->
+    <div class="svg-placeholder svg-placeholder--mid" aria-label="Feature animation placeholder" role="img">
+      <div class="svg-placeholder-inner">
+        <span class="svg-placeholder-icon" aria-hidden="true">◎</span>
+        <p class="svg-placeholder-label">Widget Customisation Animation — Placeholder</p>
+        <p class="svg-placeholder-hint">Replace with an SVG animation showing widget drag-and-drop</p>
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+        TRY NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- ── H2 Section 2 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="insights-heading">
+    <h2 id="insights-heading">How Real-Time Insights Drive Better Decisions</h2>
+    <p>
+      Seeing the right number at the right moment changes the decision you make.
+      Here is how the live dashboard translates data into competitive advantage.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 2 Content ──────────────────────────────── -->
+  <section class="content-section" aria-label="Benefits of real-time financial insights">
+    <div class="container">
+
+      <!-- H3: Spot Trends Before They Become Problems -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Spot Trends Before They Become Problems</h3>
+        <p class="feature-block-body">
+          Pattern recognition used to require an accountant and a week's wait. With live data,
+          unusual spikes in expenses or a dip in collection rates are visible the day they appear —
+          giving you time to act, not react.
+        </p>
+        <div class="why-grid">
+          <div class="why-item glass-card">
+            <span class="why-num" aria-hidden="true">01</span>
+            <h3>Expense Anomaly Detection</h3>
+            <p>Automatic flagging when a spending category exceeds its 90-day average by more than 20%.</p>
+          </div>
+          <div class="why-item glass-card">
+            <span class="why-num" aria-hidden="true">02</span>
+            <h3>Revenue Trend Lines</h3>
+            <p>Weekly revenue charted against the prior period so you can validate whether growth is holding.</p>
+          </div>
+          <div class="why-item glass-card">
+            <span class="why-num" aria-hidden="true">03</span>
+            <h3>Collection Rate Tracking</h3>
+            <p>Invoice-to-payment speed shown as a rolling average — identify slow-paying clients early.</p>
+          </div>
+          <div class="why-item glass-card">
+            <span class="why-num" aria-hidden="true">04</span>
+            <h3>Budget vs. Actual Overlay</h3>
+            <p>Compare live spend against your approved budget in every category, updated continuously.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- H3: Stay Tax-Ready Year-Round -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Stay Tax-Ready Year-Round</h3>
+        <p class="feature-block-body">
+          Tax season stress comes from scrambling to reconstruct months of data.
+          With transactions categorised in real time, your GST/HST position, deductible expenses,
+          and CRA remittance schedule are always current — not something you figure out in April.
+        </p>
+        <ul class="feature-list">
+          <li>Automatic GST/HST calculation per transaction</li>
+          <li>Deductible expense tagging as you code</li>
+          <li>CRA remittance calendar with due-date alerts</li>
+          <li>One-click export for your accountant</li>
+          <li>Audit trail preserved automatically</li>
+        </ul>
+      </div>
+
+      <!-- H3: Collaborate with Your Accountant in Real Time -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Collaborate with Your Accountant in Real Time</h3>
+        <p class="feature-block-body">
+          Give your accountant or bookkeeper a live window into the same dashboard you see.
+          They can review transactions, leave notes, and adjust categorisations without
+          any back-and-forth file transfers or outdated exports.
+        </p>
+        <div class="cards-grid">
+          <article class="glass-card feature-card">
+            <div class="feature-card-icon" aria-hidden="true">🤝</div>
+            <h3>Shared Live View</h3>
+            <p>Invite your accountant with one link — they see real-time data, not a snapshot from last week.</p>
+          </article>
+          <article class="glass-card feature-card">
+            <div class="feature-card-icon" aria-hidden="true">💬</div>
+            <h3>In-Line Comments</h3>
+            <p>Leave notes directly on transactions. Questions get answered in context, not lost in email.</p>
+          </article>
+          <article class="glass-card feature-card">
+            <div class="feature-card-icon" aria-hidden="true">🔐</div>
+            <h3>Granular Permissions</h3>
+            <p>Control exactly what each collaborator can view or edit — down to individual report categories.</p>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Final CTA Divider ─────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">See Your Finances Live — Starting Today</h2>
+    <p>
+      The new Accountium dashboard is available to all plans. Log in to activate it,
+      or start a free trial to see real-time financial insight from day one.
+    </p>
+    <div class="btn-wrap">
+      <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+        TRY NOW
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  .page-hero.b4s2s1::before { display: none; }
+
+  /* ── Button spacing wrapper ─────────────────────────────── */
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-8) 0;
+  }
+
+  /* ── SVG Placeholders ───────────────────────────────────── */
+  .svg-placeholder {
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    border: 1.5px dashed var(--color-accent);
+    background: rgba(8, 145, 178, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svg-placeholder--mid {
+    margin: 0 auto var(--space-6);
+  }
+
+  .svg-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .svg-placeholder-icon {
+    font-size: 2.4rem;
+    color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .svg-placeholder-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: none;
+  }
+
+  .svg-placeholder-hint {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    opacity: 0.65;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Content Sections ──────────────────────────────────── */
+  .content-section {
+    padding: var(--space-16) 0;
+  }
+
+  .bg-subtle {
+    background: rgba(8, 145, 178, 0.03);
+  }
+
+  /* ── Feature Blocks ─────────────────────────────────────── */
+  .feature-block {
+    margin-bottom: var(--space-16);
+  }
+
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-block-heading {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .feature-block-body {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+  }
+
+  /* ── Accent Rule (standalone vertical line divider) ────────── */
+  .accent-rule {
+    position: relative;
+    height: var(--space-16);
+    width: 100%;
+  }
+
+  .accent-rule::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  /* ── Mid CTA ─────────────────────────────────────────────── */
+  .mid-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-12) var(--space-8);
+    gap: var(--space-6);
+    background: rgba(8, 145, 178, 0.03);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  /* ── Feature list ───────────────────────────────────────── */
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 700px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Feature Cards Grid ─────────────────────────────────── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  .feature-card {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+
+  .feature-card-icon {
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+
+  .feature-card h3 {
+    font-size: var(--text-base);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .feature-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Benefits Grid ──────────────────────────────────────── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+  }
+
+  .benefit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-3);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+  }
+
+  .benefit-icon {
+    font-size: 1.6rem;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+
+  .benefit-item h3 {
+    font-size: var(--text-base);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .benefit-item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Why / Numbered Grid ────────────────────────────────── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .why-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-2);
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
+  }
+
+  .why-num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .why-item h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+
+  .why-item p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Criteria List ──────────────────────────────────────── */
+  .criteria-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  .criteria-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .criteria-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+  }
+
+  .criteria-list strong {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .criteria-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── b4s2: Accent Divider ───────────────────────────────── */
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding: var(--space-12) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  /* ── b4s2s1: Hero Text Section ──────────────────────────── */
+  .b4s2s1 {
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+  }
+
+  .b4s2s1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2s1-inner {
+    max-width: 68ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-hero.b4s2s1 .b4s2s1-inner .btn {
+    display: inline-flex;
+  }
+
+  .b4s2s1 .label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .b4s2s1 h1 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+  }
+
+  .b4s2s1 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: none;
+    margin-bottom: var(--space-5);
+  }
+
+  .b4s2s1 p:last-child { margin-bottom: 0; }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .cards-grid    { grid-template-columns: repeat(2, 1fr); }
+    .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid      { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .b4s2s1 h1        { font-size: var(--text-xl); }
+    .cards-grid        { grid-template-columns: 1fr; }
+    .benefits-grid     { grid-template-columns: 1fr; }
+    .why-grid          { grid-template-columns: 1fr; }
+    .feature-block-heading { font-size: var(--text-lg); }
+  }
+</style>
