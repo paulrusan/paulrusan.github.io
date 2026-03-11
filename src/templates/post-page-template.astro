@@ -1,29 +1,39 @@
 ---
+// ╔══════════════════════════════════════════════════════════════╗
+// ║  POST PAGE TEMPLATE                                          ║
+// ║  Based on: accounting-platform.astro                        ║
+// ║                                                              ║
+// ║  HOW TO USE:                                                 ║
+// ║  1. Copy this file to src/pages/your-page-slug.astro        ║
+// ║  2. Replace every PLACEHOLDER_ value below                  ║
+// ║  3. Add/remove feature-block sections as needed             ║
+// ║  4. Swap SVG placeholders for real animations when ready    ║
+// ║  5. Add the page to src/data/resources.ts                   ║
+// ╚══════════════════════════════════════════════════════════════╝
+
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../data/site';
 
-const canonicalURL = new URL('/accounting-software', site.url).href;
+// PLACEHOLDER_SLUG  e.g. 'accounting-platform'
+const slug = 'PLACEHOLDER_SLUG';
+const canonicalURL = new URL(`/${slug}`, site.url).href;
 ---
 
 <BaseLayout
-  title="Accounting Software Online | Accountium"
-  description="Conquer your finances with Accountium's online accounting software. Streamline invoicing, expense tracking, bank reconciliation, and financial reporting — anytime, anywhere."
+  title="PLACEHOLDER_PAGE_TITLE | Accountium"
+  description="PLACEHOLDER_META_DESCRIPTION (1–2 sentences, ~155 chars)"
   canonicalURL={canonicalURL}
 >
 
   <!-- ── Page Hero ─────────────────────────────────────────── -->
-  <section class="b4s2s1 page-hero" aria-label="Accounting Software overview">
+  <section class="b4s2s1 page-hero" aria-label="PLACEHOLDER_ARIA_LABEL">
     <div class="b4s2s1-inner">
-      <span class="label">Accounting</span>
-      <h1>Accounting Software Online</h1>
+      <!-- Category label — matches resources.ts category value -->
+      <span class="label">PLACEHOLDER_CATEGORY</span>
+      <h1>PLACEHOLDER_H1</h1>
       <p>
-        A guide to the best online accounting software — powerful, user-friendly, and accessible
-        from any device, anytime, anywhere. In today's digital age, there's no need to be chained
-        to a desk drowning in receipts and spreadsheets.
-      </p>
-      <p>
-        For businesses of all sizes, managing finances can be a daunting task — but with the advent
-        of cloud accounting, the process has never been easier.
+        PLACEHOLDER_HERO_PARAGRAPH — 2–4 sentences summarising the page topic.
+        Keep it punchy and benefit-led.
       </p>
       <div class="btn-wrap">
         <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
@@ -32,104 +42,82 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
       </div>
 
       <!-- ── SVG Animation Placeholder 1 ── -->
-      <div class="svg-placeholder" aria-label="Accounting software animation placeholder" role="img">
+      <div class="svg-placeholder" aria-label="PLACEHOLDER_SVG1_ARIA" role="img">
         <div class="svg-placeholder-inner">
           <span class="svg-placeholder-icon" aria-hidden="true">▦</span>
-          <p class="svg-placeholder-label">Accounting Software Animation — Placeholder</p>
-          <p class="svg-placeholder-hint">Replace with an SVG animation showing the accounting dashboard</p>
+          <p class="svg-placeholder-label">PLACEHOLDER_SVG1_LABEL — Placeholder</p>
+          <p class="svg-placeholder-hint">Replace with: PLACEHOLDER_SVG1_DESCRIPTION</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── H2 Section 1 Divider ──────────────────────────────── -->
-  <section class="b4s2" aria-labelledby="what-heading">
-    <h2 id="what-heading">What is Online Accounting Software?</h2>
+  <section class="b4s2" aria-labelledby="section1-heading">
+    <h2 id="section1-heading">PLACEHOLDER_H2_SECTION1</h2>
     <p>
-      Online accounting software, also known as cloud accounting, is a web-based application
-      that streamlines your financial tasks — accessible from any device with an internet connection.
+      PLACEHOLDER_H2_SECTION1_INTRO — 1–2 sentences setting up the content below.
     </p>
   </section>
 
   <!-- ── H2 Section 1 Content ──────────────────────────────── -->
-  <section class="content-section bg-subtle" aria-label="Online accounting software features">
+  <section class="content-section bg-subtle" aria-label="PLACEHOLDER_SECTION1_ARIA">
     <div class="container">
 
-      <!-- H3: What it does -->
+      <!-- H3 Block — simple bullet list variant -->
       <div class="feature-block">
-        <h3 class="feature-block-heading">What It Does</h3>
+        <h3 class="feature-block-heading">PLACEHOLDER_H3_A</h3>
         <p class="feature-block-body">
-          Cloud accounting replaces manual bookkeeping with an always-on platform that handles
-          the full range of day-to-day financial tasks.
+          PLACEHOLDER_H3_A_BODY — describe the feature or topic in 2–3 sentences.
         </p>
         <ul class="feature-list">
-          <li>Generate and send invoices</li>
-          <li>Track income and expenses</li>
-          <li>Reconcile bank statements</li>
-          <li>Manage inventory</li>
-          <li>Create financial reports</li>
-          <li>Collaborate with your accountant</li>
+          <li>PLACEHOLDER_BULLET_1</li>
+          <li>PLACEHOLDER_BULLET_2</li>
+          <li>PLACEHOLDER_BULLET_3</li>
+          <li>PLACEHOLDER_BULLET_4</li>
         </ul>
       </div>
 
-      <!-- H3: Key capabilities -->
+      <!-- H3 Block — criteria list (bold label + description) variant -->
       <div class="feature-block">
-        <h3 class="feature-block-heading">Key Capabilities</h3>
+        <h3 class="feature-block-heading">PLACEHOLDER_H3_B</h3>
         <p class="feature-block-body">
-          The best platforms do more than store numbers — they actively reduce errors, save time,
-          and keep your data secure and accessible.
+          PLACEHOLDER_H3_B_BODY — describe the feature or topic in 2–3 sentences.
         </p>
         <ul class="criteria-list">
           <li>
-            <strong>Streamlined Financial Management</strong>
-            <p>Automates tedious tasks such as transaction recording, invoicing, and expense tracking. Say goodbye to manual data entry and hello to processes that save time and reduce errors.</p>
+            <strong>PLACEHOLDER_ITEM_1_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_1_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Real-Time Access Anywhere, Anytime</strong>
-            <p>Access your financial data from any device with an internet connection — whether you're in the office, at home, or on the go. Stay connected and make informed decisions wherever you are.</p>
+            <strong>PLACEHOLDER_ITEM_2_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_2_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Enhanced Collaboration</strong>
-            <p>Multiple users can work on the same files simultaneously, ensuring everyone is on the same page. Share access with your accountant or bookkeeper in seconds.</p>
-          </li>
-          <li>
-            <strong>Scalability and Adaptability</strong>
-            <p>As your business grows, your accounting needs will evolve. Online accounting is designed to scale with you — from freelancer to large corporation — without costly migrations.</p>
-          </li>
-          <li>
-            <strong>Data Security and Backup</strong>
-            <p>Advanced encryption and security protocols protect your sensitive information. Automated data backup ensures your data is always safe and accessible, even after a hardware failure.</p>
+            <strong>PLACEHOLDER_ITEM_3_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_3_DESCRIPTION</p>
           </li>
         </ul>
       </div>
 
-      <!-- H3: Benefits -->
+      <!-- H3 Block — add more feature-blocks as needed, then delete unused ones -->
       <div class="feature-block">
-        <h3 class="feature-block-heading">Benefits of Using Online Accounting Software</h3>
+        <h3 class="feature-block-heading">PLACEHOLDER_H3_C</h3>
         <p class="feature-block-body">
-          There are numerous advantages to adopting online accounting for your business — from
-          day-to-day efficiency gains to long-term strategic clarity.
+          PLACEHOLDER_H3_C_BODY
         </p>
         <ul class="criteria-list">
           <li>
-            <strong>Efficiency and Automation</strong>
-            <p>Many platforms automatically categorize transactions and reconcile bank statements, saving you countless hours of manual data entry.</p>
+            <strong>PLACEHOLDER_ITEM_1_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_1_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Accessibility and Mobility</strong>
-            <p>Access your financial data from any device, ensuring you always have a real-time view of your business health — from anywhere.</p>
+            <strong>PLACEHOLDER_ITEM_2_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_2_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Seamless Collaboration</strong>
-            <p>Share financial information with your accountant or bookkeeper effortlessly, facilitating smoother workflows and faster decisions.</p>
-          </li>
-          <li>
-            <strong>Improved Cash Flow Management</strong>
-            <p>Gain valuable insights into your income and expenses, enabling you to make informed financial decisions and optimize cash flow.</p>
-          </li>
-          <li>
-            <strong>Simplified Tax Preparation</strong>
-            <p>Having your finances meticulously organized streamlines tax season, potentially saving you money on accounting fees and CRA headaches.</p>
+            <strong>PLACEHOLDER_ITEM_3_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_3_DESCRIPTION</p>
           </li>
         </ul>
       </div>
@@ -140,13 +128,13 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
   <!-- ── Accent Divider ────────────────────────────────────── -->
   <div class="accent-rule" aria-hidden="true"></div>
 
-  <!-- ── Mid-page CTA ───────────────────────────────────────── -->
-  <section class="mid-cta" aria-label="Try Accountium">
-    <div class="svg-placeholder svg-placeholder--mid" aria-label="Feature animation placeholder" role="img">
+  <!-- ── Mid-page CTA + SVG Placeholder 2 ─────────────────── -->
+  <section class="mid-cta" aria-label="PLACEHOLDER_MID_CTA_ARIA">
+    <div class="svg-placeholder svg-placeholder--mid" aria-label="PLACEHOLDER_SVG2_ARIA" role="img">
       <div class="svg-placeholder-inner">
         <span class="svg-placeholder-icon" aria-hidden="true">◎</span>
-        <p class="svg-placeholder-label">Cloud Accounting Animation — Placeholder</p>
-        <p class="svg-placeholder-hint">Replace with an SVG animation showing cloud sync or collaboration</p>
+        <p class="svg-placeholder-label">PLACEHOLDER_SVG2_LABEL — Placeholder</p>
+        <p class="svg-placeholder-hint">Replace with: PLACEHOLDER_SVG2_DESCRIPTION</p>
       </div>
     </div>
     <div class="btn-wrap">
@@ -157,72 +145,76 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
   </section>
 
   <!-- ── H2 Section 2 Divider ──────────────────────────────── -->
-  <section class="b4s2" aria-labelledby="choosing-heading">
-    <h2 id="choosing-heading">Choosing the Right Cloud Accounting Software</h2>
+  <section class="b4s2" aria-labelledby="section2-heading">
+    <h2 id="section2-heading">PLACEHOLDER_H2_SECTION2</h2>
     <p>
-      With a multitude of online accounting solutions on the market, it's crucial to select one
-      that aligns with your specific needs and budget.
+      PLACEHOLDER_H2_SECTION2_INTRO — 1–2 sentences.
     </p>
   </section>
 
   <!-- ── H2 Section 2 Content ──────────────────────────────── -->
-  <section class="content-section" aria-label="Choosing software and why Accountium">
+  <section class="content-section" aria-label="PLACEHOLDER_SECTION2_ARIA">
     <div class="container">
 
-      <!-- H3: Selection criteria -->
+      <!-- H3 Block -->
       <div class="feature-block">
-        <h3 class="feature-block-heading">What to Look For</h3>
+        <h3 class="feature-block-heading">PLACEHOLDER_H3_D</h3>
         <p class="feature-block-body">
-          Evaluate each platform against these five factors before committing — they will determine
-          whether the software grows with you or holds you back.
+          PLACEHOLDER_H3_D_BODY
         </p>
         <ul class="criteria-list">
           <li>
-            <strong>Business Size &amp; Complexity</strong>
-            <p>Are you a solopreneur or a larger company with multiple employees? The features you require will vary depending on the scale of your operations.</p>
+            <strong>PLACEHOLDER_ITEM_1_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_1_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Budget</strong>
-            <p>Online accounting software pricing structures can differ significantly. Determine your budget constraints before exploring various options.</p>
+            <strong>PLACEHOLDER_ITEM_2_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_2_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Ease of Use</strong>
-            <p>Consider your technical expertise and prioritize user-friendly platforms with intuitive interfaces and helpful tutorials.</p>
+            <strong>PLACEHOLDER_ITEM_3_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_3_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Scalability</strong>
-            <p>If you anticipate significant business growth, choose software that can adapt to your evolving needs without costly migrations.</p>
-          </li>
-          <li>
-            <strong>Integrations</strong>
-            <p>Does the software integrate with your existing business tools, such as CRM or inventory management systems? Streamlining workflows through integrations can significantly enhance efficiency.</p>
+            <strong>PLACEHOLDER_ITEM_4_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_4_DESCRIPTION</p>
           </li>
         </ul>
       </div>
 
-      <!-- H3: Why Accountium -->
+      <!-- H3 Block — simple bullet list variant -->
       <div class="feature-block">
-        <h3 class="feature-block-heading">Why Accountium is the Best Choice for You</h3>
+        <h3 class="feature-block-heading">PLACEHOLDER_H3_E</h3>
         <p class="feature-block-body">
-          While there are many great online accounting options available, Accountium stands out
-          as a leader across every selection criterion.
+          PLACEHOLDER_H3_E_BODY
+        </p>
+        <ul class="feature-list">
+          <li>PLACEHOLDER_BULLET_1</li>
+          <li>PLACEHOLDER_BULLET_2</li>
+          <li>PLACEHOLDER_BULLET_3</li>
+          <li>PLACEHOLDER_BULLET_4</li>
+          <li>PLACEHOLDER_BULLET_5</li>
+        </ul>
+      </div>
+
+      <!-- H3 Block -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">PLACEHOLDER_H3_F</h3>
+        <p class="feature-block-body">
+          PLACEHOLDER_H3_F_BODY
         </p>
         <ul class="criteria-list">
           <li>
-            <strong>Award-Winning Design</strong>
-            <p>Accountium boasts an elegant and user-friendly interface, making it easy to navigate even for those with limited accounting experience.</p>
+            <strong>PLACEHOLDER_ITEM_1_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_1_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Industry-Leading AI Tools</strong>
-            <p>Cutting-edge artificial intelligence automates tasks, generates real-time financial insights, and identifies growth opportunities — all without extra effort from you.</p>
+            <strong>PLACEHOLDER_ITEM_2_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_2_DESCRIPTION</p>
           </li>
           <li>
-            <strong>Seamless Cloud Accounting</strong>
-            <p>Enjoy the flexibility and security of cloud-based accounting, allowing you to access your financial data from any device and collaborate effortlessly with your accountant.</p>
-          </li>
-          <li>
-            <strong>Complete Business Management</strong>
-            <p>Accountium goes beyond basic accounting, offering features for streamlining sales, managing inventory, and keeping a watchful eye on cash flow.</p>
+            <strong>PLACEHOLDER_ITEM_3_TITLE</strong>
+            <p>PLACEHOLDER_ITEM_3_DESCRIPTION</p>
           </li>
         </ul>
       </div>
@@ -232,11 +224,9 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
 
   <!-- ── Final CTA Divider ─────────────────────────────────── -->
   <section class="b4s2" aria-labelledby="cta-heading">
-    <h2 id="cta-heading">Discover the Power of Accountium</h2>
+    <h2 id="cta-heading">PLACEHOLDER_FINAL_CTA_HEADING</h2>
     <p>
-      By leveraging the power of online accounting software, you can transform your financial
-      management from a burden into a strategic advantage. Select the perfect solution to empower
-      your business growth and achieve financial peace of mind.
+      PLACEHOLDER_FINAL_CTA_BODY — 1–2 sentences. End with a clear call to action.
     </p>
     <div class="btn-wrap">
       <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
