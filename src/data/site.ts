@@ -3,9 +3,9 @@ export const site = {
   tagline: 'Numbers Made Easy Business Run Brilliant',
   description:
     'Our comprehensive accounting software is a fully integrated suite of applications designed to streamline accounting, payroll, and inventory management. Accountium offers businesses greater data visibility and enhanced operational control.',
-  url: 'https://accountium.ca',
+  url: 'https://accountium.io',
   ogImage: '/images/og-image.png',
   twitterHandle: '@accountium',
-  email: 'office@accountium.ca',
+  email: 'office@accountium.io',
   appUrl: 'https://www.myaccountium.ca/Account/SignIn',
 };
