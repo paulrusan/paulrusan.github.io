@@ -69,7 +69,7 @@ export const resources: Resource[] = [
     excerpt: 'CPP, EI, income tax withholdings — navigating Canadian payroll rules is complex. This guide walks through every requirement for employers.',
     category: 'Taxation',
     date: 'Feb 12, 2026',
-    href: '#',
+    href: '/payroll-compliance-canada',
     icon: '◈',
   },
   {

@@ -1,0 +1,758 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+
+const canonicalURL = new URL('/payroll-compliance-canada', site.url).href;
+---
+
+<BaseLayout
+  title="Payroll Compliance in Canada: A 2026 Guide"
+  description="CPP, EI, income tax withholdings — navigating Canadian payroll rules is complex. This guide walks through every employer requirement for 2026."
+  canonicalURL={canonicalURL}
+>
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="b4s2s1 page-hero" aria-label="Payroll Compliance overview">
+    <div class="b4s2s1-inner">
+      <span class="label">Taxation</span>
+      <h1>Payroll Compliance in Canada: A 2026 Guide</h1>
+      <p>
+        CPP, EI, income tax withholdings — navigating Canadian payroll rules is complex.
+        This guide walks through every requirement employers must meet in 2026, so you
+        can pay your team accurately, remit on time, and stay on the right side of the CRA.
+      </p>
+      <div class="btn-wrap">
+        <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          TRY NOW
+        </a>
+      </div>
+
+      <!-- ── SVG Placeholder 1 ── -->
+      <div class="svg-placeholder" aria-label="Payroll compliance illustration placeholder" role="img">
+        <div class="svg-placeholder-inner">
+          <span class="svg-placeholder-icon" aria-hidden="true">▦</span>
+          <p class="svg-placeholder-label">Payroll Compliance Overview — Placeholder</p>
+          <p class="svg-placeholder-hint">Replace with an SVG illustration showing payroll deduction flow</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── H2 Section 1 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="what-heading">
+    <h2 id="what-heading">What Is Payroll Compliance?</h2>
+    <p>
+      Payroll compliance means calculating, withholding, and remitting the correct amounts
+      for every employee, every pay period — and filing the right reports with the CRA on time.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 1 Content ──────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Payroll compliance overview">
+    <div class="container">
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Three Core Deduction Streams</h3>
+        <p class="feature-block-body">
+          For Canadian employers, payroll compliance covers three primary obligations — each with
+          its own rates, annual maximums, and remittance deadlines.
+        </p>
+        <ul class="feature-list">
+          <li>Canada Pension Plan (CPP) contributions</li>
+          <li>Employment Insurance (EI) premiums</li>
+          <li>Federal and provincial income tax withholdings</li>
+        </ul>
+      </div>
+
+      <!-- 2026 Rates Table -->
+      <div class="feature-block">
+        <h3 class="feature-block-heading">2026 Rates at a Glance</h3>
+        <p class="feature-block-body">
+          The CRA updates contribution rates and thresholds annually. Always verify against
+          the current T4032 Payroll Deductions Tables before running your first payroll of the year.
+        </p>
+        <div class="table-wrap">
+          <table class="rate-table">
+            <thead>
+              <tr>
+                <th>Deduction</th>
+                <th>Employee rate</th>
+                <th>Employer rate</th>
+                <th>2026 max (employee)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>CPP</strong> (base)</td>
+                <td>5.95%</td>
+                <td>5.95%</td>
+                <td>$3,867.50</td>
+              </tr>
+              <tr>
+                <td><strong>CPP2</strong> (second additional)</td>
+                <td>4.00%</td>
+                <td>4.00%</td>
+                <td>$396.00</td>
+              </tr>
+              <tr>
+                <td><strong>EI</strong></td>
+                <td>1.66%</td>
+                <td>2.324% (×1.4)</td>
+                <td>$1,049.12</td>
+              </tr>
+              <tr>
+                <td><strong>Federal income tax</strong></td>
+                <td>15% – 33%</td>
+                <td>—</td>
+                <td>Graduated; no cap</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Note:</strong> CPP2 was phased in starting in 2024. Employers must match
+          employee CPP2 contributions dollar-for-dollar — but CPP2 does not attract the EI multiplier.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── H2 Section 2 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="cpp-heading">
+    <h2 id="cpp-heading">Canada Pension Plan (CPP)</h2>
+    <p>
+      Almost all employees between 18 and 70 who earn above the basic exemption must contribute
+      to CPP. Quebec employees contribute to QPP instead — administered by Retraite Québec.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 2 Content ──────────────────────────────── -->
+  <section class="content-section" aria-label="CPP details">
+    <div class="container">
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">How CPP Is Calculated</h3>
+        <p class="feature-block-body">
+          CPP is calculated on pensionable earnings — gross wages minus the annual basic
+          exemption, prorated per pay period. The employer matches every dollar of employee
+          CPP and CPP2 contributions.
+        </p>
+        <ul class="feature-list">
+          <li>Prorate the $3,500 annual basic exemption by pay periods</li>
+          <li>Subtract the prorated exemption from gross pensionable earnings</li>
+          <li>Apply the 5.95% rate to the result</li>
+          <li>Stop deducting at the annual maximum ($3,867.50)</li>
+          <li>Calculate CPP2 separately on earnings between the first and second ceiling</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── H2 Section 3 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="ei-heading">
+    <h2 id="ei-heading">Employment Insurance (EI)</h2>
+    <p>
+      EI premiums are deducted from insurable earnings at 1.66% up to the annual
+      maximum insurable earnings ceiling of $65,700 in 2026.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 3 Content ──────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="EI details">
+    <div class="container">
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Key EI Rules for Employers</h3>
+        <p class="feature-block-body">
+          Employers pay 1.4 times the employee premium (2.324%). Some employers with a qualifying
+          short-term disability plan may apply for a reduced multiplier through Service Canada.
+        </p>
+        <ul class="criteria-list">
+          <li>
+            <strong>Insurable hours matter</strong>
+            <p>Part-time, casual, and term employees all accumulate insurable hours that affect their EI eligibility. Track hours carefully for all worker types.</p>
+          </li>
+          <li>
+            <strong>Exceptions to insurable employment</strong>
+            <p>Owner-operators who control more than 40% of voting shares are generally excluded from EI. Certain family members employed by a corporation may also be exempt.</p>
+          </li>
+          <li>
+            <strong>Quebec EI rate</strong>
+            <p>Quebec operates its own parental insurance plan (QPIP). The federal EI rate for Quebec employees is reduced to reflect the province's separate plan.</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Accent Divider ────────────────────────────────────── -->
+  <div class="accent-rule" aria-hidden="true"></div>
+
+  <!-- ── Mid-page CTA ───────────────────────────────────────── -->
+  <section class="mid-cta" aria-label="Try Accountium payroll">
+    <div class="svg-placeholder svg-placeholder--mid" aria-label="Remittance timeline placeholder" role="img">
+      <div class="svg-placeholder-inner">
+        <span class="svg-placeholder-icon" aria-hidden="true">◎</span>
+        <p class="svg-placeholder-label">Payroll Remittance Timeline — Placeholder</p>
+        <p class="svg-placeholder-hint">Replace with an SVG timeline showing CRA remittance due dates</p>
+      </div>
+    </div>
+    <div class="btn-wrap">
+      <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+        TRY NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- ── H2 Section 4 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="tax-heading">
+    <h2 id="tax-heading">Income Tax Withholding</h2>
+    <p>
+      Unlike CPP and EI, income tax is graduated at both federal and provincial levels.
+      The amount withheld depends on the employee's total income and TD1 claim codes.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 4 Content ──────────────────────────────── -->
+  <section class="content-section" aria-label="Income tax withholding">
+    <div class="container">
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">TD1 Forms</h3>
+        <p class="feature-block-body">
+          Every new employee must complete a federal TD1 and a provincial TD1 before their
+          first paycheque. These declare personal tax credits that reduce the tax withheld each period.
+        </p>
+        <ul class="feature-list">
+          <li>Federal basic personal amount for 2026: $16,129</li>
+          <li>Employees should update their TD1 when their situation changes</li>
+          <li>Retain TD1 forms on file — do not send to the CRA unless requested</li>
+          <li>If no TD1 is submitted, withhold at the highest (claim code 0) rate</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Remittance: Paying the CRA</h3>
+        <p class="feature-block-body">
+          Remittance frequency depends on your average monthly withholding (AMW) from two years prior.
+          Missing a deadline triggers penalties of 3%–10% plus daily compound interest.
+        </p>
+        <div class="table-wrap">
+          <table class="rate-table">
+            <thead>
+              <tr>
+                <th>Remitter type</th>
+                <th>Average monthly withholding</th>
+                <th>Due date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>New employer / Regular</td>
+                <td>Less than $25,000</td>
+                <td>15th of the following month</td>
+              </tr>
+              <tr>
+                <td>Quarterly (small employers)</td>
+                <td>Less than $1,000 (CRA approval required)</td>
+                <td>15th after each quarter-end</td>
+              </tr>
+              <tr>
+                <td>Accelerated Threshold 1</td>
+                <td>$25,000 – $99,999.99</td>
+                <td>Within 3 banking days of the 15th and last day of each month</td>
+              </tr>
+              <tr>
+                <td>Accelerated Threshold 2</td>
+                <td>$100,000+</td>
+                <td>Within 3 banking days of each payday</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <strong>Penalty reminder:</strong> Late payroll remittances trigger penalties even on the
+          first offence. Set automated reminders or use payroll software that tracks your schedule.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── H2 Section 5 Divider ──────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="yearend-heading">
+    <h2 id="yearend-heading">Year-End & Common Mistakes</h2>
+    <p>
+      T4 slips and the T4 Summary are due by the last day of February. Employers with
+      6 or more slips must file electronically through CRA My Business Account.
+    </p>
+  </section>
+
+  <!-- ── H2 Section 5 Content ──────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Year-end and mistakes">
+    <div class="container">
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">What Goes on the T4</h3>
+        <p class="feature-block-body">
+          Every employee receives a T4 slip summarizing their annual earnings and all
+          deductions withheld throughout the year.
+        </p>
+        <ul class="feature-list">
+          <li>Box 14 — Total employment income</li>
+          <li>Box 16 / 16A — CPP and CPP2 contributions</li>
+          <li>Box 18 — EI premiums deducted</li>
+          <li>Box 22 — Income tax deducted</li>
+          <li>Box 40 — Taxable benefits (vehicle, parking, group insurance)</li>
+          <li>Union dues, RPP contributions, and other required codes</li>
+        </ul>
+      </div>
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Common Payroll Compliance Mistakes</h3>
+        <p class="feature-block-body">
+          These are the errors that most often result in CRA penalties, retroactive assessments,
+          and audit exposure.
+        </p>
+        <ul class="criteria-list">
+          <li>
+            <strong>Misclassifying workers as contractors</strong>
+            <p>If a worker is economically dependent on your business and you control how they work, the CRA may deem them employees — triggering retroactive CPP, EI, and tax obligations.</p>
+          </li>
+          <li>
+            <strong>Missing remittance deadlines</strong>
+            <p>Late remittances are one of the most common and costly payroll errors. Use payroll software that tracks your remittance schedule automatically.</p>
+          </li>
+          <li>
+            <strong>Forgetting taxable benefits</strong>
+            <p>Company vehicles, group insurance premiums, and employer-paid parking are taxable benefits that must appear on the T4.</p>
+          </li>
+          <li>
+            <strong>Not keeping TD1 forms on file</strong>
+            <p>The CRA can request TD1 forms during an audit. Missing or outdated forms suggest inadequate payroll controls.</p>
+          </li>
+          <li>
+            <strong>Applying CPP2 incorrectly</strong>
+            <p>Some employers apply the base CPP rate to all earnings above the first ceiling instead of switching to the CPP2 rate — resulting in under-remittance and penalties.</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Final CTA Divider ─────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="accountium-heading">
+    <h2 id="accountium-heading">How Accountium Simplifies Payroll Compliance</h2>
+    <p>
+      Manual payroll calculations are error-prone and time-consuming. Accountium automates
+      every deduction, every pay period — so your team gets paid accurately and your
+      remittances are always on time.
+    </p>
+    <div class="btn-wrap">
+      <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+        TRY NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Final Feature Content ─────────────────────────────── -->
+  <section class="content-section" aria-label="Accountium payroll features">
+    <div class="container">
+
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Everything Handled Automatically</h3>
+        <p class="feature-block-body">
+          Rates and thresholds update every January. Every pay run applies the current
+          CRA tables — no manual updates, no calculation errors.
+        </p>
+        <ul class="criteria-list">
+          <li>
+            <strong>Automatic CPP, CPP2, EI &amp; tax calculations</strong>
+            <p>Every deduction is calculated per pay run using current CRA tables. CPP2 is handled separately and correctly from day one.</p>
+          </li>
+          <li>
+            <strong>Remittance schedule tracking</strong>
+            <p>Accountium identifies your remitter type and surfaces upcoming CRA due dates directly on your dashboard so nothing slips through.</p>
+          </li>
+          <li>
+            <strong>T4 generation at year-end</strong>
+            <p>Export ready-to-file T4 slips and a T4 Summary in minutes. File electronically through CRA My Business Account with a single export.</p>
+          </li>
+          <li>
+            <strong>Audit-ready records</strong>
+            <p>Every payroll run creates a complete, timestamped record. If the CRA ever comes knocking, your documentation is already organised.</p>
+          </li>
+          <li>
+            <strong>Quebec payroll support</strong>
+            <p>QPP and QPIP deductions are handled alongside federal requirements for businesses with employees in Quebec.</p>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  .page-hero.b4s2s1::before { display: none; }
+
+  /* ── Button spacing wrapper ─────────────────────────────── */
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-8) 0;
+  }
+
+  /* ── SVG Placeholders ───────────────────────────────────── */
+  .svg-placeholder {
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border-radius: var(--radius-lg);
+    border: 1.5px dashed var(--color-accent);
+    background: rgba(8, 145, 178, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svg-placeholder--mid {
+    margin: 0 auto var(--space-6);
+  }
+
+  .svg-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .svg-placeholder-icon {
+    font-size: 2.4rem;
+    color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .svg-placeholder-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: none;
+  }
+
+  .svg-placeholder-hint {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    opacity: 0.65;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── Content Sections ──────────────────────────────────── */
+  .content-section {
+    padding: var(--space-16) 0;
+  }
+
+  .bg-subtle {
+    background: rgba(8, 145, 178, 0.03);
+  }
+
+  /* ── Feature Blocks ─────────────────────────────────────── */
+  .feature-block {
+    margin-bottom: var(--space-16);
+  }
+
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-block-heading {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .feature-block-body {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+  }
+
+  /* ── Accent Rule ────────────────────────────────────────── */
+  .accent-rule {
+    position: relative;
+    height: var(--space-32);
+    width: 100%;
+    margin: var(--space-8) 0;
+  }
+
+  .accent-rule::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  /* ── Mid CTA ─────────────────────────────────────────────── */
+  .mid-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-12) var(--space-8);
+    gap: var(--space-6);
+    background: rgba(8, 145, 178, 0.03);
+  }
+
+  /* ── Feature list ───────────────────────────────────────── */
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 700px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Criteria List ──────────────────────────────────────── */
+  .criteria-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  .criteria-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .criteria-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+  }
+
+  .criteria-list strong {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .criteria-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  /* ── b4s2: Accent Section Divider ───────────────────────── */
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ── b4s2s1: Hero Text Section ──────────────────────────── */
+  .b4s2s1 {
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+  }
+
+  .b4s2s1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2s1-inner {
+    max-width: 68ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .b4s2s1 .label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2s1 h1 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .b4s2s1 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: none;
+    margin-bottom: var(--space-5);
+    text-align: center;
+  }
+
+  /* ── Rate Table ─────────────────────────────────────────── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 0 auto var(--space-6);
+    max-width: 680px;
+  }
+
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  .rate-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border-bottom: 2px solid var(--color-border-strong);
+    padding: 10px 12px;
+    white-space: nowrap;
+  }
+
+  .rate-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+    color: var(--color-text-secondary);
+  }
+
+  .rate-table tr:last-child td { border-bottom: none; }
+  .rate-table tr:hover td { background: var(--color-accent-dim); }
+
+  /* ── Callout box ────────────────────────────────────────── */
+  .callout {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--color-accent-dim);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    line-height: 1.65;
+  }
+
+  .callout strong {
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+
+  /* ── Responsive ─────────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .b4s2s1 h1            { font-size: var(--text-xl); }
+    .feature-block-heading { font-size: var(--text-lg); }
+    .rate-table            { font-size: var(--text-xs); }
+  }
+</style>
