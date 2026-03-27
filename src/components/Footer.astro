@@ -29,7 +29,7 @@ const footerLinks = {
           <span class="logo-text">{site.name}</span>
         </a>
         <p class="footer-tagline">
-          <span>Numbers Made Easy</span><span class="tagline-sep"> </span><span>Business Run Brilliant</span>
+          <span>Numbers Made Easy</span> <span>Business Run Brilliant</span>
         </p>
         <a href={`mailto:${site.email}`} class="footer-email">{site.email}</a>
       </div>
@@ -97,7 +97,6 @@ const footerLinks = {
 
   @media (max-width: 560px) {
     .footer-tagline { white-space: normal; }
-    .tagline-sep::after { content: '\A'; white-space: pre; }
   }
 
   .footer-email {
