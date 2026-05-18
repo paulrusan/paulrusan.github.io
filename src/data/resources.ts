@@ -99,4 +99,13 @@ export const resources: Resource[] = [
     href: '#',
     icon: '✦',
   },
+  {
+    id: 11,
+    title: 'Year-End Bookkeeping Checklist for Canadian Businesses (2026)',
+    excerpt: 'A step-by-step checklist covering reconciliations, payroll, GST/HST, CRA deadlines, and everything you need to close your books cleanly.',
+    category: 'Bookkeeping',
+    date: 'May 1, 2026',
+    href: '/resources/year-end-bookkeeping-checklist-canada',
+    icon: '◈',
+  },
 ];
