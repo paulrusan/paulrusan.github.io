@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
+import AIConsole from '../components/AIConsole.astro';
+import LiveInvoice from '../components/LiveInvoice.astro';
+import SmartBanking from '../components/SmartBanking.astro';
+import OnTheGo from '../components/OnTheGo.astro';
+import Payroll from '../components/Payroll.astro';
 import { testimonials } from '../data/testimonials';
 import { site } from '../data/site';
 
@@ -13,7 +18,7 @@ const features = [
     desc: "Experience the future of Accounting Software with our revolutionary world's first artificial intelligence system. With the ability to control the system with simple commands from your email, managing your finances has never been easier.",
     href: '/features',
     color: 'var(--color-accent)',
-    image: '/images/Ai-Accounting--wrldfirst.svg',
+    image: undefined,
   },
   {
     num: '02',
@@ -22,7 +27,7 @@ const features = [
     desc: 'Send professional invoices to clients and start accepting online payments. Automatically record transactions in your books.',
     href: '/features',
     color: 'var(--color-green)',
-    image: '/images/Streamline%20Sales.svg',
+    image: undefined,
   },
   {
     num: '03',
@@ -31,7 +36,7 @@ const features = [
     desc: 'Connect your bank to Accountium and set up bank feeds. Transactions flow securely straight into Accountium each business day. Monitor transactions and categorize them instantly.',
     href: '/features',
     color: 'var(--color-accent)',
-    image: '/images/smart%20banking.svg',
+    image: undefined,
   },
   {
     num: '04',
@@ -40,7 +45,7 @@ const features = [
     desc: 'Keep an eye on your finances anywhere anytime on your mobile. Track bank balances, invoices, bills and more. Your data is synced across all devices all the time.',
     href: '/features',
     color: 'var(--color-accent)',
-    image: '/images/Business%20On%E2%80%91the%E2%80%91go.svg',
+    image: undefined,
   },
   {
     num: '05',
@@ -49,7 +54,7 @@ const features = [
     desc: 'Our Payroll application is feature-rich and meets all of your payroll processing needs, while processing your payroll efficiently and accurately every time.',
     href: '/features',
     color: 'var(--color-green)',
-    image: '/images/payroll%20pay.svg',
+    image: undefined,
   },
 ];
 ---
@@ -145,10 +150,20 @@ const features = [
               </svg>
             </a>
           </div>
-          <!-- Visual placeholder -->
-          <div class:list={['feature-visual', { 'feature-visual--particle': i === 0 }]} aria-hidden="true">
-            {i === 0 && <canvas class="feature-particle-canvas"></canvas>}
-            {f.image && <img src={f.image} alt="" style={`width:100%;height:auto;border-radius:8px;${i === 0 ? 'position:relative;z-index:1;' : ''}`} />}
+          <!-- Visual -->
+          <div class="feature-visual" aria-hidden="true">
+            {i === 0
+              ? <AIConsole />
+              : i === 1
+              ? <LiveInvoice />
+              : i === 2
+              ? <SmartBanking />
+              : i === 3
+              ? <OnTheGo />
+              : i === 4
+              ? <Payroll />
+              : null
+            }
           </div>
         </div>
       ))}
@@ -587,7 +602,7 @@ const features = [
   }
 
   .feature-title {
-    font-size: var(--text-3xl);
+    font-size: var(--text-lg);
     font-weight: 700;
     letter-spacing: -0.03em;
     line-height: 1.1;
@@ -774,7 +789,7 @@ const features = [
       padding: 0 var(--space-4);
     }
     .feature-title {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
     /* Bottom CTA */
     .bottom-cta-inner h2 {

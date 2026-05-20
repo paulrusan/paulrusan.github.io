@@ -1,0 +1,322 @@
+---
+// SmartBanking — animated bank-feed graphic, vanilla JS + Astro (no React)
+const MAX_VISIBLE = 5;
+const ROW_H = 50;
+---
+
+<div class="sb-shell" id="smart-banking-root">
+  <div class="sb-grid" aria-hidden="true"></div>
+  <div class="sb-glow sb-glow--a" aria-hidden="true"></div>
+  <div class="sb-glow sb-glow--b" aria-hidden="true"></div>
+
+  <div class="sb-chrome">
+    <div class="sb-dots"><span></span><span></span><span></span></div>
+    <div class="sb-title">accountium / banking</div>
+    <div class="sb-live"><span class="sb-live-dot"></span> live</div>
+  </div>
+
+  <div class="sb-bank">
+    <div class="sb-bank-logo" aria-hidden="true">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <path d="M3 8 L11 3 L19 8" stroke="#1A1714" stroke-width="1.6" stroke-linejoin="round"/>
+        <rect x="4" y="8" width="2.5" height="9" fill="#1A1714"/>
+        <rect x="9.75" y="8" width="2.5" height="9" fill="#1A1714"/>
+        <rect x="15.5" y="8" width="2.5" height="9" fill="#1A1714"/>
+        <rect x="2" y="17" width="18" height="2" fill="#1A1714"/>
+      </svg>
+    </div>
+    <div class="sb-bank-info">
+      <div class="sb-bank-name">Chase · Operating</div>
+      <div class="sb-bank-meta">
+        <span>•• 2841</span>
+        <span class="sb-sep">·</span>
+        <span>USD</span>
+        <span class="sb-sep">·</span>
+        <span class="sb-bank-sync" id="sb-sync-label">synced 2s ago</span>
+      </div>
+    </div>
+    <div class="sb-bank-status">
+      <span class="sb-conn-dot"></span>
+      <span>connected</span>
+    </div>
+  </div>
+
+  <div class="sb-feed-head">
+    <span class="sb-feed-label">live feed</span>
+    <span class="sb-feed-count" id="sb-counter">0 categorized today</span>
+  </div>
+
+  <div class="sb-feed" id="sb-feed" style={`height: ${ROW_H * MAX_VISIBLE}px`}></div>
+
+  <div class="sb-footer">
+    <div class="sb-foot-row">
+      <span class="sb-foot-label">Auto-classified</span>
+      <span class="sb-foot-val">100<span class="sb-foot-pct">%</span></span>
+    </div>
+    <div class="sb-foot-bar"><div class="sb-foot-bar-fill"></div></div>
+    <div class="sb-foot-meta">
+      <span><span class="sb-meta-dot sb-meta-dot--green"></span> 0 need review</span>
+      <span><span class="sb-meta-dot sb-meta-dot--coral"></span> 0 disputed</span>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+.sb-shell {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(47, 107, 78, 0.05), transparent 60%),
+    radial-gradient(120% 80% at 100% 100%, rgba(14, 116, 144, 0.04), transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+  border: 1px solid #E8E2D8;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(20, 15, 10, 0.04) inset,
+    0 20px 60px -20px rgba(20, 15, 10, 0.12),
+    0 4px 14px -4px rgba(20, 15, 10, 0.06);
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  color: #1A1714;
+  isolation: isolate;
+}
+.sb-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(20, 15, 10, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 50%, transparent 100%);
+  pointer-events: none; z-index: 0;
+}
+.sb-glow {
+  position: absolute; width: 260px; height: 260px;
+  border-radius: 50%; filter: blur(70px); opacity: 0.55;
+  pointer-events: none; z-index: 0;
+}
+.sb-glow--a { top: -100px; left: -80px; background: rgba(47, 107, 78, 0.18); animation: sb-glow-a 9s ease-in-out infinite; }
+.sb-glow--b { bottom: -120px; right: -60px; background: rgba(14, 116, 144, 0.12); animation: sb-glow-b 11s ease-in-out infinite; }
+@keyframes sb-glow-a { 0%,100% { transform: translate(0, 0); } 50% { transform: translate(20px, 30px); } }
+@keyframes sb-glow-b { 0%,100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -20px); } }
+
+.sb-chrome {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-bottom: 1px solid #E8E2D8;
+  background: linear-gradient(180deg, rgba(20, 15, 10, 0.015), transparent);
+}
+.sb-dots { display: inline-flex; gap: 6px; }
+.sb-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.sb-dots span:nth-child(1) { background: #E07A5F; }
+.sb-dots span:nth-child(2) { background: #E2B33C; }
+.sb-dots span:nth-child(3) { background: #2F6B4E; }
+.sb-title { flex: 1; text-align: center; font-size: 12px; color: #6B6357; letter-spacing: 0.04em; }
+.sb-live { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #2F6B4E; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+.sb-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #2F6B4E; box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.45); animation: sb-pulse-dot 1.6s ease-out infinite; }
+@keyframes sb-pulse-dot { 0% { box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.45); } 100% { box-shadow: 0 0 0 8px rgba(47, 107, 78, 0); } }
+
+.sb-bank {
+  position: relative; z-index: 1;
+  display: grid; grid-template-columns: 40px 1fr auto; gap: 14px; align-items: center;
+  margin: 16px 18px 0; padding: 12px 14px;
+  background: white; border: 1px solid #E8E2D8; border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(20, 15, 10, 0.02);
+}
+.sb-bank-logo { width: 36px; height: 36px; border-radius: 8px; background: #F1ECE3; display: grid; place-items: center; position: relative; }
+.sb-bank-logo::after {
+  content: "";
+  position: absolute; inset: -3px; border-radius: 11px;
+  border: 1.5px solid rgba(47, 107, 78, 0.0);
+  animation: sb-bank-pulse 3.4s ease-out infinite;
+}
+@keyframes sb-bank-pulse {
+  0%   { transform: scale(0.92); opacity: 0; border-color: rgba(47, 107, 78, 0.5); }
+  35%  { opacity: 1; }
+  100% { transform: scale(1.18); opacity: 0; border-color: rgba(47, 107, 78, 0); }
+}
+.sb-bank-info { min-width: 0; }
+.sb-bank-name { font-family: "Inter", sans-serif; font-size: 14px; font-weight: 600; color: #1A1714; letter-spacing: -0.01em; margin-bottom: 4px; }
+.sb-bank-meta { display: inline-flex; gap: 6px; align-items: center; font-size: 11px; color: #6B6357; font-variant-numeric: tabular-nums; }
+.sb-sep { color: #C2B9A9; }
+.sb-bank-sync { display: inline-flex; align-items: center; gap: 5px; color: #2F6B4E; font-weight: 500; animation: sb-sync-fade 4.2s ease-in-out infinite; }
+@keyframes sb-sync-fade { 0%, 100% { opacity: 0.55; } 20% { opacity: 1; } }
+.sb-bank-status { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 8px; border-radius: 999px; background: rgba(47, 107, 78, 0.08); border: 1px solid rgba(47, 107, 78, 0.25); color: #2F6B4E; font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; }
+.sb-conn-dot { width: 6px; height: 6px; border-radius: 50%; background: #2F6B4E; box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.4); animation: sb-pulse-dot 1.6s ease-out infinite; }
+
+.sb-feed-head { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: baseline; padding: 18px 22px 8px; }
+.sb-feed-label { font-size: 10.5px; color: #6B6357; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; }
+.sb-feed-count { font-size: 11px; color: #2F6B4E; font-weight: 600; font-variant-numeric: tabular-nums; letter-spacing: 0.04em; }
+
+.sb-feed {
+  position: relative; z-index: 1; margin: 0 18px; overflow: hidden;
+  mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 6%, black 18%, black 100%);
+}
+.sb-row {
+  position: absolute; top: 0; left: 0; right: 0;
+  display: grid; grid-template-columns: 56px 1fr auto 100px;
+  align-items: center; gap: 12px; padding: 0 12px;
+  background: white; border: 1px solid #E8E2D8; border-radius: 8px;
+  height: 44px; font-size: 12.5px;
+  transition: transform 450ms cubic-bezier(.2,.7,.2,1), opacity 350ms ease;
+  will-change: transform, opacity;
+  box-shadow: 0 1px 0 rgba(20, 15, 10, 0.02);
+}
+.sb-row-date { font-size: 11px; color: #A39A8E; font-variant-numeric: tabular-nums; }
+.sb-row-merchant { font-family: "Inter", sans-serif; color: #1A1714; font-weight: 500; letter-spacing: -0.005em; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.sb-row-amt { text-align: right; font-family: "JetBrains Mono", monospace; font-size: 12.5px; font-variant-numeric: tabular-nums; font-weight: 600; }
+.sb-row-amt.is-pos { color: #2F6B4E; }
+.sb-row-amt.is-neg { color: #1A1714; }
+
+.sb-cat { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px 4px 8px; border-radius: 999px; background: rgba(20, 15, 10, 0.04); color: #6B6357; font-size: 10.5px; font-weight: 600; font-family: "Inter", sans-serif; letter-spacing: 0.01em; min-width: 132px; transition: background 400ms ease, color 400ms ease, transform 350ms cubic-bezier(.2,.7,.2,1); }
+.sb-cat.is-resolved { animation: sb-cat-snap 500ms cubic-bezier(.2,.7,.2,1); }
+@keyframes sb-cat-snap { 0% { transform: scale(0.85); } 60% { transform: scale(1.06); } 100% { transform: scale(1); } }
+.sb-cat-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.sb-cat-spin { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid rgba(107, 99, 87, 0.25); border-top-color: #6B6357; animation: sb-spin 0.7s linear infinite; flex-shrink: 0; }
+@keyframes sb-spin { to { transform: rotate(360deg); } }
+.sb-cat-label { white-space: nowrap; }
+
+.sb-footer { position: relative; z-index: 1; margin-top: 12px; border-top: 1px solid #E8E2D8; background: rgba(20, 15, 10, 0.02); padding: 14px 18px; display: flex; flex-direction: column; gap: 10px; }
+.sb-foot-row { display: flex; justify-content: space-between; align-items: baseline; }
+.sb-foot-label { font-size: 11px; color: #6B6357; letter-spacing: 0.06em; }
+.sb-foot-val { font-family: "Inter", sans-serif; font-size: 22px; font-weight: 700; color: #1A1714; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.sb-foot-pct { font-size: 14px; font-weight: 600; color: #6B6357; margin-left: 2px; }
+.sb-foot-bar { height: 4px; border-radius: 2px; background: rgba(20, 15, 10, 0.06); overflow: hidden; }
+.sb-foot-bar-fill { width: 100%; height: 100%; border-radius: 2px; background: linear-gradient(90deg, #2F6B4E 0%, #16A34A 100%); animation: sb-bar-shimmer 3s ease-in-out infinite; }
+@keyframes sb-bar-shimmer { 0%, 100% { opacity: 1; } 50% { opacity: 0.75; } }
+.sb-foot-meta { display: flex; gap: 16px; font-size: 11px; color: #6B6357; }
+.sb-foot-meta > span { display: inline-flex; align-items: center; gap: 6px; }
+.sb-meta-dot { width: 6px; height: 6px; border-radius: 50%; }
+.sb-meta-dot--green { background: #2F6B4E; }
+.sb-meta-dot--coral { background: #C2410C; opacity: 0.5; }
+
+@media (prefers-reduced-motion: reduce) { .sb-shell * { animation: none !important; } }
+</style>
+
+<script>
+(function () {
+  var shell = document.getElementById('smart-banking-root');
+  if (!shell) return;
+
+  var CATEGORIES = {
+    sales:     { label: 'Sales · Revenue',  color: '#2F6B4E', soft: 'rgba(47, 107, 78, 0.10)' },
+    pro:       { label: 'Prof. Services',   color: '#4338CA', soft: 'rgba(67, 56, 202, 0.10)' },
+    infra:     { label: 'Infrastructure',   color: '#0E7490', soft: 'rgba(14, 116, 144, 0.10)' },
+    payroll:   { label: 'Payroll',          color: '#6B21A8', soft: 'rgba(107, 33, 168, 0.10)' },
+    software:  { label: 'Software',         color: '#1D4ED8', soft: 'rgba(29, 78, 216, 0.10)' },
+    marketing: { label: 'Marketing',        color: '#B45309', soft: 'rgba(180, 83, 9, 0.10)' },
+    rent:      { label: 'Rent · Office',    color: '#7C2D12', soft: 'rgba(124, 45, 18, 0.10)' },
+    travel:    { label: 'Travel',           color: '#9D174D', soft: 'rgba(157, 23, 77, 0.10)' },
+  };
+
+  var TXNS = [
+    { date: 'Mar 14', merchant: 'Stripe payout',     amount:  18402.10, cat: 'sales' },
+    { date: 'Mar 14', merchant: 'AWS · us-east-1',   amount:   -612.44, cat: 'infra' },
+    { date: 'Mar 14', merchant: 'Gusto · payroll',   amount: -24103.00, cat: 'payroll' },
+    { date: 'Mar 14', merchant: 'Notion Labs',        amount:   -120.00, cat: 'software' },
+    { date: 'Mar 14', merchant: 'Meta Ads',           amount:  -1840.00, cat: 'marketing' },
+    { date: 'Mar 13', merchant: 'Cedar & Co.',        amount:  -4280.00, cat: 'pro' },
+    { date: 'Mar 13', merchant: 'DigitalOcean',       amount:    -42.00, cat: 'infra' },
+    { date: 'Mar 13', merchant: 'Pellet Labs',        amount:  12400.00, cat: 'sales' },
+    { date: 'Mar 13', merchant: 'WeWork · 17th St',  amount:  -1850.00, cat: 'rent' },
+    { date: 'Mar 13', merchant: 'Linear',             amount:    -96.00, cat: 'software' },
+    { date: 'Mar 12', merchant: 'Halcyon Design',     amount:  -3200.00, cat: 'pro' },
+    { date: 'Mar 12', merchant: 'Delta · BOS→SFO', amount: -628.40, cat: 'travel' },
+    { date: 'Mar 12', merchant: 'Stripe payout',     amount:   8740.50, cat: 'sales' },
+    { date: 'Mar 12', merchant: 'Google Ads',         amount:  -2140.00, cat: 'marketing' },
+  ];
+
+  var MAX_VISIBLE  = 5;
+  var ROW_H        = 50;
+  var FEED_INTERVAL = 1500;
+  var RESOLVE_DELAY = 650;
+  var EXIT_DURATION = 500;
+  var PULSE_INTERVAL = 4200;
+
+  var feedEl    = document.getElementById('sb-feed');
+  var counterEl = document.getElementById('sb-counter');
+  var syncLabel = document.getElementById('sb-sync-label');
+
+  var txnIdx  = 0;
+  var counter = 0;
+  var rows    = [];   // {slot, phase, el}
+
+  function fmtSigned(n) {
+    var sign = n < 0 ? '−' : '+';
+    return sign + '$' + Math.abs(n).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function setRowTransform(rowObj) {
+    rowObj.el.style.transform = 'translateY(' + (rowObj.slot * ROW_H) + 'px)';
+    rowObj.el.style.opacity   = rowObj.slot < 0 ? '0' : '1';
+  }
+
+  function resolveRow(rowObj, txn) {
+    var cat   = CATEGORIES[txn.cat];
+    var catEl = rowObj.el.querySelector('.sb-cat');
+    catEl.className       = 'sb-cat is-resolved';
+    catEl.style.background = cat.soft;
+    catEl.style.color      = cat.color;
+    catEl.innerHTML        =
+      '<span class="sb-cat-dot" style="background:' + cat.color + '"></span>' +
+      '<span class="sb-cat-label">' + cat.label + '</span>';
+  }
+
+  function tick() {
+    var txn = TXNS[txnIdx % TXNS.length];
+    txnIdx++;
+
+    // shift all rows up one slot
+    rows.forEach(function (r) {
+      r.slot--;
+      setRowTransform(r);
+    });
+
+    // create new row element (starts off-screen below)
+    var el = document.createElement('div');
+    el.className = 'sb-row';
+    el.style.transform = 'translateY(' + (MAX_VISIBLE * ROW_H) + 'px)';
+    el.style.opacity   = '0';
+    var isPos = txn.amount > 0;
+    el.innerHTML =
+      '<span class="sb-row-date">'     + txn.date     + '</span>' +
+      '<span class="sb-row-merchant">' + txn.merchant + '</span>' +
+      '<span class="sb-cat"><span class="sb-cat-spin"></span><span class="sb-cat-label">classifying</span></span>' +
+      '<span class="sb-row-amt ' + (isPos ? 'is-pos' : 'is-neg') + '">' + fmtSigned(txn.amount) + '</span>';
+    feedEl.appendChild(el);
+
+    var rowObj = { slot: MAX_VISIBLE - 1, el: el };
+    rows.push(rowObj);
+
+    // animate in after paint
+    requestAnimationFrame(function () {
+      el.style.transform = 'translateY(' + (rowObj.slot * ROW_H) + 'px)';
+      el.style.opacity   = '1';
+    });
+
+    // resolve category
+    setTimeout(function () {
+      resolveRow(rowObj, txn);
+      counter++;
+      counterEl.textContent = counter + ' categorized today';
+    }, RESOLVE_DELAY);
+
+    // remove off-screen rows
+    setTimeout(function () {
+      rows = rows.filter(function (r) {
+        if (r.slot < 0) { r.el.remove(); return false; }
+        return true;
+      });
+    }, EXIT_DURATION);
+  }
+
+  // restart sync label animation periodically
+  setInterval(function () {
+    syncLabel.style.animation = 'none';
+    void syncLabel.offsetWidth;
+    syncLabel.style.animation = '';
+  }, PULSE_INTERVAL);
+
+  tick();
+  setInterval(tick, FEED_INTERVAL);
+})();
+</script>

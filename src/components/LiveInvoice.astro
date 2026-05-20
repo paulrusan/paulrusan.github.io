@@ -1,0 +1,460 @@
+---
+// LiveInvoice — animated invoicing graphic, ported from React to vanilla JS + Astro
+---
+
+<div class="li-shell" id="live-invoice-root">
+  <div class="li-grid" aria-hidden="true"></div>
+  <div class="li-glow li-glow--a" aria-hidden="true"></div>
+  <div class="li-glow li-glow--b" aria-hidden="true"></div>
+
+  <div class="li-chrome">
+    <div class="li-dots"><span></span><span></span><span></span></div>
+    <div class="li-title">accountium / invoicing</div>
+    <div class="li-live"><span class="li-live-dot"></span> live</div>
+  </div>
+
+  <div class="li-body">
+    <div class="li-invoice">
+      <div class="li-invoice-band" style="background:#2F6B4E"></div>
+
+      <div class="li-invoice-head">
+        <div class="li-logo" style="background:#2F6B4E">CC</div>
+        <div class="li-inv-meta">
+          <div class="li-inv-tag">INVOICE</div>
+          <div class="li-inv-num">#1023 · Cedar &amp; Co.</div>
+        </div>
+        <div class="li-inv-total">
+          <div class="li-inv-total-label">Total due</div>
+          <div class="li-inv-total-val">$4,280.00</div>
+        </div>
+      </div>
+
+      <div class="li-lines">
+        <div class="li-line">
+          <span class="li-line-desc">Strategy consulting — Mar</span>
+          <span class="li-line-qty">12 hr</span>
+          <span class="li-line-rate">$360</span>
+          <span class="li-line-total">$4,320</span>
+        </div>
+        <div class="li-line">
+          <span class="li-line-desc">Discovery sprint</span>
+          <span class="li-line-qty">1</span>
+          <span class="li-line-rate">$200</span>
+          <span class="li-line-total">$200</span>
+        </div>
+        <div class="li-line">
+          <span class="li-line-desc">Bundle discount</span>
+          <span class="li-line-qty">1</span>
+          <span class="li-line-rate">−$240</span>
+          <span class="li-line-total">−$240</span>
+        </div>
+      </div>
+
+      <div class="li-invoice-foot">
+        <div class="li-methods">
+          <span class="li-method li-method--card is-active">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none">
+              <rect x="0.5" y="0.5" width="19" height="13" rx="2" stroke="currentColor"/>
+              <rect x="0.5" y="3" width="19" height="2.5" fill="currentColor" opacity="0.8"/>
+              <rect x="3" y="8.5" width="4" height="2" fill="currentColor" opacity="0.5"/>
+            </svg>
+          </span>
+          <span class="li-method li-method--ach">
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="none">
+              <path d="M9 1 L17 5 L1 5 Z" stroke="currentColor" stroke-linejoin="round"/>
+              <rect x="3" y="6" width="2" height="6" fill="currentColor"/>
+              <rect x="8" y="6" width="2" height="6" fill="currentColor"/>
+              <rect x="13" y="6" width="2" height="6" fill="currentColor"/>
+              <rect x="1" y="12.5" width="16" height="1.5" fill="currentColor"/>
+            </svg>
+          </span>
+          <span class="li-method li-method--apple">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M11 8.6c0-1.5 1.2-2.2 1.3-2.3-0.7-1-1.8-1.2-2.2-1.2-0.9-0.1-1.8 0.6-2.3 0.6-0.5 0-1.2-0.5-2-0.5-1 0-2 0.6-2.5 1.6-1.1 1.9-0.3 4.7 0.7 6.2 0.5 0.8 1.2 1.6 2 1.5 0.8 0 1.1-0.5 2.1-0.5 1 0 1.2 0.5 2.1 0.5 0.9 0 1.4-0.7 2-1.5 0.6-0.9 0.9-1.7 0.9-1.8-0.1 0-1.8-0.7-1.8-2.6zM9.7 4.2c0.4-0.5 0.7-1.2 0.6-1.9-0.6 0-1.3 0.4-1.7 0.9-0.4 0.4-0.7 1.1-0.6 1.8 0.7 0.1 1.3-0.3 1.7-0.8z"/>
+            </svg>
+          </span>
+        </div>
+        <button class="li-pay-btn" style="--btn-tint:#2F6B4E">
+          Pay $4,280
+          <svg width="12" height="12" viewBox="0 0 12 12">
+            <path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.6"
+              fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="li-stamp" aria-hidden="true">
+        PAID
+        <span class="li-stamp-sub">MAR 14</span>
+      </div>
+
+      <div class="li-cursor" aria-hidden="true" style="display:none">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="#1A1714">
+          <path d="M3 2L17 9L10 11L7 18Z" stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="li-timeline">
+      <div class="li-step is-done is-active">
+        <span class="li-step-dot"><span class="li-step-tick"></span></span>
+        <span class="li-step-label">Sent</span>
+        <span class="li-step-line"></span>
+      </div>
+      <div class="li-step">
+        <span class="li-step-dot"><span class="li-step-tick"></span></span>
+        <span class="li-step-label">Opened</span>
+        <span class="li-step-line"></span>
+      </div>
+      <div class="li-step">
+        <span class="li-step-dot"><span class="li-step-tick"></span></span>
+        <span class="li-step-label">Paid</span>
+        <span class="li-step-line"></span>
+      </div>
+      <div class="li-step">
+        <span class="li-step-dot"><span class="li-step-tick"></span></span>
+        <span class="li-step-label">Booked</span>
+      </div>
+    </div>
+
+    <div class="li-book">
+      <span class="li-book-icon">↻</span>
+      <span class="li-book-tag">A/R</span>
+      <span class="li-book-text">Cedar &amp; Co. — Inv #1023 · auto-booked</span>
+      <span class="li-book-amt">+$4,280.00</span>
+    </div>
+  </div>
+
+  <div class="li-footer">
+    <div class="li-foot-row">
+      <span class="li-foot-label">Today · received</span>
+      <span class="li-foot-val">$24,370.00</span>
+    </div>
+    <span class="li-foot-pill">
+      <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+        <path d="M5 2L8 6H2Z" fill="currentColor"/>
+      </svg>
+      12.4%
+    </span>
+  </div>
+</div>
+
+<style is:global>
+.li-shell {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(47, 107, 78, 0.05), transparent 60%),
+    radial-gradient(120% 80% at 100% 100%, rgba(180, 83, 9, 0.04), transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+  border: 1px solid #E8E2D8;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(20, 15, 10, 0.04) inset,
+    0 20px 60px -20px rgba(20, 15, 10, 0.12),
+    0 4px 14px -4px rgba(20, 15, 10, 0.06);
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  color: #1A1714;
+  isolation: isolate;
+  transition: opacity 350ms ease;
+}
+.li-shell.is-fading { opacity: 0.65; }
+
+.li-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(20, 15, 10, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 50%, transparent 100%);
+  pointer-events: none; z-index: 0;
+}
+.li-glow {
+  position: absolute; width: 260px; height: 260px;
+  border-radius: 50%; filter: blur(70px); opacity: 0.55;
+  pointer-events: none; z-index: 0;
+}
+.li-glow--a { top: -100px; left: -80px; background: rgba(47, 107, 78, 0.18); animation: li-glow-a 9s ease-in-out infinite; }
+.li-glow--b { bottom: -120px; right: -60px; background: rgba(180, 83, 9, 0.12); animation: li-glow-b 11s ease-in-out infinite; }
+@keyframes li-glow-a { 0%,100% { transform: translate(0,0); } 50% { transform: translate(20px,30px); } }
+@keyframes li-glow-b { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-30px,-20px); } }
+
+.li-chrome {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-bottom: 1px solid #E8E2D8;
+  background: linear-gradient(180deg, rgba(20, 15, 10, 0.015), transparent);
+}
+.li-dots { display: inline-flex; gap: 6px; }
+.li-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.li-dots span:nth-child(1) { background: #E07A5F; }
+.li-dots span:nth-child(2) { background: #E2B33C; }
+.li-dots span:nth-child(3) { background: #2F6B4E; }
+.li-title { flex: 1; text-align: center; font-size: 12px; color: #6B6357; letter-spacing: 0.04em; }
+.li-live { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: #2F6B4E; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+.li-live-dot { width: 6px; height: 6px; border-radius: 50%; background: #2F6B4E; box-shadow: 0 0 0 0 rgba(47,107,78,0.45); animation: li-pulse-dot 1.6s ease-out infinite; }
+@keyframes li-pulse-dot { 0% { box-shadow: 0 0 0 0 rgba(47,107,78,0.45); } 100% { box-shadow: 0 0 0 8px rgba(47,107,78,0); } }
+
+.li-body { position: relative; z-index: 1; padding: 18px 18px 12px; display: flex; flex-direction: column; gap: 14px; }
+
+.li-invoice { position: relative; background: #FFFFFF; border: 1px solid #E8E2D8; border-radius: 10px; overflow: hidden; box-shadow: 0 1px 0 rgba(20,15,10,0.02); font-family: "Inter", system-ui, sans-serif; }
+.li-invoice-band { height: 4px; width: 100%; }
+.li-invoice-head { display: grid; grid-template-columns: 42px 1fr auto; gap: 12px; align-items: center; padding: 14px 16px; border-bottom: 1px solid #F1ECE3; }
+.li-logo { width: 36px; height: 36px; border-radius: 8px; background: #2F6B4E; color: white; display: grid; place-items: center; font-family: "JetBrains Mono", monospace; font-weight: 600; font-size: 13px; letter-spacing: -0.02em; }
+.li-inv-meta { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.li-inv-tag { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: #A39A8E; font-weight: 500; }
+.li-inv-num { font-size: 14px; font-weight: 600; color: #1A1714; letter-spacing: -0.01em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.li-inv-total { text-align: right; }
+.li-inv-total-label { font-family: "JetBrains Mono", monospace; font-size: 10px; letter-spacing: 0.14em; color: #A39A8E; font-weight: 500; }
+.li-inv-total-val { font-size: 17px; font-weight: 700; letter-spacing: -0.01em; color: #1A1714; font-variant-numeric: tabular-nums; }
+
+.li-lines { padding: 4px 16px; }
+.li-line { display: grid; grid-template-columns: 1fr 50px 70px 80px; gap: 8px; padding: 10px 0; border-bottom: 1px dashed #F1ECE3; font-size: 12.5px; }
+.li-line:last-child { border-bottom: none; }
+.li-line-desc { color: #1A1714; }
+.li-line-qty, .li-line-rate { color: #6B6357; text-align: right; font-variant-numeric: tabular-nums; }
+.li-line-total { color: #1A1714; text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+
+.li-invoice-foot { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: #FBF8F3; border-top: 1px solid #F1ECE3; }
+.li-methods { display: inline-flex; gap: 8px; align-items: center; }
+.li-method { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 22px; border-radius: 5px; border: 1px solid #E8E2D8; background: white; color: #A39A8E; transition: color 200ms ease, border-color 200ms ease, background 200ms ease, transform 200ms ease; }
+.li-method.is-active { color: #1A1714; border-color: #1A1714; background: white; transform: translateY(-1px); }
+
+.li-pay-btn { position: relative; overflow: hidden; display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 6px; border: 1px solid var(--btn-tint, #2F6B4E); background: var(--btn-tint, #2F6B4E); color: white; font-family: "Inter", system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: -0.005em; cursor: pointer; transition: transform 200ms cubic-bezier(.2,.7,.2,1), background 300ms ease, color 300ms ease; font-variant-numeric: tabular-nums; }
+.li-pay-btn--clicking { transform: scale(0.96); }
+.li-pay-btn--done { background: rgba(47,107,78,0.08); color: #2F6B4E; border-color: rgba(47,107,78,0.4); }
+.li-pay-check { display: inline-grid; place-items: center; width: 14px; height: 14px; border-radius: 50%; background: #2F6B4E; color: white; font-size: 9px; font-weight: 700; }
+.li-pay-ripple { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255,255,255,0.4) 0%, transparent 60%); animation: li-ripple 600ms ease-out forwards; pointer-events: none; }
+@keyframes li-ripple { 0% { opacity: 0.7; transform: scale(0.3); } 100% { opacity: 0; transform: scale(2); } }
+
+.li-stamp { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-12deg) scale(0.4); font-family: "Inter", sans-serif; font-size: 64px; font-weight: 900; letter-spacing: 0.04em; color: rgba(194,65,12,0.18); border: 6px solid rgba(194,65,12,0.32); border-radius: 10px; padding: 8px 22px 6px; opacity: 0; pointer-events: none; text-align: center; line-height: 0.9; transition: transform 500ms cubic-bezier(.2,.7,.2,1), opacity 350ms ease; text-shadow: 0 2px 0 rgba(255,255,255,0.5); }
+.li-stamp-sub { display: block; font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.2em; font-weight: 700; color: rgba(194,65,12,0.4); margin-top: 4px; }
+.li-stamp.is-visible { opacity: 1; transform: translate(-50%,-50%) rotate(-12deg) scale(1); }
+
+.li-cursor { position: absolute; bottom: 18px; right: 100px; width: 22px; height: 22px; z-index: 2; pointer-events: none; animation: li-cursor-tap 700ms ease-out; }
+@keyframes li-cursor-tap { 0% { transform: translate(40px,-20px) scale(1); opacity: 0; } 35% { transform: translate(0,0) scale(1); opacity: 1; } 60% { transform: translate(0,0) scale(0.85); } 100% { transform: translate(0,0) scale(1); } }
+
+.li-timeline { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; padding: 4px 8px; }
+.li-step { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; position: relative; padding-right: 4px; }
+.li-step-dot { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #D7CFC2; background: white; display: grid; place-items: center; transition: background 350ms ease, border-color 350ms ease, box-shadow 350ms ease; position: relative; z-index: 1; }
+.li-step.is-done .li-step-dot { background: #2F6B4E; border-color: #2F6B4E; }
+.li-step.is-active .li-step-dot { box-shadow: 0 0 0 4px rgba(47,107,78,0.18); }
+.li-step-tick { color: white; font-size: 9px; font-weight: 800; line-height: 1; }
+.li-step-label { font-family: "JetBrains Mono", monospace; font-size: 11px; color: #6B6357; letter-spacing: 0.04em; transition: color 300ms ease; }
+.li-step.is-active .li-step-label, .li-step.is-done .li-step-label { color: #1A1714; }
+.li-step-line { position: absolute; top: 6px; left: 20px; right: -4px; height: 1.5px; background: linear-gradient(90deg, #D7CFC2 50%, transparent 50%); background-size: 6px 1.5px; z-index: 0; }
+.li-step.is-done .li-step-line { background: #2F6B4E; }
+
+.li-book { display: grid; grid-template-columns: 22px 50px 1fr auto; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; background: white; border: 1px solid transparent; font-size: 12.5px; opacity: 0; transform: translateY(8px) scale(0.99); transition: opacity 400ms cubic-bezier(.2,.7,.2,1), transform 500ms cubic-bezier(.2,.7,.2,1), border-color 400ms ease, background 400ms ease; }
+.li-book.is-in { opacity: 1; transform: translateY(0) scale(1); border-color: #E8E2D8; box-shadow: 0 1px 0 rgba(20,15,10,0.02); }
+.li-book-icon { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: rgba(47,107,78,0.14); color: #2F6B4E; font-size: 13px; font-weight: 700; animation: li-book-spin 1.4s ease-out 1; }
+@keyframes li-book-spin { from { transform: rotate(-180deg); } to { transform: rotate(0deg); } }
+.li-book-tag { color: #6B6357; font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; }
+.li-book-text { color: #1A1714; }
+.li-book-amt { font-variant-numeric: tabular-nums; color: #2F6B4E; font-weight: 600; }
+
+.li-footer { position: relative; z-index: 1; border-top: 1px solid #E8E2D8; background: rgba(20,15,10,0.02); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between; }
+.li-foot-row { display: flex; align-items: baseline; gap: 12px; }
+.li-foot-label { font-size: 11px; color: #6B6357; letter-spacing: 0.06em; }
+.li-foot-val { font-family: "JetBrains Mono", monospace; font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: #1A1714; font-variant-numeric: tabular-nums; }
+.li-foot-pill { display: inline-flex; align-items: center; gap: 4px; padding: 4px 9px; border-radius: 999px; background: rgba(47,107,78,0.1); color: #2F6B4E; font-size: 11px; font-weight: 600; letter-spacing: 0.02em; }
+
+@media (prefers-reduced-motion: reduce) { .li-shell * { animation: none !important; } }
+</style>
+
+<script>
+(function () {
+  const shell = document.getElementById('live-invoice-root');
+  if (!shell) return;
+
+  const INVOICES = [
+    {
+      client: 'Cedar & Co.', initials: 'CC', tint: '#2F6B4E',
+      num: '1023', amount: 4280, issued: 'Mar 14',
+      lines: [
+        { desc: 'Strategy consulting — Mar', qty: '12 hr', rate: '$360',   total: '$4,320' },
+        { desc: 'Discovery sprint',              qty: '1',     rate: '$200',   total: '$200'   },
+        { desc: 'Bundle discount',               qty: '1',     rate: '−$240', total: '−$240' },
+      ],
+      method: 'card',
+    },
+    {
+      client: 'Pellet Labs', initials: 'PL', tint: '#B45309',
+      num: '1024', amount: 12400, issued: 'Mar 15',
+      lines: [
+        { desc: 'Q1 retainer',             qty: '1',    rate: '$10,000', total: '$10,000' },
+        { desc: 'Equipment install',        qty: '4 hr', rate: '$300',   total: '$1,200'  },
+        { desc: 'Materials · sensors', qty: '1',   rate: '$1,200', total: '$1,200'  },
+      ],
+      method: 'ach',
+    },
+    {
+      client: 'Studio Ono', initials: 'SO', tint: '#6B21A8',
+      num: '1025', amount: 8750, issued: 'Mar 16',
+      lines: [
+        { desc: 'Brand identity — phase 2', qty: '1',    rate: '$6,500', total: '$6,500' },
+        { desc: 'Photo direction',               qty: '4 hr', rate: '$450',   total: '$1,800' },
+        { desc: 'Asset bundle',                  qty: '1',    rate: '$450',   total: '$450'   },
+      ],
+      method: 'apple',
+    },
+  ];
+
+  const STEPS = [
+    { name: 'sent',   duration: 1400 },
+    { name: 'opened', duration: 1500 },
+    { name: 'paying', duration: 700  },
+    { name: 'paid',   duration: 1200 },
+    { name: 'booked', duration: 1700 },
+    { name: 'hold',   duration: 1700 },
+    { name: 'fade',   duration: 500  },
+  ];
+
+  const BASE_DAY_TOTAL = 24370;
+
+  const band       = shell.querySelector('.li-invoice-band');
+  const logo       = shell.querySelector('.li-logo');
+  const invNum     = shell.querySelector('.li-inv-num');
+  const invTotal   = shell.querySelector('.li-inv-total-val');
+  const linesEl    = shell.querySelector('.li-lines');
+  const methodCard = shell.querySelector('.li-method--card');
+  const methodAch  = shell.querySelector('.li-method--ach');
+  const methodApple= shell.querySelector('.li-method--apple');
+  const payBtn     = shell.querySelector('.li-pay-btn');
+  const stamp      = shell.querySelector('.li-stamp');
+  const stampSub   = shell.querySelector('.li-stamp-sub');
+  const cursor     = shell.querySelector('.li-cursor');
+  const stepEls    = shell.querySelectorAll('.li-step');
+  const bookRow    = shell.querySelector('.li-book');
+  const bookText   = shell.querySelector('.li-book-text');
+  const bookAmt    = shell.querySelector('.li-book-amt');
+  const footVal    = shell.querySelector('.li-foot-val');
+
+  let invIdx = 0, stepIdx = 0, timer = null, raf = null;
+
+  function fmtUSD(n, dec = 0) {
+    return '$' + n.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+  }
+
+  function loadInvoice() {
+    const inv = INVOICES[invIdx];
+    band.style.background  = inv.tint;
+    logo.style.background  = inv.tint;
+    logo.textContent       = inv.initials;
+    invNum.textContent     = '#' + inv.num + ' · ' + inv.client;
+    invTotal.textContent   = fmtUSD(inv.amount, 2);
+
+    linesEl.innerHTML = inv.lines.map(l =>
+      '<div class="li-line">' +
+        '<span class="li-line-desc">'  + l.desc  + '</span>' +
+        '<span class="li-line-qty">'   + l.qty   + '</span>' +
+        '<span class="li-line-rate">'  + l.rate  + '</span>' +
+        '<span class="li-line-total">' + l.total + '</span>' +
+      '</div>'
+    ).join('');
+
+    methodCard.classList.toggle('is-active',  inv.method === 'card');
+    methodAch.classList.toggle('is-active',   inv.method === 'ach');
+    methodApple.classList.toggle('is-active', inv.method === 'apple');
+
+    payBtn.style.setProperty('--btn-tint', inv.tint);
+    stampSub.textContent  = inv.issued.toUpperCase();
+    bookText.textContent  = inv.client + ' — Inv #' + inv.num + ' · auto-booked';
+    bookAmt.textContent   = '+' + fmtUSD(inv.amount, 2);
+  }
+
+  function setPayButton(state) {
+    const inv = INVOICES[invIdx];
+    const arrowSvg = '<svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    if (state === 'idle') {
+      payBtn.className = 'li-pay-btn';
+      payBtn.innerHTML = 'Pay ' + fmtUSD(inv.amount) + arrowSvg;
+      payBtn.style.setProperty('--btn-tint', inv.tint);
+    } else if (state === 'clicking') {
+      payBtn.className = 'li-pay-btn li-pay-btn--clicking';
+      payBtn.innerHTML = 'Pay ' + fmtUSD(inv.amount) + arrowSvg + '<span class="li-pay-ripple"></span>';
+    } else {
+      payBtn.className = 'li-pay-btn li-pay-btn--done';
+      payBtn.innerHTML = '<span class="li-pay-check">✓</span> Paid · ' + fmtUSD(inv.amount);
+    }
+  }
+
+  function updateTimeline(statusIdx) {
+    stepEls.forEach(function(el, i) {
+      el.classList.toggle('is-done',   i <= statusIdx);
+      el.classList.toggle('is-active', i === statusIdx);
+      var tick = el.querySelector('.li-step-tick');
+      if (tick) tick.textContent = i < statusIdx ? '✓' : '';
+    });
+  }
+
+  function restartAnim(el) {
+    el.style.animation = 'none';
+    void el.offsetWidth;
+    el.style.animation = '';
+  }
+
+  function applyStep() {
+    var step = STEPS[stepIdx].name;
+    var inv  = INVOICES[invIdx];
+
+    shell.classList.toggle('is-fading', step === 'fade');
+
+    var statusIdx = step === 'sent' ? 0
+      : (step === 'opened' || step === 'paying') ? 1
+      : step === 'paid' ? 2 : 3;
+    updateTimeline(statusIdx);
+
+    var payState = (step === 'sent' || step === 'opened') ? 'idle'
+      : step === 'paying' ? 'clicking' : 'done';
+    setPayButton(payState);
+
+    if (step === 'paying') {
+      cursor.style.display = 'block';
+      restartAnim(cursor);
+    } else {
+      cursor.style.display = 'none';
+    }
+
+    var stampOn = step === 'paid' || step === 'booked' || step === 'hold' || step === 'fade';
+    stamp.classList.toggle('is-visible', stampOn);
+
+    var bookOn = step === 'booked' || step === 'hold' || step === 'fade';
+    if (bookOn && !bookRow.classList.contains('is-in')) {
+      restartAnim(bookRow.querySelector('.li-book-icon'));
+      bookRow.classList.add('is-in');
+    } else if (!bookOn) {
+      bookRow.classList.remove('is-in');
+    }
+
+    if (step === 'sent') {
+      footVal.textContent = fmtUSD(BASE_DAY_TOTAL, 2);
+    } else if (step === 'booked') {
+      var start = BASE_DAY_TOTAL, end = BASE_DAY_TOTAL + inv.amount, dur = 900, t0 = performance.now();
+      if (raf) cancelAnimationFrame(raf);
+      (function tick(now) {
+        var t = Math.min(1, (now - t0) / dur);
+        var eased = 1 - Math.pow(1 - t, 3);
+        footVal.textContent = fmtUSD(start + (end - start) * eased, 2);
+        if (t < 1) raf = requestAnimationFrame(tick);
+      })(performance.now());
+    }
+
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function() {
+      if (stepIdx === STEPS.length - 1) {
+        invIdx = (invIdx + 1) % INVOICES.length;
+        stepIdx = 0;
+        loadInvoice();
+      } else {
+        stepIdx++;
+      }
+      applyStep();
+    }, STEPS[stepIdx].duration);
+  }
+
+  loadInvoice();
+  applyStep();
+})();
+</script>

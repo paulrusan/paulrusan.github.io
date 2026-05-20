@@ -1,0 +1,601 @@
+---
+// Payroll — animated run-payroll graphic for Accountium
+const EMPLOYEES = [
+  { name: "Maya Okafor",   role: "CEO",        initials: "MO", color: "#2F6B4E", gross: 12500, tax: 3125, net: 9375 },
+  { name: "Daniel Rivera", role: "CTO",        initials: "DR", color: "#1D4ED8", gross: 11800, tax: 2950, net: 8850 },
+  { name: "Sara Hwang",    role: "Designer",   initials: "SH", color: "#6B21A8", gross:  8400, tax: 2100, net: 6300 },
+  { name: "Liam Bates",    role: "Engineer",   initials: "LB", color: "#0E7490", gross:  9200, tax: 2300, net: 6900 },
+  { name: "Priya Sharma",  role: "Product",    initials: "PS", color: "#B45309", gross:  9600, tax: 2400, net: 7200 },
+  { name: "Kai Tanaka",    role: "Engineer",   initials: "KT", color: "#9D174D", gross:  9200, tax: 2300, net: 6900 },
+];
+
+function fmtUSD(n: number) {
+  return "$" + n.toLocaleString("en-US", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
+}
+
+const TOTAL_GROSS = EMPLOYEES.reduce((s, e) => s + e.gross, 0);
+const TOTAL_TAX   = EMPLOYEES.reduce((s, e) => s + e.tax,   0);
+const TOTAL_NET   = EMPLOYEES.reduce((s, e) => s + e.net,   0);
+---
+
+<div class="pr-shell" id="pr-root">
+  <div class="pr-grid" aria-hidden="true"></div>
+  <div class="pr-glow pr-glow--a" aria-hidden="true"></div>
+  <div class="pr-glow pr-glow--b" aria-hidden="true"></div>
+
+  <!-- chrome -->
+  <div class="pr-chrome">
+    <div class="pr-dots"><span></span><span></span><span></span></div>
+    <div class="pr-title">accountium / payroll</div>
+    <div class="pr-live"><span class="pr-live-dot"></span> live</div>
+  </div>
+
+  <!-- header -->
+  <div class="pr-head">
+    <div class="pr-head-info">
+      <div class="pr-head-label">March 2026 · Payroll run</div>
+      <div class="pr-head-stats">
+        <span><strong>{EMPLOYEES.length}</strong> heads</span>
+        <span class="pr-sep">·</span>
+        <span>gross <strong>{fmtUSD(TOTAL_GROSS)}</strong></span>
+        <span class="pr-sep">·</span>
+        <span>tax <strong>{fmtUSD(TOTAL_TAX)}</strong></span>
+      </div>
+    </div>
+    <div class="pr-run-wrap">
+      <button class="pr-run pr-run--idle" id="pr-btn">
+        <span class="pr-btn-idle" style="display:inline-flex;align-items:center;gap:8px;">
+          <span class="pr-run-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14">
+              <path d="M4 3 L11 7 L4 11 Z" fill="currentColor"/>
+            </svg>
+          </span>
+          Run Payroll
+          <span class="pr-run-sep"></span>
+          <span class="pr-run-amt">{fmtUSD(TOTAL_NET)}</span>
+        </span>
+        <span class="pr-btn-processing" style="display:none;align-items:center;gap:8px;">
+          <span class="pr-run-spinner"></span>
+          Processing
+          <span class="pr-run-sep"></span>
+          <span class="pr-run-amt" id="pr-count">0/{EMPLOYEES.length}</span>
+        </span>
+        <span class="pr-btn-done" style="display:none;align-items:center;gap:8px;">
+          <span class="pr-run-check">
+            <svg width="11" height="11" viewBox="0 0 11 11">
+              <path d="M2 6 L4.5 8.5 L9 3.5" stroke="currentColor" stroke-width="1.8"
+                fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Paid
+          <span class="pr-run-sep"></span>
+          <span class="pr-run-amt">{EMPLOYEES.length}/{EMPLOYEES.length}</span>
+        </span>
+      </button>
+      <div class="pr-cursor" id="pr-cursor" aria-hidden="true" style="display:none;">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="#1A1714">
+          <path d="M3 2L17 9L10 11L7 18Z" stroke="white" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- employee list -->
+  <div class="pr-list">
+    {EMPLOYEES.map((emp, i) => (
+      <div class="pr-row" id={`pr-row-${i}`}>
+        <div class="pr-avatar" style={`background:${emp.color}`}>{emp.initials}</div>
+        <div class="pr-info">
+          <div class="pr-name">{emp.name}</div>
+          <div class="pr-role">{emp.role}</div>
+        </div>
+        <div class="pr-amounts">
+          <div class="pr-amount-row">
+            <span class="pr-amount-label">gross</span>
+            <span class="pr-amount-val">{fmtUSD(emp.gross)}</span>
+          </div>
+          <div class="pr-amount-row pr-amount-row--muted">
+            <span class="pr-amount-label">tax</span>
+            <span class="pr-amount-val">−{fmtUSD(emp.tax)}</span>
+          </div>
+        </div>
+        <div class="pr-net">
+          <div class="pr-net-label">net</div>
+          <div class="pr-net-val">{fmtUSD(emp.net)}</div>
+        </div>
+        <div class="pr-status">
+          <span class="pr-status-pending">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <circle cx="5" cy="5" r="3.5" stroke="#A39A8E" stroke-width="1.4" stroke-dasharray="1.6 1.6"/>
+            </svg>
+          </span>
+          <span class="pr-status-paid">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <circle cx="7" cy="7" r="6.5" fill="#2F6B4E"/>
+              <path d="M4 7 L6 9.2 L10 5" stroke="white" stroke-width="1.6"
+                stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <!-- footer -->
+  <div class="pr-footer">
+    <div class="pr-foot-row">
+      <span class="pr-foot-label">Direct deposit · 1 business day</span>
+      <span class="pr-foot-status" id="pr-foot-status">0/{EMPLOYEES.length} processed</span>
+    </div>
+    <div class="pr-foot-bar">
+      <div class="pr-foot-bar-fill" id="pr-bar-fill" style="width:0%"></div>
+    </div>
+    <div class="pr-foot-meta">
+      <span><span class="pr-meta-dot pr-meta-dot--green"></span> Tax filings auto-prepared</span>
+      <span><span class="pr-meta-dot pr-meta-dot--blue"></span> ACH same-day</span>
+      <span><span class="pr-meta-dot pr-meta-dot--violet"></span> 401k synced</span>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+.pr-shell {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(47, 107, 78, 0.05), transparent 60%),
+    radial-gradient(120% 80% at 100% 100%, rgba(67, 56, 202, 0.04), transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+  border: 1px solid #E8E2D8;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(20, 15, 10, 0.04) inset,
+    0 20px 60px -20px rgba(20, 15, 10, 0.12),
+    0 4px 14px -4px rgba(20, 15, 10, 0.06);
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  color: #1A1714;
+  isolation: isolate;
+  transition: opacity 400ms ease;
+}
+.pr-shell.is-resetting { opacity: 0.7; }
+
+.pr-grid {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(20, 15, 10, 0.07) 1px, transparent 1px);
+  background-size: 16px 16px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 50%, transparent 100%);
+  pointer-events: none; z-index: 0;
+}
+.pr-glow {
+  position: absolute; width: 260px; height: 260px;
+  border-radius: 50%; filter: blur(70px); opacity: 0.55;
+  pointer-events: none; z-index: 0;
+}
+.pr-glow--a { top: -100px; left: -80px; background: rgba(47, 107, 78, 0.18); animation: pr-glow-a 9s ease-in-out infinite; }
+.pr-glow--b { bottom: -120px; right: -60px; background: rgba(67, 56, 202, 0.12); animation: pr-glow-b 11s ease-in-out infinite; }
+@keyframes pr-glow-a { 0%,100% { transform: translate(0, 0); } 50% { transform: translate(20px, 30px); } }
+@keyframes pr-glow-b { 0%,100% { transform: translate(0, 0); } 50% { transform: translate(-30px, -20px); } }
+
+.pr-chrome {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 18px; border-bottom: 1px solid #E8E2D8;
+  background: linear-gradient(180deg, rgba(20, 15, 10, 0.015), transparent);
+}
+.pr-dots { display: inline-flex; gap: 6px; }
+.pr-dots span { width: 10px; height: 10px; border-radius: 50%; }
+.pr-dots span:nth-child(1) { background: #E07A5F; }
+.pr-dots span:nth-child(2) { background: #E2B33C; }
+.pr-dots span:nth-child(3) { background: #2F6B4E; }
+.pr-title {
+  flex: 1; text-align: center; font-size: 12px;
+  color: #6B6357; letter-spacing: 0.04em;
+}
+.pr-live {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; color: #2F6B4E;
+  text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;
+}
+.pr-live-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #2F6B4E;
+  box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.45);
+  animation: pr-pulse-dot 1.6s ease-out infinite;
+}
+@keyframes pr-pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.45); }
+  100% { box-shadow: 0 0 0 8px rgba(47, 107, 78, 0); }
+}
+
+.pr-head {
+  position: relative; z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 18px 14px;
+}
+.pr-head-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.pr-head-label {
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1A1714;
+  letter-spacing: -0.01em;
+}
+.pr-head-stats {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  color: #6B6357;
+  font-variant-numeric: tabular-nums;
+}
+.pr-head-stats strong { color: #1A1714; font-weight: 600; }
+.pr-sep { color: #C2B9A9; }
+
+.pr-run-wrap { position: relative; }
+.pr-run {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #1A1714;
+  background: #1A1714;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  cursor: pointer;
+  transition: background 250ms ease, color 250ms ease, transform 200ms cubic-bezier(.2,.7,.2,1), border-color 250ms ease;
+  font-variant-numeric: tabular-nums;
+}
+.pr-run--pressing { transform: scale(0.96); }
+.pr-run--processing {
+  background: white;
+  color: #1A1714;
+  border-color: #1A1714;
+}
+.pr-run--done {
+  background: rgba(47, 107, 78, 0.1);
+  color: #2F6B4E;
+  border-color: rgba(47, 107, 78, 0.45);
+}
+.pr-run--reset {
+  background: rgba(47, 107, 78, 0.1);
+  color: #2F6B4E;
+  border-color: rgba(47, 107, 78, 0.45);
+}
+.pr-run-icon { display: inline-flex; align-items: center; color: #2F6B4E; }
+.pr-run--idle .pr-run-icon,
+.pr-run--pressing .pr-run-icon { color: #4ADE80; }
+.pr-run-spinner {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 1.6px solid rgba(20, 15, 10, 0.18);
+  border-top-color: #1A1714;
+  animation: pr-spin 0.7s linear infinite;
+}
+@keyframes pr-spin { to { transform: rotate(360deg); } }
+.pr-run-check {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #2F6B4E;
+  color: white;
+  display: grid; place-items: center;
+}
+.pr-run-sep {
+  width: 1px;
+  height: 14px;
+  background: currentColor;
+  opacity: 0.25;
+  margin: 0 2px;
+}
+.pr-run-amt { letter-spacing: 0.01em; }
+
+.pr-cursor {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+  animation: pr-cursor-tap 280ms ease-out;
+}
+@keyframes pr-cursor-tap {
+  0%   { transform: translate(40%, -120%) scale(1); opacity: 0; }
+  40%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  70%  { transform: translate(-50%, -50%) scale(0.86); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+}
+
+.pr-list {
+  position: relative; z-index: 1;
+  padding: 0 18px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.pr-row {
+  display: grid;
+  grid-template-columns: 36px 1fr 100px 78px 20px;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: white;
+  border: 1px solid #E8E2D8;
+  border-radius: 8px;
+  font-size: 12.5px;
+  box-shadow: 0 1px 0 rgba(20, 15, 10, 0.02);
+  transition: border-color 350ms ease, background 350ms ease, transform 300ms cubic-bezier(.2,.7,.2,1);
+}
+.pr-row.is-paid {
+  border-color: rgba(47, 107, 78, 0.32);
+  background: rgba(47, 107, 78, 0.04);
+}
+.pr-row.is-just-paid {
+  animation: pr-row-pulse 380ms cubic-bezier(.2,.7,.2,1);
+}
+@keyframes pr-row-pulse {
+  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(47, 107, 78, 0); }
+  40%  { transform: scale(1.012); box-shadow: 0 0 0 4px rgba(47, 107, 78, 0.18); }
+  100% { transform: scale(1); box-shadow: 0 1px 0 rgba(20, 15, 10, 0.02); }
+}
+
+.pr-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  color: white;
+  display: grid; place-items: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: 0 1px 0 rgba(20, 15, 10, 0.04);
+}
+
+.pr-info { min-width: 0; }
+.pr-name {
+  font-family: "Inter", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A1714;
+  letter-spacing: -0.005em;
+}
+.pr-role {
+  font-size: 10.5px;
+  color: #6B6357;
+  letter-spacing: 0.02em;
+  margin-top: 1px;
+}
+
+.pr-amounts { display: flex; flex-direction: column; gap: 2px; font-variant-numeric: tabular-nums; }
+.pr-amount-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: #1A1714;
+  gap: 6px;
+}
+.pr-amount-row--muted { color: #6B6357; }
+.pr-amount-label { letter-spacing: 0.04em; color: #A39A8E; }
+.pr-amount-val { font-weight: 500; }
+.pr-amount-row--muted .pr-amount-val { color: #6B6357; }
+
+.pr-net {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.pr-net-label {
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: #A39A8E;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.pr-net-val {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1A1714;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  transition: color 350ms ease;
+}
+.pr-row.is-paid .pr-net-val { color: #2F6B4E; }
+
+.pr-status {
+  display: grid; place-items: center;
+  position: relative;
+  width: 20px; height: 20px;
+}
+.pr-status-pending,
+.pr-status-paid {
+  position: absolute;
+  inset: 0;
+  display: grid; place-items: center;
+  transition: opacity 300ms ease, transform 350ms cubic-bezier(.2,.7,.2,1);
+}
+.pr-status-pending { opacity: 1; transform: scale(1); }
+.pr-status-paid    { opacity: 0; transform: scale(0.4); }
+.pr-row.is-paid .pr-status-pending { opacity: 0; transform: scale(0.6); }
+.pr-row.is-paid .pr-status-paid    { opacity: 1; transform: scale(1); }
+.pr-row.is-just-paid .pr-status-paid {
+  animation: pr-check-pop 500ms cubic-bezier(.2,.7,.2,1);
+}
+@keyframes pr-check-pop {
+  0%   { transform: scale(0.4); }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.pr-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid #E8E2D8;
+  background: rgba(20, 15, 10, 0.02);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pr-foot-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+.pr-foot-label {
+  font-size: 11px;
+  color: #6B6357;
+  letter-spacing: 0.04em;
+}
+.pr-foot-status {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #1A1714;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.005em;
+  transition: color 350ms ease;
+}
+.pr-foot-status.is-done { color: #2F6B4E; }
+.pr-foot-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(20, 15, 10, 0.06);
+  overflow: hidden;
+}
+.pr-foot-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2F6B4E 0%, #16A34A 100%);
+  transition: width 250ms cubic-bezier(.2,.7,.2,1);
+}
+.pr-foot-meta {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  color: #6B6357;
+  flex-wrap: wrap;
+}
+.pr-foot-meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.pr-meta-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+.pr-meta-dot--green  { background: #2F6B4E; }
+.pr-meta-dot--blue   { background: #1D4ED8; }
+.pr-meta-dot--violet { background: #6B21A8; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pr-shell * { animation: none !important; }
+}
+</style>
+
+<script>
+(function () {
+  var root = document.getElementById('pr-root');
+  if (!root) return;
+
+  var N = 6;
+  var TOTAL_NET_STR = '$45,525';
+
+  var btn      = document.getElementById('pr-btn');
+  var btnIdle  = btn.querySelector('.pr-btn-idle');
+  var btnProc  = btn.querySelector('.pr-btn-processing');
+  var btnDone  = btn.querySelector('.pr-btn-done');
+  var countEl  = document.getElementById('pr-count');
+  var cursor   = document.getElementById('pr-cursor');
+  var barFill  = document.getElementById('pr-bar-fill');
+  var footSt   = document.getElementById('pr-foot-status');
+
+  function getRow(i) { return document.getElementById('pr-row-' + i); }
+
+  function render(step, paid) {
+    btn.className = 'pr-run pr-run--' + step;
+
+    var showIdle = step === 'idle' || step === 'pressing';
+    var showProc = step === 'processing';
+    var showDone = step === 'done' || step === 'reset';
+    btnIdle.style.display = showIdle ? 'inline-flex' : 'none';
+    btnProc.style.display = showProc ? 'inline-flex' : 'none';
+    btnDone.style.display = showDone ? 'inline-flex' : 'none';
+
+    cursor.style.display = step === 'pressing' ? 'block' : 'none';
+
+    root.classList.toggle('is-resetting', step === 'reset');
+
+    barFill.style.width = (paid / N * 100) + '%';
+    if (countEl) countEl.textContent = paid + '/' + N;
+
+    var isDone = step === 'done';
+    footSt.textContent = isDone ? ('Posted to ledger · ' + TOTAL_NET_STR) : (paid + '/' + N + ' processed');
+    footSt.classList.toggle('is-done', isDone);
+
+    for (var i = 0; i < N; i++) {
+      var row = getRow(i);
+      if (!row) continue;
+      row.classList.toggle('is-paid', i < paid);
+      if (i >= paid) row.classList.remove('is-just-paid');
+    }
+
+    if (paid > 0 && step === 'processing') {
+      var jpRow = getRow(paid - 1);
+      if (jpRow) {
+        jpRow.classList.remove('is-just-paid');
+        void jpRow.offsetWidth;
+        jpRow.classList.add('is-just-paid');
+      }
+    }
+  }
+
+  var timers = [];
+  function wait(ms) {
+    return new Promise(function (resolve) {
+      timers.push(setTimeout(resolve, ms));
+    });
+  }
+
+  var running = true;
+  async function loop() {
+    while (running) {
+      render('idle', 0);
+      await wait(1400);
+      if (!running) return;
+
+      render('pressing', 0);
+      await wait(280);
+      if (!running) return;
+
+      render('processing', 0);
+      for (var i = 1; i <= N; i++) {
+        await wait(280);
+        if (!running) return;
+        render('processing', i);
+      }
+      await wait(280);
+      if (!running) return;
+
+      render('done', N);
+      await wait(1700);
+      if (!running) return;
+
+      render('reset', N);
+      await wait(600);
+      if (!running) return;
+    }
+  }
+
+  loop();
+})();
+</script>

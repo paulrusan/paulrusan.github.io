@@ -19,7 +19,17 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4321/)",
       "Bash(wc -c \"c:/Users/rusan/Documents/GitHub/paulrusan.github.io/public/images/Ai-Accounting--wrldfirst.svg\")",
       "Bash(wc -c \"c:/Users/rusan/Documents/GitHub/paulrusan.github.io/public/images/reporting.svg\")",
-      "Bash(start \"\" \"c:\\\\Users\\\\rusan\\\\Documents\\\\GitHub\\\\paulrusan.github.io\\\\public\\\\images\\\\banking features.svg\")"
+      "Bash(start \"\" \"c:\\\\Users\\\\rusan\\\\Documents\\\\GitHub\\\\paulrusan.github.io\\\\public\\\\images\\\\banking features.svg\")",
+      "Read(//c/Users/rusan/Downloads/**)",
+      "Bash(Select-String -Pattern \"Accountium\")",
+      "Bash(Select-String -Pattern \"Accountium\" -i)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\rusan\\\\Downloads\" | Where-Object { $_.Name -match \"Accountium\" -or $_.Name -match \"accountium\" } | Select-Object Name, Extension, Length)",
+      "PowerShell(Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"C:\\\\Users\\\\rusan\\\\Downloads\\\\Accountium Website.zip\"\\); $zip.Entries | Select-Object FullName, Length; $zip.Dispose\\(\\))",
+      "PowerShell($zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"C:\\\\Users\\\\rusan\\\\Downloads\\\\Accountium Website.zip\"\\); $entries = $zip.Entries; Write-Host \"Entry count: $\\($entries.Count\\)\"; foreach\\($e in $entries\\) { Write-Host $e.FullName }; $zip.Dispose\\(\\))",
+      "PowerShell(Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"C:\\\\Users\\\\rusan\\\\Downloads\\\\Accountium Website.zip\"\\); Write-Host \"Entries: $\\($zip.Entries.Count\\)\"; $zip.Entries | ForEach-Object { Write-Host $_.FullName }; $zip.Dispose\\(\\))",
+      "PowerShell(Add-Type -AssemblyName System.IO.Compression.FileSystem; $zip = [System.IO.Compression.ZipFile]::OpenRead\\(\"C:\\\\Users\\\\rusan\\\\Downloads\\\\Accountium Website.zip\"\\); $entries = $zip.Entries; foreach\\($e in $entries\\) { Write-Host \"===== $\\($e.FullName\\) =====\"; $reader = New-Object System.IO.StreamReader\\($e.Open\\(\\)\\); Write-Host $reader.ReadToEnd\\(\\); $reader.Close\\(\\) }; $zip.Dispose\\(\\))",
+      "Bash(unzip -l \"Accountium Website.zip\")",
+      "Bash(unzip -o \"C:/Users/rusan/Downloads/Accountium Website.zip\" -d \"C:/Users/rusan/Downloads/accountium-design\")"
     ]
   }
 }

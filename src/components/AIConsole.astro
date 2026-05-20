@@ -1,0 +1,548 @@
+---
+// AIConsole — animated terminal graphic, ported from React to vanilla JS + Astro
+---
+
+<div class="ac-shell" id="ai-console-root">
+  <div class="ac-grid" aria-hidden="true"></div>
+  <div class="ac-glow ac-glow--a" aria-hidden="true"></div>
+  <div class="ac-glow ac-glow--b" aria-hidden="true"></div>
+
+  <div class="ac-chrome">
+    <div class="ac-dots"><span></span><span></span><span></span></div>
+    <div class="ac-title">accountium / console</div>
+    <div class="ac-live"><span class="ac-live-dot"></span> live</div>
+  </div>
+
+  <div class="ac-body">
+    <div class="ac-line ac-line--prompt">
+      <span class="ac-glyph">$</span>
+      <span class="ac-cmd">
+        <span class="ac-typed"></span><span class="ac-caret ac-caret--blink"></span>
+      </span>
+    </div>
+
+    <div class="ac-process">
+      <span class="ac-process-orb"><span class="ac-orb-inner"></span></span>
+      <span class="ac-process-text">ready</span>
+    </div>
+
+    <div class="ac-rows">
+      <div class="ac-row ac-row--out">
+        <span class="ac-row-tick">✓</span>
+        <span class="ac-row-tag"></span>
+        <span class="ac-row-text"></span>
+        <span class="ac-row-amt"></span>
+      </div>
+      <div class="ac-row ac-row--info">
+        <span class="ac-row-tick">✓</span>
+        <span class="ac-row-tag"></span>
+        <span class="ac-row-text"></span>
+        <span class="ac-row-amt"></span>
+      </div>
+      <div class="ac-row ac-row--ok">
+        <span class="ac-row-tick">✓</span>
+        <span class="ac-row-tag"></span>
+        <span class="ac-row-text"></span>
+        <span class="ac-row-amt"></span>
+      </div>
+    </div>
+
+    <div class="ac-balance">
+      <div class="ac-balance-row">
+        <span class="ac-balance-label">operating · USD</span>
+        <span class="ac-balance-val">$128,402.10</span>
+      </div>
+      <div class="ac-bar">
+        <div class="ac-bar-fill" style="width:64%;background:linear-gradient(90deg,#2F6B4E 0%,#16A34A 100%)"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ac-ticker">
+    <div class="ac-ticker-track">
+      <span class="ac-tick">▲ revenue · +$18,402</span>
+      <span class="ac-tick">● matched · 142 txns</span>
+      <span class="ac-tick">▼ aws · −$612.44</span>
+      <span class="ac-tick">✓ payroll · gusto run</span>
+      <span class="ac-tick">● P&L · refreshed 3s ago</span>
+      <span class="ac-tick">▲ stripe · payout +18.4k</span>
+      <span class="ac-tick">✓ tax · q1 ready</span>
+      <span class="ac-tick">● ledger · 4,182 entries</span>
+      <span class="ac-tick">▲ revenue · +$18,402</span>
+      <span class="ac-tick">● matched · 142 txns</span>
+      <span class="ac-tick">▼ aws · −$612.44</span>
+      <span class="ac-tick">✓ payroll · gusto run</span>
+      <span class="ac-tick">● P&L · refreshed 3s ago</span>
+      <span class="ac-tick">▲ stripe · payout +18.4k</span>
+      <span class="ac-tick">✓ tax · q1 ready</span>
+      <span class="ac-tick">● ledger · 4,182 entries</span>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+:root {
+  --ac-bg: #FAF7F2;
+  --ac-surface: #FFFFFF;
+  --ac-surface-2: #FBF8F3;
+  --ac-border: #E8E2D8;
+  --ac-border-strong: #D7CFC2;
+  --ac-text: #1A1714;
+  --ac-muted: #6B6357;
+  --ac-faint: #A39A8E;
+  --ac-green: #2F6B4E;
+  --ac-green-bright: #16A34A;
+  --ac-green-soft: rgba(47, 107, 78, 0.08);
+  --ac-amber: #B45309;
+  --ac-coral: #C2410C;
+  --ac-cyan: #0E7490;
+  --ac-violet: #6B21A8;
+}
+
+.ac-shell {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(47, 107, 78, 0.05), transparent 60%),
+    radial-gradient(120% 80% at 100% 100%, rgba(180, 83, 9, 0.04), transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+  border: 1px solid var(--ac-border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow:
+    0 1px 0 rgba(20, 15, 10, 0.04) inset,
+    0 20px 60px -20px rgba(20, 15, 10, 0.12),
+    0 4px 14px -4px rgba(20, 15, 10, 0.06);
+  font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+  color: var(--ac-text);
+  isolation: isolate;
+}
+
+.ac-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(20, 15, 10, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-position: 0 0;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 50%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ac-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: 0;
+}
+.ac-glow--a { top: -100px; left: -80px; background: rgba(47, 107, 78, 0.18); animation: ac-glow-a 9s ease-in-out infinite; }
+.ac-glow--b { bottom: -120px; right: -60px; background: rgba(194, 65, 12, 0.14); animation: ac-glow-b 11s ease-in-out infinite; }
+
+@keyframes ac-glow-a {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(20px, 30px); }
+}
+@keyframes ac-glow-b {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-30px, -20px); }
+}
+
+.ac-chrome {
+  position: relative; z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--ac-border);
+  background: linear-gradient(180deg, rgba(20, 15, 10, 0.015), transparent);
+}
+.ac-dots { display: inline-flex; gap: 6px; }
+.ac-dots span {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--ac-faint);
+}
+.ac-dots span:nth-child(1) { background: #E07A5F; }
+.ac-dots span:nth-child(2) { background: #E2B33C; }
+.ac-dots span:nth-child(3) { background: var(--ac-green); }
+.ac-title {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: var(--ac-muted);
+  letter-spacing: 0.04em;
+}
+.ac-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--ac-green);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+.ac-live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--ac-green);
+  box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.45);
+  animation: ac-pulse-dot 1.6s ease-out infinite;
+}
+@keyframes ac-pulse-dot {
+  0%   { box-shadow: 0 0 0 0 rgba(47, 107, 78, 0.45); }
+  100% { box-shadow: 0 0 0 8px rgba(47, 107, 78, 0); }
+}
+
+.ac-body {
+  position: relative; z-index: 1;
+  padding: 22px 22px 18px;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.ac-line--prompt {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.ac-glyph {
+  color: var(--ac-green);
+  font-weight: 700;
+}
+.ac-cmd {
+  color: var(--ac-text);
+  word-break: break-word;
+}
+.ac-caret {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background: var(--ac-green);
+  margin-left: 2px;
+  vertical-align: -3px;
+  transform: translateY(2px);
+}
+.ac-caret--blink { animation: ac-caret-blink 0.9s steps(2) infinite; }
+.ac-caret--steady { opacity: 0; }
+@keyframes ac-caret-blink { 50% { opacity: 0; } }
+
+.ac-process {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px 8px 8px;
+  border-radius: 999px;
+  background: rgba(20, 15, 10, 0.02);
+  border: 1px solid var(--ac-border);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ac-muted);
+  width: fit-content;
+  transition: background 300ms ease, color 300ms ease, border-color 300ms ease;
+}
+.ac-process.is-active {
+  color: var(--ac-text);
+  border-color: rgba(47, 107, 78, 0.4);
+  background: rgba(47, 107, 78, 0.06);
+}
+.ac-process.is-done {
+  color: var(--ac-green);
+  border-color: rgba(47, 107, 78, 0.3);
+  background: rgba(47, 107, 78, 0.06);
+}
+.ac-process-orb {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: rgba(47, 107, 78, 0.12);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+.ac-orb-inner {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--ac-green);
+}
+.ac-process.is-active .ac-orb-inner {
+  animation: ac-orb-spin 1.2s linear infinite;
+  background: conic-gradient(from 0deg, var(--ac-green), transparent 80%);
+}
+@keyframes ac-orb-spin { to { transform: rotate(360deg); } }
+
+.ac-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: opacity 350ms ease;
+}
+.ac-rows.is-fading { opacity: 0.3; }
+.ac-row {
+  display: grid;
+  grid-template-columns: 18px 64px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--ac-surface);
+  border: 1px solid transparent;
+  font-size: 12.5px;
+  opacity: 0;
+  transform: translateY(8px) scale(0.99);
+  transition: opacity 350ms cubic-bezier(.2,.7,.2,1),
+              transform 450ms cubic-bezier(.2,.7,.2,1),
+              border-color 350ms ease, background 350ms ease, box-shadow 350ms ease;
+}
+.ac-row.is-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  border-color: var(--ac-border);
+  box-shadow: 0 1px 0 rgba(20, 15, 10, 0.02);
+}
+.ac-row-tick {
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(47, 107, 78, 0.14);
+  color: var(--ac-green);
+  font-size: 10px;
+  font-weight: 700;
+}
+.ac-row-tag {
+  color: var(--ac-muted);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.ac-row-text { color: var(--ac-text); }
+.ac-row-amt {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.ac-row--out  .ac-row-amt { color: var(--ac-amber); }
+.ac-row--in   .ac-row-amt { color: var(--ac-green); font-weight: 600; }
+.ac-row--ok   .ac-row-amt { color: var(--ac-cyan); }
+.ac-row--info .ac-row-amt { color: var(--ac-muted); font-size: 10px; }
+
+.ac-balance {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px dashed var(--ac-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 400ms ease, transform 400ms ease;
+}
+.ac-balance.is-visible { opacity: 1; transform: translateY(0); }
+.ac-balance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12px;
+}
+.ac-balance-label { color: var(--ac-muted); letter-spacing: 0.06em; }
+.ac-balance-val {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ac-text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+.ac-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(20, 15, 10, 0.06);
+  overflow: hidden;
+}
+.ac-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 600ms cubic-bezier(.2,.7,.2,1);
+}
+
+.ac-ticker {
+  position: relative; z-index: 1;
+  border-top: 1px solid var(--ac-border);
+  background: rgba(20, 15, 10, 0.02);
+  height: 36px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.ac-ticker-track {
+  display: inline-flex;
+  gap: 36px;
+  padding-left: 22px;
+  white-space: nowrap;
+  animation: ac-tick-scroll 38s linear infinite;
+}
+.ac-tick { font-size: 11px; color: var(--ac-muted); letter-spacing: 0.04em; }
+@keyframes ac-tick-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-shell * { animation: none !important; }
+}
+</style>
+
+<script>
+(function () {
+  const shell = document.getElementById('ai-console-root');
+  if (!shell) return;
+
+  const COMMANDS = [
+    {
+      prompt: "book invoice from Cedar & Co for $4,280, professional services",
+      summary: "1 invoice posted · 3 entries",
+      rows: [
+        { tag: "JE-2841", text: "Cedar & Co — Inv #1023", amount: "−$4,280.00", kind: "out" },
+        { tag: "CAT",     text: "Professional Services",   amount: "auto",       kind: "info" },
+        { tag: "AUDIT",   text: "trail saved · maya@",     amount: "✓",          kind: "ok" },
+      ],
+      from: 128402.10, to: 124122.10,
+    },
+    {
+      prompt: "reconcile stripe payout for march and post the fees",
+      summary: "142 charges · reconciled",
+      rows: [
+        { tag: "MATCH",   text: "142 charges → invoices",  amount: "100%",        kind: "ok" },
+        { tag: "JE-2842", text: "Stripe payout · Mar",      amount: "+$18,402.10", kind: "in" },
+        { tag: "FEES",    text: "Stripe processing fees",   amount: "−$534.20",    kind: "out" },
+      ],
+      from: 124122.10, to: 141990.00,
+    },
+    {
+      prompt: "summarize Q1 ad spend across Meta, Google and LinkedIn",
+      summary: "47 entries · Q1 marketing",
+      rows: [
+        { tag: "META",   text: "Meta Ads · 19 entries",   amount: "−$11,240", kind: "out" },
+        { tag: "GOOGLE", text: "Google Ads · 22 entries", amount: "−$9,402",  kind: "out" },
+        { tag: "LI",     text: "LinkedIn · 6 entries",    amount: "−$3,466",  kind: "out" },
+      ],
+      from: 141990.00, to: 141990.00,
+    },
+  ];
+
+  const TYPE_CHAR = 32, PAUSE_AFTER_TYPE = 380, PROCESS_DURATION = 700,
+        ROW_STAGGER = 360, BALANCE_DURATION = 900, HOLD = 1700, FADE_OUT = 500;
+
+  let cmdIdx = 0;
+  let timers: ReturnType<typeof setTimeout>[] = [];
+
+  const typedEl   = shell.querySelector<HTMLElement>('.ac-typed')!;
+  const caretEl   = shell.querySelector<HTMLElement>('.ac-caret')!;
+  const processEl = shell.querySelector<HTMLElement>('.ac-process')!;
+  const procTxt   = shell.querySelector<HTMLElement>('.ac-process-text')!;
+  const rowsWrap  = shell.querySelector<HTMLElement>('.ac-rows')!;
+  const rowEls    = shell.querySelectorAll<HTMLElement>('.ac-row');
+  const balanceEl = shell.querySelector<HTMLElement>('.ac-balance')!;
+  const balValEl  = shell.querySelector<HTMLElement>('.ac-balance-val')!;
+  const barFill   = shell.querySelector<HTMLElement>('.ac-bar-fill')!;
+
+  const fmtUSD = (n: number) =>
+    '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; }
+  function after(fn: () => void, ms: number) { timers.push(setTimeout(fn, ms)); }
+
+  function setRows(cmd: typeof COMMANDS[0], visible: number) {
+    cmd.rows.forEach((row, i) => {
+      const el = rowEls[i];
+      el.querySelector<HTMLElement>('.ac-row-tag')!.textContent  = row.tag;
+      el.querySelector<HTMLElement>('.ac-row-text')!.textContent = row.text;
+      el.querySelector<HTMLElement>('.ac-row-amt')!.textContent  = row.amount;
+      el.className = `ac-row ac-row--${row.kind}${i < visible ? ' is-in' : ''}`;
+    });
+  }
+
+  function tweenBalance(from: number, to: number) {
+    const start = performance.now();
+    const upGrad = 'linear-gradient(90deg,#2F6B4E 0%,#16A34A 100%)';
+    const dnGrad = 'linear-gradient(90deg,#B45309 0%,#C2410C 100%)';
+    barFill.style.background = to < from ? dnGrad : upGrad;
+    (function tick(now: number) {
+      const t = Math.min(1, (now - start) / BALANCE_DURATION);
+      const val = from + (to - from) * (1 - Math.pow(1 - t, 3));
+      balValEl.textContent = fmtUSD(val);
+      barFill.style.width = Math.max(20, Math.min(100, (val / 200000) * 100)) + '%';
+      if (t < 1) requestAnimationFrame(tick);
+    })(performance.now());
+  }
+
+  function runCycle(idx: number) {
+    const cmd = COMMANDS[idx];
+    clearTimers();
+
+    typedEl.textContent  = '';
+    caretEl.className    = 'ac-caret ac-caret--blink';
+    processEl.className  = 'ac-process';
+    procTxt.textContent  = 'ready';
+    rowsWrap.className   = 'ac-rows';
+    setRows(cmd, 0);
+    balanceEl.className  = 'ac-balance';
+    balValEl.textContent = fmtUSD(cmd.from);
+    barFill.style.width  = Math.max(20, Math.min(100, (cmd.from / 200000) * 100)) + '%';
+
+    // Typing
+    let i = 0;
+    const typeStep = () => {
+      typedEl.textContent = cmd.prompt.slice(0, ++i);
+      if (i < cmd.prompt.length) {
+        after(typeStep, TYPE_CHAR);
+      } else {
+        after(() => {
+          // Processing
+          caretEl.className    = 'ac-caret ac-caret--steady';
+          processEl.className  = 'ac-process is-active';
+          procTxt.textContent  = 'parsing intent · planning entries…';
+
+          after(() => {
+            // Output
+            processEl.className = 'ac-process is-done';
+            procTxt.textContent = cmd.summary;
+
+            for (let r = 0; r < cmd.rows.length; r++) {
+              const rIdx = r;
+              after(() => setRows(cmd, rIdx + 1), ROW_STAGGER * r + 80);
+            }
+
+            const balStart = ROW_STAGGER * cmd.rows.length + 200;
+            after(() => {
+              balanceEl.className = 'ac-balance is-visible';
+              tweenBalance(cmd.from, cmd.to);
+            }, balStart);
+
+            after(() => {
+              // Hold → Fade → Next
+              after(() => {
+                rowsWrap.className = 'ac-rows is-fading';
+                after(() => {
+                  cmdIdx = (cmdIdx + 1) % COMMANDS.length;
+                  runCycle(cmdIdx);
+                }, FADE_OUT);
+              }, HOLD);
+            }, balStart + BALANCE_DURATION);
+
+          }, PROCESS_DURATION);
+        }, PAUSE_AFTER_TYPE);
+      }
+    };
+    after(typeStep, 200);
+  }
+
+  runCycle(0);
+})();
+</script>
