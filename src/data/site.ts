@@ -7,5 +7,5 @@ export const site = {
   ogImage: '/images/og-image.png',
   twitterHandle: '@accountium',
   email: 'office@accountium.io',
-  appUrl: 'https://www.myaccountium.ca/Account/SignIn',
+  appUrl: 'https://www.myaccountium.com/Account/SignIn',
 };
