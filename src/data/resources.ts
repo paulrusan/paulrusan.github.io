@@ -4,6 +4,7 @@ export interface Resource {
   excerpt: string;
   category: string;
   date: string;
+  readTime: string;
   href: string;
   icon: string;
 }
@@ -15,6 +16,7 @@ export const resources: Resource[] = [
     excerpt: 'A guide to the best online accounting software — powerful, user-friendly, and accessible from any device, anytime, anywhere.',
     category: 'Accounting',
     date: 'Jan 15, 2026',
+    readTime: '6 min read',
     href: '/accounting-software',
     icon: '◈',
   },
@@ -24,6 +26,7 @@ export const resources: Resource[] = [
     excerpt: 'From GST/HST remittances to CRA deadlines, these five practices will save you money and keep you compliant through every tax season.',
     category: 'Taxation',
     date: 'Jan 22, 2026',
+    readTime: '5 min read',
     href: '#',
     icon: '✦',
   },
@@ -33,6 +36,7 @@ export const resources: Resource[] = [
     excerpt: 'John Heinrich shares how his construction firm replaced manual spreadsheets with Accountium and reclaimed hours every pay cycle.',
     category: 'Business',
     date: 'Feb 1, 2026',
+    readTime: 'Customer story',
     href: '#',
     icon: '⬡',
   },
@@ -42,6 +46,7 @@ export const resources: Resource[] = [
     excerpt: 'Canadian businesses operating internationally can now invoice, pay, and report in USD, EUR, GBP, and 30+ currencies — all from one dashboard.',
     category: 'Technology',
     date: 'Feb 5, 2026',
+    readTime: 'Product update',
     href: '#',
     icon: '⊞',
   },
@@ -51,6 +56,7 @@ export const resources: Resource[] = [
     excerpt: 'A cash flow statement tells you more than just profit — it tells you if your business can actually pay its bills. Here\'s how to read and act on yours.',
     category: 'Accounting',
     date: 'Feb 8, 2026',
+    readTime: '5 min read',
     href: '#',
     icon: '◎',
   },
@@ -60,6 +66,7 @@ export const resources: Resource[] = [
     excerpt: 'Stop chasing payments. Set up recurring invoices, automated reminders, and online payment links so your cash flow takes care of itself.',
     category: 'Accounting',
     date: 'Feb 10, 2026',
+    readTime: '4 min read',
     href: '#',
     icon: '⬒',
   },
@@ -69,6 +76,7 @@ export const resources: Resource[] = [
     excerpt: 'CPP, EI, income tax withholdings — navigating Canadian payroll rules is complex. This guide walks through every requirement for employers.',
     category: 'Taxation',
     date: 'Feb 12, 2026',
+    readTime: '10 min read',
     href: '/payroll-compliance-canada',
     icon: '◈',
   },
@@ -78,6 +86,7 @@ export const resources: Resource[] = [
     excerpt: 'Ashley Martin needed a platform that could grow with her agency. See how Accountium\'s multi-entity features made expansion seamless and stress-free.',
     category: 'Business',
     date: 'Feb 14, 2026',
+    readTime: 'Customer story',
     href: '#',
     icon: '⬡',
   },
@@ -87,16 +96,18 @@ export const resources: Resource[] = [
     excerpt: 'The redesigned Accountium dashboard brings your P&L, cash position, and upcoming bills into one live view — updated every 15 minutes.',
     category: 'Technology',
     date: 'Feb 17, 2026',
+    readTime: 'Product update',
     href: '/accounting-platform',
     icon: '⊞',
   },
   {
     id: 10,
-    title: '5 Signs Your Business Needs an Accounting Upgrade',
-    excerpt: 'Still exporting to spreadsheets? Manually reconciling bank statements? These warning signs mean your accounting stack is holding you back.',
+    title: '5 Signs Your Business Has Outgrown Spreadsheets',
+    excerpt: "Still running your books in spreadsheets? Here's how to know when it's time for something built to scale.",
     category: 'Business',
-    date: 'Feb 20, 2026',
-    href: '#',
+    date: 'Jul 11, 2026',
+    readTime: '8 min read',
+    href: '/resources/signs-your-business-outgrew-spreadsheets',
     icon: '✦',
   },
   {
@@ -105,6 +116,7 @@ export const resources: Resource[] = [
     excerpt: 'A step-by-step checklist covering reconciliations, payroll, GST/HST, CRA deadlines, and everything you need to close your books cleanly.',
     category: 'Bookkeeping',
     date: 'May 1, 2026',
+    readTime: '9 min read',
     href: '/resources/year-end-bookkeeping-checklist-canada',
     icon: '◈',
   },

@@ -31,13 +31,123 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
         </a>
       </div>
 
-      <!-- ── SVG Animation Placeholder 1 ── -->
-      <div class="svg-placeholder" aria-label="Accounting software animation placeholder" role="img">
-        <div class="svg-placeholder-inner">
-          <span class="svg-placeholder-icon" aria-hidden="true">▦</span>
-          <p class="svg-placeholder-label">Accounting Software Animation — Placeholder</p>
-          <p class="svg-placeholder-hint">Replace with an SVG animation showing the accounting dashboard</p>
-        </div>
+      <!-- ── Dashboard Overview graphic ── -->
+      <div class="do-embed">
+        <svg viewBox="0 0 560 440" role="img" aria-label="Accountium — dashboard overview: balance, invoices, bills, bank feeds, and categorized activity">
+          <defs>
+            <radialGradient id="doBgGlowA" cx="0%" cy="0%" r="60%">
+              <stop offset="0%" stop-color="#2F6B4E" stop-opacity="0.09"/>
+              <stop offset="100%" stop-color="#2F6B4E" stop-opacity="0"/>
+            </radialGradient>
+            <radialGradient id="doBgGlowB" cx="100%" cy="100%" r="60%">
+              <stop offset="0%" stop-color="#B45309" stop-opacity="0.06"/>
+              <stop offset="100%" stop-color="#B45309" stop-opacity="0"/>
+            </radialGradient>
+            <clipPath id="doCardClip">
+              <rect x="0.5" y="0.5" width="559" height="439" rx="14"/>
+            </clipPath>
+          </defs>
+
+          <!-- card background -->
+          <g clip-path="url(#doCardClip)">
+            <rect class="do-glow-a" x="-60" y="-60" width="260" height="260" fill="url(#doBgGlowA)"/>
+            <rect class="do-glow-b" x="360" y="220" width="260" height="260" fill="url(#doBgGlowB)"/>
+          </g>
+          <rect x="0.5" y="0.5" width="559" height="439" rx="14" fill="none" stroke="#E8E2D8"/>
+
+          <!-- chrome bar -->
+          <line x1="0" y1="48" x2="560" y2="48" stroke="#E8E2D8"/>
+          <circle cx="26" cy="24" r="5" fill="#E07A5F"/>
+          <circle cx="42" cy="24" r="5" fill="#E2B33C"/>
+          <circle cx="58" cy="24" r="5" fill="#2F6B4E"/>
+          <text class="do-title-text" x="280" y="28" text-anchor="middle" font-size="12" fill="#6B6357" letter-spacing="0.5">accountium / dashboard</text>
+          <circle class="do-live-dot" cx="500" cy="24" r="3.5" fill="#2F6B4E"/>
+          <text x="512" y="28" font-size="11" fill="#2F6B4E" font-weight="700" letter-spacing="1">LIVE</text>
+
+          <!-- hero balance -->
+          <text x="280" y="76" text-anchor="middle" font-size="10.5" letter-spacing="1.6" fill="#A39A8E" font-weight="500">TOTAL BALANCE · ALL ACCOUNTS</text>
+          <text x="280" y="112" text-anchor="middle" class="sans" font-size="32" font-weight="700" fill="#1A1714" letter-spacing="-0.5">$128,914.52</text>
+          <g transform="translate(280 122)">
+            <rect class="do-trend-pill-bg" x="-62" y="0" width="124" height="24" rx="12" fill="#2F6B4E" fill-opacity="0.1"/>
+            <text x="0" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#2F6B4E">▲ 12.4% this month</text>
+          </g>
+
+          <!-- quick counts -->
+          <g transform="translate(18 168)">
+            <rect x="0" y="0" width="168" height="52" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <text x="84" y="26" text-anchor="middle" class="sans" font-size="18" font-weight="700" fill="#1A1714">46</text>
+            <text x="84" y="42" text-anchor="middle" font-size="9.5" fill="#6B6357" letter-spacing="0.5">INVOICES</text>
+            <rect x="176" y="0" width="168" height="52" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <text x="260" y="26" text-anchor="middle" class="sans" font-size="18" font-weight="700" fill="#1A1714">11</text>
+            <text x="260" y="42" text-anchor="middle" font-size="9.5" fill="#6B6357" letter-spacing="0.5">BILLS</text>
+            <rect x="352" y="0" width="168" height="52" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <text x="436" y="26" text-anchor="middle" class="sans" font-size="18" font-weight="700" fill="#1A1714">3</text>
+            <text x="436" y="42" text-anchor="middle" font-size="9.5" fill="#6B6357" letter-spacing="0.5">BANK FEEDS</text>
+          </g>
+
+          <!-- feed header -->
+          <text x="18" y="240" font-size="10.5" letter-spacing="1" fill="#6B6357" font-weight="600">RECENT ACTIVITY</text>
+          <text x="542" y="240" text-anchor="end" font-size="10.5" fill="#2F6B4E" font-weight="600">auto-categorized</text>
+
+          <!-- feed rows -->
+          <g transform="translate(18 250)">
+            <!-- row 1: Stripe payout -->
+            <rect x="0" y="0" width="524" height="42" rx="8" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <rect class="do-row-highlight do-row-highlight--1" x="0" y="0" width="524" height="42" rx="8" fill="#2F6B4E" fill-opacity="0" stroke="#2F6B4E" stroke-opacity="0"/>
+            <circle class="do-cat-dot do-cat-dot--1" cx="16" cy="21" r="4" fill="#2F6B4E"/>
+            <text x="30" y="25" class="sans" font-size="12" font-weight="500" fill="#1A1714">Stripe payout</text>
+            <text class="do-row-cat" x="260" y="25" font-size="10" font-weight="600" fill="#2F6B4E">Sales</text>
+            <text x="470" y="25" text-anchor="end" font-size="11.5" font-weight="600" fill="#2F6B4E">+$18,402</text>
+            <g transform="translate(508 21)">
+              <g class="do-row-tick do-row-tick--1">
+                <circle r="7" fill="#2F6B4E"/>
+                <path d="M-3 0 L-1 2.4 L3.2 -2.4" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
+            <!-- row 2: Cedar & Co. -->
+            <rect x="0" y="50" width="524" height="42" rx="8" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <rect class="do-row-highlight do-row-highlight--2" x="0" y="50" width="524" height="42" rx="8" fill="#2F6B4E" fill-opacity="0" stroke="#2F6B4E" stroke-opacity="0"/>
+            <circle class="do-cat-dot do-cat-dot--2" cx="16" cy="71" r="4" fill="#6B21A8"/>
+            <text x="30" y="75" class="sans" font-size="12" font-weight="500" fill="#1A1714">Cedar &amp; Co.</text>
+            <text class="do-row-cat" x="260" y="75" font-size="10" font-weight="600" fill="#6B21A8">Prof. Services</text>
+            <text x="470" y="75" text-anchor="end" font-size="11.5" font-weight="600" fill="#1A1714">−$4,280</text>
+            <g transform="translate(508 71)">
+              <g class="do-row-tick do-row-tick--2">
+                <circle r="7" fill="#2F6B4E"/>
+                <path d="M-3 0 L-1 2.4 L3.2 -2.4" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
+            <!-- row 3: AWS -->
+            <rect x="0" y="100" width="524" height="42" rx="8" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <rect class="do-row-highlight do-row-highlight--3" x="0" y="100" width="524" height="42" rx="8" fill="#2F6B4E" fill-opacity="0" stroke="#2F6B4E" stroke-opacity="0"/>
+            <circle class="do-cat-dot do-cat-dot--3" cx="16" cy="121" r="4" fill="#0E7490"/>
+            <text x="30" y="125" class="sans" font-size="12" font-weight="500" fill="#1A1714">AWS · infra</text>
+            <text class="do-row-cat" x="260" y="125" font-size="10" font-weight="600" fill="#0E7490">Infrastructure</text>
+            <text x="470" y="125" text-anchor="end" font-size="11.5" font-weight="600" fill="#1A1714">−$612</text>
+            <g transform="translate(508 121)">
+              <g class="do-row-tick do-row-tick--3">
+                <circle r="7" fill="#2F6B4E"/>
+                <path d="M-3 0 L-1 2.4 L3.2 -2.4" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+            </g>
+          </g>
+
+          <!-- footer -->
+          <line x1="0" y1="400" x2="560" y2="400" stroke="#E8E2D8"/>
+          <rect x="0" y="400" width="560" height="40" fill="#14100E" opacity="0.02"/>
+          <g transform="translate(18 420)">
+            <rect x="0" y="-10" width="52" height="20" rx="10" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <circle class="do-device-dot" cx="12" cy="0" r="3" fill="#2F6B4E"/>
+            <text x="21" y="4" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">iOS</text>
+            <rect x="60" y="-10" width="82" height="20" rx="10" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <circle class="do-device-dot" cx="72" cy="0" r="3" fill="#2F6B4E"/>
+            <text x="81" y="4" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Android</text>
+            <rect x="150" y="-10" width="66" height="20" rx="10" fill="#FFFFFF" stroke="#E8E2D8"/>
+            <circle class="do-device-dot" cx="162" cy="0" r="3" fill="#2F6B4E"/>
+            <text x="171" y="4" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Web</text>
+          </g>
+          <text class="do-foot-sync" x="542" y="424" text-anchor="end" font-size="10.5" font-weight="600" fill="#2F6B4E">synced continuously</text>
+        </svg>
       </div>
     </div>
   </section>
@@ -142,13 +252,108 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
 
   <!-- ── Mid-page CTA ───────────────────────────────────────── -->
   <section class="mid-cta" aria-label="Try Accountium">
-    <div class="svg-placeholder svg-placeholder--mid" aria-label="Feature animation placeholder" role="img">
-      <div class="svg-placeholder-inner">
-        <span class="svg-placeholder-icon" aria-hidden="true">◎</span>
-        <p class="svg-placeholder-label">Cloud Accounting Animation — Placeholder</p>
-        <p class="svg-placeholder-hint">Replace with an SVG animation showing cloud sync or collaboration</p>
-      </div>
+
+    <div class="cs-embed">
+      <svg viewBox="0 0 560 330" role="img" aria-label="Accountium — cloud sync and real-time collaboration">
+        <defs>
+          <radialGradient id="csCloudGlow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#2F6B4E" stop-opacity="0.14"/>
+            <stop offset="100%" stop-color="#2F6B4E" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="csBgGlowA" cx="0%" cy="0%" r="60%">
+            <stop offset="0%" stop-color="#2F6B4E" stop-opacity="0.10"/>
+            <stop offset="100%" stop-color="#2F6B4E" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="csBgGlowB" cx="100%" cy="100%" r="60%">
+            <stop offset="0%" stop-color="#1D4ED8" stop-opacity="0.07"/>
+            <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="csCardClip">
+            <rect x="0.5" y="0.5" width="559" height="329" rx="14"/>
+          </clipPath>
+        </defs>
+
+        <!-- card background -->
+        <g clip-path="url(#csCardClip)">
+          <rect x="0" y="0" width="560" height="330" fill="url(#csBgGlowA)"/>
+          <rect x="0" y="0" width="560" height="330" fill="url(#csBgGlowB)"/>
+        </g>
+        <rect x="0.5" y="0.5" width="559" height="329" rx="14" fill="none" stroke="#E8E2D8"/>
+
+        <!-- chrome bar -->
+        <line x1="0" y1="48" x2="560" y2="48" stroke="#E8E2D8"/>
+        <circle cx="26" cy="24" r="5" fill="#E07A5F"/>
+        <circle cx="42" cy="24" r="5" fill="#E2B33C"/>
+        <circle cx="58" cy="24" r="5" fill="#2F6B4E"/>
+        <text class="cs-title-text" x="280" y="28" text-anchor="middle" font-size="12" fill="#6B6357" letter-spacing="0.5">accountium / cloud</text>
+        <circle class="cs-live-dot" cx="500" cy="24" r="3.5" fill="#2F6B4E"/>
+        <text x="512" y="28" font-size="11" fill="#2F6B4E" font-weight="700" letter-spacing="1">LIVE</text>
+
+        <!-- scene -->
+        <circle cx="280" cy="150" r="120" fill="url(#csCloudGlow)"/>
+        <circle class="cs-ring cs-ring--1" cx="280" cy="150" r="70" fill="none" stroke="#2F6B4E" stroke-width="1"/>
+        <circle class="cs-ring cs-ring--2" cx="280" cy="150" r="70" fill="none" stroke="#2F6B4E" stroke-width="1"/>
+
+        <path d="M 90 96  Q 185 70, 280 150"  fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 470 84 Q 375 60, 280 150"  fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 470 236 Q 375 210, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+
+        <circle class="cs-packet cs-packet--you"  r="4.5" fill="#2F6B4E"/>
+        <circle class="cs-packet cs-packet--acct" r="4.5" fill="#1D4ED8"/>
+        <circle class="cs-packet cs-packet--book" r="4.5" fill="#6B21A8"/>
+
+        <!-- cloud -->
+        <g transform="translate(218 110)">
+          <path d="M28 58 C10 58 0 46 0 34 C0 22 10 12 22 12 C25 2 36 -4 48 0 C56 -6 70 -4 76 6 C92 4 108 14 108 30 C108 44 96 58 80 58 Z"
+            fill="#FFFFFF" stroke="#1A1714" stroke-width="1.6"/>
+          <g class="cs-cloud-glyph" transform="translate(54 26)">
+            <path d="M-9 0a9 9 0 0 1 16.8-4.2M9 0a9 9 0 0 1-16.8 4.2" stroke="#2F6B4E" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <path d="M6.6 -6.6v4.8H2" stroke="#2F6B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M-6.6 6.6v-4.8H-2" stroke="#2F6B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </g>
+        </g>
+
+        <!-- You -->
+        <g>
+          <circle class="cs-node-glow cs-node-glow--you" cx="90" cy="96" r="23" fill="#2F6B4E"/>
+          <circle cx="90" cy="96" r="20" fill="#2F6B4E" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="90" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">MO</text>
+          <rect x="63" y="122" width="54" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="90" y="134" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">You</text>
+        </g>
+
+        <!-- Accountant -->
+        <g>
+          <circle class="cs-node-glow cs-node-glow--acct" cx="470" cy="84" r="23" fill="#1D4ED8"/>
+          <circle cx="470" cy="84" r="20" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="470" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">DR</text>
+          <rect x="430" y="110" width="80" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="470" y="122" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Accountant</text>
+        </g>
+
+        <!-- Bookkeeper -->
+        <g>
+          <circle class="cs-node-glow cs-node-glow--book" cx="470" cy="236" r="23" fill="#6B21A8"/>
+          <circle cx="470" cy="236" r="20" fill="#6B21A8" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="470" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">SH</text>
+          <rect x="426" y="262" width="88" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="470" y="274" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Bookkeeper</text>
+        </g>
+
+        <!-- footer -->
+        <line x1="0" y1="296" x2="560" y2="296" stroke="#E8E2D8"/>
+        <rect x="0" y="296" width="560" height="34" fill="#14100E" opacity="0.02"/>
+        <circle cx="32" cy="313" r="11" fill="#2F6B4E" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="32" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">MO</text>
+        <circle cx="48" cy="313" r="11" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="48" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">DR</text>
+        <circle cx="64" cy="313" r="11" fill="#6B21A8" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="64" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">SH</text>
+        <text x="86" y="317" font-size="11" fill="#6B6357">3 collaborators online</text>
+        <text class="cs-foot-sync" x="542" y="317" text-anchor="end" font-size="10.5" font-weight="600" fill="#2F6B4E">synced continuously</text>
+      </svg>
     </div>
+
     <div class="btn-wrap">
       <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
         TRY NOW
@@ -248,6 +453,82 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
 </BaseLayout>
 
 <style>
+  /* ── Cloud Sync graphic ─────────────────────────────────── */
+  .cs-embed {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto var(--space-6);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+    border: 1px solid #E8E2D8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(20, 15, 10, 0.04) inset,
+      0 20px 60px -20px rgba(20, 15, 10, 0.12),
+      0 4px 14px -4px rgba(20, 15, 10, 0.06);
+    font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+    color: #1A1714;
+    container-type: inline-size;
+    container-name: cs-embed;
+  }
+  .cs-embed svg { display: block; width: 100%; height: auto; }
+  .cs-embed text { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .cs-embed .sans { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+
+  .cs-live-dot { animation: cs-pulse-dot 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes cs-pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .cs-cloud-glyph { animation: cs-cloud-rock 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes cs-cloud-rock { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(18deg); } }
+
+  .cs-ring { transform-box: fill-box; transform-origin: center; opacity: 0; }
+  .cs-ring--1 { animation: cs-ring-pulse 2.6s ease-out infinite; }
+  .cs-ring--2 { animation: cs-ring-pulse 2.6s ease-out infinite 1.3s; }
+  @keyframes cs-ring-pulse {
+    0%   { transform: scale(0.6); opacity: 0.5; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  .cs-packet { offset-rotate: 0deg; animation-duration: 3.9s; animation-timing-function: linear; animation-iteration-count: infinite; }
+  .cs-packet--you  { offset-path: path("M 90 96  Q 185 70, 280 150"); animation-name: cs-packet-you; }
+  .cs-packet--acct { offset-path: path("M 470 84 Q 375 60, 280 150"); animation-name: cs-packet-acct; }
+  .cs-packet--book { offset-path: path("M 470 236 Q 375 210, 280 150"); animation-name: cs-packet-book; }
+  @keyframes cs-packet-you {
+    0%    { offset-distance: 0%;   opacity: 0; }
+    1%    { opacity: 1; }
+    30%   { offset-distance: 100%; opacity: 1; }
+    33.3% { opacity: 0; offset-distance: 100%; }
+    100%  { opacity: 0; offset-distance: 0%; }
+  }
+  @keyframes cs-packet-acct {
+    0%, 33.3% { offset-distance: 0%;   opacity: 0; }
+    34.3%     { opacity: 1; }
+    63%       { offset-distance: 100%; opacity: 1; }
+    66.6%     { opacity: 0; offset-distance: 100%; }
+    100%      { opacity: 0; offset-distance: 0%; }
+  }
+  @keyframes cs-packet-book {
+    0%, 66.6% { offset-distance: 0%;   opacity: 0; }
+    67.6%     { opacity: 1; }
+    96%       { offset-distance: 100%; opacity: 1; }
+    100%      { opacity: 0; offset-distance: 100%; }
+  }
+
+  .cs-node-glow { transform-box: fill-box; transform-origin: center; opacity: 0; }
+  .cs-node-glow--you  { animation: cs-glow-you  3.9s linear infinite; }
+  .cs-node-glow--acct { animation: cs-glow-acct 3.9s linear infinite; }
+  .cs-node-glow--book { animation: cs-glow-book 3.9s linear infinite; }
+  @keyframes cs-glow-you  { 0%, 100% { opacity: 0; } 2%  { opacity: 0.22; } 30% { opacity: 0.22; } 33% { opacity: 0; } }
+  @keyframes cs-glow-acct { 0%, 33%  { opacity: 0; } 35% { opacity: 0.22; } 63% { opacity: 0.22; } 66% { opacity: 0; } }
+  @keyframes cs-glow-book { 0%, 66%  { opacity: 0; } 68% { opacity: 0.22; } 96% { opacity: 0.22; } 99% { opacity: 0; } }
+
+  .cs-foot-sync { animation: cs-foot-fade 3s ease-in-out infinite; }
+  @keyframes cs-foot-fade { 0%, 100% { opacity: 0.55; } 20% { opacity: 1; } }
+
+  @container cs-embed (max-width: 340px) { .cs-title-text { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .cs-embed * { animation: none !important; } }
+
   /* ── Hero ───────────────────────────────────────────────── */
   .page-hero {
     padding-top: calc(var(--header-height) + var(--space-16));
@@ -264,6 +545,104 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
     justify-content: center;
     margin: var(--space-8) 0;
   }
+
+  /* ── Dashboard Overview graphic (do-embed) ─────────────── */
+  .do-embed {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: var(--space-8) auto 0;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+    border: 1px solid #E8E2D8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(20, 15, 10, 0.04) inset,
+      0 20px 60px -20px rgba(20, 15, 10, 0.12),
+      0 4px 14px -4px rgba(20, 15, 10, 0.06);
+    font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+    color: #1A1714;
+    container-type: inline-size;
+    container-name: do-embed;
+  }
+  .do-embed svg { display: block; width: 100%; height: auto; }
+  .do-embed text { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .do-embed .sans { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+
+  .do-live-dot { animation: do-pulse-dot 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes do-pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .do-trend-pill-bg { animation: do-trend-glow 2.6s ease-in-out infinite; }
+  @keyframes do-trend-glow { 0%, 100% { fill-opacity: 0.08; } 50% { fill-opacity: 0.16; } }
+
+  .do-row-highlight { transform-box: fill-box; }
+  .do-row-highlight--1 { animation: do-highlight-1 7.2s linear infinite; }
+  .do-row-highlight--2 { animation: do-highlight-2 7.2s linear infinite; }
+  .do-row-highlight--3 { animation: do-highlight-3 7.2s linear infinite; }
+  @keyframes do-highlight-1 {
+    0%, 100% { fill-opacity: 0; stroke-opacity: 0; }
+    2%       { fill-opacity: 0.12; stroke-opacity: 0.28; }
+    30%      { fill-opacity: 0.12; stroke-opacity: 0.28; }
+    33%      { fill-opacity: 0; stroke-opacity: 0; }
+  }
+  @keyframes do-highlight-2 {
+    0%, 33%   { fill-opacity: 0; stroke-opacity: 0; }
+    35%       { fill-opacity: 0.12; stroke-opacity: 0.28; }
+    63%       { fill-opacity: 0.12; stroke-opacity: 0.28; }
+    66%, 100% { fill-opacity: 0; stroke-opacity: 0; }
+  }
+  @keyframes do-highlight-3 {
+    0%, 66%   { fill-opacity: 0; stroke-opacity: 0; }
+    68%       { fill-opacity: 0.12; stroke-opacity: 0.28; }
+    96%       { fill-opacity: 0.12; stroke-opacity: 0.28; }
+    99%, 100% { fill-opacity: 0; stroke-opacity: 0; }
+  }
+
+  .do-row-tick { transform-box: fill-box; transform-origin: center; }
+  .do-row-tick--1 { animation: do-tick-1 7.2s linear infinite; }
+  .do-row-tick--2 { animation: do-tick-2 7.2s linear infinite; }
+  .do-row-tick--3 { animation: do-tick-3 7.2s linear infinite; }
+  @keyframes do-tick-1 {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    2%       { opacity: 1; transform: scale(1.25); }
+    8%       { transform: scale(1); }
+    30%      { opacity: 1; transform: scale(1); }
+    33%      { opacity: 0; transform: scale(0.5); }
+  }
+  @keyframes do-tick-2 {
+    0%, 33%   { opacity: 0; transform: scale(0.5); }
+    35%       { opacity: 1; transform: scale(1.25); }
+    41%       { transform: scale(1); }
+    63%       { opacity: 1; transform: scale(1); }
+    66%, 100% { opacity: 0; transform: scale(0.5); }
+  }
+  @keyframes do-tick-3 {
+    0%, 66%   { opacity: 0; transform: scale(0.5); }
+    68%       { opacity: 1; transform: scale(1.25); }
+    74%       { transform: scale(1); }
+    96%       { opacity: 1; transform: scale(1); }
+    99%, 100% { opacity: 0; transform: scale(0.5); }
+  }
+
+  .do-cat-dot { animation: do-cat-breathe 2.8s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  .do-cat-dot--1 { animation-delay: 0s; }
+  .do-cat-dot--2 { animation-delay: 0.6s; }
+  .do-cat-dot--3 { animation-delay: 1.2s; }
+  @keyframes do-cat-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+
+  .do-glow-a { animation: do-glow-a-move 9s ease-in-out infinite; }
+  .do-glow-b { animation: do-glow-b-move 11s ease-in-out infinite; }
+  @keyframes do-glow-a-move { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(10px, 14px); } }
+  @keyframes do-glow-b-move { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-12px, -10px); } }
+
+  .do-foot-sync { animation: do-foot-fade 3.4s ease-in-out infinite; }
+  @keyframes do-foot-fade { 0%, 100% { opacity: 0.55; } 20% { opacity: 1; } }
+
+  .do-device-dot { animation: do-pulse-dot 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+
+  @container do-embed (max-width: 420px) { .do-row-cat { display: none; } }
+  @container do-embed (max-width: 340px) { .do-title-text { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .do-embed * { animation: none !important; } }
 
   /* ── SVG Placeholders ───────────────────────────────────── */
   .svg-placeholder {
