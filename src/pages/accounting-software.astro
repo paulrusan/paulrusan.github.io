@@ -294,12 +294,16 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
         <circle class="cs-ring cs-ring--1" cx="280" cy="150" r="70" fill="none" stroke="#2F6B4E" stroke-width="1"/>
         <circle class="cs-ring cs-ring--2" cx="280" cy="150" r="70" fill="none" stroke="#2F6B4E" stroke-width="1"/>
 
-        <path d="M 90 96  Q 185 70, 280 150"  fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
-        <path d="M 470 84 Q 375 60, 280 150"  fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
-        <path d="M 470 236 Q 375 210, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 151 107 Q 210 115, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 409 107 Q 350 115, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 489 197 Q 400 175, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 71 197  Q 160 175, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 280 252 Q 280 200, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
 
         <circle class="cs-packet cs-packet--you"  r="4.5" fill="#2F6B4E"/>
         <circle class="cs-packet cs-packet--acct" r="4.5" fill="#1D4ED8"/>
+        <circle class="cs-packet cs-packet--bank" r="4.5" fill="#B45309"/>
+        <circle class="cs-packet cs-packet--pay"  r="4.5" fill="#0D9488"/>
         <circle class="cs-packet cs-packet--book" r="4.5" fill="#6B21A8"/>
 
         <!-- cloud -->
@@ -315,29 +319,47 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
 
         <!-- You -->
         <g>
-          <circle class="cs-node-glow cs-node-glow--you" cx="90" cy="96" r="23" fill="#2F6B4E"/>
-          <circle cx="90" cy="96" r="20" fill="#2F6B4E" stroke="#FFFFFF" stroke-width="2"/>
-          <text x="90" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">MO</text>
-          <rect x="63" y="122" width="54" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
-          <text x="90" y="134" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">You</text>
+          <circle class="cs-node-glow cs-node-glow--you" cx="151" cy="107" r="23" fill="#2F6B4E"/>
+          <circle cx="151" cy="107" r="20" fill="#2F6B4E" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="151" y="111" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">MO</text>
+          <rect x="124" y="133" width="54" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="151" y="145" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">You</text>
         </g>
 
         <!-- Accountant -->
         <g>
-          <circle class="cs-node-glow cs-node-glow--acct" cx="470" cy="84" r="23" fill="#1D4ED8"/>
-          <circle cx="470" cy="84" r="20" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="2"/>
-          <text x="470" y="88" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">DR</text>
-          <rect x="430" y="110" width="80" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
-          <text x="470" y="122" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Accountant</text>
+          <circle class="cs-node-glow cs-node-glow--acct" cx="409" cy="107" r="23" fill="#1D4ED8"/>
+          <circle cx="409" cy="107" r="20" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="409" y="111" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">DR</text>
+          <rect x="369" y="133" width="80" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="409" y="145" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Accountant</text>
+        </g>
+
+        <!-- Bank -->
+        <g>
+          <circle class="cs-node-glow cs-node-glow--bank" cx="489" cy="197" r="23" fill="#B45309"/>
+          <circle cx="489" cy="197" r="20" fill="#B45309" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="489" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">BK</text>
+          <rect x="459" y="223" width="60" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="489" y="235" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Bank</text>
+        </g>
+
+        <!-- Stripe -->
+        <g>
+          <circle class="cs-node-glow cs-node-glow--pay" cx="71" cy="197" r="23" fill="#0D9488"/>
+          <circle cx="71" cy="197" r="20" fill="#0D9488" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="71" y="201" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">ST</text>
+          <rect x="33" y="223" width="76" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="71" y="235" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Stripe</text>
         </g>
 
         <!-- Bookkeeper -->
         <g>
-          <circle class="cs-node-glow cs-node-glow--book" cx="470" cy="236" r="23" fill="#6B21A8"/>
-          <circle cx="470" cy="236" r="20" fill="#6B21A8" stroke="#FFFFFF" stroke-width="2"/>
-          <text x="470" y="240" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">SH</text>
-          <rect x="426" y="262" width="88" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
-          <text x="470" y="274" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Bookkeeper</text>
+          <circle class="cs-node-glow cs-node-glow--book" cx="280" cy="252" r="23" fill="#6B21A8"/>
+          <circle cx="280" cy="252" r="20" fill="#6B21A8" stroke="#FFFFFF" stroke-width="2"/>
+          <text x="280" y="256" text-anchor="middle" font-size="12" font-weight="700" fill="#FFFFFF">SH</text>
+          <rect x="236" y="278" width="88" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="280" y="290" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Bookkeeper</text>
         </g>
 
         <!-- footer -->
@@ -347,9 +369,13 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
         <text x="32" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">MO</text>
         <circle cx="48" cy="313" r="11" fill="#1D4ED8" stroke="#FFFFFF" stroke-width="2"/>
         <text x="48" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">DR</text>
-        <circle cx="64" cy="313" r="11" fill="#6B21A8" stroke="#FFFFFF" stroke-width="2"/>
-        <text x="64" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">SH</text>
-        <text x="86" y="317" font-size="11" fill="#6B6357">3 collaborators online</text>
+        <circle cx="64" cy="313" r="11" fill="#B45309" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="64" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">BK</text>
+        <circle cx="80" cy="313" r="11" fill="#0D9488" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="80" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">ST</text>
+        <circle cx="96" cy="313" r="11" fill="#6B21A8" stroke="#FFFFFF" stroke-width="2"/>
+        <text x="96" y="317" text-anchor="middle" font-size="9" font-weight="700" fill="#FFFFFF">SH</text>
+        <text x="118" y="317" font-size="11" fill="#6B6357">5 collaborators online</text>
         <text class="cs-foot-sync" x="542" y="317" text-anchor="end" font-size="10.5" font-weight="600" fill="#2F6B4E">synced continuously</text>
       </svg>
     </div>
@@ -490,38 +516,58 @@ const canonicalURL = new URL('/accounting-software', site.url).href;
     100% { transform: scale(1.25); opacity: 0; }
   }
 
-  .cs-packet { offset-rotate: 0deg; animation-duration: 3.9s; animation-timing-function: linear; animation-iteration-count: infinite; }
-  .cs-packet--you  { offset-path: path("M 90 96  Q 185 70, 280 150"); animation-name: cs-packet-you; }
-  .cs-packet--acct { offset-path: path("M 470 84 Q 375 60, 280 150"); animation-name: cs-packet-acct; }
-  .cs-packet--book { offset-path: path("M 470 236 Q 375 210, 280 150"); animation-name: cs-packet-book; }
+  .cs-packet { offset-rotate: 0deg; animation-duration: 6.5s; animation-timing-function: linear; animation-iteration-count: infinite; }
+  .cs-packet--you  { offset-path: path("M 151 107 Q 210 115, 280 150"); animation-name: cs-packet-you; }
+  .cs-packet--acct { offset-path: path("M 409 107 Q 350 115, 280 150"); animation-name: cs-packet-acct; }
+  .cs-packet--bank { offset-path: path("M 489 197 Q 400 175, 280 150"); animation-name: cs-packet-bank; }
+  .cs-packet--pay  { offset-path: path("M 71 197  Q 160 175, 280 150"); animation-name: cs-packet-pay; }
+  .cs-packet--book { offset-path: path("M 280 252 Q 280 200, 280 150"); animation-name: cs-packet-book; }
   @keyframes cs-packet-you {
-    0%    { offset-distance: 0%;   opacity: 0; }
-    1%    { opacity: 1; }
-    30%   { offset-distance: 100%; opacity: 1; }
-    33.3% { opacity: 0; offset-distance: 100%; }
-    100%  { opacity: 0; offset-distance: 0%; }
+    0%      { offset-distance: 0%;   opacity: 0; }
+    1%      { opacity: 1; }
+    18%     { offset-distance: 100%; opacity: 1; }
+    20%     { opacity: 0; offset-distance: 100%; }
+    100%    { opacity: 0; offset-distance: 0%; }
   }
   @keyframes cs-packet-acct {
-    0%, 33.3% { offset-distance: 0%;   opacity: 0; }
-    34.3%     { opacity: 1; }
-    63%       { offset-distance: 100%; opacity: 1; }
-    66.6%     { opacity: 0; offset-distance: 100%; }
+    0%, 20%   { offset-distance: 0%;   opacity: 0; }
+    21%       { opacity: 1; }
+    38%       { offset-distance: 100%; opacity: 1; }
+    40%       { opacity: 0; offset-distance: 100%; }
+    100%      { opacity: 0; offset-distance: 0%; }
+  }
+  @keyframes cs-packet-bank {
+    0%, 40%   { offset-distance: 0%;   opacity: 0; }
+    41%       { opacity: 1; }
+    58%       { offset-distance: 100%; opacity: 1; }
+    60%       { opacity: 0; offset-distance: 100%; }
+    100%      { opacity: 0; offset-distance: 0%; }
+  }
+  @keyframes cs-packet-pay {
+    0%, 60%   { offset-distance: 0%;   opacity: 0; }
+    61%       { opacity: 1; }
+    78%       { offset-distance: 100%; opacity: 1; }
+    80%       { opacity: 0; offset-distance: 100%; }
     100%      { opacity: 0; offset-distance: 0%; }
   }
   @keyframes cs-packet-book {
-    0%, 66.6% { offset-distance: 0%;   opacity: 0; }
-    67.6%     { opacity: 1; }
-    96%       { offset-distance: 100%; opacity: 1; }
+    0%, 80%   { offset-distance: 0%;   opacity: 0; }
+    81%       { opacity: 1; }
+    98%       { offset-distance: 100%; opacity: 1; }
     100%      { opacity: 0; offset-distance: 100%; }
   }
 
   .cs-node-glow { transform-box: fill-box; transform-origin: center; opacity: 0; }
-  .cs-node-glow--you  { animation: cs-glow-you  3.9s linear infinite; }
-  .cs-node-glow--acct { animation: cs-glow-acct 3.9s linear infinite; }
-  .cs-node-glow--book { animation: cs-glow-book 3.9s linear infinite; }
-  @keyframes cs-glow-you  { 0%, 100% { opacity: 0; } 2%  { opacity: 0.22; } 30% { opacity: 0.22; } 33% { opacity: 0; } }
-  @keyframes cs-glow-acct { 0%, 33%  { opacity: 0; } 35% { opacity: 0.22; } 63% { opacity: 0.22; } 66% { opacity: 0; } }
-  @keyframes cs-glow-book { 0%, 66%  { opacity: 0; } 68% { opacity: 0.22; } 96% { opacity: 0.22; } 99% { opacity: 0; } }
+  .cs-node-glow--you  { animation: cs-glow-you  6.5s linear infinite; }
+  .cs-node-glow--acct { animation: cs-glow-acct 6.5s linear infinite; }
+  .cs-node-glow--bank { animation: cs-glow-bank 6.5s linear infinite; }
+  .cs-node-glow--pay  { animation: cs-glow-pay  6.5s linear infinite; }
+  .cs-node-glow--book { animation: cs-glow-book 6.5s linear infinite; }
+  @keyframes cs-glow-you  { 0%, 100% { opacity: 0; } 2%  { opacity: 0.22; } 18% { opacity: 0.22; } 20% { opacity: 0; } }
+  @keyframes cs-glow-acct { 0%, 20% { opacity: 0; } 22% { opacity: 0.22; } 38% { opacity: 0.22; } 40% { opacity: 0; } }
+  @keyframes cs-glow-bank { 0%, 40% { opacity: 0; } 42% { opacity: 0.22; } 58% { opacity: 0.22; } 60% { opacity: 0; } }
+  @keyframes cs-glow-pay  { 0%, 60% { opacity: 0; } 62% { opacity: 0.22; } 78% { opacity: 0.22; } 80% { opacity: 0; } }
+  @keyframes cs-glow-book { 0%, 80% { opacity: 0; } 82% { opacity: 0.22; } 98% { opacity: 0.22; } 99% { opacity: 0; } }
 
   .cs-foot-sync { animation: cs-foot-fade 3s ease-in-out infinite; }
   @keyframes cs-foot-fade { 0%, 100% { opacity: 0.55; } 20% { opacity: 1; } }

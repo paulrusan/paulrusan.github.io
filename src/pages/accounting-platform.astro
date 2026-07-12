@@ -28,13 +28,69 @@ const canonicalURL = new URL('/accounting-platform', site.url).href;
         </a>
       </div>
 
-      <!-- ── SVG Animation Placeholder 1 ── -->
-      <div class="svg-placeholder" aria-label="Dashboard animation placeholder" role="img">
-        <div class="svg-placeholder-inner">
-          <span class="svg-placeholder-icon" aria-hidden="true">▦</span>
-          <p class="svg-placeholder-label">Dashboard Animation — Placeholder</p>
-          <p class="svg-placeholder-hint">Replace with an SVG animation showing the live dashboard</p>
-        </div>
+      <!-- ── Gut Feel vs Data-Driven graphic ── -->
+      <div class="gf-embed">
+        <svg viewBox="0 0 560 372" role="img" aria-label="Accountium — comparison of guessing from a spreadsheet versus a live forecast with a clear answer">
+          <defs>
+            <clipPath id="gfCardClip">
+              <rect x="0.5" y="0.5" width="559" height="371" rx="14"/>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#gfCardClip)">
+            <rect x="0" y="0" width="560" height="372" fill="#FBF8F3"/>
+          </g>
+          <rect x="0.5" y="0.5" width="559" height="371" rx="14" fill="none" stroke="#E8E2D8"/>
+          <line x1="0" y1="48" x2="560" y2="48" stroke="#E8E2D8"/>
+          <circle cx="26" cy="24" r="5" fill="#E07A5F"/>
+          <circle cx="42" cy="24" r="5" fill="#E2B33C"/>
+          <circle cx="58" cy="24" r="5" fill="#2F6B4E"/>
+          <text class="gf-title-text" x="280" y="28" text-anchor="middle" font-size="12" fill="#6B6357" letter-spacing="0.5">accountium / forecast</text>
+          <circle class="gf-live-dot" cx="500" cy="24" r="3.5" fill="#2F6B4E"/>
+          <text x="512" y="28" font-size="11" fill="#2F6B4E" font-weight="700" letter-spacing="1">LIVE</text>
+          <text class="gf-panel-label" x="136" y="68" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.4" fill="#9D174D">GUT FEEL</text>
+          <text class="gf-panel-label" x="424" y="68" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.4" fill="#2F6B4E">DATA-DRIVEN</text>
+          <rect x="16" y="80" width="240" height="220" rx="10" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="30" y="106" class="sans" font-size="11" font-weight="600" fill="#1A1714">"Can we afford to hire?"</text>
+          <g transform="translate(34 200)">
+            <path class="gf-guess-line" d="M0 40 C 20 30, 40 46, 60 20 C 80 -2, 100 34, 120 10 C 140 -8, 160 24, 180 6"
+              fill="none" stroke="#9D174D" stroke-width="2" stroke-linecap="round" opacity="0.55"/>
+          </g>
+          <text class="gf-question gf-question--1 sans" x="70" y="150" font-size="20" font-weight="700" fill="#9D174D">?</text>
+          <text class="gf-question gf-question--2 sans" x="150" y="130" font-size="26" font-weight="700" fill="#9D174D">?</text>
+          <text class="gf-question gf-question--3 sans" x="200" y="170" font-size="16" font-weight="700" fill="#9D174D">?</text>
+          <text class="gf-panel-caption sans" x="30" y="266" font-size="10.5" fill="#6B6357">"I think we're doing okay</text>
+          <text class="gf-panel-caption sans" x="30" y="280" font-size="10.5" fill="#6B6357">this quarter…"</text>
+          <g transform="translate(280 190)">
+            <path class="gf-chevron gf-chevron--1" d="M-6 -8 L0 0 L-6 8" fill="none" stroke="#2F6B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="gf-chevron gf-chevron--2" d="M0 -8 L6 0 L0 8" fill="none" stroke="#2F6B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path class="gf-chevron gf-chevron--3" d="M6 -8 L12 0 L6 8" fill="none" stroke="#2F6B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <rect x="304" y="80" width="240" height="220" rx="10" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="318" y="106" class="sans" font-size="11" font-weight="600" fill="#1A1714">Margin trend · Q2 forecast</text>
+          <g transform="translate(318 190)">
+            <rect x="0"   y="26" width="14" height="14" fill="#1A1714" opacity="0.5"/>
+            <rect x="20"  y="18" width="14" height="22" fill="#1A1714" opacity="0.5"/>
+            <rect x="40"  y="10" width="14" height="30" fill="#1A1714" opacity="0.5"/>
+            <rect x="60"  y="2"  width="14" height="38" fill="#2F6B4E"/>
+            <rect x="80"  y="-6" width="14" height="46" fill="#2F6B4E"/>
+            <rect x="100" y="-14" width="14" height="54" fill="#2F6B4E"/>
+            <path class="gf-forecast-line" d="M7 33 L27 29 L47 25 L67 21 L87 13, 109 -3"
+              fill="none" stroke="#2F6B4E" stroke-width="2" stroke-linecap="round"/>
+            <circle class="gf-forecast-dot" r="4" fill="#2F6B4E"/>
+          </g>
+          <g transform="translate(424 262)">
+            <rect class="gf-answer-pill" x="-96" y="-14" width="192" height="28" rx="14" fill="#2F6B4E" fill-opacity="0.1" stroke="#2F6B4E" stroke-opacity="0.3"/>
+            <text class="gf-answer-pill sans" x="0" y="5" text-anchor="middle" font-size="11" font-weight="700" fill="#2F6B4E">Yes — margin holds through Q2</text>
+          </g>
+          <text class="gf-panel-caption sans" x="318" y="292" font-size="10.5" fill="#2F6B4E" font-weight="600">Answered in minutes, not days</text>
+          <line x1="0" y1="320" x2="560" y2="320" stroke="#E8E2D8"/>
+          <rect x="0" y="320" width="560" height="52" fill="#14100E" opacity="0.02"/>
+          <text x="280" y="342" text-anchor="middle" class="sans" font-size="12" font-weight="600" fill="#1A1714">Stop guessing — see where your business is actually headed</text>
+          <g transform="translate(216 356)">
+            <circle class="gf-foot-dot" r="3.5" fill="#2F6B4E"/>
+          </g>
+          <text class="gf-foot-text" x="228" y="360" font-size="10.5" fill="#2F6B4E" font-weight="600">Live dashboards · always current</text>
+        </svg>
       </div>
     </div>
   </section>
@@ -146,13 +202,112 @@ const canonicalURL = new URL('/accounting-platform', site.url).href;
 
   <!-- ── Try Now CTA between sections ─────────────────────── -->
   <section class="mid-cta" aria-label="Try the dashboard">
-    <!-- ── SVG Animation Placeholder 2 ── -->
-    <div class="svg-placeholder svg-placeholder--mid" aria-label="Feature animation placeholder" role="img">
-      <div class="svg-placeholder-inner">
-        <span class="svg-placeholder-icon" aria-hidden="true">◎</span>
-        <p class="svg-placeholder-label">Widget Customisation Animation — Placeholder</p>
-        <p class="svg-placeholder-hint">Replace with an SVG animation showing widget drag-and-drop</p>
-      </div>
+    <!-- ── Anywhere Access graphic ── -->
+    <div class="acs-embed">
+      <svg viewBox="0 0 560 330" role="img" aria-label="Accountium — access your books from any device, always in sync">
+        <defs>
+          <radialGradient id="acsCloudGlow" cx="50%" cy="45%" r="60%">
+            <stop offset="0%" stop-color="#2F6B4E" stop-opacity="0.14"/>
+            <stop offset="100%" stop-color="#2F6B4E" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="acsBgGlowA" cx="0%" cy="0%" r="60%">
+            <stop offset="0%" stop-color="#2F6B4E" stop-opacity="0.10"/>
+            <stop offset="100%" stop-color="#2F6B4E" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="acsBgGlowB" cx="100%" cy="100%" r="60%">
+            <stop offset="0%" stop-color="#1D4ED8" stop-opacity="0.07"/>
+            <stop offset="100%" stop-color="#1D4ED8" stop-opacity="0"/>
+          </radialGradient>
+          <clipPath id="acsCardClip">
+            <rect x="0.5" y="0.5" width="559" height="329" rx="14"/>
+          </clipPath>
+        </defs>
+        <g clip-path="url(#acsCardClip)">
+          <rect x="0" y="0" width="560" height="330" fill="url(#acsBgGlowA)"/>
+          <rect x="0" y="0" width="560" height="330" fill="url(#acsBgGlowB)"/>
+        </g>
+        <rect x="0.5" y="0.5" width="559" height="329" rx="14" fill="none" stroke="#E8E2D8"/>
+        <line x1="0" y1="48" x2="560" y2="48" stroke="#E8E2D8"/>
+        <circle cx="26" cy="24" r="5" fill="#E07A5F"/>
+        <circle cx="42" cy="24" r="5" fill="#E2B33C"/>
+        <circle cx="58" cy="24" r="5" fill="#2F6B4E"/>
+        <text class="acs-title-text" x="280" y="28" text-anchor="middle" font-size="12" fill="#6B6357" letter-spacing="0.5">accountium / anywhere</text>
+        <circle class="acs-live-dot" cx="500" cy="24" r="3.5" fill="#2F6B4E"/>
+        <text x="512" y="28" font-size="11" fill="#2F6B4E" font-weight="700" letter-spacing="1">LIVE</text>
+        <circle cx="280" cy="150" r="120" fill="url(#acsCloudGlow)"/>
+        <circle class="acs-ring acs-ring--1" cx="280" cy="150" r="70" fill="none" stroke="#2F6B4E" stroke-width="1"/>
+        <circle class="acs-ring acs-ring--2" cx="280" cy="150" r="70" fill="none" stroke="#2F6B4E" stroke-width="1"/>
+        <path d="M 84 167  Q 160 160, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 484 138 Q 380 145, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <path d="M 280 225 Q 280 190, 280 150" fill="none" stroke="#D7CFC2" stroke-width="1.3" stroke-dasharray="3 5"/>
+        <circle class="acs-packet acs-packet--phone"  r="4.5" fill="#6B21A8"/>
+        <circle class="acs-packet acs-packet--tablet" r="4.5" fill="#1D4ED8"/>
+        <circle class="acs-packet acs-packet--laptop" r="4.5" fill="#2F6B4E"/>
+        <!-- cloud -->
+        <g transform="translate(218 110)">
+          <path d="M28 58 C10 58 0 46 0 34 C0 22 10 12 22 12 C25 2 36 -4 48 0 C56 -6 70 -4 76 6 C92 4 108 14 108 30 C108 44 96 58 80 58 Z"
+            fill="#FFFFFF" stroke="#1A1714" stroke-width="1.6"/>
+          <g class="acs-cloud-glyph" transform="translate(54 26)">
+            <path d="M-9 0a9 9 0 0 1 16.8-4.2M9 0a9 9 0 0 1-16.8 4.2" stroke="#2F6B4E" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+            <path d="M6.6 -6.6v4.8H2" stroke="#2F6B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M-6.6 6.6v-4.8H-2" stroke="#2F6B4E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </g>
+        </g>
+        <!-- Phone -->
+        <g>
+          <circle class="acs-node-glow acs-node-glow--phone" cx="84" cy="167" r="34" fill="#6B21A8"/>
+          <rect x="64" y="130" width="40" height="74" rx="9" fill="#1A1714"/>
+          <rect x="68" y="138" width="32" height="52" rx="2" fill="#FFFFFF"/>
+          <rect class="acs-screen-flash acs-screen-flash--phone" x="68" y="138" width="32" height="52" rx="2" fill="#6B21A8"/>
+          <rect x="72" y="144" width="24" height="4" rx="1.5" fill="#E8E2D8"/>
+          <rect x="72" y="152" width="16" height="4" rx="1.5" fill="#6B21A8"/>
+          <rect x="72" y="160" width="20" height="14" rx="1.5" fill="#F3EFE7"/>
+          <rect x="75" y="169" width="4" height="4" fill="#6B21A8"/>
+          <rect x="81" y="165" width="4" height="8" fill="#6B21A8"/>
+          <rect x="87" y="162" width="4" height="11" fill="#6B21A8"/>
+          <rect x="72" y="178" width="24" height="4" rx="1.5" fill="#E8E2D8"/>
+          <rect x="80" y="197" width="8" height="2.5" rx="1.25" fill="#4A443C"/>
+          <rect x="46" y="211" width="76" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="84" y="223" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Phone</text>
+        </g>
+        <!-- Tablet -->
+        <g>
+          <circle class="acs-node-glow acs-node-glow--tablet" cx="484" cy="138" r="42" fill="#1D4ED8"/>
+          <rect x="452" y="96" width="64" height="84" rx="10" fill="#1A1714"/>
+          <rect x="458" y="104" width="52" height="68" rx="2" fill="#FFFFFF"/>
+          <rect class="acs-screen-flash acs-screen-flash--tablet" x="458" y="104" width="52" height="68" rx="2" fill="#1D4ED8"/>
+          <rect x="463" y="110" width="34" height="5" rx="2" fill="#E8E2D8"/>
+          <rect x="463" y="121" width="22" height="5" rx="2" fill="#1D4ED8"/>
+          <rect x="463" y="132" width="42" height="24" rx="2" fill="#F3EFE7"/>
+          <rect x="468" y="145" width="5" height="8" fill="#1D4ED8"/>
+          <rect x="476" y="139" width="5" height="14" fill="#1D4ED8"/>
+          <rect x="484" y="135" width="5" height="18" fill="#1D4ED8"/>
+          <rect x="492" y="142" width="5" height="11" fill="#1D4ED8"/>
+          <rect x="463" y="161" width="42" height="5" rx="2" fill="#E8E2D8"/>
+          <circle cx="484" cy="176" r="2" fill="#4A443C"/>
+          <rect x="440" y="190" width="88" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="484" y="202" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Tablet</text>
+        </g>
+        <!-- Laptop -->
+        <g>
+          <circle class="acs-node-glow acs-node-glow--laptop" cx="280" cy="225" r="46" fill="#2F6B4E"/>
+          <path d="M 205 262 L 220 200 L 340 200 L 355 262 Z" fill="#1A1714"/>
+          <rect x="223" y="206" width="114" height="50" rx="2" fill="#FFFFFF"/>
+          <rect class="acs-screen-flash acs-screen-flash--laptop" x="223" y="206" width="114" height="50" rx="2" fill="#2F6B4E"/>
+          <rect x="229" y="212" width="70" height="5" rx="2" fill="#E8E2D8"/>
+          <rect x="229" y="223" width="46" height="5" rx="2" fill="#2F6B4E"/>
+          <rect x="229" y="234" width="102" height="17" rx="2" fill="#F3EFE7"/>
+          <rect x="235" y="243" width="6" height="8" fill="#2F6B4E"/>
+          <rect x="245" y="238" width="6" height="13" fill="#2F6B4E"/>
+          <rect x="255" y="240" width="6" height="11" fill="#2F6B4E"/>
+          <rect x="265" y="235" width="6" height="16" fill="#2F6B4E"/>
+          <rect x="275" y="239" width="6" height="12" fill="#2F6B4E"/>
+          <path d="M 195 262 L 365 262 L 372 273 Q 373 278 366 278 L 194 278 Q 187 278 188 273 Z" fill="#2A2521"/>
+          <rect x="256" y="266" width="48" height="4" rx="2" fill="#4A443C"/>
+          <rect x="232" y="298" width="96" height="18" rx="9" fill="#FFFFFF" stroke="#E8E2D8"/>
+          <text x="280" y="310" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Laptop</text>
+        </g>
+      </svg>
     </div>
     <div class="btn-wrap">
       <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
@@ -278,6 +433,186 @@ const canonicalURL = new URL('/accounting-platform', site.url).href;
     justify-content: center;
     margin: var(--space-8) 0;
   }
+
+  /* ── Gut Feel vs Data-Driven graphic ───────────────────── */
+  .gf-embed {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: var(--space-8) auto 0;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+    border: 1px solid #E8E2D8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(20,15,10,0.04) inset,
+      0 20px 60px -20px rgba(20,15,10,0.12),
+      0 4px 14px -4px rgba(20,15,10,0.06);
+    font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+    color: #1A1714;
+    container-type: inline-size;
+    container-name: gf-embed;
+  }
+  .gf-embed svg { display: block; width: 100%; height: auto; }
+  .gf-embed text { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .gf-embed .sans { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+
+  .gf-live-dot { animation: gf-pulse-dot 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes gf-pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .gf-question { transform-box: fill-box; }
+  .gf-question--1 { animation: gf-q-fade 3.6s ease-in-out infinite; }
+  .gf-question--2 { animation: gf-q-fade 3.6s ease-in-out infinite 1.2s; }
+  .gf-question--3 { animation: gf-q-fade 3.6s ease-in-out infinite 2.4s; }
+  @keyframes gf-q-fade {
+    0%, 100% { opacity: 0.15; transform: translateY(2px); }
+    50%      { opacity: 0.6;  transform: translateY(-3px); }
+  }
+
+  .gf-guess-line { stroke-dasharray: 4 4; animation: gf-guess-dash 1.4s linear infinite; }
+  @keyframes gf-guess-dash { to { stroke-dashoffset: -16; } }
+
+  .gf-forecast-line { stroke-dasharray: 240; animation: gf-draw 3.2s ease-in-out infinite; }
+  @keyframes gf-draw {
+    0%   { stroke-dashoffset: 240; opacity: 0.4; }
+    55%  { stroke-dashoffset: 0;   opacity: 1; }
+    85%  { stroke-dashoffset: 0;   opacity: 1; }
+    100% { stroke-dashoffset: 0;   opacity: 0.4; }
+  }
+
+  .gf-forecast-dot {
+    offset-path: path("M 0 46 C 14 40, 28 30, 42 22");
+    animation: gf-dot-move 3.2s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes gf-dot-move {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    8%   { opacity: 1; }
+    55%  { offset-distance: 100%; opacity: 1; }
+    85%  { offset-distance: 100%; opacity: 1; }
+    95%  { opacity: 0; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+
+  .gf-answer-pill { animation: gf-answer-pop 3.2s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes gf-answer-pop {
+    0%, 55%  { opacity: 0; transform: scale(0.7); }
+    62%      { opacity: 1; transform: scale(1.08); }
+    68%      { transform: scale(1); }
+    92%      { opacity: 1; transform: scale(1); }
+    100%     { opacity: 0; transform: scale(0.85); }
+  }
+
+  .gf-chevron { animation: gf-chevron-flow 1.6s linear infinite; transform-box: fill-box; }
+  .gf-chevron--1 { animation-delay: 0s; }
+  .gf-chevron--2 { animation-delay: 0.27s; }
+  .gf-chevron--3 { animation-delay: 0.54s; }
+  @keyframes gf-chevron-flow {
+    0%   { opacity: 0; transform: translateX(-6px); }
+    20%  { opacity: 1; }
+    80%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(6px); }
+  }
+
+  .gf-foot-dot { animation: gf-pulse-dot 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+
+  @container gf-embed (max-width: 420px) {
+    .gf-title-text { display: none; }
+    .gf-panel-label { font-size: 12px; }
+    .gf-panel-caption { font-size: 11px; }
+  }
+  @container gf-embed (max-width: 340px) {
+    .gf-foot-text { display: none; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gf-embed * { animation: none !important; }
+  }
+
+  /* ── Anywhere Access graphic ───────────────────────────── */
+  .acs-embed {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+    border: 1px solid #E8E2D8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(20,15,10,0.04) inset,
+      0 20px 60px -20px rgba(20,15,10,0.12),
+      0 4px 14px -4px rgba(20,15,10,0.06);
+    font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
+    color: #1A1714;
+    container-type: inline-size;
+    container-name: acs-embed;
+  }
+  .acs-embed svg { display: block; width: 100%; height: auto; }
+  .acs-embed text { font-family: "JetBrains Mono", ui-monospace, monospace; }
+  .acs-embed .sans { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+
+  .acs-live-dot { animation: acs-pulse-dot 1.6s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes acs-pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .acs-cloud-glyph { animation: acs-cloud-rock 4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+  @keyframes acs-cloud-rock { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(18deg); } }
+
+  .acs-ring { transform-box: fill-box; transform-origin: center; opacity: 0; }
+  .acs-ring--1 { animation: acs-ring-pulse 2.6s ease-out infinite; }
+  .acs-ring--2 { animation: acs-ring-pulse 2.6s ease-out infinite 1.3s; }
+  @keyframes acs-ring-pulse {
+    0%   { transform: scale(0.6); opacity: 0.5; }
+    100% { transform: scale(1.25); opacity: 0; }
+  }
+
+  .acs-packet { offset-rotate: 0deg; animation-duration: 3.9s; animation-timing-function: linear; animation-iteration-count: infinite; }
+  .acs-packet--phone  { offset-path: path("M 84 167  Q 160 160, 280 150"); animation-name: acs-packet-phone; }
+  .acs-packet--tablet { offset-path: path("M 484 138 Q 380 145, 280 150"); animation-name: acs-packet-tablet; }
+  .acs-packet--laptop { offset-path: path("M 280 225 Q 280 190, 280 150"); animation-name: acs-packet-laptop; }
+  @keyframes acs-packet-phone {
+    0%      { offset-distance: 0%;   opacity: 0; }
+    1%      { opacity: 1; }
+    30%     { offset-distance: 100%; opacity: 1; }
+    33.3%   { opacity: 0; offset-distance: 100%; }
+    100%    { opacity: 0; offset-distance: 0%; }
+  }
+  @keyframes acs-packet-tablet {
+    0%, 33.3%   { offset-distance: 0%;   opacity: 0; }
+    34.3%       { opacity: 1; }
+    63%         { offset-distance: 100%; opacity: 1; }
+    66.6%       { opacity: 0; offset-distance: 100%; }
+    100%        { opacity: 0; offset-distance: 0%; }
+  }
+  @keyframes acs-packet-laptop {
+    0%, 66.6%   { offset-distance: 0%;   opacity: 0; }
+    67.6%       { opacity: 1; }
+    96%         { offset-distance: 100%; opacity: 1; }
+    100%        { opacity: 0; offset-distance: 100%; }
+  }
+
+  .acs-node-glow { transform-box: fill-box; transform-origin: center; opacity: 0; }
+  .acs-node-glow--phone  { animation: acs-glow-phone  3.9s linear infinite; }
+  .acs-node-glow--tablet { animation: acs-glow-tablet 3.9s linear infinite; }
+  .acs-node-glow--laptop { animation: acs-glow-laptop 3.9s linear infinite; }
+  @keyframes acs-glow-phone  { 0%, 100% { opacity: 0; } 2%  { opacity: 0.22; } 30% { opacity: 0.22; } 33% { opacity: 0; } }
+  @keyframes acs-glow-tablet { 0%, 33% { opacity: 0; } 35% { opacity: 0.22; } 63% { opacity: 0.22; } 66% { opacity: 0; } }
+  @keyframes acs-glow-laptop { 0%, 66% { opacity: 0; } 68% { opacity: 0.22; } 96% { opacity: 0.22; } 99% { opacity: 0; } }
+
+  .acs-screen-flash { opacity: 0; }
+  .acs-screen-flash--phone  { animation: acs-flash-phone  3.9s linear infinite; }
+  .acs-screen-flash--tablet { animation: acs-flash-tablet 3.9s linear infinite; }
+  .acs-screen-flash--laptop { animation: acs-flash-laptop 3.9s linear infinite; }
+  @keyframes acs-flash-phone  { 0%, 100% { opacity: 0; } 30% { opacity: 0.35; } 33% { opacity: 0; } }
+  @keyframes acs-flash-tablet { 0%, 33% { opacity: 0; } 63% { opacity: 0.35; } 66% { opacity: 0; } }
+  @keyframes acs-flash-laptop { 0%, 66% { opacity: 0; } 96% { opacity: 0.35; } 99% { opacity: 0; } }
+
+  .acs-foot-sync { animation: acs-foot-fade 3s ease-in-out infinite; }
+  @keyframes acs-foot-fade { 0%, 100% { opacity: 0.55; } 20% { opacity: 1; } }
+
+  @container acs-embed (max-width: 340px) { .acs-title-text { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .acs-embed * { animation: none !important; } }
 
   /* ── SVG Placeholders ───────────────────────────────────── */
   .svg-placeholder {
