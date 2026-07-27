@@ -1,0 +1,999 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+
+const canonicalURL = new URL('/resources/accountium-vs-quickbooks', site.url).href;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Accountium vs. QuickBooks Online — Which Is Right for Your Business?",
+  "description": "Comparing Accountium and QuickBooks Online? See how they stack up on payroll, banking, pricing model, and switching — so you can pick with confidence.",
+  "author": { "@type": "Organization", "name": "Accountium" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Accountium",
+    "url": site.url,
+    "logo": { "@type": "ImageObject", "url": `${site.url}/images/logo.png` }
+  },
+  "datePublished": "2026-07-26",
+  "dateModified": "2026-07-26",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Accountium cheaper than QuickBooks Online?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Accountium hasn't published pricing yet. Unlike QuickBooks, which charges extra for payroll and some add-ons, Accountium is built around a single, all-inclusive plan with no per-feature upcharges. Get in touch for current pricing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Accountium include payroll like QuickBooks?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Payroll is built into Accountium's core suite alongside invoicing, banking, and reporting, rather than sold as a separate add-on tier." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I switch from QuickBooks to Accountium without losing data?",
+      "acceptedAnswer": { "@type": "Answer", "text": "You can export your chart of accounts, customers, vendors, and transaction history from QuickBooks and import them into Accountium. Our team can walk you through the migration." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Accountium good for accountants and bookkeepers, not just business owners?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Accountium is built for both. QuickBooks has a longer track record and a larger network of certified accountants, so if your bookkeeper specifically requires QuickBooks, that's worth factoring in." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Accountium work for businesses outside Canada?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Accountium is built for an international customer base, with multi-currency support and no dependency on Canada-specific tax rules in the core product." }
+    }
+  ]
+};
+---
+
+<BaseLayout
+  title="Accountium vs. QuickBooks Online — Which Is Right for Your Business?"
+  description="Comparing Accountium and QuickBooks Online? See how they stack up on payroll, banking, pricing model, and switching — so you can pick with confidence."
+  canonicalURL={canonicalURL}
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="b4s2s1 page-hero" aria-label="Accountium vs. QuickBooks Online">
+    <div class="b4s2s1-inner">
+      <span class="label">Comparison</span>
+      <h1>Accountium vs. QuickBooks Online</h1>
+      <p class="hero-meta">
+        By <strong>Accountium Team</strong> &nbsp;·&nbsp; Updated <strong>July 2026</strong> &nbsp;·&nbsp; &#9201; <strong>6 min read</strong>
+      </p>
+      <p>
+        Both products handle the accounting basics — invoicing, bank feeds, reporting.
+        The differences that actually matter for most small businesses come down to
+        three things: how payroll is priced, how the interface holds together as a
+        suite, and what switching looks like if you're already in QuickBooks.
+      </p>
+      <p>
+        This page covers each honestly. Accountium wins on some dimensions and
+        QuickBooks on others. The goal is to give you enough to decide — not to
+        sell you on a predetermined conclusion.
+      </p>
+
+      <!-- ── Unified Suite vs Bolted-On graphic ── -->
+      <div class="us-embed">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 396" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Accountium as one connected system, versus QuickBooks as a base product with separate bolted-on add-ons">
+          <defs><clipPath id="usCardClip"><rect x="0.5" y="0.5" width="639" height="395" rx="14"/></clipPath></defs>
+          <g clip-path="url(#usCardClip)"><rect x="0" y="0" width="640" height="396" fill="#FBF8F3"/></g>
+          <rect x="0.5" y="0.5" width="639" height="395" rx="14" fill="none" stroke="#E8E2D8"/>
+          <line x1="0" y1="48" x2="640" y2="48" stroke="#E8E2D8"/>
+          <circle cx="26" cy="24" r="5" fill="#E07A5F"/>
+          <circle cx="42" cy="24" r="5" fill="#E2B33C"/>
+          <circle cx="58" cy="24" r="5" fill="#2F6B4E"/>
+          <text x="320" y="28" text-anchor="middle" font-size="12" fill="#6B6357" letter-spacing="0.5">accountium / how it's built</text>
+          <circle class="us-live-dot" cx="580" cy="24" r="3.5" fill="#2F6B4E"/>
+          <text x="592" y="28" font-size="11" fill="#2F6B4E" font-weight="700" letter-spacing="1">LIVE</text>
+          <line x1="320" y1="60" x2="320" y2="396" stroke="#E8E2D8"/>
+          <text x="160" y="84" text-anchor="middle" font-size="11" font-weight="700" letter-spacing="1.2" fill="#2F6B4E">ONE SYSTEM, BUILT TOGETHER</text>
+          <circle class="us-hub-ring us-hub-ring--1" cx="150" cy="204" r="38" fill="none" stroke="#2F6B4E" stroke-width="1.2"/>
+          <circle class="us-hub-ring us-hub-ring--2" cx="150" cy="204" r="38" fill="none" stroke="#2F6B4E" stroke-width="1.2"/>
+          <circle cx="150" cy="204" r="36" fill="#2F6B4E"/>
+          <text x="150" y="208" text-anchor="middle" class="sans" font-size="11" font-weight="700" fill="#FFFFFF">Accountium</text>
+          <line x1="150" y1="129" x2="150" y2="168" stroke="#CFE4D8" stroke-width="1.5"/>
+          <line x1="195" y1="204" x2="186" y2="204" stroke="#CFE4D8" stroke-width="1.5"/>
+          <line x1="104" y1="204" x2="114" y2="204" stroke="#CFE4D8" stroke-width="1.5"/>
+          <line x1="150" y1="279" x2="150" y2="240" stroke="#CFE4D8" stroke-width="1.5"/>
+          <circle class="us-chip-flow us-chip-flow--1" r="3.5" fill="#2F6B4E"/>
+          <circle class="us-chip-flow us-chip-flow--2" r="3.5" fill="#2F6B4E"/>
+          <circle class="us-chip-flow us-chip-flow--3" r="3.5" fill="#2F6B4E"/>
+          <circle class="us-chip-flow us-chip-flow--4" r="3.5" fill="#2F6B4E"/>
+          <rect class="us-chip us-chip--1" x="106" y="99" width="88" height="30" rx="8" fill="#FFFFFF" stroke="#E8E2D8" stroke-width="1.4"/>
+          <text x="150" y="118" text-anchor="middle" class="sans" font-size="10" font-weight="600" fill="#1A1714">Invoicing</text>
+          <rect class="us-chip us-chip--2" x="195" y="189" width="90" height="30" rx="8" fill="#FFFFFF" stroke="#E8E2D8" stroke-width="1.4"/>
+          <text x="240" y="208" text-anchor="middle" class="sans" font-size="10" font-weight="600" fill="#1A1714">Banking</text>
+          <rect class="us-chip us-chip--3" x="16" y="189" width="88" height="30" rx="8" fill="#FFFFFF" stroke="#E8E2D8" stroke-width="1.4"/>
+          <text x="60" y="208" text-anchor="middle" class="sans" font-size="10" font-weight="600" fill="#1A1714">Payroll</text>
+          <rect class="us-chip us-chip--4" x="98" y="279" width="104" height="30" rx="8" fill="#FFFFFF" stroke="#E8E2D8" stroke-width="1.4"/>
+          <text x="150" y="298" text-anchor="middle" class="sans" font-size="10" font-weight="600" fill="#1A1714">Reporting</text>
+          <rect x="76" y="316" width="148" height="24" rx="12" fill="#EAF3EC"/>
+          <text x="150" y="332" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#2F6B4E">One plan, one price</text>
+          <text x="480" y="76" text-anchor="middle" font-size="10.5" font-weight="700" letter-spacing="1.4" fill="#6B6357">THE ALTERNATIVE</text>
+          <text x="480" y="92" text-anchor="middle" class="sans" font-size="11" fill="#6B6357">base product + separate add-ons</text>
+          <g class="us-addon us-addon--3">
+            <rect x="404" y="112" width="152" height="34" rx="8" fill="#FFFFFF" stroke="#D9D2C6" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <text x="420" y="133" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Payroll add-on</text>
+            <text class="us-cost-tag us-cost-tag--3" x="546" y="133" text-anchor="end" font-size="10" font-weight="700" fill="#B45309">+$45</text>
+          </g>
+          <g class="us-addon us-addon--2">
+            <rect x="404" y="154" width="152" height="34" rx="8" fill="#FFFFFF" stroke="#D9D2C6" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <text x="420" y="175" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Time tracking</text>
+            <text class="us-cost-tag us-cost-tag--2" x="546" y="175" text-anchor="end" font-size="10" font-weight="700" fill="#B45309">+$20</text>
+          </g>
+          <g class="us-addon us-addon--1">
+            <rect x="404" y="196" width="152" height="34" rx="8" fill="#FFFFFF" stroke="#D9D2C6" stroke-width="1.4" stroke-dasharray="4 3"/>
+            <text x="420" y="217" class="sans" font-size="10.5" font-weight="600" fill="#1A1714">Payments add-on</text>
+            <text class="us-cost-tag us-cost-tag--1" x="546" y="217" text-anchor="end" font-size="10" font-weight="700" fill="#B45309">+$25</text>
+          </g>
+          <rect x="404" y="238" width="152" height="40" rx="8" fill="#F3EFE7" stroke="#D9D2C6" stroke-width="1.6"/>
+          <text x="480" y="263" text-anchor="middle" class="sans" font-size="11" font-weight="700" fill="#4A443C">Base plan</text>
+          <rect x="404" y="316" width="152" height="24" rx="12" fill="#F6E9DE"/>
+          <text x="480" y="332" text-anchor="middle" class="sans" font-size="10.5" font-weight="600" fill="#B45309">Stacked, separate bills</text>
+        </svg>
+      </div>
+
+      <div class="btn-wrap">
+        <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          TRY NOW
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── At a Glance Divider ───────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="glance-heading">
+    <h2 id="glance-heading">At a Glance</h2>
+    <p>
+      A side-by-side look at where each product stands across the features that
+      matter most for a growing business.
+    </p>
+  </section>
+
+  <!-- ── At a Glance Content ──────────────────────────────── -->
+  <section class="content-section" aria-label="Feature comparison table">
+    <div class="container">
+      <div class="feature-block">
+
+        <!-- ── Payroll Included Comparison graphic ── -->
+        <div class="pi-embed">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 350" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Accountium: one plan with payroll included, versus QuickBooks: base plan plus a separate payroll tier stacked on top">
+            <defs><clipPath id="piCardClip"><rect x="0.5" y="0.5" width="559" height="349" rx="14"/></clipPath></defs>
+            <g clip-path="url(#piCardClip)"><rect x="0" y="0" width="560" height="350" fill="#FBF8F3"/></g>
+            <rect x="0.5" y="0.5" width="559" height="349" rx="14" fill="none" stroke="#E8E2D8"/>
+            <line x1="0" y1="48" x2="560" y2="48" stroke="#E8E2D8"/>
+            <circle cx="26" cy="24" r="6" fill="#E07A5F"/>
+            <circle cx="44" cy="24" r="6" fill="#E2B33C"/>
+            <circle cx="62" cy="24" r="6" fill="#2F6B4E"/>
+            <line x1="280" y1="60" x2="280" y2="350" stroke="#E8E2D8"/>
+            <text x="140" y="80" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.2" fill="#2F6B4E">ACCOUNTIUM</text>
+            <text x="140" y="98" text-anchor="middle" class="sans" font-size="13" fill="#6B6357">payroll included</text>
+            <rect class="pi-glow" x="52" y="228" width="176" height="72" rx="10" fill="#2F6B4E" opacity="0.5"/>
+            <rect x="52" y="228" width="176" height="72" rx="10" fill="#2F6B4E"/>
+            <text x="140" y="257" text-anchor="middle" class="sans" font-size="16" font-weight="700" fill="#FFFFFF">$49<tspan font-size="12" font-weight="500">/mo</tspan></text>
+            <text x="140" y="276" text-anchor="middle" class="sans" font-size="11.5" fill="#DDEEE3">books + invoicing + payroll</text>
+            <text x="140" y="291" text-anchor="middle" class="sans" font-size="11.5" fill="#DDEEE3">+ reporting — all in</text>
+            <rect x="58" y="132" width="164" height="86" rx="8" fill="#FFFFFF" stroke="#E8E2D8" stroke-width="1.6"/>
+            <text x="140" y="154" text-anchor="middle" class="sans" font-size="12.5" font-weight="600" fill="#1A1714">Books · Invoicing</text>
+            <line x1="72" y1="167" x2="208" y2="167" stroke="#E8E2D8"/>
+            <text x="140" y="185" text-anchor="middle" class="sans" font-size="12.5" font-weight="600" fill="#1A1714">Payroll</text>
+            <line x1="72" y1="197" x2="208" y2="197" stroke="#E8E2D8"/>
+            <text x="140" y="211" text-anchor="middle" class="sans" font-size="12.5" font-weight="600" fill="#1A1714">Reporting</text>
+            <rect x="80" y="312" width="120" height="24" rx="12" fill="#EAF3EC"/>
+            <text x="140" y="328" text-anchor="middle" class="sans" font-size="12.5" font-weight="600" fill="#2F6B4E">single price</text>
+            <text x="420" y="80" text-anchor="middle" font-size="13" font-weight="700" letter-spacing="1.2" fill="#6B6357">THE ALTERNATIVE</text>
+            <text x="420" y="98" text-anchor="middle" class="sans" font-size="13" fill="#6B6357">payroll is a separate tier</text>
+            <rect x="352" y="246" width="136" height="50" rx="8" fill="#F3EFE7" stroke="#D9D2C6" stroke-width="1.6"/>
+            <text x="420" y="267" text-anchor="middle" class="sans" font-size="13" font-weight="700" fill="#4A443C">Base plan</text>
+            <text x="420" y="284" text-anchor="middle" class="sans" font-size="12" fill="#6B6357">$35/mo</text>
+            <rect x="352" y="186" width="136" height="50" rx="8" fill="#FFFFFF" stroke="#D9D2C6" stroke-width="1.6" stroke-dasharray="4 3"/>
+            <text x="420" y="207" text-anchor="middle" class="sans" font-size="13" font-weight="700" fill="#1A1714">Payroll tier</text>
+            <text x="420" y="224" text-anchor="middle" class="sans" font-size="12" fill="#B45309">+$45/mo</text>
+            <circle class="pi-stack-plus" cx="488" cy="236" r="11" fill="#F6E9DE" stroke="#D9D2C6" stroke-width="1.4"/>
+            <text class="pi-stack-plus" x="488" y="240" text-anchor="middle" font-size="13" font-weight="700" fill="#B45309">+</text>
+            <rect x="352" y="312" width="136" height="24" rx="12" fill="#F6E9DE"/>
+            <text class="pi-total-flash" x="420" y="328" text-anchor="middle" class="sans" font-size="12.5" font-weight="700" fill="#B45309">$80/mo total</text>
+          </svg>
+        </div>
+
+        <div class="table-wrap">
+          <table class="rate-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Accountium</th>
+                <th>QuickBooks Online</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Pricing model</td>
+                <td class="good">All-inclusive, no feature add-ons</td>
+                <td class="bad">Tiered plans, payroll sold separately</td>
+              </tr>
+              <tr>
+                <td>Payroll</td>
+                <td class="good">Built into the core product</td>
+                <td class="bad">Add-on tier, extra monthly cost</td>
+              </tr>
+              <tr>
+                <td>Bank feeds &amp; auto-categorization</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Invoicing &amp; online payments</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Mobile app (iOS/Android)</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+              <tr>
+                <td>Multi-currency support</td>
+                <td class="good">Yes</td>
+                <td>Higher tiers only</td>
+              </tr>
+              <tr>
+                <td>Third-party app marketplace</td>
+                <td>Growing</td>
+                <td class="good">750+ integrations</td>
+              </tr>
+              <tr>
+                <td>Accountant/bookkeeper network</td>
+                <td>Growing</td>
+                <td class="good">Large, well-established</td>
+              </tr>
+              <tr>
+                <td>Free trial</td>
+                <td>Yes</td>
+                <td>Yes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Where Accountium Wins Divider ────────────────────── -->
+  <section class="b4s2" aria-labelledby="wins-heading">
+    <h2 id="wins-heading">Where Accountium Wins</h2>
+    <p>
+      The clearest advantages come down to pricing structure and how the product
+      holds together as a single suite.
+    </p>
+  </section>
+
+  <!-- ── Where Accountium Wins Content ────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Accountium advantages">
+    <div class="container">
+      <div class="feature-block">
+        <ul class="criteria-list">
+          <li>
+            <strong>Payroll without the add-on tax</strong>
+            <p>QuickBooks sells payroll as a separate paid tier on top of your subscription. In Accountium, payroll runs, direct deposit, and tax filings are part of the core product — one login, one bill, no upsell path to unlock the feature you actually need.</p>
+          </li>
+          <li>
+            <strong>One suite, not a bundle of upsells</strong>
+            <p>Invoicing, banking, payroll, and reporting live in a single interface built to work together. You're not navigating a base product with a menu of paid add-ons layered on top.</p>
+          </li>
+          <li>
+            <strong>Built for how you actually work</strong>
+            <p>Real-time bank feed categorization and a mobile experience that mirrors the desktop app, so you're not stuck waiting for sync or hunting for a feature that only exists on one platform.</p>
+          </li>
+          <li>
+            <strong>Multi-currency on every plan</strong>
+            <p>QuickBooks reserves multi-currency for higher tiers. In Accountium, it's included — no upgrade required to invoice or report in USD, EUR, GBP, or 30+ other currencies.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Where QuickBooks Wins Divider ────────────────────── -->
+  <section class="b4s2" aria-labelledby="honest-heading">
+    <h2 id="honest-heading">Where QuickBooks Is the Safer Bet</h2>
+    <p>
+      Honest assessment: QuickBooks has real advantages that are worth weighing
+      depending on your situation.
+    </p>
+  </section>
+
+  <!-- ── Where QuickBooks Wins Content ────────────────────── -->
+  <section class="content-section" aria-label="QuickBooks advantages">
+    <div class="container">
+      <div class="feature-block">
+        <div class="callout callout--tip">
+          <strong>A bigger ecosystem</strong>
+          QuickBooks has been around far longer and has a much larger marketplace of
+          third-party integrations and a bigger network of accountants and bookkeepers
+          already fluent in it. If your bookkeeper specifically works in QuickBooks,
+          or you depend on a niche integration, that's a real switching cost worth
+          weighing.
+        </div>
+        <ul class="feature-list">
+          <li>750+ third-party app integrations</li>
+          <li>Large certified ProAdvisor network</li>
+          <li>Longer track record in the market</li>
+          <li>Widely used by accountants and bookkeepers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing Divider ───────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="pricing-heading">
+    <h2 id="pricing-heading">Pricing</h2>
+    <p>
+      The core difference isn't a dollar figure — it's a structural one.
+    </p>
+  </section>
+
+  <!-- ── Pricing Content ──────────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Pricing comparison">
+    <div class="container">
+      <div class="feature-block">
+        <h3 class="feature-block-heading">One Bill vs. Many</h3>
+        <p class="feature-block-body">
+          Accountium hasn't published set pricing tiers yet. The core difference in
+          approach: QuickBooks prices by feature tier, with payroll and some advanced
+          features sold as add-ons. Accountium is built around a single plan with
+          everything included, so your bill doesn't grow every time you need another
+          feature.
+        </p>
+        <div class="callout callout--tip">
+          <strong>Want current pricing?</strong>
+          <a href="/contact">Get in touch</a> — no pricing page runaround. We'll give
+          you a straight answer based on your business size.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Switching Divider ─────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="switching-heading">
+    <h2 id="switching-heading">Switching from QuickBooks</h2>
+    <p>
+      Moving your books over is a straightforward three-step process. Most
+      businesses complete the migration in a single afternoon.
+    </p>
+  </section>
+
+  <!-- ── Switching Content ────────────────────────────────── -->
+  <section class="content-section" aria-label="Migration steps">
+    <div class="container">
+      <div class="feature-block">
+
+        <!-- ── Switching Flow graphic ── -->
+        <div class="sw-embed">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="100%" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Switching to Accountium in three easy steps: export, import, run a parallel period">
+            <defs><clipPath id="swCardClip"><rect x="0.5" y="0.5" width="639" height="299" rx="14"/></clipPath></defs>
+            <g clip-path="url(#swCardClip)"><rect x="0" y="0" width="640" height="300" fill="#FBF8F3"/></g>
+            <rect x="0.5" y="0.5" width="639" height="299" rx="14" fill="none" stroke="#E8E2D8"/>
+            <line x1="0" y1="48" x2="640" y2="48" stroke="#E8E2D8"/>
+            <circle cx="26" cy="24" r="6" fill="#E07A5F"/>
+            <circle cx="44" cy="24" r="6" fill="#E2B33C"/>
+            <circle cx="62" cy="24" r="6" fill="#2F6B4E"/>
+            <text x="320" y="90" text-anchor="middle" class="sans" font-size="15" font-weight="700" fill="#1A1714">Switching takes three steps</text>
+            <line x1="148" y1="160" x2="292" y2="160" stroke="#D7CFC2" stroke-width="1.6" stroke-dasharray="3 5"/>
+            <line x1="388" y1="160" x2="532" y2="160" stroke="#D7CFC2" stroke-width="1.6" stroke-dasharray="3 5"/>
+            <circle class="sw-dot sw-dot--1" r="4"/>
+            <circle class="sw-dot sw-dot--2" r="4"/>
+            <g class="sw-step sw-step--1">
+              <circle class="sw-ring" cx="110" cy="160" r="36" fill="none" stroke="#2F6B4E" stroke-width="1.6"/>
+              <circle class="sw-step-fill" cx="110" cy="160" r="32" fill="#EAF3EC" stroke="#2F6B4E" stroke-width="1.8"/>
+              <path d="M110 147 v19 M101 157 l9 9 9-9" fill="none" stroke="#2F6B4E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M94 175 h32" fill="none" stroke="#2F6B4E" stroke-width="2.4" stroke-linecap="round"/>
+              <circle class="sw-check sw-check--1" cx="134" cy="136" r="10" fill="#2F6B4E"/>
+              <path class="sw-check sw-check--1" d="M130 136 l3 3 7-7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="110" y="220" text-anchor="middle" class="sans" font-size="14" font-weight="700" fill="#1A1714">1. Export</text>
+            <text x="110" y="238" text-anchor="middle" class="sans" font-size="12.5" fill="#6B6357">one-click file from</text>
+            <text x="110" y="253" text-anchor="middle" class="sans" font-size="12.5" fill="#6B6357">your old software</text>
+            <g class="sw-step sw-step--2">
+              <circle class="sw-ring" cx="320" cy="160" r="36" fill="none" stroke="#2F6B4E" stroke-width="1.6"/>
+              <circle class="sw-step-fill" cx="320" cy="160" r="32" fill="#EAF3EC" stroke="#2F6B4E" stroke-width="1.8"/>
+              <path d="M320 173 v-19 M311 163 l9 -9 9 9" fill="none" stroke="#2F6B4E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M304 145 h32" fill="none" stroke="#2F6B4E" stroke-width="2.4" stroke-linecap="round"/>
+              <circle class="sw-check sw-check--2" cx="344" cy="136" r="10" fill="#2F6B4E"/>
+              <path class="sw-check sw-check--2" d="M340 136 l3 3 7-7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="320" y="220" text-anchor="middle" class="sans" font-size="14" font-weight="700" fill="#1A1714">2. Import</text>
+            <text x="320" y="238" text-anchor="middle" class="sans" font-size="12.5" fill="#6B6357">Accountium maps your</text>
+            <text x="320" y="253" text-anchor="middle" class="sans" font-size="12.5" fill="#6B6357">chart of accounts</text>
+            <g class="sw-step sw-step--3">
+              <circle class="sw-ring" cx="530" cy="160" r="36" fill="none" stroke="#2F6B4E" stroke-width="1.6"/>
+              <circle class="sw-step-fill" cx="530" cy="160" r="32" fill="#EAF3EC" stroke="#2F6B4E" stroke-width="1.8"/>
+              <rect x="513" y="147" width="11" height="26" rx="2" fill="none" stroke="#2F6B4E" stroke-width="2"/>
+              <rect x="526" y="147" width="11" height="26" rx="2" fill="none" stroke="#2F6B4E" stroke-width="2"/>
+              <path d="M541 155 l5 5-5 5" fill="none" stroke="#2F6B4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="sw-check sw-check--3" cx="554" cy="136" r="10" fill="#2F6B4E"/>
+              <path class="sw-check sw-check--3" d="M550 136 l3 3 7-7" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="530" y="220" text-anchor="middle" class="sans" font-size="14" font-weight="700" fill="#1A1714">3. Run parallel</text>
+            <text x="530" y="238" text-anchor="middle" class="sans" font-size="12.5" fill="#6B6357">confirm the numbers</text>
+            <text x="530" y="253" text-anchor="middle" class="sans" font-size="12.5" fill="#6B6357">match, then cut over</text>
+          </svg>
+        </div>
+
+        <ul class="criteria-list">
+          <li>
+            <strong>Export your data</strong>
+            <p>QuickBooks lets you export your chart of accounts, customer and vendor lists, and transaction history. A few clicks from the Reports or Settings menu.</p>
+          </li>
+          <li>
+            <strong>Import into Accountium</strong>
+            <p>Bring that data into your new account and reconnect your bank feeds. Accountium's import tools handle the standard QuickBooks export formats directly.</p>
+          </li>
+          <li>
+            <strong>Run a parallel period</strong>
+            <p>Most businesses run both systems for two to four weeks to confirm balances match before fully cutting over. This is optional but recommended.</p>
+          </li>
+        </ul>
+        <div class="callout callout--tip">
+          <strong>Not a self-serve-only process</strong>
+          Our team can walk through migration with you directly. If you have a
+          complex chart of accounts or multi-entity setup,
+          <a href="/contact">get in touch</a> before you start — we'll map it out first.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ Divider ───────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+    <p>Common questions from businesses comparing the two platforms.</p>
+  </section>
+
+  <!-- ── FAQ Content ──────────────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="FAQ">
+    <div class="container">
+      <div class="feature-block">
+        <ul class="criteria-list">
+          <li>
+            <strong>Is Accountium cheaper than QuickBooks Online?</strong>
+            <p>Accountium hasn't published pricing yet. Unlike QuickBooks, which charges extra for payroll and some add-ons, Accountium is built around a single, all-inclusive plan with no per-feature upcharges. Get in touch for current pricing.</p>
+          </li>
+          <li>
+            <strong>Does Accountium include payroll like QuickBooks?</strong>
+            <p>Yes. Payroll is built into Accountium's core suite alongside invoicing, banking, and reporting, rather than sold as a separate add-on tier.</p>
+          </li>
+          <li>
+            <strong>Can I switch from QuickBooks to Accountium without losing data?</strong>
+            <p>You can export your chart of accounts, customers, vendors, and transaction history from QuickBooks and import them into Accountium. Our team can walk you through the migration.</p>
+          </li>
+          <li>
+            <strong>Is Accountium good for accountants and bookkeepers, not just business owners?</strong>
+            <p>Accountium is built for both. QuickBooks has a longer track record and a larger network of certified accountants, so if your bookkeeper specifically requires QuickBooks, that's worth factoring in.</p>
+          </li>
+          <li>
+            <strong>Does Accountium work for businesses outside Canada?</strong>
+            <p>Yes. Accountium is built for an international customer base, with multi-currency support and no dependency on Canada-specific tax rules in the core product.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Related Resources Divider ─────────────────────────── -->
+  <section class="b4s2" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related Resources</h2>
+    <p>More guides for businesses evaluating their accounting setup.</p>
+    <div class="btn-wrap">
+      <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+        TRY NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Related Resources Content ────────────────────────── -->
+  <section class="content-section" aria-label="Related resources">
+    <div class="container">
+      <div class="feature-block">
+        <ul class="criteria-list">
+          <li>
+            <strong><a href="/resources/signs-your-business-outgrew-spreadsheets">5 Signs Your Business Has Outgrown Spreadsheets</a></strong>
+            <p>Still running your books in a spreadsheet? Here's how to know when it's time for something built to scale.</p>
+          </li>
+          <li>
+            <strong><a href="/payroll-compliance-canada">Payroll Compliance in Canada: A 2026 Guide</a></strong>
+            <p>What every employer needs to know about CPP, EI, and CRA remittances.</p>
+          </li>
+          <li>
+            <strong><a href="/resources/year-end-bookkeeping-checklist-canada">Year-End Bookkeeping Checklist for Canadian Businesses</a></strong>
+            <p>A complete checklist for closing your books accurately and on time.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  .page-hero.b4s2s1::before { display: none; }
+
+  .hero-meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  /* ── Button spacing wrapper ─────────────────────────────── */
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-8) 0;
+  }
+
+  /* ── Content Sections ───────────────────────────────────── */
+  .content-section {
+    padding: var(--space-16) 0;
+  }
+
+  .bg-subtle {
+    background: rgba(8, 145, 178, 0.03);
+  }
+
+  /* ── Feature Blocks ─────────────────────────────────────── */
+  .feature-block {
+    margin-bottom: var(--space-16);
+  }
+
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-block-heading {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .feature-block-body {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+  }
+
+  /* ── Feature list ───────────────────────────────────────── */
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) auto 0;
+    justify-content: center;
+    max-width: 700px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Criteria List ──────────────────────────────────────── */
+  .criteria-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  .criteria-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .criteria-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+  }
+
+  .criteria-list strong {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .criteria-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+    max-width: none;
+  }
+
+  .criteria-list a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ── b4s2: Accent Section Divider ───────────────────────── */
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ── b4s2s1: Hero Text Section ──────────────────────────── */
+  .b4s2s1 {
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+  }
+
+  .b4s2s1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2s1-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .b4s2s1 .label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2s1 h1 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .b4s2s1 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-5);
+    text-align: center;
+  }
+
+  /* ── Callout box ────────────────────────────────────────── */
+  .callout {
+    max-width: 680px;
+    margin: 0 auto var(--space-6);
+    background: var(--color-accent-dim);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  .callout strong {
+    font-weight: 600;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+
+  .callout a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ── Comparison table ───────────────────────────────────── */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 0 auto var(--space-6);
+    max-width: 680px;
+  }
+
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  .rate-table th {
+    text-align: left;
+    font-weight: 600;
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    border-bottom: 2px solid var(--color-border-strong);
+    padding: 10px 12px;
+    white-space: nowrap;
+  }
+
+  .rate-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: top;
+    color: var(--color-text-secondary);
+  }
+
+  .rate-table tr:last-child td { border-bottom: none; }
+  .rate-table tr:hover td { background: var(--color-accent-dim); }
+
+  td.good { color: var(--color-green); font-weight: 600; }
+  td.bad  { color: #b5493f; font-weight: 600; }
+
+  /* embed shell styles are in the global block below */
+
+  /* ── chip / step-fill base styles now set as SVG attributes ── */
+
+  /* ── Unified Suite animations ───────────────────────────── */
+  .us-live-dot {
+    animation: us-live-pulse 1.6s ease-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes us-live-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .us-hub-ring--1 {
+    animation: us-ring-ping 3s ease-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .us-hub-ring--2 {
+    animation: us-ring-ping 3s ease-out infinite 1.5s;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes us-ring-ping {
+    0%   { opacity: 0.7; transform: scale(1); }
+    70%  { opacity: 0;   transform: scale(2); }
+    100% { opacity: 0;   transform: scale(2); }
+  }
+
+  .us-chip--1 { animation: us-chip-hi 4.8s ease-in-out infinite 0s; }
+  .us-chip--2 { animation: us-chip-hi 4.8s ease-in-out infinite 1.2s; }
+  .us-chip--3 { animation: us-chip-hi 4.8s ease-in-out infinite 2.4s; }
+  .us-chip--4 { animation: us-chip-hi 4.8s ease-in-out infinite 3.6s; }
+  @keyframes us-chip-hi {
+    0%, 100%  { fill: #FFFFFF; stroke: #E8E2D8; }
+    12%, 28%  { fill: #EAF3EC; stroke: #2F6B4E; }
+  }
+
+  /* hub cx=150 cy=204 r=36 → top=168, bottom=240, left=114, right=186 */
+  .us-chip-flow { offset-rotate: 0deg; fill: #2F6B4E; }
+  .us-chip-flow--1 {
+    offset-path: path("M 150 168 L 150 129");
+    animation: us-flow-move 4.8s linear infinite 0s;
+  }
+  .us-chip-flow--2 {
+    offset-path: path("M 186 204 L 195 204");
+    animation: us-flow-move 4.8s linear infinite 1.2s;
+  }
+  .us-chip-flow--3 {
+    offset-path: path("M 114 204 L 104 204");
+    animation: us-flow-move 4.8s linear infinite 2.4s;
+  }
+  .us-chip-flow--4 {
+    offset-path: path("M 150 240 L 150 279");
+    animation: us-flow-move 4.8s linear infinite 3.6s;
+  }
+  @keyframes us-flow-move {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    5%   { opacity: 1; }
+    22%  { offset-distance: 100%; opacity: 1; }
+    28%  { offset-distance: 100%; opacity: 0; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+
+  .us-cost-tag { animation: us-cost-pulse 2.4s ease-in-out infinite; }
+  .us-cost-tag--1 { animation-delay: 0s; }
+  .us-cost-tag--2 { animation-delay: 0.4s; }
+  .us-cost-tag--3 { animation-delay: 0.8s; }
+  @keyframes us-cost-pulse { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+  /* ── Payroll Included animations ────────────────────────── */
+  .pi-glow {
+    animation: pi-glow-pulse 2.4s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes pi-glow-pulse {
+    0%, 100% { opacity: 0.12; transform: scale(1); }
+    50%      { opacity: 0.35; transform: scale(1.05); }
+  }
+
+  .pi-stack-plus {
+    animation: pi-plus-bounce 2s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes pi-plus-bounce {
+    0%, 100% { transform: scale(1); }
+    40%      { transform: scale(1.3); }
+    60%      { transform: scale(0.88); }
+  }
+
+  .pi-total-flash { animation: pi-flash 2.4s ease-in-out infinite; }
+  @keyframes pi-flash { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+
+  /* ── Switching Flow animations ──────────────────────────── */
+  .sw-ring {
+    animation: sw-ring-pulse 3.6s ease-in-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  @keyframes sw-ring-pulse { 0%, 100% { opacity: 0.25; } 50% { opacity: 0.7; } }
+
+  .sw-dot { offset-rotate: 0deg; fill: #2F6B4E; }
+  .sw-dot--1 {
+    offset-path: path("M 148 160 L 292 160");
+    animation: sw-dot-move 3.6s linear infinite 0s;
+  }
+  .sw-dot--2 {
+    offset-path: path("M 388 160 L 532 160");
+    animation: sw-dot-move 3.6s linear infinite 1.2s;
+  }
+  @keyframes sw-dot-move {
+    0%   { offset-distance: 0%;   opacity: 0; }
+    8%   { opacity: 1; }
+    78%  { offset-distance: 100%; opacity: 1; }
+    88%  { offset-distance: 100%; opacity: 0; }
+    100% { offset-distance: 100%; opacity: 0; }
+  }
+
+  .sw-check {
+    animation: sw-check-pop 3.6s ease-out infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+  .sw-check--1 { animation-delay: 0s; }
+  .sw-check--2 { animation-delay: 1.2s; }
+  .sw-check--3 { animation-delay: 2.4s; }
+  @keyframes sw-check-pop {
+    0%, 28%    { opacity: 0; transform: scale(0.4); }
+    34%        { opacity: 1; transform: scale(1.25); }
+    40%        { transform: scale(1); }
+    90%        { opacity: 1; transform: scale(1); }
+    96%, 100%  { opacity: 0; transform: scale(0.4); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .us-embed *,
+    .pi-embed *,
+    .sw-embed * { animation: none !important; }
+  }
+</style>
+
+<style is:global>
+  /* ── Embed card shells (global so sizing always applies) ── */
+  .us-embed,
+  .pi-embed,
+  .sw-embed {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    margin: 32px auto;
+    background: linear-gradient(180deg, #FFFFFF 0%, #FBF8F3 100%);
+    border: 1px solid #E8E2D8;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow:
+      0 1px 0 rgba(20,15,10,0.04) inset,
+      0 20px 60px -20px rgba(20,15,10,0.12),
+      0 4px 14px -4px rgba(20,15,10,0.06);
+  }
+
+  .us-embed svg,
+  .pi-embed svg,
+  .sw-embed svg { display: block; width: 100%; height: auto; }
+
+  .us-embed text,
+  .pi-embed text,
+  .sw-embed text { font-family: "JetBrains Mono", ui-monospace, "SF Mono", monospace; }
+
+  .us-embed .sans,
+  .pi-embed .sans,
+  .sw-embed .sans { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+</style>

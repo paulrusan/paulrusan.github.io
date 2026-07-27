@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 420" width="560" height="420">
+  <defs>
+    <linearGradient id="do-bg" x1="0" y1="0" x2="0" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#FBF8F3"/>
+    </linearGradient>
+    <clipPath id="do-clip">
+      <rect width="560" height="420" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Shell background + border -->
+  <rect width="560" height="420" rx="14" fill="url(#do-bg)" stroke="#E8E2D8" stroke-width="1"/>
+
+  <g clip-path="url(#do-clip)" font-family="'JetBrains Mono',ui-monospace,'SF Mono',monospace" fill="#1A1714">
+
+    <!-- ── Chrome bar ────────────────────────────────── -->
+    <rect width="560" height="46" fill="rgba(20,15,10,0.015)"/>
+    <line x1="0" y1="46" x2="560" y2="46" stroke="#E8E2D8" stroke-width="1"/>
+    <!-- Traffic-light dots -->
+    <circle cx="28" cy="23" r="5" fill="#E07A5F"/>
+    <circle cx="44" cy="23" r="5" fill="#E2B33C"/>
+    <circle cx="60" cy="23" r="5" fill="#2F6B4E"/>
+    <!-- Title -->
+    <text x="280" y="23" font-size="12" fill="#6B6357" letter-spacing=".04em" text-anchor="middle" dominant-baseline="middle">accountium / dashboard</text>
+    <!-- Live pulse ring (behind solid dot) -->
+    <circle cx="506" cy="23" r="3" fill="#2F6B4E" opacity=".45">
+      <animate attributeName="r"       values="3;9"   dur="1.6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values=".45;0" dur="1.6s" repeatCount="indefinite"/>
+    </circle>
+    <!-- Live solid dot -->
+    <circle cx="506" cy="23" r="3" fill="#2F6B4E"/>
+    <text x="514" y="23" font-size="11" fill="#2F6B4E" letter-spacing=".12em" font-weight="600" dominant-baseline="middle">LIVE</text>
+
+    <!-- ── Balance hero ──────────────────────────────── -->
+    <text x="280" y="76" font-size="10.5" fill="#A39A8E" letter-spacing=".14em" font-weight="500" text-anchor="middle" dominant-baseline="middle">TOTAL BALANCE · ALL ACCOUNTS</text>
+    <text x="280" y="110" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="34" fill="#1A1714" font-weight="700" letter-spacing="-.02em" text-anchor="middle" dominant-baseline="middle">$128,402.10</text>
+    <!-- Trend pill -->
+    <rect x="190" y="126" width="180" height="24" rx="12" fill="rgba(47,107,78,.10)"/>
+    <text x="280" y="138" font-size="11" fill="#2F6B4E" font-weight="600" letter-spacing=".02em" text-anchor="middle" dominant-baseline="middle">▲ 12.4% this month</text>
+
+    <!-- ── Quick counts ───────────────────────────────
+         3 tiles: widths 169 + 170 + 169 = 508, gaps 8+8=16, padding 18+18=36 → total 560 -->
+    <!-- Tile 1 · invoices -->
+    <rect x="18"  y="162" width="169" height="52" rx="9" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <text x="102" y="182" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" fill="#1A1714" font-weight="700" letter-spacing="-.01em" text-anchor="middle" dominant-baseline="middle">46</text>
+    <text x="102" y="202" font-size="10" fill="#6B6357" letter-spacing=".04em" text-anchor="middle" dominant-baseline="middle">invoices</text>
+    <!-- Tile 2 · bills -->
+    <rect x="195" y="162" width="170" height="52" rx="9" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <text x="280" y="182" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" fill="#1A1714" font-weight="700" letter-spacing="-.01em" text-anchor="middle" dominant-baseline="middle">11</text>
+    <text x="280" y="202" font-size="10" fill="#6B6357" letter-spacing=".04em" text-anchor="middle" dominant-baseline="middle">bills</text>
+    <!-- Tile 3 · bank feeds -->
+    <rect x="373" y="162" width="169" height="52" rx="9" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <text x="457" y="182" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="18" fill="#1A1714" font-weight="700" letter-spacing="-.01em" text-anchor="middle" dominant-baseline="middle">3</text>
+    <text x="457" y="202" font-size="10" fill="#6B6357" letter-spacing=".04em" text-anchor="middle" dominant-baseline="middle">bank feeds</text>
+
+    <!-- ── Feed header ────────────────────────────────── -->
+    <text x="18"  y="234" font-size="10.5" fill="#6B6357" letter-spacing=".10em" font-weight="600" dominant-baseline="middle">RECENT ACTIVITY</text>
+    <text x="542" y="234" font-size="10.5" fill="#2F6B4E" letter-spacing=".02em" font-weight="600" text-anchor="end" dominant-baseline="middle">auto-categorized</text>
+
+    <!-- ── Feed rows ──────────────────────────────────── -->
+    <!-- Row 1: Stripe payout -->
+    <rect x="18" y="245" width="524" height="42" rx="8" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <circle cx="38" cy="266" r="4" fill="#2F6B4E"/>
+    <text x="52" y="266" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="12" fill="#1A1714" font-weight="500" dominant-baseline="middle">Stripe payout</text>
+    <text x="344" y="266" font-size="10" fill="#2F6B4E" font-weight="600" letter-spacing=".02em" dominant-baseline="middle">Sales</text>
+    <text x="534" y="266" font-size="11.5" fill="#2F6B4E" font-weight="600" text-anchor="end" dominant-baseline="middle">+$18,402</text>
+    <!-- Row 2: Cedar & Co. -->
+    <rect x="18" y="293" width="524" height="42" rx="8" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <circle cx="38" cy="314" r="4" fill="#6B21A8"/>
+    <text x="52" y="314" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="12" fill="#1A1714" font-weight="500" dominant-baseline="middle">Cedar &amp; Co.</text>
+    <text x="344" y="314" font-size="10" fill="#6B21A8" font-weight="600" letter-spacing=".02em" dominant-baseline="middle">Prof. Services</text>
+    <text x="534" y="314" font-size="11.5" fill="#1A1714" font-weight="600" text-anchor="end" dominant-baseline="middle">−$4,280</text>
+    <!-- Row 3: AWS · infra -->
+    <rect x="18" y="341" width="524" height="42" rx="8" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <circle cx="38" cy="362" r="4" fill="#0E7490"/>
+    <text x="52" y="362" font-family="'Inter',-apple-system,BlinkMacSystemFont,sans-serif" font-size="12" fill="#1A1714" font-weight="500" dominant-baseline="middle">AWS · infra</text>
+    <text x="344" y="362" font-size="10" fill="#0E7490" font-weight="600" letter-spacing=".02em" dominant-baseline="middle">Infrastructure</text>
+    <text x="534" y="362" font-size="11.5" fill="#1A1714" font-weight="600" text-anchor="end" dominant-baseline="middle">−$612</text>
+
+    <!-- ── Footer ────────────────────────────────────── -->
+    <line x1="0" y1="391" x2="560" y2="391" stroke="#E8E2D8" stroke-width="1"/>
+    <rect x="0" y="391" width="560" height="29" fill="rgba(20,15,10,0.02)"/>
+    <!-- iOS pill -->
+    <rect x="18" y="399" width="44" height="18" rx="9" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <circle cx="29" cy="408" r="2.5" fill="#2F6B4E"/>
+    <text x="35" y="408" font-size="10.5" fill="#1A1714" font-weight="600" dominant-baseline="middle">iOS</text>
+    <!-- Android pill -->
+    <rect x="70" y="399" width="66" height="18" rx="9" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <circle cx="81" cy="408" r="2.5" fill="#2F6B4E"/>
+    <text x="87" y="408" font-size="10.5" fill="#1A1714" font-weight="600" dominant-baseline="middle">Android</text>
+    <!-- Web pill -->
+    <rect x="144" y="399" width="44" height="18" rx="9" fill="white" stroke="#E8E2D8" stroke-width="1"/>
+    <circle cx="155" cy="408" r="2.5" fill="#2F6B4E"/>
+    <text x="161" y="408" font-size="10.5" fill="#1A1714" font-weight="600" dominant-baseline="middle">Web</text>
+    <!-- Sync label with SMIL fade -->
+    <text x="542" y="408" font-size="10.5" fill="#2F6B4E" font-weight="600" letter-spacing=".04em" text-anchor="end" dominant-baseline="middle">
+      ↻ synced just now
+      <animate attributeName="opacity" values=".55;1;.55" keyTimes="0;0.2;1" dur="3.4s" repeatCount="indefinite"/>
+    </text>
+
+  </g>
+</svg>

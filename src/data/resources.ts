@@ -120,4 +120,14 @@ export const resources: Resource[] = [
     href: '/resources/year-end-bookkeeping-checklist-canada',
     icon: '◈',
   },
+  {
+    id: 12,
+    title: 'Accountium vs. QuickBooks Online',
+    excerpt: "Both handle the basics. Here's where they actually differ — payroll, pricing model, and what switching looks like.",
+    category: 'Accounting',
+    date: 'Jul 26, 2026',
+    readTime: '6 min read',
+    href: '/resources/accountium-vs-quickbooks',
+    icon: '◈',
+  },
 ];
