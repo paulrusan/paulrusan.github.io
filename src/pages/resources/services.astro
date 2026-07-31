@@ -1,0 +1,600 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+import GfxClientLedger from '../../components/GfxClientLedger.astro';
+import GfxProcessFlow from '../../components/GfxProcessFlow.astro';
+import GfxSyncedClientView from '../../components/GfxSyncedClientView.astro';
+
+const canonicalURL = new URL('/resources/services', site.url).href;
+---
+
+<BaseLayout
+  title="Accounting Services — Accountium"
+  description="Full-service bookkeeping, payroll, corporate tax, project management, and business consulting — delivered by accountants who run their own practice on Accountium."
+  canonicalURL={canonicalURL}
+>
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="b4s2s1 page-hero" aria-label="Accounting Services">
+    <div class="b4s2s1-inner">
+      <span class="label">Accounting Services</span>
+      <h1>A team that handles your books — on the platform we built ourselves</h1>
+      <p>
+        Full bookkeeping, payroll, corporate tax, project management, and business consulting —
+        done for you, on the same platform you can log into anytime to see exactly where things stand.
+      </p>
+      <p>
+        Since pricing is custom per client, this page is built to give you a clear picture of what
+        we cover and how we work — then we scope a plan around your business.
+      </p>
+
+      <div class="svc-graphic">
+        <GfxClientLedger />
+      </div>
+
+      <div class="btn-wrap">
+        <a href={`mailto:office@myaccountium.com?subject=Accounting%20Services%20Inquiry`} class="btn btn-primary">
+          Book a Consultation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Who This Is For Divider ───────────────────────────── -->
+  <section class="b4s2" aria-labelledby="audience-heading">
+    <h2 id="audience-heading">Built for Two Kinds of Clients</h2>
+    <p>
+      Whether you want your books handled end to end or you're an accounting professional who
+      needs more capacity, our team works the same way — inside Accountium.
+    </p>
+  </section>
+
+  <!-- ── Who This Is For Content ──────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Who this is for">
+    <div class="container">
+      <div class="feature-block">
+        <div class="tracks-grid">
+          <div class="track-card">
+            <span class="track-tag">Business Owners</span>
+            <h3>Small to medium-sized businesses</h3>
+            <p>
+              Hand off bookkeeping, payroll, and tax so you can focus on running the business.
+              You always have visibility into your own numbers — nothing is locked behind an
+              accountant's desk.
+            </p>
+          </div>
+          <div class="track-card">
+            <span class="track-tag">Professionals</span>
+            <h3>Bookkeepers &amp; accountants</h3>
+            <p>
+              Bring on extra capacity, overflow work, or specialized filings without expanding
+              your own team. We work inside your existing client relationships, not around them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── What's Included Divider ──────────────────────────── -->
+  <section class="b4s2" aria-labelledby="services-heading">
+    <h2 id="services-heading">Full-Service Accounting, Not Just Bookkeeping</h2>
+    <p>
+      Every engagement is scoped to your business, so pricing is custom — but the range of
+      what we cover is broad by design.
+    </p>
+  </section>
+
+  <!-- ── What's Included Content ──────────────────────────── -->
+  <section class="content-section" aria-label="Services included">
+    <div class="container">
+      <div class="feature-block">
+        <ul class="criteria-list">
+          <li>
+            <strong>Full Accounting</strong>
+            <p>Ongoing management of your general ledger, accounts payable and receivable, and month-end close.</p>
+          </li>
+          <li>
+            <strong>Bookkeeping</strong>
+            <p>Accurate, up-to-date books with transactions categorized and reconciled on a regular schedule.</p>
+          </li>
+          <li>
+            <strong>Payroll</strong>
+            <p>Accurate, on-time payroll runs, direct deposit, and remittance handling for your whole team.</p>
+          </li>
+          <li>
+            <strong>Project Management</strong>
+            <p>Coordinated tracking of jobs, budgets, and deliverables alongside your financial data.</p>
+          </li>
+          <li>
+            <strong>Corporate Tax Returns</strong>
+            <p>Preparation and filing of corporate tax returns, handled by professionals who know your books.</p>
+          </li>
+          <li>
+            <strong>Business Consulting</strong>
+            <p>Strategic guidance on cash flow, growth planning, and financial decisions as your business changes.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How It Works Divider ─────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="process-heading">
+    <h2 id="process-heading">From First Conversation to Ongoing Management</h2>
+    <p>Four steps to get your books off your plate and onto ours.</p>
+  </section>
+
+  <!-- ── How It Works Content ─────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="How it works">
+    <div class="container">
+      <div class="feature-block">
+
+        <div class="svc-graphic">
+          <GfxProcessFlow />
+        </div>
+
+        <ol class="steps-list">
+          <li>
+            <strong>01 &ndash; Book a consultation</strong>
+            <p>Tell us about your business and where your books stand today.</p>
+          </li>
+          <li>
+            <strong>02 &ndash; Get a custom plan</strong>
+            <p>We scope the services you need and provide pricing based on your business.</p>
+          </li>
+          <li>
+            <strong>03 &ndash; Onboard on Accountium</strong>
+            <p>We set up your books on the same platform we use to manage every client.</p>
+          </li>
+          <li>
+            <strong>04 &ndash; Ongoing management</strong>
+            <p>Your team handles the work. You keep full visibility, anytime you want it.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Differentiator Divider ────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="diff-heading">
+    <h2 id="diff-heading">Why Accountium's Service Is Different</h2>
+    <p>
+      We don't just recommend the software. We run our practice on it.
+    </p>
+  </section>
+
+  <!-- ── Differentiator Content ───────────────────────────── -->
+  <section class="content-section" aria-label="What makes us different">
+    <div class="container">
+      <div class="feature-block">
+        <p class="feature-block-body">
+          Most accounting firms hand you a login to a system they don't actually use day to day.
+          Ours is different — every client we manage runs through the same Accountium platform
+          we build and sell, so what you see is exactly what we see.
+        </p>
+        <ul class="criteria-list">
+          <li>
+            <strong>No black box</strong>
+            <p>Log in and see your numbers anytime — the same view your accountant has.</p>
+          </li>
+          <li>
+            <strong>Graduate to self-serve later with zero data migration</strong>
+            <p>If you decide to take over the books yourself, your data is already in the right place. No exports, no transfers, no starting over.</p>
+          </li>
+          <li>
+            <strong>One team, one platform, no handoffs between tools</strong>
+            <p>Your accountant, your books, and your financial dashboards all live in the same system.</p>
+          </li>
+        </ul>
+
+        <div class="svc-graphic">
+          <GfxSyncedClientView />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Divider ───────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">Let's Talk About Your Books</h2>
+    <p>
+      Every engagement is scoped and priced around your business. Tell us where things stand,
+      and we'll put together a plan.
+    </p>
+    <p class="svc-contact-text">
+      <a href={`mailto:office@myaccountium.com?subject=Accounting%20Services%20Inquiry`} class="svc-contact-link">office@myaccountium.com</a>
+    </p>
+  </section>
+
+  <!-- ── Related Resources Divider ─────────────────────────── -->
+  <section class="b4s2" aria-labelledby="related-heading">
+    <h2 id="related-heading">Related Resources</h2>
+    <p>Guides for the businesses we serve.</p>
+  </section>
+
+  <!-- ── Related Resources Content ────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Related resources">
+    <div class="container">
+      <div class="feature-block">
+        <ul class="criteria-list">
+          <li>
+            <strong><a href="/resources/year-end-bookkeeping-checklist-canada">Year-End Bookkeeping Checklist for Canadian Businesses</a></strong>
+            <p>A complete checklist for closing your books accurately and on time.</p>
+          </li>
+          <li>
+            <strong><a href="/payroll-compliance-canada">Payroll Compliance in Canada: A 2026 Guide</a></strong>
+            <p>What every employer needs to know about CPP, EI, and CRA remittances.</p>
+          </li>
+          <li>
+            <strong><a href="/resources/signs-your-business-outgrew-spreadsheets">5 Signs Your Business Has Outgrown Spreadsheets</a></strong>
+            <p>How to tell when it's time to hand your books to professionals instead of managing them yourself.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ── Hero ───────────────────────────────────────────────── */
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  .page-hero.b4s2s1::before { display: none; }
+
+  /* ── Button spacing wrapper ─────────────────────────────── */
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-8) 0;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4) var(--space-8);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--color-accent);
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  /* ── Real Graphics ──────────────────────────────────────── */
+  .svc-graphic {
+    width: 100%;
+    max-width: 640px;
+    margin: var(--space-8) auto;
+  }
+
+  /* ── Graphic Placeholders ───────────────────────────────── */
+  .svc-placeholder {
+    width: 100%;
+    max-width: 640px;
+    aspect-ratio: 640 / 396;
+    margin: var(--space-8) auto;
+    border-radius: var(--radius-lg);
+    border: 1.5px dashed var(--color-accent);
+    background: rgba(8, 145, 178, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .svc-placeholder--mid {
+    margin: var(--space-8) auto;
+  }
+
+  .svc-placeholder-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+    padding: var(--space-6);
+  }
+
+  .svc-placeholder-icon {
+    font-size: 2.4rem;
+    color: var(--color-accent);
+    opacity: 0.5;
+  }
+
+  .svc-placeholder-label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .svc-placeholder-hint {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    opacity: 0.65;
+    margin: 0;
+  }
+
+  /* ── Content Sections ───────────────────────────────────── */
+  .content-section {
+    padding: var(--space-16) 0;
+  }
+
+  .bg-subtle {
+    background: rgba(8, 145, 178, 0.03);
+  }
+
+  /* ── Feature Blocks ─────────────────────────────────────── */
+  .feature-block {
+    margin-bottom: var(--space-16);
+  }
+
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-block-body {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+  }
+
+  /* ── Audience Tracks ────────────────────────────────────── */
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 640px) {
+    .tracks-grid { grid-template-columns: 1fr; }
+  }
+
+  .track-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+  }
+
+  .track-tag {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+
+  .track-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+  }
+
+  .track-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Contact text link ──────────────────────────────────── */
+  .svc-contact-text {
+    margin: 0;
+  }
+
+  .svc-contact-link {
+    font-size: var(--text-base);
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: opacity 0.15s;
+  }
+
+  .svc-contact-link:hover {
+    opacity: 0.75;
+  }
+
+  /* ── Steps List ─────────────────────────────────────────── */
+  .steps-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  @media (max-width: 560px) {
+    .steps-list { grid-template-columns: 1fr; }
+  }
+
+  .steps-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .steps-list strong {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent);
+    letter-spacing: 0.02em;
+  }
+
+  .steps-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ── Criteria List ──────────────────────────────────────── */
+  .criteria-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  .criteria-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .criteria-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+  }
+
+  .criteria-list strong {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .criteria-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .criteria-list a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ── b4s2: Accent Section Divider ───────────────────────── */
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* ── b4s2s1: Hero Text Section ──────────────────────────── */
+  .b4s2s1 {
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+  }
+
+  .b4s2s1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2s1-inner {
+    max-width: 68ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .b4s2s1 .label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2s1 h1 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .b4s2s1 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: none;
+    margin-bottom: var(--space-5);
+    text-align: center;
+  }
+</style>

@@ -130,4 +130,14 @@ export const resources: Resource[] = [
     href: '/resources/accountium-vs-quickbooks',
     icon: '◈',
   },
+  {
+    id: 13,
+    title: 'Accounting Services',
+    excerpt: 'Full-service bookkeeping, payroll, corporate tax, project management, and business consulting — done for you, on the same platform you can log into anytime.',
+    category: 'Accounting',
+    date: 'Jul 30, 2026',
+    readTime: '4 min read',
+    href: '/resources/services',
+    icon: '◈',
+  },
 ];
