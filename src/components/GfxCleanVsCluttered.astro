@@ -1,0 +1,215 @@
+<figure class="cvc-embed">
+  <div class="cvc-body">
+    <div class="cvc-taupe"></div>
+
+    <div class="cvc-grid">
+
+      <div class="cvc-col">
+        <span class="cvc-pill cvc-pill--before">BEFORE</span>
+
+        <div class="cvc-stack">
+          <div class="cvc-dim">
+            <div class="cvc-dim-label">TOTAL BALANCE</div>
+            <div class="cvc-dim-amount">$48,210.65</div>
+            <div class="cvc-bars cvc-bars--dim">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div class="cvc-skel"><span></span><span></span><span></span></div>
+          </div>
+
+          <div class="cvc-popup cvc-popup--loan">
+            <span>Pre-qualified: business loan up to $150K</span>
+            <span class="cvc-x">✕</span>
+          </div>
+
+          <div class="cvc-popup cvc-popup--paywall">
+            <strong>Payroll isn't on your plan</strong>
+            <span>Upgrade to Advanced to run payroll →</span>
+          </div>
+
+          <div class="cvc-popup cvc-popup--app">
+            <i></i>
+            <span>Recommended app for you — install</span>
+          </div>
+
+          <div class="cvc-popup cvc-popup--trial">
+            New! Try Advanced Reporting free for 14 days
+          </div>
+        </div>
+
+        <div class="cvc-note">Four things selling to you<br>before you've read a number</div>
+      </div>
+
+      <div class="cvc-col">
+        <span class="cvc-pill cvc-pill--after">AFTER</span>
+
+        <div class="cvc-win">
+          <div class="cvc-chrome">
+            <span class="cvc-lights"><i></i><i></i><i></i></span>
+            <span class="cvc-title">accountium / overview</span>
+            <span class="cvc-live"><i></i>LIVE</span>
+          </div>
+
+          <div class="cvc-win-body">
+            <div class="cvc-win-label">TOTAL BALANCE</div>
+            <div class="cvc-win-amount">$48,210.65</div>
+            <div class="cvc-delta">+12.4% MoM</div>
+
+            <div class="cvc-checks">
+              <div class="cvc-check"><i>✓</i><span>Every pixel is your business</span></div>
+              <div class="cvc-check"><i>✓</i><span>No ads, no popups, no upsells</span></div>
+              <div class="cvc-check"><i>✓</i><span>Payroll included, not a tier</span></div>
+            </div>
+          </div>
+
+          <div class="cvc-win-foot">One plan — every feature already in it</div>
+        </div>
+
+        <div class="cvc-note cvc-note--after">Your numbers, quiet<br>and nothing else</div>
+      </div>
+    </div>
+  </div>
+
+  <figcaption class="cvc-cap">Same data, same login — one screen is selling to you, the other isn't</figcaption>
+</figure>
+
+<style is:global>
+  .cvc-embed{
+    width:100%;max-width:900px;margin:32px auto;
+    border:1px solid #E8E2D8;border-radius:14px;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FBF8F3 100%);
+    overflow:hidden;font-family:'Inter',sans-serif;color:#1A1714;
+    box-shadow:0 20px 60px -20px rgba(20,15,10,.12),0 4px 14px -4px rgba(20,15,10,.06);
+    container-type:inline-size;container-name:cvc-embed;
+  }
+  .cvc-body{position:relative;padding:24px;overflow:hidden}
+
+  .cvc-taupe{
+    position:absolute;left:0;top:0;bottom:0;width:53%;
+    background:repeating-linear-gradient(115deg,#E2D9C9 0 10px,#E6DED0 10px 20px);
+    clip-path:polygon(0 0,100% 0,90% 4%,100% 8%,90% 12%,100% 16%,90% 20%,100% 24%,90% 28%,100% 32%,90% 36%,100% 40%,90% 44%,100% 48%,90% 52%,100% 56%,90% 60%,100% 64%,90% 68%,100% 72%,90% 76%,100% 80%,90% 84%,100% 88%,90% 92%,100% 96%,90% 100%,0 100%);
+  }
+  .cvc-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+  .cvc-col{min-width:0;display:flex;flex-direction:column;gap:12px}
+
+  .cvc-pill{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:600;
+    letter-spacing:.16em;padding:5px 11px;border-radius:999px;
+  }
+  .cvc-pill--before{align-self:flex-start;background:#F1DED6;color:#A24F3E}
+  .cvc-pill--after{align-self:flex-end;background:#DFEBE0;color:#2F6B4E}
+
+  .cvc-stack{position:relative;height:262px}
+  .cvc-dim{
+    height:100%;border:1px solid #D8CEBD;border-radius:10px;background:#FFFDF8;padding:14px;
+    box-shadow:0 6px 18px -8px rgba(20,15,10,.14);
+  }
+  .cvc-dim-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.16em;color:#7A7061}
+  .cvc-dim-amount{font-size:24px;font-weight:700;color:#8C8272;margin-top:3px;letter-spacing:-.01em}
+  .cvc-bars{display:flex;align-items:flex-end;gap:6px;height:64px;margin-top:16px}
+  .cvc-bars span{flex:1;border-radius:2px;height:100%;transform-origin:bottom;animation:cvc-bar 4.4s ease-in-out infinite}
+  .cvc-bars--dim span{background:#D6CCB9}
+  .cvc-bars span:nth-child(2){animation-delay:.25s}
+  .cvc-bars span:nth-child(3){animation-delay:.5s}
+  .cvc-bars span:nth-child(4){animation-delay:.75s}
+  .cvc-bars span:nth-child(5){animation-delay:1s}
+  .cvc-bars span:nth-child(6){animation-delay:1.25s}
+  @keyframes cvc-bar{0%,100%{transform:scaleY(.3)}55%{transform:scaleY(1)}}
+
+  .cvc-skel{display:flex;flex-direction:column;gap:7px;margin-top:16px}
+  .cvc-skel span{height:7px;border-radius:3px;background:#E7DFCF}
+  .cvc-skel span:nth-child(1){width:78%}
+  .cvc-skel span:nth-child(2){width:60%}
+  .cvc-skel span:nth-child(3){width:70%}
+
+  .cvc-popup{position:absolute;border-radius:8px;font-size:11px;animation:cvc-pop 12s ease-in-out infinite}
+  @keyframes cvc-pop{
+    0%,5%{opacity:0;transform:translateY(10px) scale(.96)}
+    13%,64%{opacity:1;transform:translateY(0) scale(1)}
+    73%,100%{opacity:0;transform:translateY(-5px) scale(.98)}
+  }
+  .cvc-popup--loan{
+    left:10px;right:6px;top:16px;background:#FFF6EF;border:1px solid #E5C7B7;color:#9D174D;
+    padding:8px 10px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    box-shadow:0 8px 20px -8px rgba(20,15,10,.2);
+  }
+  .cvc-popup--loan .cvc-x{font-family:'JetBrains Mono',ui-monospace,monospace;color:#C09E8C}
+  .cvc-popup--paywall{
+    left:18px;right:14px;top:74px;background:#23201B;padding:10px 11px;
+    box-shadow:0 12px 28px -10px rgba(20,15,10,.4);animation-delay:1.6s;
+  }
+  .cvc-popup--paywall strong{display:block;color:#FFFDF8;font-size:11.5px;margin-bottom:2px}
+  .cvc-popup--paywall span{font-size:11px;color:#C3BCB0}
+  .cvc-popup--app{
+    left:28px;right:22px;top:142px;background:#FFFDF8;border:1px solid #E1D8C8;color:#6B6357;
+    padding:8px 10px;display:flex;align-items:center;gap:8px;
+    box-shadow:0 14px 30px -12px rgba(20,15,10,.28);animation-delay:3.2s;
+  }
+  .cvc-popup--app i{width:16px;height:16px;border-radius:5px;background:#EDE5D6;flex:0 0 16px}
+  .cvc-popup--trial{
+    left:12px;right:8px;bottom:12px;background:#F5E8DA;border:1px solid #E2CDB8;color:#8A6A4F;
+    padding:8px 10px;box-shadow:0 10px 24px -10px rgba(20,15,10,.22);animation-delay:4.8s;
+  }
+
+  .cvc-note{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;line-height:1.6;color:#5A5044}
+  .cvc-note--after{align-self:flex-end;text-align:right;color:#2F6B4E;font-size:10.5px}
+
+  .cvc-win{
+    border:1px solid #E8E2D8;border-radius:10px;background:#fff;overflow:hidden;
+    box-shadow:0 18px 40px -18px rgba(20,15,10,.18);
+  }
+  .cvc-chrome{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+    padding:9px 12px;background:#FBF8F3;border-bottom:1px solid #E8E2D8;
+  }
+  .cvc-lights{display:flex;gap:5px}
+  .cvc-lights i{width:8px;height:8px;border-radius:50%}
+  .cvc-lights i:nth-child(1){background:#E06B5A}
+  .cvc-lights i:nth-child(2){background:#E7B84E}
+  .cvc-lights i:nth-child(3){background:#2F6B4E}
+  .cvc-title{text-align:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#6B6357}
+  .cvc-live{
+    display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:10px;letter-spacing:.12em;color:#2F6B4E;font-weight:600;
+  }
+  .cvc-live i{width:6px;height:6px;border-radius:50%;background:#2F6B4E;animation:cvc-pulse 1.6s ease-out infinite}
+  @keyframes cvc-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  .cvc-win-body{padding:22px 18px;text-align:center}
+  .cvc-win-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;color:#2F6B4E}
+  .cvc-win-amount{font-size:38px;font-weight:700;color:#1A1714;letter-spacing:-.02em;margin-top:6px}
+  .cvc-delta{
+    display:inline-block;margin-top:10px;background:#E4EFE5;color:#2F6B4E;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;padding:4px 10px;border-radius:999px;
+  }
+  .cvc-checks{display:flex;flex-direction:column;gap:11px;margin-top:20px;text-align:left}
+  .cvc-check{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#1A1714;animation:cvc-rise 12s ease-out infinite}
+  .cvc-check:nth-child(2){animation-delay:1.6s}
+  .cvc-check:nth-child(3){animation-delay:3.2s}
+  .cvc-check i{
+    width:20px;height:20px;flex:0 0 20px;border-radius:50%;background:#2F6B4E;color:#fff;
+    font-size:11px;font-style:normal;display:flex;align-items:center;justify-content:center;
+  }
+  @keyframes cvc-rise{0%,8%{opacity:0;transform:translateY(7px)}20%,100%{opacity:1;transform:translateY(0)}}
+
+  .cvc-win-foot{
+    background:#FBF8F3;border-top:1px solid #E8E2D8;padding:9px 12px;text-align:center;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:#6B6357;
+  }
+  .cvc-cap{
+    border-top:1px solid #E8E2D8;background:#F7F3EC;padding:11px 16px;text-align:center;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:#6B6357;
+  }
+
+  @container cvc-embed (max-width:420px){
+    .cvc-taupe{width:100%;bottom:auto;height:52%;clip-path:none}
+    .cvc-grid{grid-template-columns:1fr;gap:26px}
+    .cvc-pill--after{align-self:flex-start}
+    .cvc-note--after{align-self:flex-start;text-align:left}
+    .cvc-win-amount{font-size:32px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .cvc-embed *{animation:none !important}
+  }
+</style>

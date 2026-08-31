@@ -1,0 +1,467 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../data/site';
+import GfxCleanVsCluttered from '../../components/GfxCleanVsCluttered.astro';
+import GfxOneFileTwoViews from '../../components/GfxOneFileTwoViews.astro';
+
+const canonicalURL = new URL('/resources/why-we-built-accountium', site.url).href;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why We Built Accountium",
+  "description": "No ads, no upsell popups, no add-on tiers. Here's why we built Accountium from scratch instead of putting our business on QuickBooks.",
+  "author": { "@type": "Organization", "name": "Accountium" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Accountium",
+    "url": site.url,
+    "logo": { "@type": "ImageObject", "url": `${site.url}/images/logo.png` }
+  },
+  "datePublished": "2026-08-30",
+  "dateModified": "2026-08-30",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": canonicalURL }
+};
+---
+
+<BaseLayout
+  title="Why We Built Accountium"
+  description="No ads, no upsell popups, no add-on tiers. Here's why we built Accountium from scratch instead of putting our business on QuickBooks."
+  canonicalURL={canonicalURL}
+>
+
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
+  <!-- ── Page Hero ─────────────────────────────────────────── -->
+  <section class="b4s2s1 page-hero" aria-label="Why We Built Our Own Accounting Software">
+    <div class="b4s2s1-inner">
+      <span class="label">Technology</span>
+      <h1>Why We Built Accountium</h1>
+      <p class="hero-meta">
+        By <strong>Accountium Team</strong> &nbsp;·&nbsp; Updated <strong>August 2026</strong> &nbsp;·&nbsp; &#9201; <strong>6 min read</strong>
+      </p>
+      <p>
+        Most accounting software today is built to sell you something else. Open it up and there's a banner for an add-on,
+        a popup asking you to upgrade, a nag screen for a feature you already have but on a higher tier. We got tired of
+        building around that noise, so we built something without it.
+      </p>
+      <p>
+        Accountium started as a simple bet: business owners and the accountants who work with them deserve accounting
+        software that just does the job — clean, fast, and complete — without being sold to every time they log in.
+      </p>
+
+      <div class="btn-wrap">
+        <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          TRY NOW
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── UI Section Divider ────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="ui-heading">
+    <h2 id="ui-heading">Software That Doesn't Fight You</h2>
+    <p>
+      A lot of accounting tools were built years ago and have had feature after feature bolted onto the same interface
+      ever since — buried menus, inconsistent screens, dashboards that load slow and look like they were designed for a
+      different decade.
+    </p>
+  </section>
+
+  <!-- ── UI Section Content ────────────────────────────────── -->
+  <section class="content-section" aria-label="Interface design philosophy">
+    <div class="container">
+      <div class="feature-block">
+        <p class="feature-block-body">
+          We designed Accountium the other way around: start with how a business owner or bookkeeper actually works day
+          to day, then build the interface around that. One dashboard for your whole financial picture. Invoicing,
+          banking, and payroll that feel like they belong to the same product, because they were built as one.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── No Ads Section Divider ────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="no-ads-heading">
+    <h2 id="no-ads-heading">No Ads. No Popups. No Upsells.</h2>
+    <p>
+      Log into Accountium and you see your business — not a banner for a loan offer, not a modal asking you to try a
+      feature that's locked behind a paywall, not a "recommended for you" widget selling third-party services.
+    </p>
+  </section>
+
+  <!-- ── No Ads Section Content ────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="No ads or upsells">
+    <div class="container">
+      <div class="feature-block">
+        <GfxCleanVsCluttered />
+        <ul class="criteria-list">
+          <li>
+            <strong>No sponsored placements</strong>
+            <p>Your dashboard shows your numbers. Nothing else is competing for that space.</p>
+          </li>
+          <li>
+            <strong>No feature-gating popups</strong>
+            <p>If a feature is part of Accountium, it's part of your plan. You won't hit a paywall mid-task.</p>
+          </li>
+          <li>
+            <strong>No third-party offers</strong>
+            <p>We don't sell your attention to lenders, card issuers, or anyone else while you're trying to close your books.</p>
+          </li>
+        </ul>
+        <div class="callout callout--tip">
+          <strong>Why this matters</strong>
+          The software you use for your books should be quiet. The fewer things competing for your attention on screen,
+          the fewer mistakes get made — a missed decimal, a transaction filed in the wrong place because you were
+          rushing past a popup.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing Section Divider ───────────────────────────── -->
+  <section class="b4s2" aria-labelledby="pricing-heading">
+    <h2 id="pricing-heading">One Price. Every Feature Included.</h2>
+    <p>
+      Most accounting software is priced in tiers, and payroll, multi-currency, or advanced reporting usually sit
+      behind the more expensive ones. That means the price you see on the homepage is rarely the price you actually
+      pay once your business needs more than the basics.
+    </p>
+  </section>
+
+  <!-- ── Pricing Section Content ───────────────────────────── -->
+  <section class="content-section" aria-label="All-inclusive pricing">
+    <div class="container">
+      <div class="feature-block">
+        <h3 class="feature-block-heading">Everything included — no tiers, no add-ons</h3>
+        <p class="feature-block-body">
+          Accountium doesn't work that way. There's one plan, and everything is in it. No feature you rely on should
+          depend on whether you picked the right plan.
+        </p>
+        <ul class="feature-list">
+          <li>Invoicing &amp; online payments</li>
+          <li>Bank feeds &amp; auto-categorization</li>
+          <li>Payroll &amp; direct deposit</li>
+          <li>Multi-currency support</li>
+          <li>Real-time reporting &amp; dashboards</li>
+          <li>Mobile app (iOS &amp; Android)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Built For Divider ──────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="for-heading">
+    <h2 id="for-heading">Built for Business Owners and Their Accountants</h2>
+    <p>
+      Most accounting software picks a side: it's either built for the business owner who wants something simple, or
+      the accountant who needs depth and control. We built Accountium to work for both, because in practice they're
+      using the same file.
+    </p>
+  </section>
+
+  <!-- ── Built For Content ──────────────────────────────────── -->
+  <section class="content-section bg-subtle" aria-label="Who Accountium is built for">
+    <div class="container">
+      <div class="feature-block">
+        <GfxOneFileTwoViews />
+        <ul class="criteria-list">
+          <li>
+            <strong>For the business owner</strong>
+            <p>A clean, uncluttered view of cash flow, invoices, and payroll — without needing an accounting background to make sense of it.</p>
+          </li>
+          <li>
+            <strong>For the accountant or bookkeeper</strong>
+            <p>The depth and precision needed to manage the books properly, with a shared view of the exact same data — no separate export for the accountant to work from.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA Divider ────────────────────────────────────────── -->
+  <section class="b4s2" aria-labelledby="cta-heading">
+    <h2 id="cta-heading">See the Difference for Yourself</h2>
+    <p>Clean software, every feature included, no popups along the way.</p>
+    <div class="btn-wrap">
+      <a href={site.appUrl} class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+        TRY NOW
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Related Resources Content ─────────────────────────── -->
+  <section class="content-section" aria-label="Related resources">
+    <div class="container">
+      <div class="feature-block">
+        <ul class="criteria-list">
+          <li>
+            <strong><a href="/resources/accountium-vs-quickbooks">Accountium vs. QuickBooks Online</a></strong>
+            <p>Both handle the basics. Here's where they actually differ — payroll, pricing model, and what switching looks like.</p>
+          </li>
+          <li>
+            <strong><a href="/resources/signs-your-business-outgrew-spreadsheets">5 Signs Your Business Has Outgrown Spreadsheets</a></strong>
+            <p>Still running your books in a spreadsheet? Here's how to know when it's time for something built to scale.</p>
+          </li>
+          <li>
+            <strong><a href="/payroll-compliance-canada">Payroll Compliance in Canada: A 2026 Guide</a></strong>
+            <p>What every employer needs to know about CPP, EI, and CRA remittances.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-hero {
+    padding-top: calc(var(--header-height) + var(--space-16));
+    background:
+      radial-gradient(ellipse 70% 50% at 50% -5%, rgba(8, 145, 178, 0.07) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  .page-hero.b4s2s1::before { display: none; }
+
+  .hero-meta {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-6);
+  }
+
+  .btn-wrap {
+    display: flex;
+    justify-content: center;
+    margin: var(--space-8) 0;
+  }
+
+  .content-section {
+    padding: var(--space-16) 0;
+  }
+
+  .bg-subtle {
+    background: rgba(8, 145, 178, 0.03);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--space-8);
+  }
+
+  .feature-block {
+    margin-bottom: var(--space-16);
+  }
+
+  .feature-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .feature-block-heading {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .feature-block-body {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin: 0 auto var(--space-8);
+    text-align: center;
+  }
+
+  .feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-6);
+    list-style: none;
+    padding: 0;
+    margin: var(--space-6) auto 0;
+    justify-content: center;
+    max-width: 700px;
+  }
+
+  .feature-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+  }
+
+  .feature-list li::before {
+    content: '✓';
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .criteria-list {
+    list-style: none;
+    max-width: 680px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding: 0;
+  }
+
+  .criteria-list li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .criteria-list li::before {
+    content: "◈";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+  }
+
+  .criteria-list strong {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .criteria-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .criteria-list a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .b4s2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--space-6);
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+    background: radial-gradient(ellipse at 50% 80%, rgba(8, 145, 178, 0.06) 0%, transparent 50%);
+  }
+
+  .b4s2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2 h2 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .b4s2s1 {
+    padding: var(--space-16) var(--space-8);
+    position: relative;
+  }
+
+  .b4s2s1::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: var(--space-16);
+    background: linear-gradient(to bottom, transparent, var(--color-accent), transparent);
+  }
+
+  .b4s2s1-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .b4s2s1 .label {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+    text-align: center;
+  }
+
+  .b4s2s1 h1 {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-6);
+    text-align: center;
+  }
+
+  .b4s2s1 p {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 66ch;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--space-5);
+    text-align: center;
+  }
+
+  .callout {
+    max-width: 680px;
+    margin: var(--space-8) auto 0;
+    background: var(--color-accent-dim);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: var(--space-4) var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    line-height: 1.65;
+    text-align: left;
+  }
+
+  .callout strong {
+    font-weight: 600;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+</style>

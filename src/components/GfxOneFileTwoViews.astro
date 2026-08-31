@@ -1,0 +1,183 @@
+<figure class="ofv-embed">
+
+  <div class="ofv-chrome">
+    <span class="ofv-lights"><i></i><i></i><i></i></span>
+    <span class="ofv-title">accountium / one file, two views</span>
+    <span class="ofv-live"><i></i>LIVE</span>
+  </div>
+
+  <div class="ofv-body">
+
+    <div class="ofv-col">
+      <div class="ofv-who ofv-who--owner"><i></i>BUSINESS OWNER</div>
+
+      <div class="ofv-rows">
+        <div class="ofv-spacer" aria-hidden="true"></div>
+
+        <div class="ofv-card">
+          <div class="ofv-card-label">CASH ON HAND</div>
+          <div class="ofv-card-amount">$48,210.65</div>
+        </div>
+        <div class="ofv-card">
+          <div class="ofv-card-label">INVOICES DUE</div>
+          <div class="ofv-card-amount">$6,410.00</div>
+        </div>
+        <div class="ofv-card">
+          <div class="ofv-card-label">REVENUE THIS MONTH</div>
+          <div class="ofv-card-amount">$18,940.00</div>
+        </div>
+        <div class="ofv-card">
+          <div class="ofv-card-label">NEXT PAYROLL · AUG 1</div>
+          <div class="ofv-card-amount">$24,103.00</div>
+        </div>
+      </div>
+
+      <div class="ofv-note">Plain language.<br>No accounting background needed.</div>
+    </div>
+
+    <div class="ofv-spine">
+      <div class="ofv-spine-line"></div>
+      <div class="ofv-spine-track"><span class="ofv-spine-token"></span></div>
+      <div class="ofv-spine-label">ONE LEDGER</div>
+    </div>
+
+    <div class="ofv-col">
+      <div class="ofv-who ofv-who--acct">ACCOUNTANT<i></i></div>
+
+      <div class="ofv-rows">
+        <div class="ofv-head"><span>ACCOUNT</span><span>DR / CR</span></div>
+
+        <div class="ofv-entry">
+          <span class="ofv-acct">1000 · Cash</span>
+          <span class="ofv-amt">DR 48,210.65</span>
+        </div>
+        <div class="ofv-entry">
+          <span class="ofv-acct">1200 · A/R</span>
+          <span class="ofv-amt">DR 6,410.00</span>
+        </div>
+        <div class="ofv-entry">
+          <span class="ofv-acct">4000 · Revenue</span>
+          <span class="ofv-amt">CR 18,940.00</span>
+        </div>
+        <div class="ofv-entry">
+          <span class="ofv-acct">5100 · Wages</span>
+          <span class="ofv-amt">DR 24,103.00</span>
+        </div>
+      </div>
+
+      <div class="ofv-note ofv-note--acct">Full ledger detail.<br>Same records — no export.</div>
+    </div>
+  </div>
+
+  <figcaption class="ofv-cap">The same figure lights up on both sides — because it is the same figure</figcaption>
+</figure>
+
+<style is:global>
+  .ofv-embed{
+    --ofv-row:60px;
+    --ofv-head:15px;
+    --ofv-gap:8px;
+    width:100%;max-width:900px;margin:32px auto;
+    border:1px solid #E8E2D8;border-radius:14px;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FBF8F3 100%);
+    overflow:hidden;font-family:'Inter',sans-serif;color:#1A1714;
+    box-shadow:0 20px 60px -20px rgba(20,15,10,.12),0 4px 14px -4px rgba(20,15,10,.06);
+    container-type:inline-size;container-name:ofv-embed;
+  }
+
+  .ofv-chrome{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+    padding:9px 14px;background:#FBF8F3;border-bottom:1px solid #E8E2D8;
+  }
+  .ofv-lights{display:flex;gap:5px}
+  .ofv-lights i{width:8px;height:8px;border-radius:50%}
+  .ofv-lights i:nth-child(1){background:#E06B5A}
+  .ofv-lights i:nth-child(2){background:#E7B84E}
+  .ofv-lights i:nth-child(3){background:#2F6B4E}
+  .ofv-title{text-align:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#6B6357}
+  .ofv-live{
+    display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:10px;letter-spacing:.12em;color:#2F6B4E;font-weight:600;
+  }
+  .ofv-live i{width:6px;height:6px;border-radius:50%;background:#2F6B4E;animation:ofv-pulse 1.6s ease-out infinite}
+  @keyframes ofv-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  .ofv-body{padding:26px 24px 22px;display:grid;grid-template-columns:1fr 56px 1fr;align-items:start}
+  .ofv-col{min-width:0;display:flex;flex-direction:column;gap:12px}
+
+  .ofv-who{display:flex;align-items:center;gap:7px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:600;letter-spacing:.16em}
+  .ofv-who--owner{color:#5A5044}
+  .ofv-who--owner i{width:6px;height:6px;border-radius:50%;background:#1A1714}
+  .ofv-who--acct{justify-content:flex-end;color:#2F6B4E}
+  .ofv-who--acct i{width:6px;height:6px;border-radius:50%;background:#2F6B4E}
+
+  .ofv-rows{display:flex;flex-direction:column;gap:var(--ofv-gap)}
+  .ofv-spacer{height:var(--ofv-head)}
+
+  .ofv-head{
+    height:var(--ofv-head);line-height:var(--ofv-head);
+    display:flex;justify-content:space-between;gap:8px;padding:0 12px;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:#5A5044;
+  }
+
+  .ofv-card,.ofv-entry{
+    min-height:var(--ofv-row);
+    border:1px solid #E8E2D8;border-radius:9px;background:#FFFDF8;
+    animation:ofv-row 9.6s ease-in-out infinite;
+  }
+  .ofv-card{padding:10px 12px}
+  .ofv-entry{padding:11px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+
+  .ofv-card:nth-of-type(1),.ofv-entry:nth-of-type(1){animation-delay:0s}
+  .ofv-card:nth-of-type(2),.ofv-entry:nth-of-type(2){animation-delay:2.4s}
+  .ofv-card:nth-of-type(3),.ofv-entry:nth-of-type(3){animation-delay:4.8s}
+  .ofv-card:nth-of-type(4),.ofv-entry:nth-of-type(4){animation-delay:7.2s}
+  @keyframes ofv-row{
+    0%,4%{background:rgba(47,107,78,0);border-color:#E8E2D8}
+    11%,27%{background:rgba(47,107,78,.09);border-color:rgba(47,107,78,.45)}
+    38%,100%{background:rgba(47,107,78,0);border-color:#E8E2D8}
+  }
+
+  .ofv-card-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.16em;color:#6B6357}
+  .ofv-card-amount{font-size:19px;font-weight:700;color:#1A1714;letter-spacing:-.01em;margin-top:2px}
+  .ofv-acct{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#5A5044;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .ofv-amt{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11.5px;font-weight:600;color:#1A1714;white-space:nowrap}
+
+  .ofv-spine{position:relative;align-self:stretch;display:flex;align-items:center;justify-content:center}
+  .ofv-spine-line{position:absolute;top:30px;bottom:44px;left:50%;width:0;border-left:1px dashed #D8CEBD}
+  .ofv-spine-track{position:absolute;top:30px;bottom:44px;left:50%;width:10px;margin-left:-5px}
+  .ofv-spine-token{
+    position:absolute;left:0;top:0;width:10px;height:10px;margin-top:-5px;border-radius:50%;
+    background:#2F6B4E;box-shadow:0 0 0 4px rgba(47,107,78,.14);
+    animation:ofv-travel 9.6s linear infinite;
+  }
+  @keyframes ofv-travel{0%{top:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:100%;opacity:0}}
+  .ofv-spine-label{
+    position:relative;background:#FCFAF6;padding:8px 0;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9px;font-weight:600;letter-spacing:.2em;
+    color:#2F6B4E;writing-mode:vertical-rl;text-orientation:mixed;
+  }
+
+  .ofv-note{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;line-height:1.6;color:#5A5044}
+  .ofv-note--acct{text-align:right;color:#2F6B4E}
+
+  .ofv-cap{
+    border-top:1px solid #E8E2D8;background:#F7F3EC;padding:11px 16px;text-align:center;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:#6B6357;
+  }
+
+  @container ofv-embed (max-width:620px){
+    .ofv-body{grid-template-columns:1fr;gap:20px}
+    .ofv-spine{align-self:auto;height:34px}
+    .ofv-spine-line{top:50%;bottom:auto;left:8%;right:8%;width:auto;border-left:0;border-top:1px dashed #D8CEBD}
+    .ofv-spine-track{display:none}
+    .ofv-spine-label{writing-mode:horizontal-tb;background:#FCFAF6;padding:0 10px}
+    .ofv-who--acct{justify-content:flex-start}
+    .ofv-note--acct{text-align:left}
+    .ofv-spacer{display:none}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .ofv-embed *{animation:none !important}
+  }
+</style>

@@ -42,12 +42,12 @@ export const resources: Resource[] = [
   },
   {
     id: 4,
-    title: 'Accountium Launches Multi-Currency Support',
-    excerpt: 'Canadian businesses operating internationally can now invoice, pay, and report in USD, EUR, GBP, and 30+ currencies — all from one dashboard.',
+    title: 'Why We Built Accountium',
+    excerpt: 'No ads, no upsell popups, no add-on tiers. Here\'s why we built Accountium from scratch instead of putting our business on QuickBooks.',
     category: 'Technology',
-    date: 'Feb 5, 2026',
-    readTime: 'Product update',
-    href: '#',
+    date: 'Aug 30, 2026',
+    readTime: '6 min read',
+    href: '/resources/why-we-built-accountium',
     icon: '⊞',
   },
   {

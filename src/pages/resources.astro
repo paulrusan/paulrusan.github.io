@@ -4,6 +4,7 @@ import { resources } from '../data/resources';
 import GfxVsQuickbooks from '../components/GfxVsQuickbooks.astro';
 import GfxSpreadsheetSigns from '../components/GfxSpreadsheetSigns.astro';
 import GfxClientLedger from '../components/GfxClientLedger.astro';
+import GfxCleanVsCluttered from '../components/GfxCleanVsCluttered.astro';
 
 const catCode: Record<string, string> = {
   Accounting:  '1000',
@@ -94,7 +95,8 @@ const counts: Record<string, number> = {
               {r.id === 12 && <GfxVsQuickbooks />}
               {r.id === 10 && <GfxSpreadsheetSigns />}
               {r.id === 13 && <GfxClientLedger />}
-              {r.id !== 12 && r.id !== 10 && r.id !== 13 && (
+              {r.id === 4 && <GfxCleanVsCluttered />}
+              {r.id !== 12 && r.id !== 10 && r.id !== 13 && r.id !== 4 && (
                 <div
                   class="rp-card-img"
                   style={`--c-bg: ${catBg[r.category]}; --c-fg: ${catFg[r.category]}`}
@@ -121,6 +123,14 @@ const counts: Record<string, number> = {
 </BaseLayout>
 
 <style is:global>
+  /* Scale down the CSS graphic proportionally to match SVG-based card visuals */
+  .rp-card-visual .cvc-embed {
+    zoom: 0.62;
+    width: calc(100% / 0.62);
+    max-width: none;
+    margin: 0;
+  }
+
   /* Pagination numbers and ellipsis are JS-created — scoped styles can't reach them */
   .rp-pg-num {
     min-width: 44px;
@@ -518,7 +528,9 @@ const counts: Record<string, number> = {
   /* Real embed graphics: remove their own margin */
   .rp-card-visual .us-embed,
   .rp-card-visual .rt-embed,
-  .rp-card-visual .cl-embed {
+  .rp-card-visual .cl-embed,
+  .rp-card-visual .cvc-embed,
+  .rp-card-visual .ofv-embed {
     margin: 0;
     max-width: 100%;
   }
