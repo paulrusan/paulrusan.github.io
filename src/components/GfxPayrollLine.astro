@@ -1,0 +1,179 @@
+<figure class="py-embed">
+  <div class="py-chrome">
+    <span class="py-lights"><i></i><i></i><i></i></span>
+    <span class="py-title">accountium / the payroll line as you hire</span>
+    <span class="py-live"><i></i>LIVE</span>
+  </div>
+
+  <div class="py-body">
+    <div class="py-topline">
+      <div class="py-topline-label">MONTHLY PAYROLL COST &mdash; ADD-ON ONLY</div>
+      <div class="py-headcount">
+        <span class="py-headcount-label">HEADCOUNT</span>
+        <span class="py-headcount-num">
+          <span class="py-fx py-fx--a">2</span>
+          <span class="py-fx py-fx--b">6</span>
+          <span class="py-fx py-fx--c">10</span>
+          <span class="py-fx py-fx--d">15</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="py-rows">
+      <div class="py-row">
+        <div class="py-row-label">
+          <div class="py-row-name py-row-name--accountium">Accountium</div>
+          <div class="py-row-sub">payroll in the plan</div>
+        </div>
+        <div class="py-row-track">
+          <div class="py-pill">
+            <span>INCLUDED &mdash; NO PER-EMPLOYEE FEE</span>
+            <span class="py-pill-dot"></span>
+          </div>
+          <span class="py-val py-val--flat">$0</span>
+        </div>
+      </div>
+
+      <div class="py-divider"></div>
+
+      <div class="py-row">
+        <div class="py-row-label">
+          <div class="py-row-name">Xero</div>
+          <div class="py-row-sub">$36 + $6/employee</div>
+        </div>
+        <div class="py-row-track">
+          <div class="py-bar-wrap">
+            <div class="py-bar py-bar--xero"></div>
+          </div>
+          <span class="py-val py-val--anim">
+            <span class="py-fx py-fx--a">$48</span>
+            <span class="py-fx py-fx--b">$72</span>
+            <span class="py-fx py-fx--c">$96</span>
+            <span class="py-fx py-fx--d">$126</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="py-row">
+        <div class="py-row-label">
+          <div class="py-row-name">QuickBooks Workforce</div>
+          <div class="py-row-sub">$50 + $7/employee</div>
+        </div>
+        <div class="py-row-track">
+          <div class="py-bar-wrap">
+            <div class="py-bar py-bar--qbo"></div>
+          </div>
+          <span class="py-val py-val--anim">
+            <span class="py-fx py-fx--a">$64</span>
+            <span class="py-fx py-fx--b">$92</span>
+            <span class="py-fx py-fx--c">$120</span>
+            <span class="py-fx py-fx--d">$155</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="py-tagline">Two bills grow with the team. One doesn&rsquo;t move.</div>
+  </div>
+
+  <figcaption class="py-cap">Payroll add-on cost only, excluding the core plan &middot; publicly listed 2026 rates</figcaption>
+</figure>
+
+<style is:global>
+  .py-embed{
+    width:100%;max-width:900px;margin:32px auto;
+    border:1px solid #E8E2D8;border-radius:14px;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FBF8F3 100%);
+    overflow:hidden;font-family:'Inter',sans-serif;color:#1A1714;
+    box-shadow:0 20px 60px -20px rgba(20,15,10,.12),0 4px 14px -4px rgba(20,15,10,.06);
+    container-type:inline-size;container-name:py-embed;
+  }
+
+  .py-chrome{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+    padding:9px 14px;background:#FBF8F3;border-bottom:1px solid #E8E2D8;
+  }
+  .py-lights{display:flex;gap:5px}
+  .py-lights i{width:8px;height:8px;border-radius:50%}
+  .py-lights i:nth-child(1){background:#E06B5A}
+  .py-lights i:nth-child(2){background:#E7B84E}
+  .py-lights i:nth-child(3){background:#2F6B4E}
+  .py-title{text-align:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#6B6357}
+  .py-live{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;color:#2F6B4E;font-weight:600}
+  .py-live i{width:6px;height:6px;border-radius:50%;background:#2F6B4E;animation:py-pulse 1.6s ease-out infinite}
+  @keyframes py-pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+  .py-body{padding:24px 24px 20px}
+
+  .py-topline{
+    display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding-bottom:16px;border-bottom:1px dashed #E0D8CA;
+  }
+  .py-topline-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:#6B6357}
+  .py-headcount{display:flex;align-items:baseline;gap:8px}
+  .py-headcount-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;color:#6B6357}
+  .py-headcount-num{position:relative;display:inline-block;width:34px;height:26px}
+
+  .py-fx{position:absolute;inset:0;text-align:right}
+  .py-headcount-num .py-fx{font-size:22px;font-weight:700;letter-spacing:-.02em;color:#1A1714}
+  .py-val--anim .py-fx{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:16px;font-weight:600;color:#A24F3E}
+
+  .py-fx--a{animation:py-fade-a 12s ease-in-out infinite}
+  .py-fx--b{animation:py-fade-b 12s ease-in-out infinite}
+  .py-fx--c{animation:py-fade-c 12s ease-in-out infinite}
+  .py-fx--d{animation:py-fade-d 12s ease-in-out infinite}
+  @keyframes py-fade-a{0%,21%{opacity:1}24%,96%{opacity:0}100%{opacity:1}}
+  @keyframes py-fade-b{0%,21%{opacity:0}25%,46%{opacity:1}49%,100%{opacity:0}}
+  @keyframes py-fade-c{0%,46%{opacity:0}50%,71%{opacity:1}74%,100%{opacity:0}}
+  @keyframes py-fade-d{0%,71%{opacity:0}75%,96%{opacity:1}99%,100%{opacity:0}}
+
+  .py-rows{display:flex;flex-direction:column;gap:18px;padding-top:20px}
+  .py-row{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center}
+  .py-row-label{min-width:0}
+  .py-row-name{font-size:14px;font-weight:600;color:#1A1714}
+  .py-row-name--accountium{color:#2F6B4E}
+  .py-row-sub{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:#6B6357;margin-top:2px}
+  .py-row-track{position:relative;display:flex;align-items:center;gap:12px;min-width:0}
+
+  .py-divider{height:1px;background:#EDE6DA}
+
+  .py-pill{
+    position:relative;flex:1;min-width:0;min-height:34px;border-radius:7px;
+    background:#E4EFE5;border:1px solid #C8DFCC;display:flex;align-items:center;gap:10px;padding:6px 12px;
+  }
+  .py-pill span:first-child{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#2F6B4E;font-weight:600}
+  .py-pill-dot{margin-left:auto;flex:0 0 9px;width:9px;height:9px;border-radius:50%;background:#2F6B4E;animation:py-flat 2.4s ease-out infinite}
+  @keyframes py-flat{0%,100%{box-shadow:0 0 0 0 rgba(47,107,78,.28)}50%{box-shadow:0 0 0 7px rgba(47,107,78,0)}}
+
+  .py-val{width:62px;flex:0 0 62px;text-align:right}
+  .py-val--flat{display:inline-block;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:16px;font-weight:600;color:#2F6B4E}
+  .py-val--anim{position:relative;display:inline-block;height:22px}
+
+  .py-bar-wrap{position:relative;flex:1;min-width:0;height:34px;border-radius:7px;background:#F1EBE0;border:1px solid #E4DCCE;overflow:hidden}
+  .py-bar{height:100%;border-radius:6px 0 0 6px;background:repeating-linear-gradient(115deg,#C97C5F 0 9px,#BE7154 9px 18px)}
+  .py-bar--xero{animation:py-xero 12s ease-in-out infinite}
+  .py-bar--qbo{animation:py-qbo 12s ease-in-out infinite}
+  @keyframes py-xero{0%,20%{width:30%}25%,45%{width:45%}50%,70%{width:60%}75%,95%{width:79%}100%{width:30%}}
+  @keyframes py-qbo{0%,20%{width:40%}25%,45%{width:57.5%}50%,70%{width:75%}75%,95%{width:97%}100%{width:40%}}
+
+  .py-tagline{
+    margin-top:20px;padding-top:14px;border-top:1px dashed #E0D8CA;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:16px;line-height:1.5;color:#3A332B;text-align:center;
+  }
+
+  .py-cap{
+    border-top:1px solid #E8E2D8;background:#F7F3EC;padding:11px 16px;text-align:center;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:#6B6357;
+  }
+
+  @container py-embed (max-width:600px){
+    .py-row{grid-template-columns:1fr;gap:8px;align-items:stretch}
+    .py-val{width:auto;flex:0 0 auto;min-width:56px}
+    .py-pill{padding:8px 12px}
+    .py-pill span:first-child{font-size:10px;letter-spacing:.1em}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .py-embed *{animation:none !important}
+  }
+</style>

@@ -140,4 +140,14 @@ export const resources: Resource[] = [
     href: '/resources/services',
     icon: '◈',
   },
+  {
+    id: 14,
+    title: 'Accounting Software With Payroll Included',
+    excerpt: "Most accounting software treats payroll as an add-on that scales with headcount. Here's what that actually costs — and what \"included\" really means.",
+    category: 'Accounting',
+    date: 'Sep 20, 2026',
+    readTime: '5 min read',
+    href: '/resources/accounting-software-with-payroll-included',
+    icon: '◈',
+  },
 ];

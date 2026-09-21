@@ -1,0 +1,195 @@
+<figure class="prp-embed">
+  <div class="prp-chrome">
+    <span class="prp-lights"><i></i><i></i><i></i></span>
+    <span class="prp-title">accountium / payroll &middot; run payroll</span>
+    <span class="prp-included">INCLUDED</span>
+  </div>
+
+  <div class="prp-summary">
+    <div class="prp-stat">
+      <span class="prp-stat-label">EMPLOYEES</span>
+      <span class="prp-stat-val">3</span>
+    </div>
+    <div class="prp-stat">
+      <span class="prp-stat-label">GROSS PAY</span>
+      <span class="prp-stat-val">$4,756.08</span>
+    </div>
+    <div class="prp-stat">
+      <span class="prp-stat-label">CPP + EI</span>
+      <span class="prp-stat-val">$234.76</span>
+    </div>
+    <div class="prp-stat">
+      <span class="prp-stat-label">INCOME TAX</span>
+      <span class="prp-stat-val">$334.87</span>
+    </div>
+    <div class="prp-stat prp-stat--total">
+      <span class="prp-stat-label">TOTAL NET PAY</span>
+      <span class="prp-stat-val">$4,186.45</span>
+    </div>
+    <div class="prp-summary-actions">
+      <span class="prp-date">09/05 &ndash; 09/20/2026</span>
+      <span class="prp-btn">Confirm &amp; Submit</span>
+    </div>
+  </div>
+
+  <div class="prp-steps">
+    <span class="prp-step prp-step--active"><i>1</i>Enter hours &amp; rates</span>
+    <span class="prp-step-line"></span>
+    <span class="prp-step"><i>2</i>Review &amp; confirm</span>
+    <span class="prp-step-line"></span>
+    <span class="prp-step"><i>3</i>Done</span>
+  </div>
+
+  <div class="prp-table-wrap">
+    <table class="prp-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Hours</th>
+          <th>Gross</th>
+          <th>CPP</th>
+          <th>EI</th>
+          <th>Tax</th>
+          <th>Net Pay</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="prp-section"><td colspan="7">Hourly Employees</td></tr>
+        <tr>
+          <td><strong>Dana Whitfield</strong> <span class="prp-rate">$56.00/hr</span></td>
+          <td><span class="prp-input">42.00</span></td>
+          <td>$2,446.08</td>
+          <td>$136.86</td>
+          <td>$39.87</td>
+          <td>$323.58</td>
+          <td class="prp-net">$1,945.76</td>
+        </tr>
+        <tr>
+          <td><strong>Priya Raman</strong> <span class="prp-rate">$22.00/hr</span></td>
+          <td><span class="prp-input">40.00</span></td>
+          <td>$880.00</td>
+          <td>$43.68</td>
+          <td>$14.34</td>
+          <td>$10.35</td>
+          <td class="prp-net">$811.62</td>
+        </tr>
+        <tr class="prp-section"><td colspan="7">Salary Employees</td></tr>
+        <tr>
+          <td><strong>Marcus Hale</strong> <span class="prp-rate">$5,500.00/mo</span></td>
+          <td><span class="prp-input">1,500.00</span></td>
+          <td>$1,430.00</td>
+          <td>$0.00</td>
+          <td>$0.00</td>
+          <td>$0.94</td>
+          <td class="prp-net">$1,429.06</td>
+        </tr>
+        <tr class="prp-total">
+          <td>Total</td>
+          <td></td>
+          <td>$4,756.08</td>
+          <td></td>
+          <td></td>
+          <td>$569.63</td>
+          <td class="prp-net">$4,186.45</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prp-tagline">Same login, same plan, same bill &mdash; payroll is just another screen</div>
+
+  <figcaption class="prp-cap">Hours in, CPP, EI, tax and net pay out &mdash; in the same product you keep the books in, on the same plan</figcaption>
+</figure>
+
+<style is:global>
+  .prp-embed{
+    width:100%;max-width:900px;margin:32px auto;
+    border:1px solid #E8E2D8;border-radius:14px;
+    background:linear-gradient(180deg,#FFFFFF 0%,#FBF8F3 100%);
+    overflow:hidden;font-family:'Inter',sans-serif;color:#1A1714;
+    box-shadow:0 20px 60px -20px rgba(20,15,10,.12),0 4px 14px -4px rgba(20,15,10,.06);
+    container-type:inline-size;container-name:prp-embed;
+  }
+
+  .prp-chrome{
+    display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;
+    padding:9px 14px;background:#FBF8F3;border-bottom:1px solid #E8E2D8;
+  }
+  .prp-lights{display:flex;gap:5px}
+  .prp-lights i{width:8px;height:8px;border-radius:50%}
+  .prp-lights i:nth-child(1){background:#E06B5A}
+  .prp-lights i:nth-child(2){background:#E7B84E}
+  .prp-lights i:nth-child(3){background:#2F6B4E}
+  .prp-title{text-align:center;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#6B6357}
+  .prp-included{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10px;font-weight:700;
+    letter-spacing:.14em;color:#2F6B4E;justify-self:end;
+  }
+
+  .prp-summary{
+    display:flex;flex-wrap:wrap;align-items:center;gap:22px;
+    padding:16px 20px;border-bottom:1px solid #E8E2D8;
+  }
+  .prp-stat{display:flex;flex-direction:column;gap:3px}
+  .prp-stat-label{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;letter-spacing:.12em;color:#6B6357}
+  .prp-stat-val{font-size:17px;font-weight:700;letter-spacing:-.01em;color:#1A1714}
+  .prp-stat--total .prp-stat-val{color:#2F6B4E}
+  .prp-summary-actions{display:flex;align-items:center;gap:10px;margin-left:auto}
+  .prp-date{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#4A443C;
+    border:1px solid #E0D8CA;border-radius:7px;padding:8px 12px;background:#FFFFFF;white-space:nowrap;
+  }
+  .prp-btn{
+    font-size:12.5px;font-weight:700;color:#FFFFFF;background:#2F6B4E;
+    border-radius:7px;padding:9px 16px;white-space:nowrap;
+  }
+
+  .prp-steps{display:flex;align-items:center;gap:10px;padding:14px 20px;border-bottom:1px solid #E8E2D8}
+  .prp-step{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#9A9184;white-space:nowrap}
+  .prp-step i{
+    width:20px;height:20px;flex:0 0 20px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;font-style:normal;
+    background:#EFEAE0;color:#9A9184;
+  }
+  .prp-step--active{color:#1A1714}
+  .prp-step--active i{background:#2F6B4E;color:#FFFFFF}
+  .prp-step-line{flex:1;min-width:24px;height:1px;background:#E0D8CA}
+
+  .prp-table-wrap{overflow-x:auto}
+  .prp-table{width:100%;min-width:560px;border-collapse:collapse}
+  .prp-table th{
+    text-align:left;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;font-weight:600;
+    letter-spacing:.1em;text-transform:uppercase;color:#6B6357;background:#F3EFE7;
+    padding:9px 16px;border-bottom:1px solid #E8E2D8;white-space:nowrap;
+  }
+  .prp-table td{
+    padding:11px 16px;font-size:13px;color:#3A332B;border-bottom:1px solid #EDE6DA;white-space:nowrap;
+  }
+  .prp-table tr:last-child td{border-bottom:none}
+  .prp-rate{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;color:#6B6357;margin-left:6px}
+  .prp-input{
+    display:inline-block;min-width:56px;text-align:right;font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12.5px;color:#1A1714;background:#FFFFFF;border:1px solid #E0D8CA;border-radius:6px;padding:5px 9px;
+  }
+  .prp-net{font-weight:700;color:#2F6B4E}
+  .prp-section td{
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:9.5px;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;color:#8A8172;background:#FBF8F3;padding:7px 16px;
+  }
+  .prp-total td{background:#E4EFE5;font-weight:700;color:#1A1714}
+  .prp-total .prp-net{color:#2F6B4E}
+
+  .prp-tagline{
+    padding:18px 20px;text-align:center;font-size:14px;color:#3A332B;border-bottom:1px solid #E8E2D8;
+  }
+
+  .prp-cap{
+    border-top:1px solid #E8E2D8;background:#F7F3EC;padding:11px 16px;text-align:center;
+    font-family:'JetBrains Mono',ui-monospace,monospace;font-size:10.5px;color:#6B6357;
+  }
+
+  @container prp-embed (max-width:560px){
+    .prp-summary{gap:14px}
+    .prp-summary-actions{margin-left:0;width:100%}
+  }
+</style>
